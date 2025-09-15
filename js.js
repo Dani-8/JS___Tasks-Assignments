@@ -1,92 +1,56 @@
-// 1. Positive Integer
+// 1
 function positiveIntegerTask() {
-    console.log("Task 1: Positive Integer");
     let num = +prompt("Enter a positive integer:");
-    console.log("Number:", num);
-    console.log("Round off:", Math.round(num));
-    console.log("Floor:", Math.floor(num));
-    console.log("Ceil:", Math.ceil(num));
-
-    console.log("----------------------------------------");
+    document.getElementById("out1").innerText =
+    `Number: ${num}\nRound off: ${Math.round(num)}\nFloor: ${Math.floor(num)}\nCeil: ${Math.ceil(num)}`;
 }
-positiveIntegerTask();
 
-// 2. Negative Floating
+// 2
 function negativeFloatTask() {
-    console.log("Task 2: Negative Float");
     let num = +prompt("Enter a negative floating number:");
-    console.log("Number:", num);
-    console.log("Round off:", Math.round(num));
-    console.log("Floor:", Math.floor(num));
-    console.log("Ceil:", Math.ceil(num));
-
-    console.log("----------------------------------------");
+    document.getElementById("out2").innerText =
+    `Number: ${num}\nRound off: ${Math.round(num)}\nFloor: ${Math.floor(num)}\nCeil: ${Math.ceil(num)}`;
 }
-negativeFloatTask();
 
-// 3. Absolute Value
+// 3
 function absoluteValueTask() {
-    console.log("Task 3: Absolute Value");
-    let num = +prompt("Enter a number to find absolute value:");
-    console.log("Number:", num);
-    console.log("Absolute:", Math.abs(num));
-
-    console.log("----------------------------------------");
+    let num = +prompt("Enter a number:");
+    document.getElementById("out3").innerText =
+    `Number: ${num}\nAbsolute: ${Math.abs(num)}`;
 }
-absoluteValueTask();
 
-// 4. Dice Roll
+// 4
 function diceRollTask() {
-    console.log("Task 4: Dice Roll");
     let dice = Math.floor(Math.random() * 6) + 1;
-    console.log("Dice Value:", dice);
-
-    console.log("----------------------------------------");
+    document.getElementById("out4").innerText = `Dice Value: ${dice}`;
 }
-diceRollTask();
 
-// 5. Coin Toss
+// 5
 function coinTossTask() {
-    console.log("Task 5: Coin Toss");
     let toss = Math.random() < 0.5 ? "Heads" : "Tails";
-    console.log("Coin:", toss);
-
-    console.log("----------------------------------------");
+    document.getElementById("out5").innerText = `Coin: ${toss}`;
 }
-coinTossTask();
 
-// 6. Random 1-100
+// 6
 function randomNumberTask() {
-    console.log("Task 6: Random 1-100");
     let num = Math.floor(Math.random() * 100) + 1;
-    console.log("Random Number:", num);
-
-    console.log("----------------------------------------");
+    document.getElementById("out6").innerText = `Random Number: ${num}`;
 }
-randomNumberTask();
 
-// 7. Weight Parse
+// 7
 function weightTask() {
-    console.log("Task 7: Weight Parse");
     let input = prompt("Enter your weight (e.g. 50, 50kgs, 50.2kgs, 50.2kilograms):");
     let weight = parseFloat(input);
-    console.log("Your weight is:", weight, "kgs");
-
-    console.log("----------------------------------------");
+    document.getElementById("out7").innerText = `Your weight is: ${weight} kgs`;
 }
-weightTask();
 
-// 8. Secret Number
+// 8
 function secretNumberTask() {
-    console.log("Task 8: Secret Number");
     let secret = Math.floor(Math.random() * 10) + 1;
-    let userGuess = +prompt("Guess the secret number between 1 and 10:");
-    if (userGuess === secret) {
-        console.log("Congrats! You guessed it right.");
+    let guess = +prompt("Guess a number between 1 and 10:");
+    if (guess === secret) {
+    document.getElementById("out8").innerText = "Congrats! You guessed it right.";
     } else {
-        console.log("Try again! The secret was:", secret);
+    document.getElementById("out8").innerText = `Try again! The secret was: ${secret}`;
     }
-
-    console.log("----------------------------------------");
 }
-secretNumberTask();
