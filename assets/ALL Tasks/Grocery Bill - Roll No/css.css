@@ -1,0 +1,57 @@
+body{
+    font-family: Arial, sans-serif;
+    background: #f5f6fa;
+    margin: 0;
+    padding: 20px;
+}
+h1{
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+.task{
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.task h2{
+    margin-top: 0;
+    font-size: 20px;
+    color: #34495e;
+}
+pre{
+    background: #2d2d2d;
+    color: #f8f8f2;
+    padding: 12px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+.output{
+    margin-top: 10px;
+    padding: 10px;
+    background: #ecf0f1;
+    border-radius: 8px;
+    min-height: 30px;
+    font-family: monospace;
+}
+.receipt-header{
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+button{
+    margin-top: 10px;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #3498db;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+}
+button:hover{
+    background: #2980b9;
+}

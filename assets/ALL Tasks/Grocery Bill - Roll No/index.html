@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JS Assignment – Grocery Bill & Roll No</title>
+
+<link rel="stylesheet" href="css.css">
+</head>
+<body>
+
+<h1>JavaScript Assignment – Grocery Bill & Roll No Search</h1>
+
+<!-- Task 1: Grocery Bill -->
+<div class="task">
+    <h2>🛒 Task 1: Grocery Bill (Receipt)</h2>
+    <pre>
+function groceryBillTask() {
+    // Prices per 1kg
+    let prices = {
+        chicken: 500,
+        rice: 250,
+        sugar: 150,
+        beef: 800
+    };
+
+    // Ask quantities
+    let chickenQty = +prompt("How many kg Chicken?");
+    let riceQty = +prompt("How many kg Rice?");
+    let sugarQty = +prompt("How many kg Sugar?");
+    let beefQty = +prompt("How many kg Beef?");
+
+    // Calculate totals
+    let chickenTotal = chickenQty * prices.chicken;
+    let riceTotal = riceQty * prices.rice;
+    let sugarTotal = sugarQty * prices.sugar;
+    let beefTotal = beefQty * prices.beef;
+
+    let grandTotal = chickenTotal + riceTotal + sugarTotal + beefTotal;
+
+    // Show receipt
+    let receipt = "        🧾 Grocery Receipt\n";
+    receipt += "---------------------------------\n";
+    receipt += "Item     Qty   Price   Total\n";
+    receipt += "Chicken  " + chickenQty + "kg   " + prices.chicken + "   " + chickenTotal + "\n";
+    receipt += "Rice     " + riceQty + "kg   " + prices.rice + "   " + riceTotal + "\n";
+    receipt += "Sugar    " + sugarQty + "kg   " + prices.sugar + "   " + sugarTotal + "\n";
+    receipt += "Beef     " + beefQty + "kg   " + prices.beef + "   " + beefTotal + "\n";
+    receipt += "---------------------------------\n";
+    receipt += "Grand Total = " + grandTotal + " PKR";
+
+    document.getElementById("out1").innerText = receipt;
+}
+    </pre>
+    <button onclick="groceryBillTask()">Run Grocery Bill</button>
+    <div class="output" id="out1"></div>
+</div>
+
+<!-- Task 2: Roll No Search -->
+<div class="task">
+    <h2>🔍 Task 2: Roll No Search</h2>
+    <pre>
+function rollNoSearchTask() {
+    let rollNos = [101, 102, 103, 104, 105];
+    let search = +prompt("Enter roll number to search:");
+
+    if (rollNos.includes(search)) {
+        document.getElementById("out2").innerText =
+        "Roll No " + search + " found ✅";
+    } else {
+        document.getElementById("out2").innerText =
+        "Roll No " + search + " not found ❌";
+    }
+}
+    </pre>
+    <button onclick="rollNoSearchTask()">Run Roll No Search</button>
+    <div class="output" id="out2"></div>
+</div>
+
+
+<script src="js.js"></script>
+</body>
+</html>
