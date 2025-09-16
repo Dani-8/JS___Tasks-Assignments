@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Assignment – Grocery & Roll No</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9f9f9;
+      padding: 40px;
+    }
+    .assignment-heading {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+    .assignment-cont {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+    .items {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+    .item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f8f8f8;
+      padding: 10px;
+      border-radius: 8px;
+    }
+    .item span {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .item input {
+      width: 60px;
+      padding: 5px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .output {
+      margin-top: 15px;
+      background: #fafafa;
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: monospace;
+      white-space: pre;
+      min-height: 80px;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="assignment-heading">JavaScript Assignment – Grocery Bill & Roll No Search</h1>
+
+  <div class="assignment-cont">
+
+    <!-- Grocery Bill Card -->
+    <div class="card">
+      <h2>🛒 Task 1: Grocery Bill (Receipt)</h2>
+      <div class="items">
+        <div class="item">
+          <span>🍗 Chicken (500 PKR/kg)</span>
+          <input type="number" id="chicken" min="0" placeholder="kg">
+        </div>
+        <div class="item">
+          <span>🥩 Beef (700 PKR/kg)</span>
+          <input type="number" id="beef" min="0" placeholder="kg">
+        </div>
+        <div class="item">
+          <span>🍚 Rice (200 PKR/kg)</span>
+          <input type="number" id="rice" min="0" placeholder="kg">
+        </div>
+        <div class="item">
+          <span>🧂 Sugar (150 PKR/kg)</span>
+          <input type="number" id="sugar" min="0" placeholder="kg">
+        </div>
+      </div>
+      <button onclick="generateBill()">Generate Bill</button>
+      <div class="output" id="billOutput"></div>
+    </div>
+
+    <!-- Roll No Search Card -->
+    <div class="card">
+      <h2>🔍 Task 2: Roll No Search</h2>
+      <button onclick="rollNoSearchTask()">Search Roll No</button>
+      <div class="output" id="rollOutput"></div>
+    </div>
+
+  </div>
+
+  <script>
+    // Grocery Bill
+    function generateBill() {
+      let prices = { chicken: 500, beef: 700, rice: 200, sugar: 150 };
+      let chicken = +document.getElementById("chicken").value || 0;
+      let beef = +document.getElementById("beef").value || 0;
+      let rice = +document.getElementById("rice").value || 0;
+      let sugar = +document.getElementById("sugar").value || 0;
+
+      let total = (chicken * prices.chicken) +
+                  (beef * prices.beef) +
+                  (rice * prices.rice) +
+                  (sugar * prices.sugar);
+
+      let receipt = `
+        --- 🛒 Grocery Receipt ---
+        Chicken: ${chicken} kg = ${chicken * prices.chicken} PKR
+        Beef:    ${beef} kg = ${beef * prices.beef} PKR
+        Rice:    ${rice} kg = ${rice * prices.rice} PKR
+        Sugar:   ${sugar} kg = ${sugar * prices.sugar} PKR
+        -------------------------
+        Total Bill: ${total} PKR
+      `;
+
+      document.getElementById("billOutput").innerText = receipt.trim();
+    }
+
+    // Roll No Search
+    function rollNoSearchTask() {
+      let rollNos = [101, 102, 103, 104, 105];
+      let search = +prompt("Enter roll number to search:");
+
+      if (rollNos.includes(search)) {
+        document.getElementById("rollOutput").innerText =
+          "Roll No " + search + " found ✅";
+      } else {
+        document.getElementById("rollOutput").innerText =
+          "Roll No " + search + " not found ❌";
+      }
+    }
+  </script>
+</body>
+</html>
