@@ -10,7 +10,43 @@
 <body>
 
     <div class="container">
-        
+        <div class="header">
+            <h1 class="title">Grocery App</h1>
+            <p class="subtitle">Click on an item to select it and enter a quantity.</p>
+        </div>
+
+
+        <!-- FOOD SECTION -->
+        <h2 class="section-title">Food</h2>
+        <div class="items-cont">
+            <div class="item-card" data-item-id="chicken">
+                <span class="item-emoji">🐔</span>
+                <p class="item-name">Chicken</p>
+                <p class="item-price">Rs. 425/kg</p>
+
+                <div class="input-cont">
+                    <input type="number" id="chicken-qty" class="item-input" value="0" min="0">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="beef">
+                <span class="item-emoji">🥩</span>
+                <p class="item-name">Beef</p>
+                <p class="item-price">Rs. 1100/kg</p>
+
+                <div class="input-cont">
+                    <input type="number" id="beef-qty" class="item-input" value="0" min="0">
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="button-cont">
+            <button class="btn generate-btn" id="generate-btn">Generate Bill</button>
+            <button class="btn clear-btn" id="clear-btn">Clear</button>
+        </div>
+
 
 
     </div>
