@@ -25,11 +25,26 @@ h1 {
   transition: all 0.5s ease;
 }
 
-.task h2 {
+.task-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.task-header h2 {
   margin-top: 0;
   font-size: 20px;
   color: #2b6cb0;
   margin-bottom: 12px;
+}
+.task-header a{
+  color: #524cd0;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  margin-right: 10px;
+}
+.task-header a:hover{
+  text-decoration: underline;
 }
 
 /* Code block */

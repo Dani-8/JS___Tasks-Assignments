@@ -1,165 +1,598 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Assignment – Grocery & Roll No</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f9f9f9;
-      padding: 40px;
-    }
-    .assignment-heading {
-      text-align: center;
-      font-size: 28px;
-      margin-bottom: 30px;
-    }
-    .assignment-cont {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      border: 1px solid #ddd;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    }
-    .card h2 {
-      font-size: 20px;
-      margin-bottom: 15px;
-    }
-    .items {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 15px;
-    }
-    .item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #f8f8f8;
-      padding: 10px;
-      border-radius: 8px;
-    }
-    .item span {
-      font-size: 14px;
-      font-weight: 500;
-    }
-    .item input {
-      width: 60px;
-      padding: 5px;
-      text-align: center;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-    button {
-      background: #007bff;
-      color: #fff;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: background 0.2s;
-    }
-    button:hover {
-      background: #0056b3;
-    }
-    .output {
-      margin-top: 15px;
-      background: #fafafa;
-      border: 1px solid #ddd;
-      padding: 15px;
-      border-radius: 8px;
-      font-family: monospace;
-      white-space: pre;
-      min-height: 80px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Bill Generator</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 1rem;
+        }
+        .container {
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #fff;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            border: 1px solid #e5e7eb;
+        }
+        @media (min-width: 768px) {
+            .container {
+                padding: 4rem;
+            }
+        }
+        h1 {
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+            font-weight: 800;
+            color: #111827;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3rem;
+                line-height: 1;
+            }
+        }
+        .subtitle {
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            line-height: 2rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .item-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+        @media (min-width: 640px) {
+            .item-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+        @media (min-width: 1024px) {
+            .item-grid {
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+            }
+        }
+        .item-card {
+            background-color: #fff;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.2s, background-color 0.2s, border-color 0.2s;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .item-card:hover {
+            transform: translateY(-5px);
+        }
+        .item-card.selected {
+            border-color: #3b82f6;
+            background-color: #eff6ff;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+        .item-emoji {
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+            margin-bottom: 0.25rem;
+        }
+        .item-name {
+            font-weight: 700;
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            color: #1f2937;
+            margin: 0;
+        }
+        .item-price {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            color: #6b7280;
+        }
+        .input-container {
+            height: 0;
+            opacity: 0;
+            transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            margin-top: 0.5rem;
+            width: 100%;
+        }
+        .input-container.active {
+            height: 48px;
+            opacity: 1;
+        }
+        .item-input {
+            width: 100%;
+            text-align: center;
+            padding: 0.5rem 0 ;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+        }
+        .item-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+            border-color: #3b82f6;
+        }
+        /* Hide the min/max buttons on number inputs */
+        .item-input::-webkit-outer-spin-button,
+        .item-input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .item-input[type=number] {
+            -moz-appearance: textfield;
+        }
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        @media (min-width: 640px) {
+            .button-group {
+                flex-direction: row;
+            }
+        }
+        .btn {
+            width: 100%;
+            padding: 0.75rem 1.5rem;
+            font-weight: 700;
+            border-radius: 9999px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            transition-property: background-color, border-color, color, fill, stroke;
+            transition-duration: 300ms;
+        }
+        @media (min-width: 640px) {
+            .btn {
+                width: auto;
+            }
+        }
+        .btn-primary {
+            background-color: #0c4a6e;
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background-color: #155e75;
+        }
+        .btn-danger {
+            background-color: #b91c1c;
+            color: #fff;
+        }
+        .btn-danger:hover {
+            background-color: #c02626;
+        }
+        .receipt-container {
+            background-color: #f9fafb;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid #e5e7eb;
+        }
+        .receipt-title {
+            font-size: 1.5rem;
+            line-height: 2rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        #bill-canvas {
+            width: 100%;
+            height: auto;
+            border: 4px dashed #d1d5db;
+            border-radius: 0.5rem;
+        }
+    </style>
 </head>
 <body>
-  <h1 class="assignment-heading">JavaScript Assignment – Grocery Bill & Roll No Search</h1>
+    <div class="container">
+        <h1 class="title">Grocery Bill</h1>
+        <p class="subtitle">Click on an item to select it and enter a quantity.</p>
 
-  <div class="assignment-cont">
+        <!-- Food Section -->
+        <h2 class="section-title">Food</h2>
+        <div class="item-grid">
+            <div class="item-card" data-item-id="chicken">
+                <span class="item-emoji">🐔</span>
+                <p class="item-name">Chicken</p>
+                <p class="item-price">Rs. 425/kg</p>
+                <div class="input-container">
+                    <input type="number" id="chicken-qty" class="item-input" value="0" min="0">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="beef">
+                <span class="item-emoji">🥩</span>
+                <p class="item-name">Beef</p>
+                <p class="item-price">Rs. 1100/kg</p>
+                <div class="input-container">
+                    <input type="number" id="beef-qty" class="item-input" value="0" min="0">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Produce Section -->
+        <h2 class="section-title">Produce</h2>
+        <div class="item-grid">
+            <div class="item-card" data-item-id="potatoes">
+                <span class="item-emoji">🥔</span>
+                <p class="item-name">Potatoes</p>
+                <p class="item-price">Rs. 120/kg</p>
+                <div class="input-container">
+                    <input type="number" id="potatoes-qty" class="item-input" value="0" min="0">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="onions">
+                <span class="item-emoji">🧅</span>
+                <p class="item-name">Onions</p>
+                <p class="item-price">Rs. 150/kg</p>
+                <div class="input-container">
+                    <input type="number" id="onions-qty" class="item-input" value="0" min="0">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="tomatoes">
+                <span class="item-emoji">🍅</span>
+                <p class="item-name">Tomatoes</p>
+                <p class="item-price">Rs. 200/kg</p>
+                <div class="input-container">
+                    <input type="number" id="tomatoes-qty" class="item-input" value="0" min="0">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="bananas">
+                <span class="item-emoji">🍌</span>
+                <p class="item-name">Bananas</p>
+                <p class="item-price">Rs. 180/dozen</p>
+                <div class="input-container">
+                    <input type="number" id="bananas-qty" class="item-input" value="0" min="0">
+                </div>
+            </div>
+        </div>
 
-    <!-- Grocery Bill Card -->
-    <div class="card">
-      <h2>🛒 Task 1: Grocery Bill (Receipt)</h2>
-      <div class="items">
-        <div class="item">
-          <span>🍗 Chicken (500 PKR/kg)</span>
-          <input type="number" id="chicken" min="0" placeholder="kg">
+        <!-- Dairy & Eggs Section -->
+        <h2 class="section-title">Dairy & Eggs</h2>
+        <div class="item-grid">
+            <div class="item-card" data-item-id="milk">
+                <span class="item-emoji">🥛</span>
+                <p class="item-name">Milk</p>
+                <p class="item-price">Rs. 220/liter</p>
+                <div class="input-container">
+                    <input type="number" id="milk-qty" class="item-input" value="0" min="0">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="eggs">
+                <span class="item-emoji">🥚</span>
+                <p class="item-name">Eggs</p>
+                <p class="item-price">Rs. 300/dozen</p>
+                <div class="input-container">
+                    <input type="number" id="eggs-qty" class="item-input" value="0" min="0">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="yogurt">
+                <span class="item-emoji">🥣</span>
+                <p class="item-name">Yogurt</p>
+                <p class="item-price">Rs. 180/kg</p>
+                <div class="input-container">
+                    <input type="number" id="yogurt-qty" class="item-input" value="0" min="0">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="cheese">
+                <span class="item-emoji">🧀</span>
+                <p class="item-name">Cheese</p>
+                <p class="item-price">Rs. 850/pack</p>
+                <div class="input-container">
+                    <input type="number" id="cheese-qty" class="item-input" value="0" min="0">
+                </div>
+            </div>
         </div>
-        <div class="item">
-          <span>🥩 Beef (700 PKR/kg)</span>
-          <input type="number" id="beef" min="0" placeholder="kg">
+
+        <!-- Pantry Section -->
+        <h2 class="section-title">Pantry</h2>
+        <div class="item-grid">
+            <div class="item-card" data-item-id="rice">
+                <span class="item-emoji">🍚</span>
+                <p class="item-name">Rice</p>
+                <p class="item-price">Rs. 325/kg</p>
+                <div class="input-container">
+                    <input type="number" id="rice-qty" class="item-input" value="0" min="0">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="sugar">
+                <span class="item-emoji">🍬</span>
+                <p class="item-name">Sugar</p>
+                <p class="item-price">Rs. 175/kg</p>
+                <div class="input-container">
+                    <input type="number" id="sugar-qty" class="item-input" value="0" min="0">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="flour">
+                <span class="item-emoji">🌾</span>
+                <p class="item-name">Flour</p>
+                <p class="item-price">Rs. 130/kg</p>
+                <div class="input-container">
+                    <input type="number" id="flour-qty" class="item-input" value="0" min="0">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="cooking-oil">
+                <span class="item-emoji">🌻</span>
+                <p class="item-name">Cooking Oil</p>
+                <p class="item-price">Rs. 600/liter</p>
+                <div class="input-container">
+                    <input type="number" id="cooking-oil-qty" class="item-input" value="0" min="0">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="lentils">
+                <span class="item-emoji">🍲</span>
+                <p class="item-name">Lentils</p>
+                <p class="item-price">Rs. 350/kg</p>
+                <div class="input-container">
+                    <input type="number" id="lentils-qty" class="item-input" value="0" min="0">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="spices">
+                <span class="item-emoji">🌶️</span>
+                <p class="item-name">Spices</p>
+                <p class="item-price">Rs. 250/pack</p>
+                <div class="input-container">
+                    <input type="number" id="spices-qty" class="item-input" value="0" min="0">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="tea-bags">
+                <span class="item-emoji">☕</span>
+                <p class="item-name">Tea Bags</p>
+                <p class="item-price">Rs. 400/box</p>
+                <div class="input-container">
+                    <input type="number" id="tea-bags-qty" class="item-input" value="0" min="0">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="coffee">
+                <span class="item-emoji">☕</span>
+                <p class="item-name">Coffee</p>
+                <p class="item-price">Rs. 750/jar</p>
+                <div class="input-container">
+                    <input type="number" id="coffee-qty" class="item-input" value="0" min="0">
+                </div>
+            </div>
         </div>
-        <div class="item">
-          <span>🍚 Rice (200 PKR/kg)</span>
-          <input type="number" id="rice" min="0" placeholder="kg">
+
+        <!-- Household Section -->
+        <h2 class="section-title">Household</h2>
+        <div class="item-grid">
+            <div class="item-card" data-item-id="soap">
+                <span class="item-emoji">🧼</span>
+                <p class="item-name">Soap</p>
+                <p class="item-price">Rs. 100/bar</p>
+                <div class="input-container">
+                    <input type="number" id="soap-qty" class="item-input" value="0" min="0">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="detergent">
+                <span class="item-emoji">🧴</span>
+                <p class="item-name">Detergent</p>
+                <p class="item-price">Rs. 500/kg</p>
+                <div class="input-container">
+                    <input type="number" id="detergent-qty" class="item-input" value="0" min="0">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="paper-towels">
+                <span class="item-emoji">🧻</span>
+                <p class="item-name">Paper Towels</p>
+                <p class="item-price">Rs. 250/roll</p>
+                <div class="input-container">
+                    <input type="number" id="paper-towels-qty" class="item-input" value="0" min="0">
+                </div>
+            </div>
         </div>
-        <div class="item">
-          <span>🧂 Sugar (150 PKR/kg)</span>
-          <input type="number" id="sugar" min="0" placeholder="kg">
+        
+        <div class="button-group">
+            <button id="generate-btn" class="btn btn-primary">Generate Bill</button>
+            <button id="clear-btn" class="btn btn-danger">Clear</button>
         </div>
-      </div>
-      <button onclick="generateBill()">Generate Bill</button>
-      <div class="output" id="billOutput"></div>
+
+        <!-- Canvas for the Receipt -->
+        <div class="receipt-container">
+            <h2 class="receipt-title">Your Receipt</h2>
+            <canvas id="bill-canvas"></canvas>
+        </div>
     </div>
 
-    <!-- Roll No Search Card -->
-    <div class="card">
-      <h2>🔍 Task 2: Roll No Search</h2>
-      <button onclick="rollNoSearchTask()">Search Roll No</button>
-      <div class="output" id="rollOutput"></div>
-    </div>
+    <script>
+        // Data for grocery items with prices
+        const groceryItems = [
+            { id: 'chicken', name: 'Chicken', price: 425 },
+            { id: 'beef', name: 'Beef', price: 1100 },
+            { id: 'rice', name: 'Rice', price: 325 },
+            { id: 'sugar', name: 'Sugar', price: 175 },
+            { id: 'potatoes', name: 'Potatoes', price: 120 },
+            { id: 'onions', name: 'Onions', price: 150 },
+            { id: 'tomatoes', name: 'Tomatoes', price: 200 },
+            { id: 'bananas', name: 'Bananas', price: 180 },
+            { id: 'milk', name: 'Milk', price: 220 },
+            { id: 'eggs', name: 'Eggs', price: 300 },
+            { id: 'yogurt', name: 'Yogurt', price: 180 },
+            { id: 'cheese', name: 'Cheese', price: 850 },
+            { id: 'flour', name: 'Flour', price: 130 },
+            { id: 'cooking-oil', name: 'Cooking Oil', price: 600 },
+            { id: 'lentils', name: 'Lentils', price: 350 },
+            { id: 'spices', name: 'Spices', price: 250 },
+            { id: 'tea-bags', name: 'Tea Bags', price: 400 },
+            { id: 'coffee', name: 'Coffee', price: 750 },
+            { id: 'soap', name: 'Soap', price: 100 },
+            { id: 'detergent', name: 'Detergent', price: 500 },
+            { id: 'paper-towels', name: 'Paper Towels', price: 250 }
+        ];
 
-  </div>
+        const canvas = document.getElementById('bill-canvas');
+        const ctx = canvas.getContext('2d');
+        const generateBtn = document.getElementById('generate-btn');
+        const clearBtn = document.getElementById('clear-btn');
+        const itemCards = document.querySelectorAll('.item-card');
 
-  <script>
-    // Grocery Bill
-    function generateBill() {
-      let prices = { chicken: 500, beef: 700, rice: 200, sugar: 150 };
-      let chicken = +document.getElementById("chicken").value || 0;
-      let beef = +document.getElementById("beef").value || 0;
-      let rice = +document.getElementById("rice").value || 0;
-      let sugar = +document.getElementById("sugar").value || 0;
+        // Function to resize the canvas
+        const resizeCanvas = () => {
+            const ratio = window.devicePixelRatio || 1;
+            const width = canvas.offsetWidth;
+            const height = 400; // Fixed height for a good-looking receipt
+            canvas.width = width * ratio;
+            canvas.height = height * ratio;
+            ctx.scale(ratio, ratio);
+            drawEmptyReceipt();
+        };
 
-      let total = (chicken * prices.chicken) +
-                  (beef * prices.beef) +
-                  (rice * prices.rice) +
-                  (sugar * prices.sugar);
+        window.addEventListener('resize', resizeCanvas);
+        window.onload = resizeCanvas;
 
-      let receipt = `
-        --- 🛒 Grocery Receipt ---
-        Chicken: ${chicken} kg = ${chicken * prices.chicken} PKR
-        Beef:    ${beef} kg = ${beef * prices.beef} PKR
-        Rice:    ${rice} kg = ${rice * prices.rice} PKR
-        Sugar:   ${sugar} kg = ${sugar * prices.sugar} PKR
-        -------------------------
-        Total Bill: ${total} PKR
-      `;
+        // Function to draw a simple empty receipt
+        const drawEmptyReceipt = () => {
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#a0a0a0';
+            ctx.font = '16px Inter';
+            ctx.textAlign = 'center';
+            ctx.fillText('Your bill will be generated here.', canvas.offsetWidth / 2, canvas.offsetHeight / 2);
+        };
 
-      document.getElementById("billOutput").innerText = receipt.trim();
-    }
+        // Function to generate and draw the bill on the canvas
+        const generateBill = () => {
+            // Clear the canvas
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Roll No Search
-    function rollNoSearchTask() {
-      let rollNos = [101, 102, 103, 104, 105];
-      let search = +prompt("Enter roll number to search:");
+            const quantities = {};
+            groceryItems.forEach(item => {
+                const qtyInput = document.getElementById(`${item.id}-qty`);
+                quantities[item.id] = parseFloat(qtyInput.value) || 0;
+            });
 
-      if (rollNos.includes(search)) {
-        document.getElementById("rollOutput").innerText =
-          "Roll No " + search + " found ✅";
-      } else {
-        document.getElementById("rollOutput").innerText =
-          "Roll No " + search + " not found ❌";
-      }
-    }
-  </script>
+            const billItems = [];
+            let totalBill = 0;
+
+            groceryItems.forEach(item => {
+                const quantity = quantities[item.id];
+                if (quantity > 0) {
+                    const subtotal = quantity * item.price;
+                    totalBill += subtotal;
+                    billItems.push({
+                        name: item.name,
+                        quantity: quantity,
+                        price: item.price,
+                        subtotal: subtotal
+                    });
+                }
+            });
+
+            // Draw the receipt header
+            ctx.fillStyle = '#333333';
+            ctx.font = '30px Inter';
+            ctx.textAlign = 'center';
+            ctx.fillText('Grocery Receipt', canvas.offsetWidth / 2, 50);
+
+            let yPosition = 100;
+
+            // Draw table headers
+            ctx.font = '16px Inter';
+            ctx.fillText('Item', 50, yPosition);
+            ctx.fillText('Quantity', canvas.offsetWidth * 0.45, yPosition);
+            ctx.fillText('Price', canvas.offsetWidth * 0.7, yPosition);
+            ctx.fillText('Subtotal (Rs.)', canvas.offsetWidth - 75, yPosition);
+
+            yPosition += 20;
+            ctx.strokeStyle = '#cccccc';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(30, yPosition);
+            ctx.lineTo(canvas.offsetWidth - 30, yPosition);
+            ctx.stroke();
+
+            // Draw the items
+            yPosition += 20;
+            ctx.font = '16px Inter';
+            ctx.textAlign = 'left';
+            billItems.forEach(item => {
+                ctx.fillText(item.name, 50, yPosition);
+                ctx.fillText(item.quantity.toFixed(0), canvas.offsetWidth * 0.45, yPosition);
+                ctx.fillText(item.price.toFixed(0), canvas.offsetWidth * 0.7, yPosition);
+                ctx.fillText(item.subtotal.toFixed(2), canvas.offsetWidth - 75, yPosition);
+                yPosition += 20;
+            });
+
+            // Draw the total
+            yPosition += 20;
+            ctx.strokeStyle = '#333333';
+            ctx.beginPath();
+            ctx.moveTo(30, yPosition);
+            ctx.lineTo(canvas.offsetWidth - 30, yPosition);
+            ctx.stroke();
+
+            yPosition += 20;
+            ctx.font = '24px Inter';
+            ctx.fillText('Total:', canvas.offsetWidth * 0.4, yPosition);
+            ctx.font = '24px Inter';
+            ctx.fillStyle = '#059669'; // Green color for total
+            ctx.fillText(`Rs. ${totalBill.toFixed(2)}`, canvas.offsetWidth * 0.8, yPosition);
+
+            // Add a footer line
+            yPosition += 40;
+            ctx.font = '12px Inter';
+            ctx.fillStyle = '#a0a0a0';
+            ctx.fillText('Thank you for shopping with us!', canvas.offsetWidth / 2, yPosition);
+        };
+
+        // Function to clear all quantities and the canvas
+        const clearAll = () => {
+            itemCards.forEach(card => {
+                card.classList.remove('selected');
+                const inputContainer = card.querySelector('.input-container');
+                inputContainer.classList.remove('active');
+                const qtyInput = card.querySelector('input');
+                qtyInput.value = '0';
+            });
+            drawEmptyReceipt();
+        };
+
+        // Add click listeners to each item card
+        itemCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                // Check if the click was on the input itself to prevent a double-toggle
+                if (e.target.tagName !== 'INPUT') {
+                    const inputContainer = card.querySelector('.input-container');
+                    const qtyInput = card.querySelector('input');
+                    
+                    if (card.classList.contains('selected')) {
+                        card.classList.remove('selected');
+                        inputContainer.classList.remove('active');
+                        qtyInput.value = '0';
+                    } else {
+                        card.classList.add('selected');
+                        inputContainer.classList.add('active');
+                        qtyInput.focus();
+                    }
+                }
+            });
+        });
+
+        generateBtn.addEventListener('click', generateBill);
+        clearBtn.addEventListener('click', clearAll);
+    </script>
+
 </body>
 </html>
