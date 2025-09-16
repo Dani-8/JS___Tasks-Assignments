@@ -22,17 +22,6 @@ function groceryBillTask() {
 
     let grandTotal = chickenTotal + riceTotal + sugarTotal + beefTotal;
 
-    // Build receipt
-    // let receipt = "        🧾 Grocery Receipt\n";
-    // receipt += "---------------------------------\n";
-    // receipt += "Item     Qty   Price   Total\n";
-    // receipt += "Chicken  " + chickenQty + "kg   " + prices.chicken + "   " + chickenTotal + "\n";
-    // receipt += "Rice     " + riceQty + "kg   " + prices.rice + "   " + riceTotal + "\n";
-    // receipt += "Sugar    " + sugarQty + "kg   " + prices.sugar + "   " + sugarTotal + "\n";
-    // receipt += "Beef     " + beefQty + "kg   " + prices.beef + "   " + beefTotal + "\n";
-    // receipt += "---------------------------------\n";
-    // receipt += "Grand Total = " + grandTotal + " PKR";
-
 // Build receipt
 let receipt = `
       🧾 Grocery Receipt
