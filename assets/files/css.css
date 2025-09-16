@@ -79,6 +79,7 @@ body {
     min-height: 150px;
     padding: 20px;
     border-left: 4px solid;
+    border-bottom: 4px solid;
     border-radius: 20px;
     display: flex;
     flex-direction: column;

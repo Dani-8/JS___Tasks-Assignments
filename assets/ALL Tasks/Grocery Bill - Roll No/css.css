@@ -34,7 +34,7 @@ h1 {
 
 /* Code block */
 pre {
-  background: #1e293b;
+  background: #273245;
   color: #f8fafc;
   padding: 14px 18px;
   border-radius: 12px;
@@ -50,7 +50,7 @@ button {
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  background: #3c65c0;
+  background: #4676dd;
   color: white;
   font-size: 14px;
   font-weight: 600;
@@ -59,7 +59,7 @@ button {
 }
 
 button:hover {
-  background: #2563eb;
+  background: #335aaf;
   transform: scale(1.05);
 }
 
