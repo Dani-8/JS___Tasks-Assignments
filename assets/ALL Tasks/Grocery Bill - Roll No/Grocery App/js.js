@@ -55,7 +55,8 @@ function clearAll(){
         let qtyInput = card.querySelector(".item-input")
         qtyInput.value = ""
     })
-
+    
+    billReceiptDiv.innerHTML = '<p>Your bill will be generated here.</p>';
 }
 
 
@@ -134,23 +135,7 @@ function generateBill(){
 
 
     billReceiptDiv.innerHTML = billHTML;
-
 }
-
-
-generateBill()
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 generateBtn.addEventListener('click', generateBill);
