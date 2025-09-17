@@ -16,28 +16,191 @@
         </div>
 
 
-        <!-- FOOD SECTION -->
+        <!-- Food Section -->
         <h2 class="section-title">Food</h2>
         <div class="items-cont">
             <div class="item-card" data-item-id="chicken">
                 <span class="item-emoji">🐔</span>
                 <p class="item-name">Chicken</p>
                 <p class="item-price">Rs. 425/kg</p>
-
                 <div class="input-cont">
-                    <input type="number" id="chicken-qty" class="item-input" value="0" min="0">
+                    <input type="text" id="chicken-qty" class="item-input" pattern="\d*">
                 </div>
             </div>
             <div class="item-card" data-item-id="beef">
                 <span class="item-emoji">🥩</span>
                 <p class="item-name">Beef</p>
                 <p class="item-price">Rs. 1100/kg</p>
-
                 <div class="input-cont">
-                    <input type="number" id="beef-qty" class="item-input" value="0" min="0">
+                    <input type="text" id="beef-qty" class="item-input" pattern="\d*">
                 </div>
             </div>
         </div>
+        
+        <!-- Produce Section -->
+        <h2 class="section-title">Produce</h2>
+        <div class="items-cont">
+            <div class="item-card" data-item-id="potatoes">
+                <span class="item-emoji">🥔</span>
+                <p class="item-name">Potatoes</p>
+                <p class="item-price">Rs. 120/kg</p>
+                <div class="input-cont">
+                    <input type="text" id="potatoes-qty" class="item-input" pattern="\d*">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="onions">
+                <span class="item-emoji">🧅</span>
+                <p class="item-name">Onions</p>
+                <p class="item-price">Rs. 150/kg</p>
+                <div class="input-cont">
+                    <input type="text" id="onions-qty" class="item-input" pattern="\d*">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="tomatoes">
+                <span class="item-emoji">🍅</span>
+                <p class="item-name">Tomatoes</p>
+                <p class="item-price">Rs. 200/kg</p>
+                <div class="input-cont">
+                    <input type="text" id="tomatoes-qty" class="item-input" pattern="\d*">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="bananas">
+                <span class="item-emoji">🍌</span>
+                <p class="item-name">Bananas</p>
+                <p class="item-price">Rs. 180/dozen</p>
+                <div class="input-cont">
+                    <input type="text" id="bananas-qty" class="item-input" pattern="\d*">
+                </div>
+            </div>
+        </div>
+
+        <!-- Dairy & Eggs Section -->
+        <h2 class="section-title">Dairy & Eggs</h2>
+        <div class="items-cont">
+            <div class="item-card" data-item-id="milk">
+                <span class="item-emoji">🥛</span>
+                <p class="item-name">Milk</p>
+                <p class="item-price">Rs. 220/liter</p>
+                <div class="input-cont">
+                    <input type="text" id="milk-qty" class="item-input" pattern="\d*">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="eggs">
+                <span class="item-emoji">🥚</span>
+                <p class="item-name">Eggs</p>
+                <p class="item-price">Rs. 300/dozen</p>
+                <div class="input-cont">
+                    <input type="text" id="eggs-qty" class="item-input" pattern="\d*">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="yogurt">
+                <span class="item-emoji">🥣</span>
+                <p class="item-name">Yogurt</p>
+                <p class="item-price">Rs. 180/kg</p>
+                <div class="input-cont">
+                    <input type="text" id="yogurt-qty" class="item-input" pattern="\d*">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="cheese">
+                <span class="item-emoji">🧀</span>
+                <p class="item-name">Cheese</p>
+                <p class="item-price">Rs. 850/pack</p>
+                <div class="input-cont">
+                    <input type="text" id="cheese-qty" class="item-input" pattern="\d*">
+                </div>
+            </div>
+        </div>
+
+        <!-- Pantry Section -->
+        <h2 class="section-title">Pantry</h2>
+        <div class="items-cont">
+            <div class="item-card" data-item-id="rice">
+                <span class="item-emoji">🍚</span>
+                <p class="item-name">Rice</p>
+                <p class="item-price">Rs. 325/kg</p>
+                <div class="input-cont">
+                    <input type="text" id="rice-qty" class="item-input" pattern="\d*">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="flour">
+                <span class="item-emoji">🌾</span>
+                <p class="item-name">Flour</p>
+                <p class="item-price">Rs. 130/kg</p>
+                <div class="input-cont">
+                    <input type="text" id="flour-qty" class="item-input" pattern="\d*">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="cooking-oil">
+                <span class="item-emoji">🌻</span>
+                <p class="item-name">Cooking Oil</p>
+                <p class="item-price">Rs. 600/liter</p>
+                <div class="input-cont">
+                    <input type="text" id="cooking-oil-qty" class="item-input" pattern="\d*">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="lentils">
+                <span class="item-emoji">🍲</span>
+                <p class="item-name">Lentils</p>
+                <p class="item-price">Rs. 350/kg</p>
+                <div class="input-cont">
+                    <input type="text" id="lentils-qty" class="item-input" pattern="\d*">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="spices">
+                <span class="item-emoji">🌶️</span>
+                <p class="item-name">Spices</p>
+                <p class="item-price">Rs. 250/pack</p>
+                <div class="input-cont">
+                    <input type="text" id="spices-qty" class="item-input" pattern="\d*">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="tea-bags">
+                <span class="item-emoji">☕</span>
+                <p class="item-name">Tea Bags</p>
+                <p class="item-price">Rs. 400/box</p>
+                <div class="input-cont">
+                    <input type="text" id="tea-bags-qty" class="item-input" pattern="\d*">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="coffee">
+                <span class="item-emoji">☕</span>
+                <p class="item-name">Coffee</p>
+                <p class="item-price">Rs. 750/jar</p>
+                <div class="input-cont">
+                    <input type="text" id="coffee-qty" class="item-input" pattern="\d*">
+                </div>
+            </div>
+        </div>
+
+        <!-- Household Section -->
+        <h2 class="section-title">Household</h2>
+        <div class="items-cont">
+            <div class="item-card" data-item-id="soap">
+                <span class="item-emoji">🧼</span>
+                <p class="item-name">Soap</p>
+                <p class="item-price">Rs. 100/bar</p>
+                <div class="input-cont">
+                    <input type="text" id="soap-qty" class="item-input" pattern="\d*">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="detergent">
+                <span class="item-emoji">🧴</span>
+                <p class="item-name">Detergent</p>
+                <p class="item-price">Rs. 500/pack</p>
+                <div class="input-cont">
+                    <input type="text" id="detergent-qty" class="item-input" pattern="\d*">
+                </div>
+            </div>
+            <div class="item-card" data-item-id="paper-towels">
+                <span class="item-emoji">🧻</span>
+                <p class="item-name">Paper Towels</p>
+                <p class="item-price">Rs. 250/roll</p>
+                <div class="input-cont">
+                    <input type="text" id="paper-towels-qty" class="item-input" pattern="\d*">
+                </div>
+            </div>
+        </div>
+        
 
 
 
@@ -48,6 +211,12 @@
         </div>
 
 
+        <div class="receipt-cont">
+            <h2 class="receipt-title">Your Receipt</h2>
+            <div id="bill-receipt" class="bill-receipt">
+                <p>Your bill will be generated here.</p>
+            </div>
+        </div>
 
     </div>
 

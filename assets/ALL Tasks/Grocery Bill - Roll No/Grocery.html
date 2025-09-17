@@ -112,7 +112,8 @@
         }
         .input-container {
             height: 0;
-            opacity: 0;
+            padding: 0.5rem;
+            overflow: hidden;
             transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out;
             margin-top: 0.5rem;
             width: 100%;
@@ -127,20 +128,18 @@
             padding: 0.5rem 0 ;
             border: 1px solid #d1d5db;
             border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            transform: translateY(-50px);
+            opacity: 0.9;
+        }
+        .input-container.active .item-input{
+            transform: translateY(0);
+            opacity: 1;
         }
         .item-input:focus {
             outline: none;
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
             border-color: #3b82f6;
-        }
-        /* Hide the min/max buttons on number inputs */
-        .item-input::-webkit-outer-spin-button,
-        .item-input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-        .item-input[type=number] {
-            -moz-appearance: textfield;
         }
         .button-group {
             display: flex;
@@ -197,11 +196,65 @@
             margin-bottom: 1rem;
             text-align: center;
         }
-        #bill-canvas {
-            width: 100%;
-            height: auto;
+        /* New styles for the HTML-based receipt */
+        .bill-receipt {
+            min-height: 400px;
+            padding: 1rem;
+            background-color: #ffffff;
             border: 4px dashed #d1d5db;
             border-radius: 0.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .receipt-header {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .receipt-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        .receipt-table th, .receipt-table td {
+            padding: 0.75rem;
+            text-align: left;
+        }
+        .receipt-table th {
+            font-weight: 700;
+            color: #1f2937;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .receipt-table td {
+            color: #4b5563;
+        }
+        .receipt-total {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 1rem 0;
+            border-top: 2px solid #333;
+            margin-top: 1rem;
+        }
+        .receipt-total-label {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-right: 1rem;
+        }
+        .receipt-total-amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #059669;
+        }
+        .receipt-footer {
+            font-size: 0.875rem;
+            color: #a0a0a0;
+            margin-top: 1rem;
         }
     </style>
 </head>
@@ -218,7 +271,7 @@
                 <p class="item-name">Chicken</p>
                 <p class="item-price">Rs. 425/kg</p>
                 <div class="input-container">
-                    <input type="number" id="chicken-qty" class="item-input" value="0" min="0">
+                    <input type="text" id="chicken-qty" class="item-input" pattern="\d*">
                 </div>
             </div>
             <div class="item-card" data-item-id="beef">
@@ -226,7 +279,7 @@
                 <p class="item-name">Beef</p>
                 <p class="item-price">Rs. 1100/kg</p>
                 <div class="input-container">
-                    <input type="number" id="beef-qty" class="item-input" value="0" min="0">
+                    <input type="text" id="beef-qty" class="item-input" pattern="\d*">
                 </div>
             </div>
         </div>
@@ -239,7 +292,7 @@
                 <p class="item-name">Potatoes</p>
                 <p class="item-price">Rs. 120/kg</p>
                 <div class="input-container">
-                    <input type="number" id="potatoes-qty" class="item-input" value="0" min="0">
+                    <input type="text" id="potatoes-qty" class="item-input" pattern="\d*">
                 </div>
             </div>
             <div class="item-card" data-item-id="onions">
@@ -247,7 +300,7 @@
                 <p class="item-name">Onions</p>
                 <p class="item-price">Rs. 150/kg</p>
                 <div class="input-container">
-                    <input type="number" id="onions-qty" class="item-input" value="0" min="0">
+                    <input type="text" id="onions-qty" class="item-input" pattern="\d*">
                 </div>
             </div>
             <div class="item-card" data-item-id="tomatoes">
@@ -255,7 +308,7 @@
                 <p class="item-name">Tomatoes</p>
                 <p class="item-price">Rs. 200/kg</p>
                 <div class="input-container">
-                    <input type="number" id="tomatoes-qty" class="item-input" value="0" min="0">
+                    <input type="text" id="tomatoes-qty" class="item-input" pattern="\d*">
                 </div>
             </div>
             <div class="item-card" data-item-id="bananas">
@@ -263,7 +316,7 @@
                 <p class="item-name">Bananas</p>
                 <p class="item-price">Rs. 180/dozen</p>
                 <div class="input-container">
-                    <input type="number" id="bananas-qty" class="item-input" value="0" min="0">
+                    <input type="text" id="bananas-qty" class="item-input" pattern="\d*">
                 </div>
             </div>
         </div>
@@ -276,7 +329,7 @@
                 <p class="item-name">Milk</p>
                 <p class="item-price">Rs. 220/liter</p>
                 <div class="input-container">
-                    <input type="number" id="milk-qty" class="item-input" value="0" min="0">
+                    <input type="text" id="milk-qty" class="item-input" pattern="\d*">
                 </div>
             </div>
             <div class="item-card" data-item-id="eggs">
@@ -284,7 +337,7 @@
                 <p class="item-name">Eggs</p>
                 <p class="item-price">Rs. 300/dozen</p>
                 <div class="input-container">
-                    <input type="number" id="eggs-qty" class="item-input" value="0" min="0">
+                    <input type="text" id="eggs-qty" class="item-input" pattern="\d*">
                 </div>
             </div>
             <div class="item-card" data-item-id="yogurt">
@@ -292,7 +345,7 @@
                 <p class="item-name">Yogurt</p>
                 <p class="item-price">Rs. 180/kg</p>
                 <div class="input-container">
-                    <input type="number" id="yogurt-qty" class="item-input" value="0" min="0">
+                    <input type="text" id="yogurt-qty" class="item-input" pattern="\d*">
                 </div>
             </div>
             <div class="item-card" data-item-id="cheese">
@@ -300,7 +353,7 @@
                 <p class="item-name">Cheese</p>
                 <p class="item-price">Rs. 850/pack</p>
                 <div class="input-container">
-                    <input type="number" id="cheese-qty" class="item-input" value="0" min="0">
+                    <input type="text" id="cheese-qty" class="item-input" pattern="\d*">
                 </div>
             </div>
         </div>
@@ -313,15 +366,7 @@
                 <p class="item-name">Rice</p>
                 <p class="item-price">Rs. 325/kg</p>
                 <div class="input-container">
-                    <input type="number" id="rice-qty" class="item-input" value="0" min="0">
-                </div>
-            </div>
-            <div class="item-card" data-item-id="sugar">
-                <span class="item-emoji">🍬</span>
-                <p class="item-name">Sugar</p>
-                <p class="item-price">Rs. 175/kg</p>
-                <div class="input-container">
-                    <input type="number" id="sugar-qty" class="item-input" value="0" min="0">
+                    <input type="text" id="rice-qty" class="item-input" pattern="\d*">
                 </div>
             </div>
             <div class="item-card" data-item-id="flour">
@@ -329,7 +374,7 @@
                 <p class="item-name">Flour</p>
                 <p class="item-price">Rs. 130/kg</p>
                 <div class="input-container">
-                    <input type="number" id="flour-qty" class="item-input" value="0" min="0">
+                    <input type="text" id="flour-qty" class="item-input" pattern="\d*">
                 </div>
             </div>
             <div class="item-card" data-item-id="cooking-oil">
@@ -337,7 +382,7 @@
                 <p class="item-name">Cooking Oil</p>
                 <p class="item-price">Rs. 600/liter</p>
                 <div class="input-container">
-                    <input type="number" id="cooking-oil-qty" class="item-input" value="0" min="0">
+                    <input type="text" id="cooking-oil-qty" class="item-input" pattern="\d*">
                 </div>
             </div>
             <div class="item-card" data-item-id="lentils">
@@ -345,7 +390,7 @@
                 <p class="item-name">Lentils</p>
                 <p class="item-price">Rs. 350/kg</p>
                 <div class="input-container">
-                    <input type="number" id="lentils-qty" class="item-input" value="0" min="0">
+                    <input type="text" id="lentils-qty" class="item-input" pattern="\d*">
                 </div>
             </div>
             <div class="item-card" data-item-id="spices">
@@ -353,7 +398,7 @@
                 <p class="item-name">Spices</p>
                 <p class="item-price">Rs. 250/pack</p>
                 <div class="input-container">
-                    <input type="number" id="spices-qty" class="item-input" value="0" min="0">
+                    <input type="text" id="spices-qty" class="item-input" pattern="\d*">
                 </div>
             </div>
             <div class="item-card" data-item-id="tea-bags">
@@ -361,7 +406,7 @@
                 <p class="item-name">Tea Bags</p>
                 <p class="item-price">Rs. 400/box</p>
                 <div class="input-container">
-                    <input type="number" id="tea-bags-qty" class="item-input" value="0" min="0">
+                    <input type="text" id="tea-bags-qty" class="item-input" pattern="\d*">
                 </div>
             </div>
             <div class="item-card" data-item-id="coffee">
@@ -369,7 +414,7 @@
                 <p class="item-name">Coffee</p>
                 <p class="item-price">Rs. 750/jar</p>
                 <div class="input-container">
-                    <input type="number" id="coffee-qty" class="item-input" value="0" min="0">
+                    <input type="text" id="coffee-qty" class="item-input" pattern="\d*">
                 </div>
             </div>
         </div>
@@ -382,15 +427,15 @@
                 <p class="item-name">Soap</p>
                 <p class="item-price">Rs. 100/bar</p>
                 <div class="input-container">
-                    <input type="number" id="soap-qty" class="item-input" value="0" min="0">
+                    <input type="text" id="soap-qty" class="item-input" pattern="\d*">
                 </div>
             </div>
             <div class="item-card" data-item-id="detergent">
                 <span class="item-emoji">🧴</span>
                 <p class="item-name">Detergent</p>
-                <p class="item-price">Rs. 500/kg</p>
+                <p class="item-price">Rs. 500/pack</p>
                 <div class="input-container">
-                    <input type="number" id="detergent-qty" class="item-input" value="0" min="0">
+                    <input type="text" id="detergent-qty" class="item-input" pattern="\d*">
                 </div>
             </div>
             <div class="item-card" data-item-id="paper-towels">
@@ -398,7 +443,7 @@
                 <p class="item-name">Paper Towels</p>
                 <p class="item-price">Rs. 250/roll</p>
                 <div class="input-container">
-                    <input type="number" id="paper-towels-qty" class="item-input" value="0" min="0">
+                    <input type="text" id="paper-towels-qty" class="item-input" pattern="\d*">
                 </div>
             </div>
         </div>
@@ -408,75 +453,47 @@
             <button id="clear-btn" class="btn btn-danger">Clear</button>
         </div>
 
-        <!-- Canvas for the Receipt -->
+        <!-- HTML-based Receipt -->
         <div class="receipt-container">
             <h2 class="receipt-title">Your Receipt</h2>
-            <canvas id="bill-canvas"></canvas>
+            <div id="bill-receipt" class="bill-receipt">
+                <p>Your bill will be generated here.</p>
+            </div>
         </div>
     </div>
 
     <script>
-        // Data for grocery items with prices
+        // Data for grocery items with prices and units
         const groceryItems = [
-            { id: 'chicken', name: 'Chicken', price: 425 },
-            { id: 'beef', name: 'Beef', price: 1100 },
-            { id: 'rice', name: 'Rice', price: 325 },
-            { id: 'sugar', name: 'Sugar', price: 175 },
-            { id: 'potatoes', name: 'Potatoes', price: 120 },
-            { id: 'onions', name: 'Onions', price: 150 },
-            { id: 'tomatoes', name: 'Tomatoes', price: 200 },
-            { id: 'bananas', name: 'Bananas', price: 180 },
-            { id: 'milk', name: 'Milk', price: 220 },
-            { id: 'eggs', name: 'Eggs', price: 300 },
-            { id: 'yogurt', name: 'Yogurt', price: 180 },
-            { id: 'cheese', name: 'Cheese', price: 850 },
-            { id: 'flour', name: 'Flour', price: 130 },
-            { id: 'cooking-oil', name: 'Cooking Oil', price: 600 },
-            { id: 'lentils', name: 'Lentils', price: 350 },
-            { id: 'spices', name: 'Spices', price: 250 },
-            { id: 'tea-bags', name: 'Tea Bags', price: 400 },
-            { id: 'coffee', name: 'Coffee', price: 750 },
-            { id: 'soap', name: 'Soap', price: 100 },
-            { id: 'detergent', name: 'Detergent', price: 500 },
-            { id: 'paper-towels', name: 'Paper Towels', price: 250 }
+            { id: 'chicken', name: 'Chicken', price: 425, unit: 'kg' },
+            { id: 'beef', name: 'Beef', price: 1100, unit: 'kg' },
+            { id: 'rice', name: 'Rice', price: 325, unit: 'kg' },
+            { id: 'potatoes', name: 'Potatoes', price: 120, unit: 'kg' },
+            { id: 'onions', name: 'Onions', price: 150, unit: 'kg' },
+            { id: 'tomatoes', name: 'Tomatoes', price: 200, unit: 'kg' },
+            { id: 'bananas', name: 'Bananas', price: 180, unit: 'dozen' },
+            { id: 'milk', name: 'Milk', price: 220, unit: 'liter' },
+            { id: 'eggs', name: 'Eggs', price: 300, unit: 'dozen' },
+            { id: 'yogurt', name: 'Yogurt', price: 180, unit: 'kg' },
+            { id: 'cheese', name: 'Cheese', price: 850, unit: 'pack' },
+            { id: 'flour', name: 'Flour', price: 130, unit: 'kg' },
+            { id: 'cooking-oil', name: 'Cooking Oil', price: 600, unit: 'liter' },
+            { id: 'lentils', name: 'Lentils', price: 350, unit: 'kg' },
+            { id: 'spices', name: 'Spices', price: 250, unit: 'pack' },
+            { id: 'tea-bags', name: 'Tea Bags', price: 400, unit: 'box' },
+            { id: 'coffee', name: 'Coffee', price: 750, unit: 'jar' },
+            { id: 'soap', name: 'Soap', price: 100, unit: 'bar' },
+            { id: 'detergent', name: 'Detergent', price: 500, unit: 'pack' },
+            { id: 'paper-towels', name: 'Paper Towels', price: 250, unit: 'roll' }
         ];
 
-        const canvas = document.getElementById('bill-canvas');
-        const ctx = canvas.getContext('2d');
+        const billReceiptDiv = document.getElementById('bill-receipt');
         const generateBtn = document.getElementById('generate-btn');
         const clearBtn = document.getElementById('clear-btn');
         const itemCards = document.querySelectorAll('.item-card');
 
-        // Function to resize the canvas
-        const resizeCanvas = () => {
-            const ratio = window.devicePixelRatio || 1;
-            const width = canvas.offsetWidth;
-            const height = 400; // Fixed height for a good-looking receipt
-            canvas.width = width * ratio;
-            canvas.height = height * ratio;
-            ctx.scale(ratio, ratio);
-            drawEmptyReceipt();
-        };
-
-        window.addEventListener('resize', resizeCanvas);
-        window.onload = resizeCanvas;
-
-        // Function to draw a simple empty receipt
-        const drawEmptyReceipt = () => {
-            ctx.fillStyle = '#ffffff';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#a0a0a0';
-            ctx.font = '16px Inter';
-            ctx.textAlign = 'center';
-            ctx.fillText('Your bill will be generated here.', canvas.offsetWidth / 2, canvas.offsetHeight / 2);
-        };
-
-        // Function to generate and draw the bill on the canvas
+        // Function to generate and display the bill using HTML
         const generateBill = () => {
-            // Clear the canvas
-            ctx.fillStyle = '#ffffff';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
             const quantities = {};
             groceryItems.forEach(item => {
                 const qtyInput = document.getElementById(`${item.id}-qty`);
@@ -495,84 +512,76 @@
                         name: item.name,
                         quantity: quantity,
                         price: item.price,
-                        subtotal: subtotal
+                        subtotal: subtotal,
+                        unit: item.unit
                     });
                 }
             });
 
-            // Draw the receipt header
-            ctx.fillStyle = '#333333';
-            ctx.font = '30px Inter';
-            ctx.textAlign = 'center';
-            ctx.fillText('Grocery Receipt', canvas.offsetWidth / 2, 50);
+            if (billItems.length === 0) {
+                billReceiptDiv.innerHTML = '<p>Your bill will be generated here.</p>';
+                return;
+            }
 
-            let yPosition = 100;
+            // Build the HTML for the receipt
+            let billHtml = `
+                <table class="receipt-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th style="text-align: right;">Subtotal (Rs.)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
 
-            // Draw table headers
-            ctx.font = '16px Inter';
-            ctx.fillText('Item', 50, yPosition);
-            ctx.fillText('Quantity', canvas.offsetWidth * 0.45, yPosition);
-            ctx.fillText('Price', canvas.offsetWidth * 0.7, yPosition);
-            ctx.fillText('Subtotal (Rs.)', canvas.offsetWidth - 75, yPosition);
-
-            yPosition += 20;
-            ctx.strokeStyle = '#cccccc';
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(30, yPosition);
-            ctx.lineTo(canvas.offsetWidth - 30, yPosition);
-            ctx.stroke();
-
-            // Draw the items
-            yPosition += 20;
-            ctx.font = '16px Inter';
-            ctx.textAlign = 'left';
             billItems.forEach(item => {
-                ctx.fillText(item.name, 50, yPosition);
-                ctx.fillText(item.quantity.toFixed(0), canvas.offsetWidth * 0.45, yPosition);
-                ctx.fillText(item.price.toFixed(0), canvas.offsetWidth * 0.7, yPosition);
-                ctx.fillText(item.subtotal.toFixed(2), canvas.offsetWidth - 75, yPosition);
-                yPosition += 20;
+                billHtml += `
+                    <tr>
+                        <td>${item.name}</td>
+                        <td>${item.quantity.toFixed(0)} ${item.unit}</td>
+                        <td>Rs. ${item.price.toFixed(0)}</td>
+                        <td style="text-align: right;">Rs. ${item.subtotal.toFixed(2)}</td>
+                    </tr>
+                `;
             });
 
-            // Draw the total
-            yPosition += 20;
-            ctx.strokeStyle = '#333333';
-            ctx.beginPath();
-            ctx.moveTo(30, yPosition);
-            ctx.lineTo(canvas.offsetWidth - 30, yPosition);
-            ctx.stroke();
+            billHtml += `
+                    </tbody>
+                </table>
+            `;
 
-            yPosition += 20;
-            ctx.font = '24px Inter';
-            ctx.fillText('Total:', canvas.offsetWidth * 0.4, yPosition);
-            ctx.font = '24px Inter';
-            ctx.fillStyle = '#059669'; // Green color for total
-            ctx.fillText(`Rs. ${totalBill.toFixed(2)}`, canvas.offsetWidth * 0.8, yPosition);
+            // Add the total and footer
+            billHtml += `
+                <div class="receipt-total">
+                    <p class="receipt-total-label">Total:</p>
+                    <p class="receipt-total-amount">Rs. ${totalBill.toFixed(2)}</p>
+                </div>
+                <p class="receipt-footer">Thank you for shopping with us!</p>
+            `;
 
-            // Add a footer line
-            yPosition += 40;
-            ctx.font = '12px Inter';
-            ctx.fillStyle = '#a0a0a0';
-            ctx.fillText('Thank you for shopping with us!', canvas.offsetWidth / 2, yPosition);
+            billReceiptDiv.innerHTML = billHtml;
+
         };
 
-        // Function to clear all quantities and the canvas
+        
+        // Function to clear all quantities and the receipt
         const clearAll = () => {
             itemCards.forEach(card => {
                 card.classList.remove('selected');
                 const inputContainer = card.querySelector('.input-container');
                 inputContainer.classList.remove('active');
                 const qtyInput = card.querySelector('input');
-                qtyInput.value = '0';
+                qtyInput.value = '';
             });
-            drawEmptyReceipt();
+            billReceiptDiv.innerHTML = '<p>Your bill will be generated here.</p>';
         };
 
         // Add click listeners to each item card
         itemCards.forEach(card => {
             card.addEventListener('click', (e) => {
-                // Check if the click was on the input itself to prevent a double-toggle
                 if (e.target.tagName !== 'INPUT') {
                     const inputContainer = card.querySelector('.input-container');
                     const qtyInput = card.querySelector('input');
@@ -580,11 +589,11 @@
                     if (card.classList.contains('selected')) {
                         card.classList.remove('selected');
                         inputContainer.classList.remove('active');
-                        qtyInput.value = '0';
                     } else {
                         card.classList.add('selected');
                         inputContainer.classList.add('active');
                         qtyInput.focus();
+                        qtyInput.setSelectionRange(qtyInput.value.length, qtyInput.value.length);
                     }
                 }
             });
@@ -592,6 +601,7 @@
 
         generateBtn.addEventListener('click', generateBill);
         clearBtn.addEventListener('click', clearAll);
+
     </script>
 
 </body>
