@@ -1,8 +1,10 @@
 function calculateDaysLeft(){
+    let daysLeft = document.getElementById("days-left")
     let displayDays = document.getElementById("display-days")
+    let note = document.getElementById("note")
     let toggleButton = document.getElementById("toggle-btn")
 
-    let ramzanStartDate = new Date("Feb 17, 2026 00:00:00")
+    let ramzanStartDate = new Date("Sep 22, 2025 00:00:00")
     let today = new Date()
     
 
@@ -10,12 +12,11 @@ function calculateDaysLeft(){
     let differenceInDay = Math.ceil(differenceInTime / (1000 * 3600 * 24))
     
 
-    if(differenceInDay > 0){
-        displayDays.textContent = differenceInDay
-    }else if(differenceInDay === 0){
-        displayDays.textContent = "Today..."
-    }else{
-        displayDays.textContent = "In progress or passed..."
+    if(differenceInDay <= 0){
+        displayDays.textContent = "Ramadan Mubarak!..."
+        daysLeft.classList.add("hidden")
+        toggleButton.classList.add("hidden")
+        note.classList.add("hidden")
     }
 
 

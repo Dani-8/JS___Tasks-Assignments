@@ -12,7 +12,9 @@ body{
     min-height: 100vh;
 }
 /* ------------------------------------------------------------------------------------------------------ */
-
+.hidden{
+    display: none;
+}
 .animated-bg {
     background: linear-gradient(135deg, #ffffff, #f0f0f0, #e0e0e0, #d0d0d0, #ffd24c95);    
     background-size: 400% 400%;
