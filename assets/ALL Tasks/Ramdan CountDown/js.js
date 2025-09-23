@@ -1,5 +1,6 @@
 function calculateDaysLeft(){
     let displayDays = document.getElementById("display-days")
+    let toggleButton = document.getElementById("toggle-btn")
 
     let ramzanStartDate = new Date("Feb 17, 2026 00:00:00")
     let today = new Date()

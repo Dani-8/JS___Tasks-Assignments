@@ -72,6 +72,30 @@ body{
     margin-bottom: 30px;
 }
 
+.toggle-btn{
+    margin-bottom: 30px;
+    border: none;
+    outline: none;
+    padding: 15px 20px;
+    background-color: #ffdb67;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.2);
+    font-size: 15px;
+    font-weight: 600;
+    color: rgb(55, 55, 55);
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+.toggle-btn:hover{
+    background-color: #ffcb49;
+    box-shadow: 8px 8px 20px -5px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+}
+.toggle-btn:active{
+    transform: scale(0.95);
+}
+
 .note{
     font-size: 12px;
     color: rgb(99, 99, 99);
