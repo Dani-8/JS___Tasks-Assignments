@@ -6,7 +6,7 @@ let toggleButton = document.getElementById("toggle-btn")
 let detailed = false
 
 function calculateDaysLeft(){   
-    let ramzanStartDate = new Date("Sep 30, 2025 00:00:00")
+    let ramzanStartDate = new Date("Feb 17, 2026 00:00:00")
     let today = new Date()
     
     let differenceInTime = ramzanStartDate.getTime() - today.getTime()
@@ -39,7 +39,7 @@ function calculateDaysLeft(){
 }
 
 
-toggleButton.addEventListener("click", function(){
+toggleButton.addEventListener("click", () => {
     detailed = !detailed
     if(detailed){
         toggleButton.textContent = 'Show Simple Countdown';
@@ -50,7 +50,34 @@ toggleButton.addEventListener("click", function(){
 })
 
 
+
+// ---------------------------------------------------------------------
+// ---------------------------------------------------------------------
+// ---------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
+    calculateDaysLeft()
     setInterval(calculateDaysLeft, 1000);
 });
 
