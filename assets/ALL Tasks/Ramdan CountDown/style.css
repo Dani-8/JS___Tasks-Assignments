@@ -7,7 +7,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px;
+    flex-direction: column;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     /* min-height: 100vh; */
 }
@@ -15,13 +15,14 @@ body{
 .hidden{
     display: none;
 }
-.animated-bg {
+.pg1{
     background: linear-gradient(135deg, #ffffff, #ffffff, #ffffff, #d0d0d0, #ffd24c95);    
     background-size: 400% 400%;
     animation: gradient-animation 15s ease infinite;
-    position: absolute;
+    padding: 50px;
+    position: relative;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     top: 0;
     left: 0;
     display: flex;
@@ -125,6 +126,42 @@ body{
 /* --------------------------------------------------- */
 /* --------------------------------------------------- */
 
-.box{
+.pg2{
+    padding: 50px;
+    width: 100%;
     height: 100vh;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
+
+.password-generator{
+    position: absolute;
+    /* width: 90%; */
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 30px -10px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    z-index: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+}
+
+
+
+
+
+
+
+
+
+
