@@ -40,7 +40,48 @@
             </div>
 
             <!-- CONTROL SECTION -->
-            .controls
+            <div class="controls-sec">
+                <div class="password-length-cont">
+                    <div class="length-label">
+                        <label for="length-slider">Password Length: </label>
+                        <span id="length-value">8</span>
+                    </div>
+                    <input type="range" min="4" max="20" value="8" id="length-slider">
+                </div>
+
+                <div class="checkbox-items-cont">
+                    <label for="include-uppercase">
+                        <input type="checkbox" id="include-uppercase">
+                        <span>Uppercase (A-Z)</span>
+                    </label>
+                    <label for="include-uppercase">
+                        <input type="checkbox" id="include-uppercase">
+                        <span>Lowercase (a-z)</span>
+                    </label>
+                    <label for="include-uppercase">
+                        <input type="checkbox" id="include-uppercase">
+                        <span>Numbers (0-9)</span>
+                    </label>
+                    <label for="include-uppercase">
+                        <input type="checkbox" id="include-uppercase">
+                        <span>Symbols (!@#$)</span>
+                    </label>
+                </div>
+
+
+                <button id="generate-btn" class="generate-btn">Generate Password</button>
+
+
+                <div class="password-strength-cont">
+                    <p>Password Strength:</p>
+
+                    <div class="srength-bar-cont">
+                        <div class="strength-bar" id="strength-bar"></div>
+                    </div>
+                    <span id="strength-text"></span>
+                </div>
+
+            </div>
 
 
 
