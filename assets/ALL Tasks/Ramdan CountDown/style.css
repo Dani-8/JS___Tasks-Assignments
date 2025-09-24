@@ -136,7 +136,32 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
+}
 
+/* TOAST */
+.toast-cont{
+    z-index: 999;
+    background-color: rgb(234, 255, 237);
+    box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.3);
+    padding: 10px 20px;
+    border-radius: 15px;
+    position: absolute;
+    top: 50px;
+    right: 30px;
+    transform: translateX(100px);
+    opacity: 0;
+    transition: 0.3s ease;
+}
+.show{
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.toast-cont p{
+    color: green;
+    font-size: 15px;
+    font-weight: 500;
 }
 
 .password-generator{

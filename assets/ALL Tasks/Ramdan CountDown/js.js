@@ -71,6 +71,7 @@ let generateButton = document.getElementById("generate-btn")
 let strengthBar = document.getElementById("strength-bar")
 let strengthText = document.getElementById("strength-text")
 
+let toast = document.getElementById("toast")
 
 let character = {
     uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
@@ -111,7 +112,11 @@ function generatePassword(){
     }
 
 
+    for(let i = hasAtLeastOneOfEach.length; i < length; i++){
+        newPassword += characterPool.charAt(Math.floor(Math.random() * characterPool.length))
+    }
 
+    
 
     newPassword = shuffleString(newPassword + hasAtLeastOneOfEach)
     passwordDisplay.textContent = newPassword
@@ -125,7 +130,6 @@ function generatePassword(){
 
 // PASSWORD GENERATE ON CLICK
 generateButton.addEventListener("click", generatePassword)
-
 
 
 /**
@@ -144,6 +148,20 @@ function shuffleString(str){
 }
 
 
+// COPY THE PASSWORD
+copyButton.addEventListener("click", () => {
+    let password = passwordDisplay.textContent
+    console.log(password);
+    
+    if(password !== "" && password !== 'Please select at least one character type.'){
+        navigator.clipboard.writeText(password).then(() => {
+            toast.classList.add("show")
+            setInterval(() => {
+                toast.classList.remove("show")
+            }, 1500);
+        })
+    }
+})
 
 
 
