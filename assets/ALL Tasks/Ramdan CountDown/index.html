@@ -9,8 +9,7 @@
 </head>
 <body>
 
-    <!-- <div class="box"></div> -->
-    <!-- <div class="pg1">
+    <div class="pg1">
         <div class="container">
             <div class="moon-icon">🌙</div>
             <h2>Ramzan Countdown</h2>
@@ -24,7 +23,7 @@
 
             <p class="note" id="note">Note: The exact date of Ramadan depends on the lunar calendar and moon sighting. This is an estimation.</p>
         </div>
-    </div> -->
+    </div>
 
     <!-- ---------------------------------------------------------------------------------- -->
     <!-- ---------------------------------------------------------------------------------- -->
@@ -52,21 +51,35 @@
 
                 <div class="checkbox-items-cont">
                     <label for="include-uppercase">
-                        <input type="checkbox" id="include-uppercase" checked>
+                        <input class="checkbox-input" type="checkbox" id="include-uppercase" checked>
                         <span>Uppercase (A-Z)</span>
                     </label>
                     <label for="include-lowercase">
-                        <input type="checkbox" id="include-lowercase" checked>
+                        <input class="checkbox-input" type="checkbox" id="include-lowercase" checked>
                         <span>Lowercase (a-z)</span>
                     </label>
                     <label for="include-numbers">
-                        <input type="checkbox" id="include-numbers" checked>
+                        <input class="checkbox-input" type="checkbox" id="include-numbers" checked>
                         <span>Numbers (0-9)</span>
                     </label>
                     <label for="include-symbols">
-                        <input type="checkbox" id="include-symbols">
+                        <input class="checkbox-input" type="checkbox" id="include-symbols">
                         <span>Symbols (!@#$)</span>
                     </label>
+                </div>
+
+                <!-- PERSONAL INFO INPUT -->
+                <div class="personal-info">
+                    <div>
+                        <input class="checkbox-input" type="checkbox" id="include-name-input">
+                        <label for="include-name-input">Include Name:</label>
+                        <input class="text-input" type="text" id="name-input" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <input class="checkbox-input" type="checkbox" id="include-numbers-input">
+                        <label for="include-numbers-input">Include Number:</label>
+                        <input class="text-input" type="text" id="number-input" placeholder="e.g., DOB or phone">
+                    </div>
                 </div>
 
 
@@ -74,7 +87,7 @@
 
 
                 <div class="password-strength-cont">
-                    <p>Password Strength:</p>
+                    <label>Password Strength:</label>
 
                     <div class="srength-bar-cont">
                         <div class="strength-bar" id="strength-bar"></div>

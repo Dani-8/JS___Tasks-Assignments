@@ -39,15 +39,15 @@ function calculateDaysLeft(){
 }
 
 
-// toggleButton.addEventListener("click", () => {
-//     detailed = !detailed
-//     if(detailed){
-//         toggleButton.textContent = 'Show Simple Countdown';
-//     }else {
-//         toggleButton.textContent = 'Show Detailed Countdown';
-//     }
-//     calculateDaysLeft()
-// })
+toggleButton.addEventListener("click", () => {
+    detailed = !detailed
+    if(detailed){
+        toggleButton.textContent = 'Show Simple Countdown';
+    }else {
+        toggleButton.textContent = 'Show Detailed Countdown';
+    }
+    calculateDaysLeft()
+})
     
 
 
@@ -65,6 +65,11 @@ let inculudeUppercase = document.getElementById("include-uppercase")
 let inculudeLowercase = document.getElementById("include-lowercase")
 let inculudeNumbers = document.getElementById("include-numbers")
 let inculudeSymbols = document.getElementById("include-symbols")
+
+let includeNameInput = document.getElementById("include-name-input")
+let inculudeNumbersInput = document.getElementById("include-numbers-input")
+let nameInput = document.getElementById("name-input")
+let numberInput = document.getElementById("number-input")
 
 let generateButton = document.getElementById("generate-btn")
 
@@ -84,7 +89,7 @@ let character = {
 
 // GENERATE PASSWORD
 function generatePassword(){
-    let length = lengthSlider.value
+    let length = parseInt(lengthSlider.value)
     let characterPool = ""
     let newPassword = ""
     let hasAtLeastOneOfEach = ""
@@ -107,11 +112,30 @@ function generatePassword(){
         hasAtLeastOneOfEach += character.Symbols[Math.floor(Math.random() * character.Symbols.length)]
     }
 
+
+    if(includeNameInput.checked && nameInput.value.length > 0){
+        let name = nameInput.value  
+        hasAtLeastOneOfEach += name.toUpperCase() + name.toLowerCase()
+        characterPool += name.toUpperCase() + name.toLowerCase()
+    }
+    if(inculudeNumbersInput.checked && numberInput.value.length > 0){
+        let numberStr = numberInput.value.replace(/\D/g, "")// Remove non-digits
+        hasAtLeastOneOfEach += numberStr
+        characterPool += numberStr
+    }
+
+
     if(characterPool === ""){
         passwordDisplay.textContent = 'Please select at least one character type.'
+        updateStrength("")
         return
     }
 
+
+
+    // Fill the rest of the password up to the requested length
+    let remainingLength = length - hasAtLeastOneOfEach.length;
+    if (remainingLength < 0) remainingLength = 0; // Prevent negative length
 
     for(let i = hasAtLeastOneOfEach.length; i < length; i++){
         newPassword += characterPool.charAt(Math.floor(Math.random() * characterPool.length))
@@ -120,16 +144,19 @@ function generatePassword(){
     
 
     newPassword = shuffleString(newPassword + hasAtLeastOneOfEach)
-    passwordDisplay.textContent = newPassword
+    // Ensure the final password is exactly the requested length
+    newPassword = newPassword.slice(0, length);
 
+    passwordDisplay.textContent = newPassword
     updateStrength(newPassword)
 }
 
 
 
 // CHANGING PASSWORD IF ITEMS ARE CHHECKED OR NOT
-[inculudeUppercase, inculudeLowercase, inculudeNumbers, inculudeSymbols].forEach(checkbox => {
-    checkbox.addEventListener("change", generatePassword)
+[inculudeUppercase, inculudeLowercase, inculudeNumbers, inculudeSymbols, includeNameInput, inculudeNumbersInput, nameInput, numberInput].forEach(element => {
+    element.addEventListener("change", generatePassword)
+    element.addEventListener("input", generatePassword)
 })
 
 // NEW PASSWORD GENERATE ON CLICK
@@ -259,8 +286,8 @@ copyButton.addEventListener("click", () => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    // calculateDaysLeft()
+    calculateDaysLeft()
     generatePassword()
-    // setInterval(calculateDaysLeft, 1000);
+    setInterval(calculateDaysLeft, 1000);
 });
 
