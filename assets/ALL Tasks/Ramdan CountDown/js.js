@@ -106,32 +106,43 @@ function generatePassword(){
     }
 
     if(characterPool === ""){
-        passwordDisplay = 'Please select at least one character type.'
+        passwordDisplay.textContent = 'Please select at least one character type.'
         return
     }
 
 
 
 
-
-
-
-
-
-
+    newPassword = shuffleString(newPassword + hasAtLeastOneOfEach)
+    passwordDisplay.textContent = newPassword
+    
 }
 
+// CHANGING PASSWORD IF ITEMS ARE CHHECKED OR NOT
+[inculudeUppercase, inculudeLowercase, inculudeNumbers, inculudeSymbols].forEach(checkbox => {
+    checkbox.addEventListener("change", generatePassword)
+})
 
+// PASSWORD GENERATE ON CLICK
+generateButton.addEventListener("click", generatePassword)
+
+
+
+/**
+ * TAKE STRING AND SPLIT IT
+ * SWAP EACH CHAR ONE BY ONE
+ * AND JOIN THEM
+ */
 function shuffleString(str){
     let array = str.split("")
     for(let i = array.length - 1; i > 0; i--){
-        
+        let j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]]
     }
 
     return array.join("")
 }
 
-shuffleString("Dani619")
 
 
 
@@ -140,7 +151,8 @@ shuffleString("Dani619")
 
 
 
-generatePassword()
+
+
 
 
 
@@ -175,6 +187,7 @@ generatePassword()
 
 document.addEventListener("DOMContentLoaded", () => {
     calculateDaysLeft()
+    generatePassword()
     setInterval(calculateDaysLeft, 1000);
 });
 
