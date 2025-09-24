@@ -82,13 +82,65 @@ let character = {
 
 
 function generatePassword(){
-    
+    let length = lengthSlider.value
+    let characterPool = ""
+    let newPassword = ""
+    let hasAtLeastOneOfEach = ""
+
+
+    if(inculudeUppercase.checked){
+        characterPool += character.uppercase
+        hasAtLeastOneOfEach += character.uppercase[Math.floor(Math.random() * character.uppercase.length)]
+    }
+    if(inculudeLowercase.checked){
+        characterPool += character.lowercase
+        hasAtLeastOneOfEach += character.lowercase[Math.floor(Math.random() * character.lowercase.length)]
+    }
+    if(inculudeNumbers.checked){
+        characterPool += character.numbers
+        hasAtLeastOneOfEach += character.numbers[Math.floor(Math.random() * character.numbers.length)]
+    }
+    if(inculudeSymbols.checked){
+        characterPool += character.Symbols
+        hasAtLeastOneOfEach += character.Symbols[Math.floor(Math.random() * character.Symbols.length)]
+    }
+
+    if(characterPool === ""){
+        passwordDisplay = 'Please select at least one character type.'
+        return
+    }
+
+
+
+
+
+
+
+
 
 
 }
 
 
+function shuffleString(str){
+    let array = str.split("")
+    for(let i = array.length - 1; i > 0; i--){
+        
+    }
 
+    return array.join("")
+}
+
+shuffleString("Dani619")
+
+
+
+
+
+
+
+
+generatePassword()
 
 
 
