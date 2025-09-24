@@ -186,10 +186,14 @@ function updateStrength(password){
     score = Math.min(100, score);
     score = Math.max(0, score);
 
+    let types = [hasUppercase, hasLowercase, hasNumber, hasSymbol].filter(Boolean).length
+    if(types > 2) score += (types - 2) * 10;
+
+
 
     let color = "rgb(215, 3, 3)"
     let text = "Weak"
-    if(score > 50){
+    if(score > 40){
         color = "rgb(255, 153, 0)"
         text = "Medium"
     }
