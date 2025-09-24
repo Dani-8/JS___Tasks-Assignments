@@ -55,6 +55,51 @@ toggleButton.addEventListener("click", () => {
 // ---------------------------------------------------------------------
 // ---------------------------------------------------------------------
 
+let passwordDisplay = document.getElementById("password-display")
+let copyButton = document.getElementById("copy-btn")
+
+let lengthValue = document.getElementById("length-value")
+let lengthSlider = document.getElementById("length-slider")
+
+let inculudeUppercase = document.getElementById("include-uppercase")
+let inculudeLowercase = document.getElementById("include-lowercase")
+let inculudeNumbers = document.getElementById("include-numbers")
+let inculudeSymbols = document.getElementById("include-symbols")
+
+let generateButton = document.getElementById("generate-btn")
+
+let strengthBar = document.getElementById("strength-bar")
+let strengthText = document.getElementById("strength-text")
+
+
+let character = {
+    uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    lowercase: "abcdefghijklmnopqrstuvwxyz",
+    numbers: "0123456789",
+    Symbols: "!@#$%^&*()_+~`|}{[]:;?><,./-="
+}
+
+
+
+function generatePassword(){
+    
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
