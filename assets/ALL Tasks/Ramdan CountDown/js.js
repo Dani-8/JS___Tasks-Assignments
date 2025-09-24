@@ -39,16 +39,16 @@ function calculateDaysLeft(){
 }
 
 
-toggleButton.addEventListener("click", () => {
-    detailed = !detailed
-    if(detailed){
-        toggleButton.textContent = 'Show Simple Countdown';
-    }else {
-        toggleButton.textContent = 'Show Detailed Countdown';
-    }
-    calculateDaysLeft()
-})
-
+// toggleButton.addEventListener("click", () => {
+//     detailed = !detailed
+//     if(detailed){
+//         toggleButton.textContent = 'Show Simple Countdown';
+//     }else {
+//         toggleButton.textContent = 'Show Detailed Countdown';
+//     }
+//     calculateDaysLeft()
+// })
+    
 
 
 // ---------------------------------------------------------------------
@@ -82,6 +82,7 @@ let character = {
 
 
 
+// GENERATE PASSWORD
 function generatePassword(){
     let length = lengthSlider.value
     let characterPool = ""
@@ -120,16 +121,70 @@ function generatePassword(){
 
     newPassword = shuffleString(newPassword + hasAtLeastOneOfEach)
     passwordDisplay.textContent = newPassword
-    
+
+    updateStrength(newPassword)
 }
+
+
 
 // CHANGING PASSWORD IF ITEMS ARE CHHECKED OR NOT
 [inculudeUppercase, inculudeLowercase, inculudeNumbers, inculudeSymbols].forEach(checkbox => {
     checkbox.addEventListener("change", generatePassword)
 })
 
-// PASSWORD GENERATE ON CLICK
+// NEW PASSWORD GENERATE ON CLICK
 generateButton.addEventListener("click", generatePassword)
+
+
+
+// UPDATE STRENGTH BAR
+function updateStrength(password){
+    let score = 0 
+    let length = password.length
+    let hasUppercase = /[A-Z]/.test(password)
+    let hasLowercase = /[a-z]/.test(password)
+    let hasNumber = /[0-9]/.test(password)
+    let hasSymbol = /[!@#$%^&*()_+~`|}{[\]:;?><,./-=]/.test(password)
+
+    // SCORE BASED ON LENGTH
+    score += (length - 6) * 5 // (6 is value based on length slider) & 5 points for each character above 6
+
+    // SCORE BASED ON CHARACTER TYPES
+    if(hasUppercase) score += 10
+    if(hasLowercase) score += 10
+    if(hasNumber) score += 10
+    if(hasSymbol) score += 10
+
+    // Cap the score
+    score = Math.min(100, score);
+    score = Math.max(0, score);
+
+
+    let color = "rgb(215, 3, 3)"
+    let text = "Weak"
+    if(score > 50){
+        color = "rgb(255, 153, 0)"
+        text = "Medium"
+    }
+    if(score > 80){
+        color = "rgb(0, 139, 0)"
+        text = "Strong"
+    }
+    strengthBar.style.width = score + "%"
+    strengthBar.style.backgroundColor = color
+    strengthText.style.color = color
+    strengthText.textContent = text
+
+}
+
+// UPDATE PASSWORD LENGTH
+lengthSlider.addEventListener("input", () => {
+    lengthValue.textContent = lengthSlider.value
+    generatePassword()
+    updateStrength(passwordDisplay.textContent)
+})
+
+
 
 
 /**
@@ -204,8 +259,8 @@ copyButton.addEventListener("click", () => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    calculateDaysLeft()
+    // calculateDaysLeft()
     generatePassword()
-    setInterval(calculateDaysLeft, 1000);
+    // setInterval(calculateDaysLeft, 1000);
 });
 

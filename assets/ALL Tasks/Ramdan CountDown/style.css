@@ -166,12 +166,11 @@ body{
 
 .password-generator{
     position: absolute;
-    /* width: 90%; */
+    width: 35%;
     padding: 50px;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255);
     box-shadow: 0 8px 30px -10px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
-    z-index: 1;
 
     display: flex;
     justify-content: center;
@@ -180,10 +179,92 @@ body{
     text-align: center;
     gap: 10px;
 }
+.password-generator h2{
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.password-display-cont{
+    background-color: rgb(236, 236, 236);
+    border-radius: 15px;
+    border: 1px solid rgb(218, 218, 218);
+    padding: 20px;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.copy-btn{
+    outline: none;
+    border: none;
+    background-color: #c6c6c6;
+    color: rgb(68, 78, 88);
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.copy-btn:hover{
+    background-color: #a0cffc;
+    color: rgb(0, 61, 122);
+}
+.copy-btn:active{
+    transform: scale(0.9);
+}
+
+.password-length-cont{
+    padding: 10px 0;
+    /* background: lightblue; */
+}
+
+.length-label{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.length-label label{
+    font-size: 17px;
+    font-weight: 500;
+    color: #355471;
+}
+.length-label span{
+    font-size: 20px;
+    font-weight: 700;
+    color: #0868c3;
+
+}
+.password-length-cont input{
+    width: 100%;
+}
+
+
+.checkbox-items-cont{
+    background-color: lightcyan;
+    display: grid;
+    grid-template-columns: repeat(1);
+}
 
 
 
 
+
+
+
+.box{
+    z-index: 9999999999999999999;
+    height: 50px;
+    width: 50px;
+    background-color: rgb(0, 139, 0);
+    position: absolute;
+    top: 200px;
+    left: 200px;
+}
 
 
 
