@@ -13,6 +13,68 @@
         <p class="description">Enter your details and watch the ID card update...</p>
 
         <div class="main-container">
+
+            <div class="left-side inner-cont">
+                <h2>Input Details</h2>
+
+                <form action="">
+                    <div>
+                        <label for="">Full Name</label>
+                        <input type="text" class="input-field" id="full-name" required placeholder="John Doe">
+                    </div>
+                    
+                    <div>
+                        <label for="">Job Title / Role</label>
+                        <input type="text" class="input-field" id="job-title" required placeholder="Software Engineer">
+                    </div>
+                    
+                    <div>
+                        <label for="">Email Address</label>
+                        <input type="email" class="input-field" id="email" required placeholder="john.doe@example.com">
+                    </div>
+                    
+                    <div>
+                        <label for="">Phone Number</label>
+                        <input type="tel" class="input-field" id="phone" required placeholder="0300-0000000">
+                    </div>
+                    
+                    <div>
+                        <label for="">Photo URL</label>
+                        <input type="text" class="input-field" id="photo-url" required placeholder="https://example.com/photo.jpg" value="https://placehold.co/150x150/1f2937/ffffff?text=Photo">
+                        <p>Provide a direct link to an image.</p>
+                    </div>
+
+
+                    <button class="generate-btn" id="generate-btn">Generate ID Card</button>
+                </form>
+
+            </div>
+
+            <!-- ------------------------------------------------------------------------- -->
+            <!-- ------------------------------------------------------------------------- -->
+            <!-- ------------------------------------------------------------------------- -->
+
+            <div class="right-side inner-cont">
+
+                <div class="card">
+                    <div class="card-header">
+                        <span>Company Badge</span>
+                    </div>
+
+                    <div class="photo-detail">
+                        <img src="https://placehold.co/150x150/1f2937/ffffff?text=Photo" alt="">
+
+                        <h3 id="card-name">John Doe</h3>
+                        <p id="card-title">Software Engineer</p>
+                    </div>
+
+                    
+                </div>
+
+
+            </div>
+
+
         </div>
 
 
