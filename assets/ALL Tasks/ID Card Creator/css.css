@@ -40,7 +40,8 @@ body{
     padding: 20px 40px;
     border-radius: 15px;
 
-    transition: .5s ease;
+    transition: .3s ease;
+    transform: scale(0);
     transform-origin: right bottom;
 }
 
@@ -49,6 +50,7 @@ body{
 }
 .active{
     opacity: 1;
+    transform: scale(1);
 }
 /* ------------------------------------------------------------------------ */
 

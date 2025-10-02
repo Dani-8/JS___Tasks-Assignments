@@ -15,19 +15,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // ----------------------------------------------------------
     // ----------------------------------------------------------
 
-    function showmsg(){
-        msg.classList.remove("hidden")
-        msg.classList.add("active")
-
-
+    function showMessage(text) {
+        msg.textContent = text;
+        msg.classList.remove("hidden");
+        msg.classList.add("active");
         setTimeout(() => {
-            msg.classList.remove("active")
-            msg.classList.add('hidden');
-        }, 3000);
+            msg.classList.remove("active");
+            msg.classList.add("hidden");
+        }, 2000);
     }
 
 
-    
+
     function createCard(e){
             e.preventDefault();
 
@@ -53,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // cardId.textContent = generateId();
 
-        showmsg()
+        showMessage("ID Card updated Successfully!");
     }
 
 
