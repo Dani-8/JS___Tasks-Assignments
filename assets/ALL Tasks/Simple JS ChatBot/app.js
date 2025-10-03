@@ -1,10 +1,12 @@
 let chatBotBrain = [
-    { category: "Greeting", keywords: ["hi", "hello", "hey", "hola"], response: "Oh, hey! How can I help you today?" },
-    { category: "Status Check", keywords: ["how are you", "What's up?", "how's it going", "sup"], response: "I'm just a simple array-based bot, but I'm ready to chat! What's up?" },
-    { category: "Weather", keywords: ["weather", "temperature", "sun"], response: "I can't check the weather, but I hope it's sunny where you are!" },
-    { category: "Goodbye", keywords: ["bye", "goodbye", "later", "cya"], response: "See you later! Come back if you have any more simple questions." },
-    { category: "Identity", keywords: ["name", "who are you"], response: "I don't have a name, but you can call me ChatBot." },
-    { category: "Help", keywords: ["help", "assist"], response: "To get help, try using keywords like 'hi', 'weather', or 'bye'." },
+    { keywords: ["hi", "hello", "hey", "hola"], category: "Greeting", response: "Oh, hey! What's new with you?" },
+    { keywords: ["how are you", "how's it going", "sup"], category: "Status Check", response: "I'm running smoothly, thanks for asking! What can I search for?" },
+    { keywords: ["weather", "temperature", "sun"], category: "Information Request", response: "I can't check the current weather, but I hope your day is fantastic!" },
+    { keywords: ["bye", "goodbye", "later", "cya"], category: "Farewell", response: "Talk to you later! Don't hesitate to come back." },
+    { keywords: ["name", "who are you"], category: "Identity", response: "I am a simple array-based keyword bot, designed for quick replies." },
+    { keywords: ["joke", "funny"], category: "Fun Fact", response: "Why don't scientists trust atoms? Because they make up everything!" },
+    { keywords: ["help", "assist"], category: "Command", response: "Try asking about 'jokes', saying 'hello', or asking 'how are you?'" },
+    { keywords: ["thanks", "thank you", "kudos"], category: "Acknowledgement", response: "You're very welcome! Happy to help." },
 ]
 
 let defaultResponse = "Hmm, I didn't catch that. I only understand simple keywords right now. Try something easy!";
@@ -28,13 +30,14 @@ function renderKeywordsList(){
     categoryList.innerHTML = html;
 }
 helpBoxLink.addEventListener("click", function(){
-    helpBOX.classList.remove("hidden");
-    helpBOX.classList.add("show");
-    renderKeywordsList();
-});
-helpBoxLink.addEventListener("click", function(){
-    helpBOX.classList.remove("show");
-    helpBOX.classList.add("hidden");
+    if (helpBOX.classList.contains("hidden")){
+        helpBOX.classList.remove("hidden");
+        helpBOX.classList.add("show");
+        renderKeywordsList();
+    }else{
+        helpBOX.classList.remove("show");
+        helpBOX.classList.add("hidden");
+    }
 });
 
 
@@ -52,6 +55,7 @@ function sendMSG(){
         }, 1000);
     }
 }
+sendBtn.addEventListener("click", sendMSG);
 
 
 
@@ -84,9 +88,6 @@ function botResponse(userText){
 }
 
 
-
-
-sendBtn.addEventListener("click", sendMSG);
 
 userInput.addEventListener("keypress", function(event){
     if(event.key === "Enter"){
