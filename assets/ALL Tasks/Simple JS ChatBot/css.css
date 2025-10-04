@@ -190,15 +190,16 @@ body{
 
 
 .superbot-link{
+    margin-top: 30px;
     text-decoration: none;
     color: white;
-    font-weight: 700;
-    background: linear-gradient(215deg, #9c8dfe, #5145d5);
+    font-weight: 500;
+    background: linear-gradient(90deg, rgb(255, 145, 0) 30%, rgb(252, 181, 0));
     padding: 5px 40px;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     box-shadow: 0 6px 20px rgba(255, 143, 0, 0.4); /* Stronger shadow */
-    transition: transform 0.2s ease, opacity 0.2s;
+    transition: 0.3s ease;
     display: block; 
 }
 
