@@ -8,6 +8,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     background: #f0f0f0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -188,7 +189,23 @@ body{
 
 
 
+.superbot-link{
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    background: linear-gradient(215deg, #9c8dfe, #5145d5);
+    padding: 5px 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(255, 143, 0, 0.4); /* Stronger shadow */
+    transition: transform 0.2s ease, opacity 0.2s;
+    display: block; 
+}
 
+.superbot-link:hover {
+    transform: translateY(-2px) scale(1.005);
+    opacity: 0.98;
+}
 
 
 
