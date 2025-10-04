@@ -1,12 +1,12 @@
 let chatBotBrain = [
-    { keywords: ["hi", "hello", "hey", "hola"], category: "Greeting", response: "Oh, hey! What's new with you?" },
-    { keywords: ["how are you", "how's it going", "sup"], category: "Status Check", response: "I'm running smoothly, thanks for asking! What can I search for?" },
-    { keywords: ["weather", "temperature", "sun"], category: "Information Request", response: "I can't check the current weather, but I hope your day is fantastic!" },
-    { keywords: ["bye", "goodbye", "later", "cya"], category: "Farewell", response: "Talk to you later! Don't hesitate to come back." },
-    { keywords: ["name", "who are you"], category: "Identity", response: "I am a simple array-based keyword bot, designed for quick replies." },
-    { keywords: ["joke", "funny"], category: "Fun Fact", response: "Why don't scientists trust atoms? Because they make up everything!" },
-    { keywords: ["help", "assist"], category: "Command", response: "Try asking about 'jokes', saying 'hello', or asking 'how are you?'" },
-    { keywords: ["thanks", "thank you", "kudos"], category: "Acknowledgement", response: "You're very welcome! Happy to help." },
+    { category: "Greeting", keywords: ["hi", "hello", "hey", "hola"], response: "Oh, hey! What's new with you?" },
+    { category: "Status Check", keywords: ["how are you", "how's it going", "sup"], response: "I'm running smoothly, thanks for asking! What can I search for?" },
+    { category: "Information Request", keywords: ["weather", "temperature", "sun"], response: "I can't check the current weather, but I hope your day is fantastic!" },
+    { category: "Farewell", keywords: ["bye", "goodbye", "later", "cya"], response: "Talk to you later! Don't hesitate to come back." },
+    { category: "Identity", keywords: ["name", "who are you"], response: "I am a simple array-based keyword bot, designed for quick replies." },
+    { category: "Fun Fact", keywords: ["joke", "funny"], response: "Why don't scientists trust atoms? Because they make up everything!" },
+    { category: "Command", keywords: ["help", "assist"], response: "Try asking about 'jokes', saying 'hello', or asking 'how are you?'" },
+    { category: "Acknowledgement", keywords: ["thanks", "thank you", "kudos"], response: "You're very welcome! Happy to help." },
 ]
 
 let defaultResponse = "Hmm, I didn't catch that. I only understand simple keywords right now. Try something easy!";
