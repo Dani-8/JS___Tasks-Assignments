@@ -209,6 +209,62 @@ body{
 
 
 
+.typing-cont{
+    display: none;
+    padding: 0 15px 10px 15px;
+}
+
+.typing-cont.show{
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+.bot-bubble{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* background-color: #f1f1f1; */
+    color: #555;
+    width: fit-content;
+    border-radius: 20px;
+    border-bottom-left-radius: 0;
+    margin-right: auto;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.typing-dot {
+    display: inline-block;
+    height: 8px;
+    width: 8px;
+    background-color: #007bff;
+    border-radius: 50%;
+    margin: 0 6px;
+    opacity: 0.9;
+    animation: typing 0.6s infinite alternate;
+}
+
+.typing-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.5);
+    }
+}
+
+
+
 .text-sender{
     display: flex;
     padding: 15px;

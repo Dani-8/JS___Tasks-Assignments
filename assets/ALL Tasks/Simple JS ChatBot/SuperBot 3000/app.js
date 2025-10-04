@@ -68,6 +68,9 @@ let helpBox = document.getElementById("help-box");
 let categoryList = document.getElementById("category-list");
 // ------------------------------------------------------------------------------------
 
+// typing indicator container (kept global so it can be removed later)
+let typingDiv = null;
+
 
 function renderKeywordsList(){
     let html = chatBotBrain.map(item => `
@@ -127,9 +130,12 @@ function displayUserMSG(msg, sender){
 
 
 function showTypingEffect(){
-    let typingDiv = document.createElement("div");
+    // If there's already a typing indicator, don't create another
+    if (typingDiv) return;
+
+    typingDiv = document.createElement("div");
     typingDiv.id = "typing-cont";
-    typingDiv.classList.add("typing-cont", "bot");
+    typingDiv.classList.add("typing-cont", "bot", "show");
 
     typingDiv.innerHTML = `
         <div class="message-bubble bot-bubble">
