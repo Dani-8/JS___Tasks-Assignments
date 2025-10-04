@@ -8,7 +8,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #f0f0f0;
+    background: rgb(228, 246, 255);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -30,41 +30,109 @@ body{
     transition: all 0.3s ease;
 }
 .header{
-    background: linear-gradient(145deg, #4e40a8, #6355f4);
-    color: white;
+    background: linear-gradient(150deg, rgb(3, 58, 131) 0%, rgb(0, 170, 255) 100%); 
+    /* background: #fff; */
     padding: 15px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.heading{
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-align: start;
     font-size: 18px;
     font-weight: bold;
+    display: inline-block;
 }
+
+.content-header{
+    display: flex;
+    gap: 10px   ;
+
+}
+
+.header-button{
+    background-color: rgba(255, 255, 255);
+    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.3);
+    color: rgb(0, 170, 255  );
+    padding: 0px 12px;
+    border: none;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 800;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+.header-button:hover{
+    background-color:rgb(0, 174, 255);
+    color: white;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+
+}
+.header-button:active{
+    transform: scale(0.9);
+}
+
+.theme-toggle{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+.theme-toggle:hover{
+    background-color: rgb(0, 170, 255);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+.theme-toggle:active{
+    transform: scale(0.7);
+}
+
+.icon{
+    width: 20px;
+    height: 20px;
+    fill: white;
+
+}
+
+
 
 
 
 .help-box-link{
     font-size: 13px;
-    color: #574ae2;
+    color: rgb(0, 170, 255);
     text-align: center;
     width: 80%;
-    background-color: rgba(170, 163, 249, 0.3);
+    background-color: rgba(0, 170, 255, 0.1);
     padding: 5px;
     margin: 10px auto;
     border-radius: 5px;
-    border: 1px solid #574ae2;
+    border: 1px solid rgb(0, 170, 255);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 .help-box-link:hover{
-    background-color: rgba(170, 163, 249, 0.6);
-    text-decoration: underline;
+    background-color: rgba(0, 170, 255, 0.2);
 }
-
+.help-box-link:active{
+    transform: scale(0.95);
+}
 .help-box{
-    background-color: rgba(170, 163, 249, 0.3);
+    background-color: rgba(0, 170, 255, 0.1);
     color: #333;
     padding: 10px;
     width: 90%;
     font-size: 14px;
-    border-left: 4px solid #574ae2;
+    border-left: 4px solid rgb(0, 170, 255);
     margin: 10px auto;
     border-radius: 5px;
 }
@@ -78,7 +146,7 @@ body{
     margin-bottom: 10px;
     font-size: 14px;
     font-weight: 700;
-    color: #4236c1;
+    color: rgb(8, 104, 228);
 }
 .category-otem{
     margin-bottom: 2px;
@@ -86,13 +154,15 @@ body{
 .category-title{
     font-size: 12px;
     font-weight: 700;
-    color: #6c60f3;
+    color: rgb(20, 119, 248);
 }
 .keywords{
-    color: rgb(82, 82, 82);
+    color: rgb(110, 110, 110);
     font-size: 11px;
     margin-left: 3px;
 }
+
+
 
 
 
@@ -111,13 +181,14 @@ body{
 }
 
 .msg-bubble{
-    background-color: #ededed;
-    color: #333;
-    max-width: 70%;
+    background-color: #ffffff;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    color: #1f1f1f;
+    max-width: 80%;
     padding: 12px 15px;
     border-radius: 20px;
     border-bottom-left-radius: 0;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.4;
     position: relative;
     word-wrap: break-word;
@@ -165,11 +236,12 @@ body{
     color: #bdbdbd;
 }
 .text-sender input:focus{
-    border-color: #574ae2;
+    border-color: rgb(0, 170, 255);
+    box-shadow: 0 0 2px rgba(0, 170, 255);
 }
 
 .send-btn{
-    background: linear-gradient(215deg, #9c8dfe, #5145d5);
+    background: linear-gradient(50deg, rgb(7, 101, 224) 0%, rgb(0, 170, 255) 100%); 
     color: white;
     font-weight: 600;
     border: none;
