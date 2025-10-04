@@ -18,8 +18,8 @@ body{
 
 
 .chat-container{
-    width: 420px;
-    height: 80vh; /* Make it tall on desktop */
+    width: 440px;
+    height: 90vh; /* Make it tall on desktop */
     max-height: 700px;
     background-color: white;
     box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.1);
@@ -30,9 +30,9 @@ body{
     transition: all 0.3s ease;
 }
 .header{
-    background: linear-gradient(150deg, rgb(3, 58, 131) 0%, rgb(0, 170, 255) 100%); 
+    background: linear-gradient(150deg, rgb(2, 77, 176) 0%, rgb(0, 170, 255) 100%); 
     /* background: #fff; */
-    padding: 15px;
+    padding: 20px 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -54,23 +54,21 @@ body{
 }
 
 .header-button{
-    background-color: rgba(255, 255, 255);
-    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.3);
-    color: rgb(0, 170, 255  );
+    background-color: rgba(255, 255, 255,0.1);
+    color: rgb(255, 255, 255);
     padding: 0px 12px;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 20px;
-    font-size: 10px;
-    font-weight: 800;
+    font-size: 13px;
+    font-weight: 600;
     text-align: center;
     cursor: pointer;
     white-space: nowrap;
     transition: all 0.3s ease;
 }
 .header-button:hover{
-    background-color:rgb(0, 174, 255);
+    background-color: rgba(255, 255, 255,0.3);
     color: white;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 
 }
 .header-button:active{
@@ -105,43 +103,36 @@ body{
 
 
 
+.help-box-container{
+    /* padding: 10px 0; */
+    /* background-color: rgba(142, 142, 142, 0.1); */
+    /* border-bottom: 1px solid #d3d3d3; */
+    width: 100%;
+    height: 0;
+    transition: all 1s ease;
+    overflow-y: hidden;
+}
+.show{
+    height: 200px;
+}
+
+.hidden{
+    height: 0;
+}
 
 
-.help-box-link{
-    font-size: 13px;
-    color: rgb(0, 170, 255);
-    text-align: center;
-    width: 80%;
-    background-color: rgba(0, 170, 255, 0.1);
-    padding: 5px;
-    margin: 10px auto;
-    border-radius: 5px;
-    border: 1px solid rgb(0, 170, 255);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.help-box-link:hover{
-    background-color: rgba(0, 170, 255, 0.2);
-}
-.help-box-link:active{
-    transform: scale(0.95);
-}
 .help-box{
     background-color: rgba(0, 170, 255, 0.1);
     color: #333;
     padding: 10px;
     width: 90%;
+    height: fit-content;
     font-size: 14px;
     border-left: 4px solid rgb(0, 170, 255);
     margin: 10px auto;
     border-radius: 5px;
 }
-.show{
-    display: block;
-}
-.hidden{
-    display: none;
-}
+
 .help-box-title{
     margin-bottom: 10px;
     font-size: 14px;
@@ -182,7 +173,7 @@ body{
 
 .msg-bubble{
     background-color: #ffffff;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
     color: #1f1f1f;
     max-width: 80%;
     padding: 12px 15px;
@@ -195,15 +186,15 @@ body{
     animation: fadeIn 0.3s ease;
 }
 .bot{
-    background-color: #ededed;
+    background-color: #ffffff;
     color: #333;
     width: fit-content;
     border-radius: 20px;
-    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
     margin-right: auto;
 }
 .user{
-    background-color: #574ae2;
+    background: linear-gradient(350deg, rgb(7, 101, 224) 0%, rgb(0, 170, 255) 100%); 
     color: white;
     width: fit-content;
     border-radius: 20px;
@@ -225,11 +216,12 @@ body{
 }
 .text-sender input{
     flex: 1;
-    padding: 15px 12px;
+    padding: 10px 12px;
     border: 1px solid #bdbdbd;
     border-radius: 20px;
     outline: none;
     font-size: 14px;
+    box-shadow: 0 2px 3px rgba(89, 89, 89, 0.1) inset;
     transition: all 0.3s ease;
 }
 .text-sender input::placeholder{
@@ -237,17 +229,18 @@ body{
 }
 .text-sender input:focus{
     border-color: rgb(0, 170, 255);
-    box-shadow: 0 0 2px rgba(0, 170, 255);
+    box-shadow: 0 0 1px 1px rgb(7, 101, 224);
+    transition: all 0.3s ease;
 }
 
 .send-btn{
-    background: linear-gradient(50deg, rgb(7, 101, 224) 0%, rgb(0, 170, 255) 100%); 
+    background: linear-gradient(-100deg, rgb(28, 119, 239) 0%, rgb(0, 170, 255) 100%); 
     color: white;
     font-weight: 600;
     border: none;
-    padding: 15px 20px;
+    border-radius: 50px;
+    padding: 10px 20px;
     margin-left: 10px;
-    border-radius: 15px;
     cursor: pointer;
     transition: all 0.3s ease;
 }

@@ -13,9 +13,8 @@
             <span class="heading">SuperBot 3000</span>
 
             <div class="content-header">
-                <button id="clearChatButton" class="header-button">
-                    New Chat
-                </button>
+                <button id="help-box-link" class="header-button">KeyWords</button>
+                <button id="clearChatButton" class="header-button">New Chat</button>
                 <button id="themeToggle" class="theme-toggle">
                     <!-- Moon Icon for Light Mode -->
                     <svg id="moonIcon" class="icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
@@ -25,21 +24,18 @@
             </div>
         </div>
 
+        
+        <div class="help-box-container hidden" id="help-box-container">    
+            <div class="help-box" id="help-box">
+                <p class="help-box-title">Categories:</p>
+                <div class="category-list" id="category-list">
+    
+                </div>
+            </div>
+        </div>
 
 
         <div class="chat-history" id="chat-history">
-            <div>
-                <div class="help-box-link" id="help-box-link">
-                    Click to view accepted keywords (Help)
-                </div>
-        
-                <div class="help-box hidden" id="help-box">
-                    <p class="help-box-title">Categories:</p>
-                    <div class="category-list" id="category-list">
-        
-                    </div>
-                </div>
-            </div>
 
             <!-- ----------------------------------------------------- -->
 

@@ -1,15 +1,61 @@
 let chatBotBrain = [
-    { category: "Greeting", keywords: ["hi", "hello", "hey", "hola"], response: "Oh, hey! What's new with you?" },
-    { category: "Status Check", keywords: ["how are you", "how's it going", "sup"], response: "I'm running smoothly, thanks for asking! What can I search for?" },
-    { category: "Information Request", keywords: ["weather", "temperature", "sun"], response: "I can't check the current weather, but I hope your day is fantastic!" },
-    { category: "Farewell", keywords: ["bye", "goodbye", "later", "cya"], response: "Talk to you later! Don't hesitate to come back." },
-    { category: "Identity", keywords: ["name", "who are you"], response: "I am a simple array-based keyword bot, designed for quick replies." },
-    { category: "Fun Fact", keywords: ["joke", "funny"], response: "Why don't scientists trust atoms? Because they make up everything!" },
-    { category: "Command", keywords: ["help", "assist"], response: "Try asking about 'jokes', saying 'hello', or asking 'how are you?'" },
-    { category: "Acknowledgement", keywords: ["thanks", "thank you", "kudos"], response: "You're very welcome! Happy to help." },
-]
+            { 
+                keywords: ["hi", "hello", "hey", "hola"], 
+                category: "Greeting", 
+                response: "Oh, hey! I sensed a friendly greeting. What's on your mind?",
+                suggestions: ["How are you?", "Tell me a joke"]
+            },
+            { 
+                keywords: ["how are you","you're good", "how's it going", "sup"], 
+                category: "Status Check", 
+                response: "I'm running smoothly on JavaScript, thanks for asking! What else can I do for you?",
+                suggestions: ["Ask a joke", "What is your name?", "Bye"]
+            },
+            { 
+                keywords: ["joke", "funny"], 
+                category: "Fun Fact", 
+                response: "Why don't scientists trust atoms? Because they make up everything!",
+                suggestions: ["Tell me another joke", "Who are you?", "Thanks"]
+            },
+            { 
+                keywords: ["who are you", "identity", "name"], 
+                category: "Identity", 
+                response: "I am SuperBot 3000, a simple array-based keyword bot, designed for lightning-fast replies.",
+                suggestions: ["How are you?", "Tell me a joke"]
+            },
+            { 
+                keywords: ["weather", "temperature", "sun"], 
+                category: "Information Request", 
+                response: "I can't check the current weather, but I can guarantee it's sunny in my data center.",
+                suggestions: ["Tell me a joke", "Hi"]
+            },
+            { 
+                keywords: ["thanks", "thank you", "kudos"], 
+                category: "Acknowledgement", 
+                response: "You're very welcome! That's kind of you.",
+                suggestions: ["Bye", "Who are you?"]
+            },
+            { 
+                keywords: ["bye", "goodbye", "later", "cya"], 
+                category: "Farewell", 
+                response: "It was a great conversation! Talk to you later, friend.",
+                suggestions: ["Hi", "How are you?"]
+            },
+        ];
 
-let defaultResponse = "Hmm, I didn't catch that. I only understand simple keywords right now. Try something easy!";
+let defaultResponse = [
+    "My keyword sensors didn't detect a match. Try a more specific word, like 'joke'!",
+    "I'm afraid that message is beyond my current programming. Try checking the help list!",
+    "Hmm, I only understand a few topics. Could you rephrase that using one of the accepted keywords?",
+    "No match found. This is awkward. Please give me something simple!",
+];
+
+let defaultSuggestions = ["Weather", "Tell me a joke", "How are you?"];
+
+
+// ------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------
 
 
 let userInput = document.getElementById("user-input");  
@@ -17,9 +63,11 @@ let chatHistory = document.getElementById("chat-history");
 let sendBtn = document.getElementById("send-btn");
 
 let helpBoxLink = document.getElementById("help-box-link");
-let helpBOX = document.getElementById("help-box");
+let helpBoxContainer = document.getElementById("help-box-container");
+let helpBox = document.getElementById("help-box");
 let categoryList = document.getElementById("category-list");
 // ------------------------------------------------------------------------------------
+
 
 function renderKeywordsList(){
     let html = chatBotBrain.map(item => `
@@ -30,13 +78,13 @@ function renderKeywordsList(){
     categoryList.innerHTML = html;
 }
 helpBoxLink.addEventListener("click", function(){
-    if (helpBOX.classList.contains("hidden")){
-        helpBOX.classList.remove("hidden");
-        helpBOX.classList.add("show");
+    if (helpBoxContainer.classList.contains("hidden")){
+        helpBoxContainer.classList.remove("hidden");
+        helpBoxContainer.classList.add("show");
         renderKeywordsList();
     }else{
-        helpBOX.classList.remove("show");
-        helpBOX.classList.add("hidden");
+        helpBoxContainer.classList.remove("show");
+        helpBoxContainer.classList.add("hidden");
     }
 });
 
@@ -49,9 +97,13 @@ function sendMSG(){
         userInput.value = "";
         userInput.focus();
 
+        showTypingEffect();
         setTimeout(() => {
+            removeTypingIndicator();
+
             let botReply = botResponse(userText)
             displayUserMSG(botReply, "bot");
+
         }, 1000);
     }
 }
@@ -70,6 +122,33 @@ function displayUserMSG(msg, sender){
     msgContainer.appendChild(msgBubble);
     chatHistory.appendChild(msgContainer);
     chatHistory.scrollTop = chatHistory.scrollHeight;
+}
+
+
+
+function showTypingEffect(){
+    let typingDiv = document.createElement("div");
+    typingDiv.id = "typing-cont";
+    typingDiv.classList.add("typing-cont", "bot");
+
+    typingDiv.innerHTML = `
+        <div class="message-bubble bot-bubble">
+            <span>Bot is typing</span>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+        </div>`;
+
+    chatHistory.appendChild(typingDiv);
+    chatHistory.scrollTop = chatHistory.scrollHeight;
+
+
+}
+function removeTypingIndicator() {
+    if (typingDiv) {
+        typingDiv.remove();
+        typingDiv = null;
+    }
 }
 
 
