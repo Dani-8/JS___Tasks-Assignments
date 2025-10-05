@@ -43,6 +43,7 @@ let chatBotBrain = [
             },
         ];
 
+
 let defaultResponse = [
     "My keyword sensors didn't detect a match. Try a more specific word, like 'joke'!",
     "I'm afraid that message is beyond my current programming. Try checking the help list!",
@@ -60,14 +61,47 @@ let defaultSuggestions = ["Weather", "Tell me a joke", "How are you?"];
 function loadWindow(){
     chatHistory.innerHTML = ""
 
-    let initialMessage = "Hello! I'm SuperBot 3000, a simple bot. Try saying **'Hi'** or asking **'How are you?'**"
+    let initialMessage = "Hello! I'm SuperBot 3000, a simple bot. Try saying 'Hi' or asking 'How are you?'"
     displayUserMSG(initialMessage, "bot-cont", "bot");
 
     renderKeywordsList();
 }
 window.onload = loadWindow;
+// ------------------------------------------------------------------------------------
 
 
+let newChatBtn = document.getElementById("clearChatButton");
+function newChat(){
+    helpBoxContainer.classList.add("hidden");
+    helpBoxContainer.classList.remove("show");
+
+    loadWindow();
+}
+newChatBtn.addEventListener("click", newChat);
+// ------------------------------------------------------------------------------------
+
+let themeToggleBtn = document.getElementById("themeToggle");
+let moonIcon = document.getElementById("moonIcon");
+let sunIcon = document.getElementById("sunIcon");
+
+themeToggleBtn.addEventListener("click", function(){
+    if(sunIcon.classList.contains("iconHidden")){
+        document.body.classList.remove("light-mode");
+        document.body.classList.add("dark-mode");
+        moonIcon.classList.add("iconHidden");
+        sunIcon.classList.remove("iconHidden");
+    }else{
+        document.body.classList.add("light-mode");
+        document.body.classList.remove("dark-mode");
+        sunIcon.classList.add("iconHidden");    
+        moonIcon.classList.remove("iconHidden");
+    }
+});
+
+
+
+// ------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------
 let userInput = document.getElementById("user-input");  
 let chatHistory = document.getElementById("chat-history");
 let sendBtn = document.getElementById("send-btn");

@@ -12,6 +12,16 @@ body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+body.light-mode{
+    background: rgb(228, 246, 255);
+    color: #333;
+}
+body.dark-mode{
+    background: #070D18;
+    color: #e0e0e0;
+}
+
+
 /* ------------------------------------------------------------------- */
 /* ------------------------------------------------------------------- */
 
@@ -29,6 +39,11 @@ body{
     overflow: hidden;
     transition: all 0.3s ease;
 }
+body.dark-mode .chat-container{
+    background-color: #1E293B;
+    color: #e0e0e0;
+}
+
 .header{
     background: linear-gradient(150deg, rgb(2, 77, 176) 0%, rgb(0, 170, 255) 100%); 
     /* background: #fff; */
@@ -85,6 +100,7 @@ body{
     border-radius: 20px;
     background-color: transparent;
     transition: all 0.3s ease;
+    background-color: rgb(0, 170, 255);
 }
 .theme-toggle:hover{
     background-color: rgb(0, 170, 255);
@@ -97,10 +113,12 @@ body{
 .icon{
     width: 20px;
     height: 20px;
-    fill: white;
-
+    fill: none;
+    stroke: white;
+    stroke-width: 2;}
+.iconHidden{
+    display: none;
 }
-
 
 
 .help-box-container{
@@ -205,6 +223,10 @@ body{
     border-bottom-left-radius: 5px;
     margin-right: auto;
 }
+body.dark-mode .bot{
+    background-color: #334155;
+    color: #e0e0e0;
+}
 .user-cont{
     flex-direction: row-reverse;
 }
@@ -295,6 +317,12 @@ body{
     font-size: 14px;
     box-shadow: 0 2px 3px rgba(89, 89, 89, 0.1) inset;
     transition: all 0.3s ease;
+}
+body.dark-mode .text-sender input{
+    background-color: #334155;
+    color: #e0e0e0;
+    border: 1px solid #555;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2) inset;
 }
 .text-sender input::placeholder{
     color: #bdbdbd;
