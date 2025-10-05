@@ -57,6 +57,16 @@ let defaultSuggestions = ["Weather", "Tell me a joke", "How are you?"];
 // ------------------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------------------
 
+function loadWindow(){
+    chatHistory.innerHTML = ""
+
+    let initialMessage = "Hello! I'm SuperBot 3000, a simple bot. Try saying **'Hi'** or asking **'How are you?'**"
+    displayUserMSG(initialMessage, "bot-cont", "bot");
+
+    renderKeywordsList();
+}
+window.onload = loadWindow;
+
 
 let userInput = document.getElementById("user-input");  
 let chatHistory = document.getElementById("chat-history");
@@ -67,9 +77,6 @@ let helpBoxContainer = document.getElementById("help-box-container");
 let helpBox = document.getElementById("help-box");
 let categoryList = document.getElementById("category-list");
 // ------------------------------------------------------------------------------------
-
-// typing indicator container (kept global so it can be removed later)
-let typingDiv = null;
 
 
 function renderKeywordsList(){
@@ -96,16 +103,16 @@ helpBoxLink.addEventListener("click", function(){
 function sendMSG(){
     let userText = userInput.value.trim();
     if(userText !== ""){
-        displayUserMSG(userText, "user");
+        displayUserMSG(userText, "user-cont", "user");
         userInput.value = "";
         userInput.focus();
-
+        
         showTypingEffect();
         setTimeout(() => {
-            // removeTypingIndicator();
+            removeTypingIndicator();
 
             let botReply = botResponse(userText)
-            displayUserMSG(botReply, "bot");
+            displayUserMSG(botReply, "bot-cont", "bot");
 
         }, 1000);
     }
@@ -114,14 +121,26 @@ sendBtn.addEventListener("click", sendMSG);
 
 
 
-function displayUserMSG(msg, sender){
+
+function timing(){
+    let now = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
+    return now;
+}
+function displayUserMSG(msg, sendercont, sender){
+    let time = timing();
+    
+    let timingCont = document.createElement("div");
+    timingCont.classList.add("time-cont");
+    timingCont.textContent = time;
+
     let msgContainer = document.createElement("div");
-    msgContainer.classList.add("msg-cont");
+    msgContainer.classList.add("msg-cont", sendercont);
     let msgBubble = document.createElement("div");
     msgBubble.classList.add("msg-bubble", sender);
-
-
     msgBubble.textContent = msg;
+
+
+    msgContainer.appendChild(timingCont);
     msgContainer.appendChild(msgBubble);
     chatHistory.appendChild(msgContainer);
     chatHistory.scrollTop = chatHistory.scrollHeight;
@@ -130,9 +149,6 @@ function displayUserMSG(msg, sender){
 
 
 function showTypingEffect(){
-    // If there's already a typing indicator, don't create another
-    if (typingDiv) return;
-
     typingDiv = document.createElement("div");
     typingDiv.id = "typing-cont";
     typingDiv.classList.add("typing-cont", "bot", "typing-cont-show");
@@ -147,8 +163,6 @@ function showTypingEffect(){
 
     chatHistory.appendChild(typingDiv);
     chatHistory.scrollTop = chatHistory.scrollHeight;
-
-
 }
 function removeTypingIndicator() {
     if (typingDiv) {
