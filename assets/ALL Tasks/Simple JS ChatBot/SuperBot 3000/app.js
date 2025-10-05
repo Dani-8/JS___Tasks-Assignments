@@ -134,9 +134,8 @@ function showTypingEffect(){
     if (typingDiv) return;
 
     typingDiv = document.createElement("div");
-    typingDiv.classList.add = "typing-cont";
     typingDiv.id = "typing-cont";
-    typingDiv.classList.add("typing-cont", "bot", "show");
+    typingDiv.classList.add("typing-cont", "bot", "typing-cont-show");
 
     typingDiv.innerHTML = `
         <div class="bot-bubble bot">
