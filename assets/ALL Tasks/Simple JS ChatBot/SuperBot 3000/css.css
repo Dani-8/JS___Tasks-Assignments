@@ -166,7 +166,7 @@ body{
     gap: 10px;
 }
 
-.msg-container{
+.msg-cont{
     display: flex;
     gap: 10px;
 }
@@ -180,7 +180,6 @@ body{
     border-radius: 20px;
     border-bottom-left-radius: 0;
     font-size: 15px;
-    line-height: 1.4;
     position: relative;
     word-wrap: break-word;
     animation: fadeIn 0.3s ease;
@@ -211,52 +210,51 @@ body{
 
 .typing-cont{
     display: none;
-    padding: 0 15px 10px 15px;
 }
 
 .typing-cont.show{
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
+    display: flex;
+    gap: 10px;
 }
 .bot-bubble{
     display: flex;
     align-items: center;
     gap: 8px;
-    background-color: #f1f1f1;
-    color: #555;
     width: fit-content;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    color: #1f1f1f;
+    padding: 12px 15px;
     border-radius: 20px;
     border-bottom-left-radius: 0;
-    margin-right: auto;
-    padding: 8px 12px;
-    font-size: 14px;
-    font-weight: 500;
-    white-space: nowrap;
+    font-size: 15px;
+    position: relative;
+    word-wrap: break-word;
+    animation: fadeIn 0.3s ease;
 }
 
 .typing-dot {
     display: inline-block;
     height: 5px;
     width: 5px;
-    background-color: #007bff;
+    background-color: #67affc;
     border-radius: 50%;
     margin: 0 2px;
     opacity: 0.9;
     animation: typing 0.6s infinite alternate;
 }
 
-.typing-dot:nth-child(2) {
+.typing-dot:nth-child(3) {
     animation-delay: 0.2s;
 }
 
-.typing-dot:nth-child(3) {
+.typing-dot:nth-child(4) {
     animation-delay: 0.4s;
 }
 
 @keyframes typing {
     from {
-        transform: scale(1);
+        transform: scale(0.9);
         opacity: 0.3;
     }
     to {
