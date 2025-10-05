@@ -102,7 +102,7 @@ function sendMSG(){
 
         showTypingEffect();
         setTimeout(() => {
-            removeTypingIndicator();
+            // removeTypingIndicator();
 
             let botReply = botResponse(userText)
             displayUserMSG(botReply, "bot");
