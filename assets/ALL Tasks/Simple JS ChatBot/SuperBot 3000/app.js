@@ -150,6 +150,7 @@ function sendMSG(){
 
             let botReply = botResponse(userText)
             displayUserMSG(botReply, "bot-cont", "bot");
+            defaultSuggestions(botReply.suggestions)
 
         }, 1000);
     }
@@ -220,7 +221,7 @@ function botResponse(userText){
         }
     }
 
-    return defaultResponse();
+    return defaultResponse()  
 
 }
 // ------------------------------------------------------------------------------------
@@ -232,12 +233,27 @@ function defaultResponse(){
 }
 // ------------------------------------------------------------------------------------
 
-function defaultSuggestions(){
-    return [
-        "Can you please clarify?",
-        "I'm not sure I understand.",
-        "Could you provide more details?"
-    ];
+function defaultSuggestions(suggestion){
+    let suggestionCont = document.createElement("div");
+    suggestionCont.classList.add("suggestion-cont");
+
+    suggestion.forEach(sug => {
+        let chip = document.createElement("div");
+        chip.classList.add("suggestion-chip");
+        chip.textContent = sug;
+        suggestionCont.appendChild(chip);
+
+
+        chip.addEventListener("click", function(){
+            userInput.value = sug;
+            sendMSG();
+        });
+    })
+
+    return suggestionCont;
+
+    chatHistory.appendChild(suggestionCont);
+    chatHistory.scrollTop = chatHistory.scrollHeight;
 }
 
 
