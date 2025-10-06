@@ -233,24 +233,29 @@ function defaultResponse(){
 }
 // ------------------------------------------------------------------------------------
 
-function defaultSuggestions(suggestion){
-    let suggestionCont = document.createElement("div");
+function defaultSuggestions(suggestions){
+    // remove any existing suggestion lists first
+    document.querySelectorAll(".suggestion-cont").forEach(el => el.remove());
+
+    // if suggestions is falsy or not an array, fall back to default chips
+    if(!Array.isArray(suggestions) || suggestions.length === 0){
+        suggestions = defaultSuggestionsChips;
+        if(!suggestions || suggestions.length === 0) return;
+    }
+
+    const suggestionCont = document.createElement("div");
     suggestionCont.classList.add("suggestion-cont");
 
-    suggestion.forEach(sug => {
-        let chip = document.createElement("div");
+    suggestions.forEach(suggestion => {
+        const chip = document.createElement("div");
         chip.classList.add("suggestion-chip");
-        chip.textContent = sug;
-        suggestionCont.appendChild(chip);
-
-
+        chip.textContent = suggestion;
         chip.addEventListener("click", function(){
-            userInput.value = sug;
+            userInput.value = suggestion;
             sendMSG();
         });
-    })
-
-    return suggestionCont;
+        suggestionCont.appendChild(chip);
+    });
 
     chatHistory.appendChild(suggestionCont);
     chatHistory.scrollTop = chatHistory.scrollHeight;

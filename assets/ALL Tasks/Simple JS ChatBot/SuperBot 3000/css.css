@@ -227,13 +227,37 @@ body.dark-mode .bot{
     color: #e0e0e0;
 }
 
-.suggestion-list{
+
+.suggestion-cont{
     display: flex;
-    flex-wrap: wrap;
     gap: 10px;
-    margin-top: 10px;
-    background-color: #998585;
-    width: 100%;
+    margin-left: 50px;
+    /* background-color: rgb(230, 201, 173); */
+}
+.suggestion-chip {
+    border: 1px solid rgb(0, 170, 255);
+    border-radius: 25px;
+    cursor: pointer;
+
+    background-color: rgb(0, 170, 255, 0.1);
+    padding: 3px 10px;
+    text-align: center;
+    font-size: 12px;
+    color: rgb(2, 77, 176);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    transition: 0.2s ease;
+}
+body.dark-mode .suggestion-chip{
+    background-color: #334155;
+    color: rgb(35, 182, 255);
+    border-color: rgb(0, 170, 255, 0.4);
+}
+
+.suggestion-chip:hover {
+    background-color: rgb(0, 170, 255, 0.3);
+}
+body.dark-mode .suggestion-chip:hover{
+    background-color: rgb(255, 255, 255, 0.2);
 }
 
 
