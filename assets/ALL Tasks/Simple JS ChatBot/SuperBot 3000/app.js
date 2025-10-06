@@ -44,14 +44,14 @@ let chatBotBrain = [
         ];
 
 
-let defaultResponse = [
+let defaultResponses = [
     "My keyword sensors didn't detect a match. Try a more specific word, like 'joke'!",
     "I'm afraid that message is beyond my current programming. Try checking the help list!",
     "Hmm, I only understand a few topics. Could you rephrase that using one of the accepted keywords?",
     "No match found. This is awkward. Please give me something simple!",
 ];
 
-let defaultSuggestions = ["Weather", "Tell me a joke", "How are you?"];
+let defaultSuggestionsChips = ["Weather", "Tell me a joke", "How are you?"];
 
 
 // ------------------------------------------------------------------------------------------------------------
@@ -63,7 +63,8 @@ function loadWindow(){
 
     let initialMessage = "Hello! I'm SuperBot 3000, a simple bot. Try saying 'Hi' or asking 'How are you?'"
     displayUserMSG(initialMessage, "bot-cont", "bot");
-
+    userInput.value = "";
+    userInput.focus();
     renderKeywordsList();
 }
 window.onload = loadWindow;
@@ -97,6 +98,8 @@ themeToggleBtn.addEventListener("click", function(){
         moonIcon.classList.remove("iconHidden");
     }
 });
+
+
 
 
 
@@ -213,12 +216,30 @@ function botResponse(userText){
     for(let item of chatBotBrain){
         let matching = item.keywords.some(keyword => userTexttoLowerCase.includes(keyword))
         if(matching){
-            return item.response;
+            return item.response
         }
     }
 
-    return defaultResponse;
+    return defaultResponse();
+
 }
+// ------------------------------------------------------------------------------------
+
+function defaultResponse(){
+    let response = defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+
+    return response
+}
+// ------------------------------------------------------------------------------------
+
+function defaultSuggestions(){
+    return [
+        "Can you please clarify?",
+        "I'm not sure I understand.",
+        "Could you provide more details?"
+    ];
+}
+
 
 
 
