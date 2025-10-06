@@ -66,6 +66,9 @@ function loadWindow(){
     userInput.value = "";
     userInput.focus();
     renderKeywordsList();
+
+
+    defaultSuggestions(defaultSuggestionsChips);
 }
 window.onload = loadWindow;
 // ------------------------------------------------------------------------------------
@@ -148,9 +151,11 @@ function sendMSG(){
         setTimeout(() => {
             removeTypingIndicator();
 
-            let botReply = botResponse(userText)
-            displayUserMSG(botReply, "bot-cont", "bot");
-            defaultSuggestions(botReply.suggestions)
+            let botReply = botResponse(userText); // { response, suggestions }
+            displayUserMSG(botReply.response, "bot-cont", "bot");
+            if (Array.isArray(botReply.suggestions) && botReply.suggestions.length) {
+                defaultSuggestions(botReply.suggestions);
+            }
 
         }, 1000);
     }
@@ -217,7 +222,7 @@ function botResponse(userText){
     for(let item of chatBotBrain){
         let matching = item.keywords.some(keyword => userTexttoLowerCase.includes(keyword))
         if(matching){
-            return item.response
+            return { response: item.response, suggestions: item.suggestions || [] };
         }
     }
 
@@ -229,7 +234,7 @@ function botResponse(userText){
 function defaultResponse(){
     let response = defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
 
-    return response
+    return { response, suggestions: defaultSuggestionsChips };
 }
 // ------------------------------------------------------------------------------------
 
