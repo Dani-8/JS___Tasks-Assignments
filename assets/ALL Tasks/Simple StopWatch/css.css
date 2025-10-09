@@ -3,13 +3,26 @@
     margin: 0;
     box-sizing: border-box;
 }
+body{
+    background-color: rgb(92, 91, 91);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container{
+    color: white;
+    font-size: 40px;
+}
 
 
 
 
-
-
-
+.milli{
+    font-size: 25px;
+}
 
 
 
