@@ -20,13 +20,19 @@ function UpdateDisplay(){
 
 
 startBTN.addEventListener("click", () => {
-    setInterval(() => {
+    timer = setInterval(() => {
         seconds++
         UpdateDisplay()
     }, 5);
 
 })
 
+
+resetBTN.addEventListener("click", () => {
+    clearInterval(timer)
+    seconds = 0
+    UpdateDisplay()
+})
 
 
 
