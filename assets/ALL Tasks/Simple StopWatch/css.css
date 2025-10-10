@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body{
-    background-color: rgb(92, 91, 91);
+    background-color: rgb(31, 31, 31);
     display: flex;
     justify-content: center;
     align-items: center;
