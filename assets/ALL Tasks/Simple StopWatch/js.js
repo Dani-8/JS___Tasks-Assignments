@@ -49,14 +49,22 @@ function startStopWatch(){
 }
 startBTN.addEventListener("click", startStopWatch)
 
-resetBTN.addEventListener("click", () => {
-    clearInterval(timer)
+
+
+function resetWatch(){
+    running = false
     seconds = 0
-    UpdateDisplay()
-})
+    clearInterval(timer)
+
+    UpdateDisplay()  
+    display.innerHTML = timeFormat(0)
+    startBTN.textContent = "Start"
+    startBTN.classList.add('start-btn');
+    startBTN.classList.remove('pause-btn');
 
 
-
+}
+resetBTN.addEventListener("click", resetWatch)
 
 
 
