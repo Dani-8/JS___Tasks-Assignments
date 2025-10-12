@@ -20,17 +20,17 @@ body{
     padding-bottom: 40px;
     background-color: rgb(25, 25, 25);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(0, 0, 0, 0.9) inset;
-    border: 1px solid rgb(255, 255, 255);
-    border-radius: 10px;
+    border: 1px solid rgb(60, 60, 60);
+    border-radius: 20px;
 }
 .display{
     background-color: rgb(0, 0, 0);
     color: #ffe4ae;
-    box-shadow: 0 0 15px rgba(245, 230, 204, 0.3);
-    text-shadow: 0 0 10px rgba(245, 230, 204, 0.7);
+    box-shadow: 0 0 15px rgba(245, 230, 204, 0.2);
+    text-shadow: 0 0 20px rgba(245, 230, 204, 0.9);
     padding: 20px 80px;
     margin-bottom: 30px;
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid rgb(116, 116, 116);
     border-radius: 20px;
     font-size: 60px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -53,6 +53,7 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     padding: 10px 40px;
     border-radius: 10px;
+    cursor: pointer;
     transition: 0.3s ease;
 }
 .btn:active{
@@ -64,7 +65,10 @@ body{
 
 .start-btn{
     background-color: #C9A050;
-    box-shadow: 0 7px 20px rgba(201, 160, 80, 0.5);
+    box-shadow: 0 2px 10px rgba(201, 160, 80, 0.5);
+}
+.start-btn:hover{
+    box-shadow: 0 2px 20px rgba(201, 160, 80, 0.5);
 }
 .pause-btn{
     background-color: #d2d2d2;
@@ -75,7 +79,9 @@ body{
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     color: white;
 }
-
+.reset-btn:hover{
+    background-color: rgb(69, 69, 69);
+}
 
 
 

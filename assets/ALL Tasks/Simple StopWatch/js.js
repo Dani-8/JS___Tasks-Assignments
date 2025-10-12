@@ -4,6 +4,8 @@ let resetBTN = document.getElementById("reset-btn")
 
 let seconds = 0;
 let running = false
+// ---------------------------------------------------------------------
+
 
 function timeFormat(ms){
     let milliSeconds = String(Math.floor((ms % 1000)) / 10).padStart(2, "0")
@@ -21,11 +23,7 @@ function UpdateDisplay(){
 }
 
 
-
-// startBTN.addEventListener("click", () => {
-//     timer = setInterval(UpdateDisplay, 10);
-
-// })
+// ---------------------------------------------------------------------
 
 function startStopWatch(){
     if(running){
