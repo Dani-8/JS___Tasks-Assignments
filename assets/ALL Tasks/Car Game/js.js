@@ -1,4 +1,7 @@
 let car = document.getElementById("car")
+let trafficLights = document.querySelectorAll('.light');
+let lane = document.getElementById("lane")
+
 // ------------------------------------------------------------
 
 let CAR_WIDTH = 60
@@ -16,9 +19,59 @@ let MAX_CAR_X = ROAD_WIDTH - CAR_WIDTH
 let carTop = CAR_STOP_Y
 let carX = (ROAD_WIDTH / 2) - (CAR_WIDTH / 2)
 let keys = []
+
+
+let LIGHT_CYCLE = {
+    'green': 6000, 
+    'yellow': 2500, 
+    'red': 4000     
+};
+let LIGHT_ORDER = ['green', 'yellow', 'red'];
+let trafficLightRule
 // ------------------------------------------------------------
 
 
+function trafficLight(color){
+    currentLight = color
+
+    trafficLights.forEach(light => {
+        light.classList.remove("active")
+        if(light.dataset.color === color){
+            light.classList.add("active")
+        }
+    })
+
+    warningMessage.classList.remove('active', 'yellow', 'red')
+    let msg = ""
+
+    if(color == "red"){
+        lane.classList.add("stop")
+        message = '🛑 STOP NOW 🛑'
+        warningMessage.classList.add('red', 'active')
+    }else{
+        lane.classList.remove("stop")
+        if(color == "yellow"){
+            message = '⚠️ SLOW DOWN ⚠️'
+            warningMessage.classList.add('yellow', 'active')
+        }
+    }
+
+    warningMessage.textContent = msg
+}
+
+function startLight(){
+    let lightIndex = 0
+    
+    function cycle(){
+        let color = LIGHT_ORDER[lightIndex]
+        trafficLight(color)
+
+        let duration = LIGHT_CYCLE[color]
+        lightIndex = (lightIndex + 1) % LIGHT_ORDER.length
+        trafficLightRule = setInterval(cycle, duration)
+    }
+    cycle()
+}
 
 
 
