@@ -71,10 +71,10 @@ body{
     position: absolute;
     width: 60px;
     height: 100px;
-    background: linear-gradient(135deg, #3498db, #2980b9);
-    border-radius: 12px 12px 6px 6px;
-    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.7);
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: linear-gradient(180deg, #1d80c3 40%, #0b5688);
+    border-radius: 12px;
+    box-shadow: 0 0px 25px rgba(52, 152, 219, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.5);
     transition: left 0.2s ease-out;
     z-index: 999;
     
