@@ -16,8 +16,8 @@ body{
 .game-container{
     /* position: relative; */
     background-color: black;
-    border-radius: 15px;
-    border: 3px solid rgba(148, 158, 201, 0.4);
+    border-radius: 20px;
+    border: 3px solid rgba(148, 158, 201, 0.5);
     box-shadow: 0 10px 80px rgba(0, 0, 0, 0.4);
     height: 700px;
     width: 450px;
@@ -72,14 +72,25 @@ body{
     width: 60px;
     height: 100px;
     background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-    border-radius: 12px;
+    border-radius: 15px 15px 10px 10px;
     box-shadow: 0 0px 25px rgba(52, 152, 219, 0.8);
     border: 2px solid rgba(255, 255, 255, 0.5);
     transition: left 0.2s ease-out;
     z-index: 999;
     
 }
-
+.car::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    width: 42px;
+    height: 32px;
+    background: linear-gradient(155deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5));
+    border-radius: 8px;
+    transform: translateX(-50%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
 
 
 

@@ -15,7 +15,7 @@ let MAX_CAR_X = ROAD_WIDTH - CAR_WIDTH
 
 let carTop = CAR_STOP_Y
 let carX = (ROAD_WIDTH / 2) - (CAR_WIDTH / 2)
-let keys = {}
+let keys = []
 // ------------------------------------------------------------
 
 
@@ -44,13 +44,13 @@ function game(){
     
 
 }
-// Run the game loop continuously so key state is checked each frame
+
 function loop(){
     game()
     requestAnimationFrame(loop)
 }
-
 loop()
+
 
 document.addEventListener("keydown", (e) => {
     if(e.key === "ArrowLeft" || e.key === 'ArrowRight' || e.key === 'ArrowUp' || e.key === 'ArrowDown'){
