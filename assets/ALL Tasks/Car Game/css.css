@@ -46,16 +46,17 @@ body{
 }
 .lane.stop{
     background: repeating-linear-gradient(
-        to bottom,
-        transparent,
-        transparent 40px,
-        #ef4444 40px,
-        #ef4444 80px
+    160deg,
+    transparent,
+    transparent 30px,
+    #ef4444 30px,
+    #ef4444 60px
     );
 }
 
 .lane:nth-child(1) { left: 30.33%; }
 .lane:nth-child(2) { left: 70.66%; }
+
 
 @keyframes moveLines {
     from { background-position: 0 0; }
@@ -72,7 +73,9 @@ body{
     z-index: 5;
     opacity: 0.5;
 }
-
+.stop-line.stop{
+    background-color: #ef4444;
+}
 
 .score{
     position: absolute;
