@@ -119,6 +119,7 @@ body{
 .red.active{
     background-color: rgb(242, 69, 60);
     box-shadow: 0 0 15px rgba(211, 40, 31, 0.8);
+    color: white;
 }
 .yellow.active{
     background-color: rgb(238, 225, 43);

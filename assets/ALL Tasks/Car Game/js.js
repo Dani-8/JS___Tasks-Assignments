@@ -32,7 +32,7 @@ let LIGHT_ORDER = ['green', 'yellow', 'red'];
 let trafficLightRule
 // ------------------------------------------------------------
 let warningMessage = document.getElementById('warning-msg')
-let currentLight = null
+let currentLight = "green"
 
 
 function trafficLight(color){
