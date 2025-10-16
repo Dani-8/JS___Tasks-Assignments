@@ -2,6 +2,7 @@ let car = document.getElementById("car")
 let trafficLights = document.querySelectorAll('.light');
 let lanes = document.querySelectorAll('.lane')
 let stopline = document.getElementById("stopLine")
+let warningMessage = document.getElementById('warning-msg')
 
 // ------------------------------------------------------------
 
@@ -29,10 +30,9 @@ let LIGHT_CYCLE = {
     'red': 4000     
 };
 let LIGHT_ORDER = ['green', 'yellow', 'red'];
+let currentLight = "green"
 let trafficLightRule
 // ------------------------------------------------------------
-let warningMessage = document.getElementById('warning-msg')
-let currentLight = "green"
 
 
 function trafficLight(color){
@@ -107,12 +107,6 @@ function game(){
             return
         }
     }
-
-
-    
-
-
-
 }
 function loop(){
     game()
