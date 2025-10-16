@@ -21,6 +21,7 @@ let carX = (ROAD_WIDTH / 2) - (CAR_WIDTH / 2)
 let keys = []
 
 
+
 let LIGHT_CYCLE = {
     'green': 6000, 
     'yellow': 2500, 
@@ -97,7 +98,6 @@ function game(){
     
 
 }
-
 function loop(){
     game()
     requestAnimationFrame(loop)
@@ -126,9 +126,13 @@ document.addEventListener("keyup", (e) => {
 
 
 
+function startGAME(){
+    
+    startLight()
 
+}
 
-
+startGAME()
 
 
 
