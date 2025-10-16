@@ -32,7 +32,7 @@ let LIGHT_ORDER = ['green', 'yellow', 'red'];
 let trafficLightRule
 // ------------------------------------------------------------
 let warningMessage = document.getElementById('warning-msg')
-// let currentLight = null
+let currentLight = null
 
 
 function trafficLight(color){
@@ -99,8 +99,19 @@ function game(){
         carX = Math.min(MAX_CAR_X, carX + STEERING_SPEED);
     }
     car.style.left = carX + 'px';
+    // ------------------------------------------------------
     
+    if(currentLight === "red"){
+        if(carTop < CAR_STOP_Y - 25){
+            alert("GAME OVER \nReason: RED LIGHT VIOLATION (Past Stop Line)");
+            return
+        }
+    }
+
+
     
+
+
 
 }
 function loop(){
@@ -132,7 +143,6 @@ document.addEventListener("keyup", (e) => {
 
 
 function startGAME(){
-    
     startLight()
 
 }
