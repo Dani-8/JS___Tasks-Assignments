@@ -1,10 +1,18 @@
 function withdraw(){
     let amount = parseInt(document.getElementById("amount").value)
-    let result = document.getElementById("result")
+    let output = document.getElementById("output")
 
-    let notes = [5000, 1000, 500, 100, 50, 20, 10]
+    if(amount % 10 !== 0){
+        output.textContent = "❌ Cannot dispense the exact amount with available denominations.";
+        return;
+    }
+    // console.log(amount);
     
 
+    let notes = [5000, 1000, 500, 100, 50, 20, 10]
+    let result = {}
+
+    
 
 }
 
