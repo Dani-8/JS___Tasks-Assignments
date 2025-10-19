@@ -40,7 +40,7 @@ function withdraw(){
         
         totalNotes += result[note]
     }
-    output.textContent += `Total Notes: ${totalNotes}`
+    output.innerHTML += `<br>Total Notes: ${totalNotes}`
 
 }
 
