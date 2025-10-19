@@ -36,7 +36,7 @@ function withdraw(){
 
     let totalNotes = 0
     for(let note of notes){
-        output.textContent += `${note}: ${result[note]}\n`;
+        output.innerHTML += `${note}: ${result[note]} <br>`;
         
         totalNotes += result[note]
     }

@@ -19,7 +19,7 @@ body{
     align-items: start;
     flex-direction: column;
     background-color: rgb(255, 255, 255);
-    width: 30%;
+    width: 35%;
     padding: 15px 45px;
     border-radius: 20px;
     border-top: 5px solid green;
@@ -32,12 +32,14 @@ body{
 
 .input-field{
     width: 100%;
-    margin: 10px 0;
-    padding: 10px 15px;
+    margin: 5px 0;
+    padding: 12px 15px;
     padding-left: 15px;
     outline: none;
     border: 1px solid grey;
     border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
 }
 .input-field:focus{
     border: 3px solid green;
@@ -46,22 +48,44 @@ body{
 
 .btn{
     width: 100%;
-    padding: 10px 20px;
+    padding: 12px 20px;
+    margin-top: 10px;
     outline: none;
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    background-color: rgb(23, 163, 74);
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+.btn:hover{
+    background-color: green;
+}
+.btn:active{
+    transform: scale(0.95);
+    box-shadow: 0 0 0px 5px rgba(0, 128, 0, 0.3);
 }
 
 .output-cont{
     display: flex;
     flex-direction: column;
     justify-content: center;
-
+    margin-top: 30px;
+    padding: 10px 15px;
+    width: 100%;
+    background-color: rgb(246, 246, 246);
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 10px;
 }
 .output{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    width: fit-content;
+    text-wrap: wrap;
+    color: rgb(0, 162, 0);
+    margin-top: 10px;
 }
 
 
