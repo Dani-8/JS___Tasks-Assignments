@@ -5,6 +5,7 @@ function withdraw(){
 
     if(amount % 10 !== 0){
         output.textContent = "❌ Cannot dispense the exact amount with available denominations.";
+        output.style.textAlign = 'center'
         return;
     }
     
@@ -37,6 +38,7 @@ function withdraw(){
     let totalNotes = 0
     for(let note of notes){
         output.innerHTML += `${note}: ${result[note]} <br>`;
+        output.style.textAlign = 'start'
         
         totalNotes += result[note]
     }
