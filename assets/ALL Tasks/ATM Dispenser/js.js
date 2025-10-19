@@ -28,10 +28,18 @@ function withdraw(){
     for(let note of notes){
         while(remaining >= note){
             result[note]++
+            remaining -= note
         }
-        
     }
 
+
+    let totalNotes = 0
+    for(let note of notes){
+        output.textContent += `${note}: ${result[note]}\n`;
+        
+        totalNotes += result[note]
+    }
+    output.textContent += `Total Notes: ${totalNotes}`
 
 }
 
