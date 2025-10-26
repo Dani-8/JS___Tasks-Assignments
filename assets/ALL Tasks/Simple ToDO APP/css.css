@@ -13,13 +13,76 @@ body{
 }
 
 .container{
+    width: 500px;
     background: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.container div{
+    /* background-color: lightblue; */
+    width: 100%;
+}
+.task-input{
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #bcbcbc;
+    border-radius: 7px;
+    outline: none;
+}
+.task-input:focus{
+    border-color: #2859a7;
+}
+.add-btn{
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    background-color: #2859a7;
+    color: white;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-left: 10px;
 }
 
+
+
+.container ul{
+    background-color: rgb(173, 230, 201);
+    width: 100%;
+}
+.container ul li{
+    list-style: none;
+    padding: 10px;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #bcbcbc;
+}
+
+
+.btns-container{
+    display: flex;
+    align-items: center;
+    width: auto;
+}
+.btns-container button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    color: #2859a7;
+}
+.svg-icon{
+    height: 17px;
+    width: 17px;
+}
 
 
 
@@ -35,8 +98,15 @@ body{
 
 .clearall-btn{
     display: inline-block;
-
-
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    background-color: #ca3434;
+    color: white;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-left: 10px;
 }
 
 
