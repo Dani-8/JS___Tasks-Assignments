@@ -63,7 +63,7 @@ body{
     padding: 10px;
     margin-bottom: 10px;
     font-size: 18px;
-    background-color: rgb(233, 243, 254);
+    background-color: rgb(241, 248, 255);
     border-radius: 12px;
     border-left: 3px solid rgb(39, 93, 150);
     border-bottom: 3px solid rgb(39, 93, 150);
@@ -72,6 +72,10 @@ body{
     align-items: center;
 }
 
+.task-text{
+    font-weight: 600;
+    font-size: 16px;
+}
 
 .btns-container{
     display: flex;
@@ -80,10 +84,16 @@ body{
 }
 .btns-container button{
     background-color: transparent;
+    /* background-color: rgb(228, 223, 149); */
     border: none;
     cursor: pointer;
     margin-left: 20px;
-    color: #2859a7;
+    padding: 5px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease;
 }
 .svg-icon{
     height: 17px;
@@ -92,22 +102,22 @@ body{
 .check-icon{
     color: #11a83c;
 }
+.check-btn:hover{
+    background-color: rgba(17, 168, 60, 0.2);
+}
 .edit-icon{
     color: #3468ca;
+}
+.edit-btn:hover{
+    background-color: rgb(52, 104, 202, 0.2);
 }
 .del-icon{
     color: #ca3434;
 }
-
-
-.completed{
-    text-decoration: line-through;
-    color: gray;
+.del-btn:hover{
+    background-color: rgb(202, 52, 52, 0.2);
 }
-.completed-text{
-    text-decoration: line-through;
-    color: gray;
-}
+
 
 
 .clearall-btn{
@@ -121,6 +131,23 @@ body{
     border-radius: 7px;
     cursor: pointer;
     margin-top: 10px;
+}
+
+
+
+
+
+.btns-container svg.completed{
+    color: gray;
+
+}
+.completed svg{
+    text-decoration: line-through;
+    color: gray;
+}
+.completed-text{
+    text-decoration: line-through;
+    color: gray;
 }
 
 
