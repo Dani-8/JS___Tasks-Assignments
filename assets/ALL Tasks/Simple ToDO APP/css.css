@@ -23,8 +23,21 @@ body{
 
 
 
+.completed{
+    text-decoration: line-through;
+    color: gray;
+}
+.completed-text{
+    text-decoration: line-through;
+    color: gray;
+}
 
 
+.clearall-btn{
+    display: inline-block;
+
+
+}
 
 
 
