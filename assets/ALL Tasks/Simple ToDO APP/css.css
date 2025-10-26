@@ -26,9 +26,11 @@ body{
 .container div{
     /* background-color: lightblue; */
     width: 100%;
+    margin: 10px 0;
 }
 .task-input{
     width: 80%;
+    margin: 10px 0;
     padding: 10px;
     font-size: 16px;
     border: 2px solid #bcbcbc;
@@ -53,17 +55,21 @@ body{
 
 
 .container ul{
-    background-color: rgb(173, 230, 201);
+    /* background-color: rgb(173, 230, 201); */
     width: 100%;
 }
 .container ul li{
     list-style: none;
     padding: 10px;
+    margin-bottom: 10px;
     font-size: 18px;
+    background-color: rgb(233, 243, 254);
+    border-radius: 12px;
+    border-left: 3px solid rgb(39, 93, 150);
+    border-bottom: 3px solid rgb(39, 93, 150);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #bcbcbc;
 }
 
 
@@ -76,14 +82,22 @@ body{
     background-color: transparent;
     border: none;
     cursor: pointer;
-    margin-left: 10px;
+    margin-left: 20px;
     color: #2859a7;
 }
 .svg-icon{
     height: 17px;
     width: 17px;
 }
-
+.check-icon{
+    color: #11a83c;
+}
+.edit-icon{
+    color: #3468ca;
+}
+.del-icon{
+    color: #ca3434;
+}
 
 
 .completed{
@@ -106,7 +120,7 @@ body{
     color: white;
     border-radius: 7px;
     cursor: pointer;
-    margin-left: 10px;
+    margin-top: 10px;
 }
 
 
