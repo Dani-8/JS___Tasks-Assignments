@@ -1,96 +1,71 @@
-function addTask(){
-    let taskInput = document.getElementById("taskInput")
-    if(taskInput.value.trim() === "" || taskInput.value == null){
-        alert("Please enter a task")
-        return
-    }
+let taskList = document.getElementById("taskList");
+let addBTN = document.getElementById("addBTN");
+let taskInput = document.getElementById("taskInput");
+let clearAll = document.getElementById("clearAll");
 
-    let taskList = document.getElementById("taskList")
-    let li = document.createElement("li")
-
-    let text = document.createElement("span")
-    text.textContent = taskInput.value
-
-
-    let checkMark = document.createElement("button")
-    checkMark.textContent = "✔️"
-    checkMark.addEventListener("click", function() {
-        checkMark.classList.toggle("completed")
-        text.classList.toggle("completed-text")
-        if(checkMark.className.includes("completed")) {
-            checkMark.textContent = "❌"
-            editBtn.setAttribute("disabled", "true")
-            deleteBtn.setAttribute("disabled", "true")
-        } else {
-            checkMark.textContent = "✔️"
-            editBtn.removeAttribute("disabled")
-            deleteBtn.removeAttribute("disabled")
-        }
-    })
-
-
-    let deleteBtn = document.createElement("button")
-    deleteBtn.textContent = "Delete"
-    deleteBtn.addEventListener("click", function() {
-        taskList.removeChild(li)
-    })
-
-
-    let editBtn = document.createElement("button")
-    editBtn.textContent = "Edit"
-    editBtn.addEventListener("click", function() {
-        let newTask = prompt("Edit your task:", text.textContent)
-        if(newTask !== null && newTask.trim() !== ""){
-            text.textContent = newTask
-        }
-    })  
-
-
-
-    let clearAll = document.getElementById("clearAll")
-    if(taskList.length === 0) {
-        clearAll.style.display = "none"
-    }else{
-        clearAll.style.display = "inline-block"
-    }
-
-    clearAll.addEventListener("click", function() {
-        taskList.innerHTML = ""
-    })
-
-    console.log(taskList.children.length);
-    
-
-    li.append(text, checkMark, deleteBtn, editBtn)
-    taskList.appendChild(li)
-    taskInput.value = ""
-    taskInput.focus()
+function addTask() {
+if (taskInput.value.trim() === "") {
+    alert("Please enter a task");
+    return;
 }
 
-let addBTN = document.getElementById("addBTN")
-addBTN.addEventListener("click", addTask)
+let li = document.createElement("li");
+let text = document.createElement("span");
+text.textContent = taskInput.value;
+
+let checkMark = document.createElement("button");
+checkMark.textContent = "✔️";
+
+let deleteBtn = document.createElement("button");
+deleteBtn.textContent = "Delete";
+
+let editBtn = document.createElement("button");
+editBtn.textContent = "Edit";
+
+checkMark.addEventListener("click", function() {
+    checkMark.classList.toggle("completed");
+    text.classList.toggle("completed-text");
+    if (checkMark.classList.contains("completed")) {
+    checkMark.textContent = "❌";
+    editBtn.disabled = true;
+    deleteBtn.disabled = true;
+    } else {
+    checkMark.textContent = "✔️";
+    editBtn.disabled = false;
+    deleteBtn.disabled = false;
+    }
+});
+
+deleteBtn.addEventListener("click", function() {
+    taskList.removeChild(li);
+    ClearButton();
+});
+
+editBtn.addEventListener("click", function() {
+    let newTask = prompt("Edit your task:", text.textContent);
+    if (newTask && newTask.trim() !== "") text.textContent = newTask;
+});
+
+li.append(text, checkMark, deleteBtn, editBtn);
+taskList.appendChild(li);
+taskInput.value = "";
+taskInput.focus();
+
+ClearButton();
+}
+
+addBTN.addEventListener("click", addTask);
 
 
 
 
+function ClearButton() {
+    clearAll.style.display = taskList.children.length === 0 ? "none" : "inline-block";
+}
 
+clearAll.addEventListener("click", function() {
+    taskList.innerHTML = "";
+    ClearButton();
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ClearButton();
