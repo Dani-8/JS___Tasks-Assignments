@@ -20,15 +20,17 @@ body{
 .container h2{
     font-size: 40px;
     font-weight: 800;
-    color: rgb(9, 159, 46);
+    color: rgb(11, 139, 43);
     text-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
     text-align: center;
+    margin-top: 20px;
     margin-bottom: 20px;
 }
 
 
 .inner-container{
     /* background-color: rgb(206, 173, 230); */
+    margin-top: 30px;
     padding: 20px;
     border-radius: 8px;
 
@@ -43,6 +45,7 @@ body{
     background-color: rgb(255, 255, 255);
     box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
     border-left: 5px solid rgb(5, 151, 106);
+    border-bottom: 5px solid rgb(5, 151, 106);
     padding: 20px;
     border-radius: 15px;
 }
@@ -52,17 +55,7 @@ body{
     text-align: left;
     margin-bottom: 20px;
 }
-.alert-msg{
-    background-color: rgba(255, 0, 0, 0.13);
-    color: rgb(200, 0, 0);
-    font-size: 16px;
-    text-transform: capitalize;
-    text-align: left;
-    border-left: 4px solid rgb(200, 0, 0);
-    border-radius: 10px;
-    margin-bottom: 15px;
-    padding: 10px;
-}
+
 
 
 
@@ -136,6 +129,14 @@ body{
 
     overflow-y: scroll;
 }
+.display-students-data {
+    overflow-y: auto;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+}
+/* .display-students-data::-webkit-scrollbar {
+    display: none;
+} */
 
 .display-students-data h3{
     font-size: 25px;
@@ -194,7 +195,7 @@ table td button:active{
 
 /* ---------------------------------------------------------------- */
 .hidden{
-    display: none;
+    display: none !important;
 }
 
 
@@ -305,9 +306,9 @@ table td button:active{
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+    font-size: 17px;
 }
 .summary-heading{
-    font-size: 16px;
     font-weight: 700;
     color: rgb(33, 33, 33);
     text-align: center;

@@ -15,7 +15,6 @@
         <div class="inner-container">
             <div class="data-collect-cont">
                 <h3>Add New Student Data</h3>
-                <div class="alert-msg" id="alert-msg">Please ensure Name is entered and all marks are between 0 and 100.</div>
 
                 <form class="data-collection-form" id="student-form" action="">
                     <div>
@@ -73,7 +72,9 @@
         <div class="marksheet-cont">
             <div class="marksheet-content" id="marksheet-content">
                 <!-- Marksheet Data will be injected here -->
-            </div>                
+            </div>          
+            
+            <button class="close-marksheet-btn" id="close-marksheet-btn" onclick="closeMarksheet()">Close Marksheet</button>
         </div>
     </div>
 

@@ -39,7 +39,7 @@ function addStudent(event){
     }
 
 
-    let marks = [html, css, javascript, react]
+    let marks = {html, css, javascript, react}
     let calculated = calculateMarks(marks)
 
 
@@ -90,7 +90,7 @@ function renderStudents(){
             <tr>
                 <td>${student.name}</td>
                 <td>${student.totalMarks}</td>
-                <td>${student.percentage}%</td>
+                <td style="font-weight: bold; ${student.percentage >= 75 ? 'color: rgb(13, 144, 8);' : 'color: rgb(243, 56, 23);'}">${student.percentage}%</td>
                 <td>
                     <button onclick="showMarksheet(${student.id})">
                         MarkSheet
@@ -140,19 +140,19 @@ function showMarksheet(studentId){
                 <tbody>
                     <tr>
                         <td>HTML</td>
-                        <td>${student.marks[0]}</td>
+                        <td>${student.marks.html}</td>
                     </tr>
                     <tr>
                         <td>CSS</td>
-                        <td>${student.marks[1]}</td>
+                        <td>${student.marks.css}</td>
                     </tr>
                     <tr>
                         <td>JavaScript</td>
-                        <td>${student.marks[2]}</td>
+                        <td>${student.marks.javascript}</td>
                     </tr>
                     <tr>
                         <td>React</td>
-                        <td>${student.marks[3]}</td>
+                        <td>${student.marks.react}</td>
                     </tr>
                 </tbody>
             </table>
@@ -161,28 +161,25 @@ function showMarksheet(studentId){
         <div class="marksheet-summary">
             <p>
                 <span class="summary-heading">Total Marks:</span>
-                <span id="marksheet-total-marks">${student.totalMarks}</span>
+                <span id="marksheet-total-marks" style="font-weight: bold;">${student.totalMarks}</span>
             </p>
             <p>
                 <span class="summary-heading">Percentage:</span>
-                <span id="marksheet-percentage">${student.percentage}%</span>
+                <span id="marksheet-percentage" style="font-weight: bold; ${student.percentage >= 75 ? 'color: rgb(13, 144, 8);' : 'color: rgb(243, 56, 23);'}">${student.percentage}%</span>
             </p>
             <p>
                 <span class="summary-heading">Status:</span>
                 <span id="marksheet-status">${status}</span>
             </p>
         </div>
-
-
-        <button class="close-marksheet-btn" id="close-marksheet-btn">Close Marksheet</button>
     `
 
-    let marksheetModal = document.getElementById("marksheet-modal-overlay")
+    let marksheetModal = document.getElementById("marksheet-modal")
     marksheetModal.classList.remove("hidden")
 }
 
 function closeMarksheet(){
-    let marksheetModal = document.getElementById("marksheet-modal-overlay")
+    let marksheetModal = document.getElementById("marksheet-modal")
     marksheetModal.classList.add("hidden")
 }
 // -----------------------------------------------------------------------------------------------------
@@ -192,6 +189,9 @@ function closeMarksheet(){
 let submitBtn = document.getElementById("add-btn")
 submitBtn.addEventListener("click", addStudent)
 
+document.getElementById('student-form')?.addEventListener('keydown', e => {
+    if (e.key === 'Enter') { e.preventDefault(); document.getElementById('add-btn')?.click(); }
+});
 // -----------------------------------------------------------------------------------------------------
 
 document.addEventListener('DOMContentLoaded', renderStudents);
