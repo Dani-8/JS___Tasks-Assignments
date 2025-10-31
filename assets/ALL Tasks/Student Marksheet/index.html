@@ -17,7 +17,7 @@
                 <h3>Add New Student Data</h3>
                 <div class="alert-msg" id="alert-msg">Please ensure Name is entered and all marks are between 0 and 100.</div>
 
-                <form class="data-collection-form" action="">
+                <form class="data-collection-form" id="student-form" action="">
                     <div>
                         <label for="studentName">Student Name:</label>
                         <input type="text" id="studentName" placeholder="e.g., Atif Aslam" required>
@@ -27,26 +27,26 @@
 
                     <div class="marks-cont">
                         <div>
-                            <label for="subject1">HTML</label>
-                            <input type="number" id="subject1" value="0" required>
+                            <label for="html">HTML</label>
+                            <input type="number" id="html" value="0" required>
                         </div>
 
                         
                         <div>
-                            <label for="subject1">CSS</label>
-                            <input type="number" id="subject1" value="0" required>
+                            <label for="css">CSS</label>
+                            <input type="number" id="css" value="0" required>
                         </div>
 
                         
                         <div>
-                            <label for="subject1">JavaScript</label>
-                            <input type="number" id="subject1" value="0" required>
+                            <label for="javascript">JavaScript</label>
+                            <input type="number" id="javascript" value="0" required>
                         </div>
 
                         
                         <div>
-                            <label for="subject1">React</label>
-                            <input type="number" id="subject1" value="0" required>
+                            <label for="react">React</label>
+                            <input type="number" id="react" value="0" required>
                         </div>
                     </div>
                 </form>
@@ -60,63 +60,6 @@
 
                 <div id="student-table-cont" class="student-table-cont">
                     <!-- Table will be generated here -->
-
-
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Total</th>
-                                <th>Percentge</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>Daniyal</td>
-                                <td>354</td>
-                                <td>74%</td>
-                                <td>
-                                    <button>
-                                        MarkSheet
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Daniyal</td>
-                                <td>354</td>
-                                <td>74%</td>
-                                <td>
-                                    <button>
-                                        MarkSheet
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Daniyal</td>
-                                <td>354</td>
-                                <td>74%</td>
-                                <td>
-                                    <button>
-                                        MarkSheet
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Daniyal</td>
-                                <td>354</td>
-                                <td>74%</td>
-                                <td>
-                                    <button>
-                                        MarkSheet
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-
                 </div>
             </div>
 
@@ -126,64 +69,11 @@
 
         
     <!-- Marksheet Modal  -->
-    <div class="hidden marksheet-modal-overlay" id="marksheet-modal">
+    <div class="hidden marksheet-modal-overlay" id="marksheet-modal" onclick="closeMarksheet()">
         <div class="marksheet-cont">
             <div class="marksheet-content" id="marksheet-content">
-
                 <!-- Marksheet Data will be injected here -->
-                 <div class="marksheet-heading">
-                    <h2>Marksheet</h2>
-                    <p id="marksheet-student-name">Student: aj</p>
-                 </div>
-
-                 <div class="marksheet-data">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Subject</th>
-                                <th>Marks (Out of 100)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>HTML</td>
-                                <td>85</td>
-                            </tr>
-                            <tr>
-                                <td>CSS</td>
-                                <td>90</td>
-                            </tr>
-                            <tr>
-                                <td>JavaScript</td>
-                                <td>80</td>
-                            </tr>
-                            <tr>
-                                <td>React</td>
-                                <td>95</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                 </div>
-
-                 <div class="marksheet-summary">
-                    <p>
-                        <span class="summary-heading">Total Marks:</span>
-                        <span id="marksheet-total-marks">350</span>
-                    </p>
-                    <p>
-                        <span class="summary-heading">Percentage:</span>
-                        <span id="marksheet-percentage">87.5%</span>
-                    </p>
-                    <p>
-                        <span class="summary-heading">Status:</span>
-                        <span id="marksheet-status">Pass</span>
-                    </p>
-                 </div>
-
-
-            </div>
-
-            <button class="close-marksheet-btn" id="close-marksheet-btn">Close Marksheet</button>
+            </div>                
         </div>
     </div>
 
