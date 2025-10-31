@@ -7,6 +7,7 @@ body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: rgb(246, 254, 231);
 }
+
 /* -------------------------------------------------------------- */
 
 .container{
@@ -183,6 +184,10 @@ table td button:active{
 
 
 /* ---------------------------------------------------------------- */
+.hidden{
+    display: none;
+}
+
 
 .marksheet-modal-overlay{
     background-color: rgba(0, 0, 0, 0.3);
@@ -227,7 +232,6 @@ table td button:active{
 .marksheet-heading{
     font-size: 24px;
     font-weight: 700;
-    color: rgb(33, 33, 33);
     text-align: center;
     margin: 15px 0;
 }
@@ -236,26 +240,45 @@ table td button:active{
     font-weight: 800;
     text-transform: uppercase;
     color: rgb(7, 130, 38);
-    border-bottom: 1px solid rgb(126, 197, 142);
+    border-bottom: 1px solid rgb(147, 220, 164);
 }
 .marksheet-heading p{
     font-size: 20px;
     font-weight: 700;
-    color: rgb(80, 80, 80);
+    color: rgb(0, 0, 0);
     margin-top: 5px;
     text-align: center;
 }
 
+
+
+.marksheet-data{
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 15px;
+}
 .marksheet-data thead{
     background-color: rgba(70, 70, 70, 0.2);
 }
 .marksheet-data th{
-    color: rgb(50, 50, 50);
+    color: rgb(0, 0, 0);
 }
-.marksheet-data th, .marksheet-data td:nth-child(1){
+.marksheet-data th:nth-child(1){
     text-align: left;
 }
-.marksheet-data th, .marksheet-data td:nth-child(2){   
+.marksheet-data th:nth-child(2){   
+    text-align: right;
+}
+
+.marksheet-data td{
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+.marksheet-data td:nth-child(1){
+    text-align: left;
+}
+.marksheet-data td:nth-child(2){   
     text-align: right;
 }
 
@@ -274,7 +297,12 @@ table td button:active{
     align-items: center;
     margin-bottom: 10px;
 }
-
+.summary-heading{
+    font-size: 16px;
+    font-weight: 700;
+    color: rgb(33, 33, 33);
+    text-align: center;
+}
 
 
 .close-marksheet-btn{
