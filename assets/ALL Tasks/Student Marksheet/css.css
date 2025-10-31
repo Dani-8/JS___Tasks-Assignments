@@ -15,16 +15,86 @@ body{
     margin: auto;
     background-color: lightblue;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+}
+.container h2{
+    font-size: 40px;
+    font-weight: 800;
+    color: rgb(15, 103, 37);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.inner-container{
+    /* width: 100%; */
+    background-color: rgb(206, 173, 230);
+    padding: 20px;
+    border-radius: 8px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+
+.data-collect-cont{
+    max-width: 100%;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 8px;
+}
+.data-collect-cont h3{
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+
+.data-collection-form h2{
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(138, 138, 138);
+    text-align: left;
+    margin: 15px 0;
+}
+
+.data-collection-form label{
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+    margin-bottom: 8px;
+    display: block;
+}
+.data-collection-form input{
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.marks-cont{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.marks-cont div{
+    display: flex;
+    flex-direction: column;
 }
 
 
 
-
-
-
-
+.display-students-data{
+    max-width: 45%;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 8px;
+}
 
 
 
