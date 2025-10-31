@@ -26,10 +26,10 @@ function addStudent(event){
     // -----------------------------------------------------------------------
 
     // SHOW ALERT
-    // if(name === "" || isNaN(html) || isNaN(css) || isNaN(javascript) || isNaN(react)){
-    //     alert("Please fill all the fields correctly.")
-    //     return
-    // }
+    if(name === "" || isNaN(html) || isNaN(css) || isNaN(javascript) || isNaN(react)){
+        alert("Please fill all the fields correctly.")
+        return
+    }
 
 
     if(name){
@@ -93,7 +93,7 @@ function renderStudents(){
                 <td style="font-weight: bold; ${student.percentage >= 75 ? 'color: rgb(13, 144, 8);' : 'color: rgb(243, 56, 23);'}">${student.percentage}%</td>
                 <td>
                     <button onclick="showMarksheet(${student.id})">
-                        MarkSheet
+                        Marksheet
                     </button>
                 </td>
             </tr>
