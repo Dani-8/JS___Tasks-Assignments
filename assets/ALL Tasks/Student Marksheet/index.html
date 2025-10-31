@@ -128,7 +128,60 @@
     <!-- Marksheet Modal  -->
     <div class="marksheet-modal-overlay" id="marksheet-modal">
         <div class="marksheet-cont">
-            <div class="marksheeet-content" id="marksheet-content"></div>
+            <div class="marksheet-content" id="marksheet-content">
+
+                <!-- Marksheet Data will be injected here -->
+                 <div class="marksheet-heading">
+                    <h2>Marksheet</h2>
+                    <p id="marksheet-student-name">Student: aj</p>
+                 </div>
+
+                 <div class="marksheet-data">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Subject</th>
+                                <th>Marks (Out of 100)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>HTML</td>
+                                <td>85</td>
+                            </tr>
+                            <tr>
+                                <td>CSS</td>
+                                <td>90</td>
+                            </tr>
+                            <tr>
+                                <td>JavaScript</td>
+                                <td>80</td>
+                            </tr>
+                            <tr>
+                                <td>React</td>
+                                <td>95</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                 </div>
+
+                 <div class="marksheet-summary">
+                    <p>
+                        <span>Total Marks:</span>
+                        <span id="marksheet-total-marks">350</span>
+                    </p>
+                    <p>
+                        <span>Percentage:</span>
+                        <span id="marksheet-percentage">87.5%</span>
+                    </p>
+                    <p>
+                        <span>Status:</span>
+                        <span id="marksheet-status">Pass</span>
+                    </p>
+                 </div>
+
+
+            </div>
 
             <button class="close-marksheet-btn" id="close-marksheet-btn">Close Marksheet</button>
         </div>

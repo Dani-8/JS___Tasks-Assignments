@@ -150,7 +150,7 @@ table{
     border-collapse: collapse;
 }
 table thead{
-    background-color: #05976b4d;
+    background-color: rgba(5, 151, 107, 0.302);
 }
 th{
     color: rgb(98, 98, 98);
@@ -201,7 +201,7 @@ table td button:active{
     display: block;
     background-color: white;
     border-radius: 10px;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -210,13 +210,80 @@ table td button:active{
 }
 
 
+.marksheet-content{
+    /* background-color: lightcoral; */
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.marksheet-content div{
+    width: 100%;
+}
+.marksheet-heading{
+    font-size: 24px;
+    font-weight: 700;
+    color: rgb(33, 33, 33);
+    text-align: center;
+    margin: 15px 0;
+}
+.marksheet-heading h2{
+    font-size: 30px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: rgb(7, 130, 38);
+    border-bottom: 1px solid rgb(126, 197, 142);
+}
+.marksheet-heading p{
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(80, 80, 80);
+    margin-top: 5px;
+    text-align: center;
+}
+
+.marksheet-data thead{
+    background-color: rgba(70, 70, 70, 0.2);
+}
+.marksheet-data th{
+    color: rgb(50, 50, 50);
+}
+.marksheet-data th, .marksheet-data td:nth-child(1){
+    text-align: left;
+}
+.marksheet-data th, .marksheet-data td:nth-child(2){   
+    text-align: right;
+}
+
+
+
+.marksheet-summary{
+    width: 100%;
+    background-color: rgba(5, 151, 107, 0.302);
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 10px;
+}
+.marksheet-summary p{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+
+
 .close-marksheet-btn{
     background-color: rgb(255, 68, 68);
     color: white;
     width: 100%;
     padding: 12px 15px;
-    border: none;
     border-radius: 10px;
+    border: none;
     font-size: 15px;
     font-weight: 700;
     text-align: center;
