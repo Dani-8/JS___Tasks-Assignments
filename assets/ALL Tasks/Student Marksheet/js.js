@@ -1,0 +1,31 @@
+let students = []
+let totalMarks = 400 // Total marks for 4 subjects
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -13,27 +13,27 @@ body{
 .container{
     max-width: 100%;
     margin: auto;
-    background-color: lightblue;
+    /* background-color: lightblue; */
     padding: 20px;
     border-radius: 8px;
 }
 .container h2{
     font-size: 40px;
     font-weight: 800;
-    color: rgb(15, 103, 37);
+    color: rgb(9, 159, 46);
+    text-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
     text-align: center;
     margin-bottom: 20px;
 }
 
 
 .inner-container{
-    /* width: 100%; */
-    background-color: rgb(206, 173, 230);
+    /* background-color: rgb(206, 173, 230); */
     padding: 20px;
     border-radius: 8px;
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
     gap: 20px;
 }
 
@@ -41,21 +41,35 @@ body{
 .data-collect-cont{
     max-width: 100%;
     background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid rgb(5, 151, 106);
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 15px;
 }
 .data-collect-cont h3{
-    font-size: 20px;
+    font-size: 25px;
     color: rgb(0, 0, 0);
     text-align: left;
     margin-bottom: 20px;
 }
+.alert-msg{
+    background-color: rgba(255, 0, 0, 0.13);
+    color: rgb(200, 0, 0);
+    font-size: 16px;
+    text-transform: capitalize;
+    text-align: left;
+    border-left: 4px solid rgb(200, 0, 0);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
 
 
 .data-collection-form h2{
     font-size: 18px;
     font-weight: 500;
-    color: rgb(138, 138, 138);
+    color: rgb(62, 62, 62);
     text-align: left;
     margin: 15px 0;
 }
@@ -79,6 +93,7 @@ body{
     display: grid;
     grid-template-columns: repeat(2, minmax(140px, 1fr));
     gap: 10px;
+    /* margin-top: 15px; */
     margin-bottom: 15px;
 }
 .marks-cont div{
@@ -87,22 +102,85 @@ body{
 }
 
 
+.add-btn{
+    width: 100%;
+    padding: 15px 10px;
+    background-color: rgb(5, 151, 106);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.add-btn:hover{
+    background-color: rgb(3, 115, 81);
+}
+.add-btn:active{
+    transform: scale(0.95);
+}
+
+/* ------------------------------------------------------------------ */
+
+
 
 .display-students-data{
-    max-width: 45%;
-    margin: auto;
+    width: 100%;
+    max-height: 510px;
+    height: fit-content;
     background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
     padding: 20px;
     border-radius: 8px;
+
+    overflow-y: scroll;
+}
+
+.display-students-data h3{
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin-bottom: 20px;
 }
 
 
 
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+table thead{
+    background-color: #05976b4d;
+}
+th{
+    color: rgb(98, 98, 98);
+    font-weight: 500;
+}
+table th, table td{
+    padding: 10px;
+    text-align: center;
+}
 
+table td{
+    border: 1px solid #ddd;
+}
 
-
-
-
+table td button{
+    background-color: rgb(5, 151, 106);
+    color: white;
+    padding: 6px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+table td button:active{
+    transform: scale(0.95);
+}
 
 
 
