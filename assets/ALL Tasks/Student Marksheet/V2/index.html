@@ -3,12 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Student Marksheet</title>
     <link rel="stylesheet" href="css.css">
 </head>
 <body>
 
-    <h1>Student Marksheet V2</h1>
+    <div class="container">
+
+        <h2>Advanced Class Marksheet (Using JS Objects)</h2>
+        <p class="descp">Add student data to build a collection of performance objects and generate individual marksheets.</p>
+
+        <div class="inner-container">
+            <div class="data-collect-cont">
+                <h3>Add New Student Data</h3>
+
+                <form class="data-collection-form" id="student-form" action="">
+                    <div>
+                        <label for="studentName">Student Name:</label>
+                        <input type="text" id="studentName" placeholder="e.g., Atif Aslam" required>
+                    </div>
+
+                    <h2>Subject Marks (Max 100 each)</h2>
+
+                    <div class="marks-cont">
+                        <div>
+                            <label for="html">HTML</label>
+                            <input type="number" id="html" value="0" required>
+                        </div>
+
+                        
+                        <div>
+                            <label for="css">CSS</label>
+                            <input type="number" id="css" value="0" required>
+                        </div>
+
+                        
+                        <div>
+                            <label for="javascript">JavaScript</label>
+                            <input type="number" id="javascript" value="0" required>
+                        </div>
+
+                        
+                        <div>
+                            <label for="react">React</label>
+                            <input type="number" id="react" value="0" required>
+                        </div>
+                    </div>
+                </form>
+
+                <button class="add-btn" id="add-btn">Add Student Object</button>
+            </div>
+
+
+            <div class="display-students-data">
+                <h3>All Students Data (Teacher View)</h3>
+
+                <div id="student-table-cont" class="student-table-cont">
+                    <!-- Table will be generated here -->
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+        
+    <!-- Marksheet Modal  -->
+    <div class="hidden marksheet-modal-overlay" id="marksheet-modal" onclick="closeMarksheet()">
+        <div class="marksheet-cont">
+            <div class="marksheet-content" id="marksheet-content">
+                <!-- Marksheet Data will be injected here -->
+            </div>          
+            
+            <button class="close-marksheet-btn" id="close-marksheet-btn" onclick="closeMarksheet()">Close Marksheet</button>
+        </div>
+    </div>
 
 
     <script src="js.js"></script>
