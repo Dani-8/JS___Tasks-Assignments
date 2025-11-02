@@ -107,17 +107,17 @@ body{
 .add-btn{
     width: 100%;
     padding: 15px 10px;
-    background-color: rgb(80, 70, 229);
+    background-color: rgb(113, 103, 243);
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 15px;
     font-weight: 700;
     cursor: pointer;
     transition: 0.3s ease;
 }
 .add-btn:hover{
-    background-color: rgb(3, 115, 81);
+    background-color: rgb(80, 70, 229);
 }
 .add-btn:active{
     transform: scale(0.95);
@@ -341,6 +341,7 @@ table td button:active{
     background-color: rgba(147, 147, 147, 0.2);
 }
 .marksheet-data th{
+    padding: 8px;
     color: rgb(0, 0, 0);
 }
 .marksheet-data th:nth-child(1){
@@ -354,6 +355,8 @@ table td button:active{
 .marksheet-data td{
     border: none;
     border-bottom: 1px solid #ddd;
+    padding: 8px;
+    font-size: 14px;
     
 }
 .marksheet-data td:nth-child(1){
@@ -376,8 +379,8 @@ table td button:active{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
-    font-size: 17px;
+    margin-bottom: 8px;
+    font-size: 15px;
 }
 .summary-heading{
     font-weight: 700;

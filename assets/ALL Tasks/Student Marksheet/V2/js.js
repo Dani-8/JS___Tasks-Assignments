@@ -23,6 +23,39 @@ function getGrade(percentage){
     return 'F'
 }
 // -------------------------------------------------------------------------------------------------
+function switchView(viewName){
+    currentView = viewName
+    let views = ['table', 'stats', 'visuals', 'json']
+    let buttons = {
+        "table": document.getElementById("table-view-btn"),
+        "stats": document.getElementById("class-stats-btn"),
+        "visuals": document.getElementById("performance-visualization-btn"),
+        "json": document.getElementById("raw-data-btn")
+    }
+
+
+    views.forEach(view => {
+        let button = buttons[view]
+        console.log("🚀 ~ switchView ~ button:", button)
+
+        if(view === viewName){
+            button.classList.remove("switch-btn-default")
+            button.classList.add("switch-btn-active")
+        }else{
+            button.classList.add("switch-btn-default")
+            button.classList.remove("switch-btn-active")
+        }
+    })
+    
+}
+function updateViewButtons(){
+
+
+    switchView(currentView)
+}
+
+
+
 
 
 function addStudent(event){
@@ -74,8 +107,11 @@ function addStudent(event){
 }
 // -------------------------------------------------------------------------------------------------
 
-
+// Function for Render Students.....
 function renderStudents(){
+
+    renderJSONdata()
+
     let container = document.getElementById("student-table-cont")
 
     if(students.length === 0){
@@ -136,6 +172,41 @@ function renderStudents(){
 }
 // -------------------------------------------------------------------------------------------------
 
+function renderJSONdata(){
+    let container = document.getElementById("raw-data-cont")
+
+    if(students.length === 0){
+        container.innerHTML = "<p>Add students to see the raw data structure here....</p>"
+        return
+    }
+    // -------------------------------------------------------------------------------------
+
+    let jsonString = JSON.stringify(students, null, 2)
+
+    container.innerHTML = `
+        <pre><code class="language-json">${jsonString}</code></pre>
+    `
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// -------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------
 
 function showMarksheet(studentId){
     let student = students.find((s) => s.id === studentId)
