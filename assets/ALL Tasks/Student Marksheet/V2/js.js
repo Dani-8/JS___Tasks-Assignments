@@ -116,8 +116,11 @@ function renderStudents(){
                 <td style="font-weight: bold;">${student.percentage}%</td>
                 <td class="${gradeClass}" style="font-weight: bold;">${student.grade}</td>
                 <td>
-                    <button onclick="showMarksheet(${student.id})">
+                    <button class="btn-action btn-action-marksheet" onclick="showMarksheet(${student.id})">
                         Marksheet
+                    </button>
+                    <button class="btn-action btn-action-delete" onclick="deleteStudent(${student.id})">
+                        Delete
                     </button>
                 </td>
             </tr>
@@ -145,7 +148,15 @@ function showMarksheet(studentId){
 
     let marksheetContent = document.getElementById("marksheet-content")
     let status = student.percentage >= 75 ? 'Excellent' : (student.percentage >= 50 ? 'Good' : 'Needs Improvement')
-
+    
+    let gradeClass = ""
+    if(student.grade === 'A+' || student.grade === 'A'){
+        gradeClass = "grade-excellent"
+    } else if(student.grade === 'B' || student.grade === 'C' || student.grade === 'D'){
+        gradeClass = "grade-average"
+    } else if(student.grade === 'F'){
+        gradeClass = "grade-fail"
+    }
 
     marksheetContent.innerHTML = `
         <div class="marksheet-heading">
@@ -178,6 +189,14 @@ function showMarksheet(studentId){
                         <td>React</td>
                         <td>${student.marks.react}</td>
                     </tr>
+                    <tr>
+                        <td>Python</td>
+                        <td>${student.marks.python}</td>
+                    </tr>
+                    <tr>
+                        <td>SQL</td>
+                        <td>${student.marks.sql}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -189,7 +208,11 @@ function showMarksheet(studentId){
             </p>
             <p>
                 <span class="summary-heading">Percentage:</span>
-                <span id="marksheet-percentage" style="font-weight: bold; ${student.percentage >= 75 ? 'color: rgb(13, 144, 8);' : 'color: rgb(243, 56, 23);'}">${student.percentage}%</span>
+                <span id="marksheet-percentage" style="font-weight: bold;">${student.percentage}%</span>
+            </p>
+            <p>
+                <span class="summary-heading">Grade:</span>
+                <span id="marksheet-grade" class="${gradeClass}" style="font-weight: bold;">${student.grade}</span>
             </p>
             <p>
                 <span class="summary-heading">Status:</span>
