@@ -69,7 +69,7 @@ body{
 
 
 .data-collection-form h2{
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     color: rgb(62, 62, 62);
     text-align: left;
@@ -89,6 +89,11 @@ body{
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 14px;
+}
+.data-collection-form input:focus{
+    box-shadow: 0 0 5px 1px rgb(80, 70, 229);
+    outline-color: rgb(80, 70, 229);
+    border: none;
 }
 
 .marks-cont{
@@ -194,13 +199,13 @@ body{
 }
 
 
-.student-table-cont p{
+/* .student-table-cont p{
     font-size: 16px;
     font-style: italic;
     color: rgb(100, 100, 100);
     margin-top: 20px;
     text-align: left;
-}
+} */
 
 
 
@@ -209,11 +214,12 @@ table{
     border-collapse: collapse;
 }
 table thead{
-    background-color: rgba(5, 151, 107, 0.302);
+    background-color: rgba(80, 70, 229, 0.2);
 }
 th{
     color: rgb(98, 98, 98);
-    font-weight: 500;
+    font-weight: 400;
+    font-size: 15px;
 }
 table th, table td{
     padding: 10px;
@@ -222,6 +228,7 @@ table th, table td{
 
 table td{
     border: 1px solid #ddd;
+    /* border-bottom: 1px solid #ddd; */
 }
 
 .btn-action{
@@ -428,24 +435,26 @@ table td button:active{
     gap: 10px;
 
 }
-/* .visual-cont span{
-
-} */
+.visual-student-name{
+    font-size: 12px;
+    width: 100px;
+    white-space: nowrap;
+}
 
 .bar-cont{
     width: 100%;
-    height: 30px;
+    height: 25px;
     background-color: #eaeaea;
     border-radius: 30px;
+    margin: 5px 0;
     overflow: hidden;
-
 }
 
 .total-bar-achievement{
-    width: 80%;
     height: 100%;
-    border-radius: 30px;
+    /* width: 80%; */
     /* background-color: #b65656; */
+    border-radius: 30px;
     position: relative;
     display: flex;
     align-items: center;
@@ -461,7 +470,7 @@ table td button:active{
 
 /* CLASS STATS */
 .stats-cont{
-    background-color: lightblue;
+    /* background-color: lightblue; */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     place-items: center;    
@@ -469,36 +478,51 @@ table td button:active{
     padding: 10px;
 }
 .stats-cont div{
-    height: 130px;
-    width: 80%;
+    /* height: 140px; */
+    height: 100%;
+    min-width: 80%;
     padding: 10px 20px;
     /* background-color: rgba(240, 128, 128, 0.433);
     border: 1px solid lightcoral; */
+    box-shadow: 0 0 8px rgba(70, 70, 70, 0.2) inset;
     border-radius: 15px;
     white-space: nowrap;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    /* gap: 10px; */
 }
-.stats-cont p{
-    margin: 0;
-}
-
 .total-student-cont{
-    background-color: rgba(121, 132, 228, 0.2);
+    background-color: rgba(147, 156, 237, 0.1);
     border: 1px solid rgb(121, 132, 228);
 }
 .failing-count-cont{
-    background-color: rgba(228, 221, 121, 0.2);
-    border: 1px solid rgb(228, 221, 121);
+    background-color: rgba(221, 124, 124, 0.1);
+    border: 1px solid rgb(211, 78, 78);
 }
 .top-performer-cont{
-    background-color: rgba(121, 228, 121, 0.2);
-    border: 1px solid rgb(121, 228, 121);
+    background-color: rgba(51, 100, 225, 0.1);
+    border: 1px solid rgb(51, 100, 225);
 }
 
+
+/* .stats-cont p{
+    margin: 0;
+} */
+.stats-heading{
+    color: rgb(107, 107, 107);
+    font-size: 16px;
+}
+.stats-value{
+    font-size: 30px;
+    font-weight: 700;
+    margin: 10px 0;
+}
+.total-student-cont .stats-value{ color: rgb(80, 93, 209); }
+.failing-count-cont .stats-value{ color: rgb(195, 46, 46); }
+.top-performer-cont .stats-value{ color: rgb(51, 100, 225); }
+.top-performer-cont .stats-desc{ font-size: 14px; color: rgb(51, 100, 225, 0.9); }
 
 
 

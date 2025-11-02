@@ -37,7 +37,6 @@ function switchView(viewName){
     views.forEach(view => {
         let viewElement = view === "json" ? document.getElementById('jsonDataView') : document.getElementById(view + 'View')
         let button = buttons[view]
-        // console.log("🚀 ~ switchView ~ button:", button)
 
         if(view === viewName){
             viewElement.style.display = "block"
@@ -125,7 +124,8 @@ function addStudent(event){
 
 // Function for Render Students.....
 function renderStudents(){
-
+    renderClassStats()
+    renderVisualization()
     renderJSONdata()
 
     updateViewButtons()
@@ -199,9 +199,31 @@ function renderClassStats(){
     }
     // ----------------------------------------------------------------------------
 
+    let totalStudents = students.length
+    let failingCount = students.filter(s => parseFloat(s.percentage) < 50).length
+    
+    let topStudent = students.reduce((max, student) => 
+        parseFloat(student.percentage) > parseFloat(max.percentage) ? student : max, students[0]
+    )
 
 
-
+    container.innerHTML = `
+        <div class="stats-cont">
+            <div class="total-student-cont">
+                <p class="stats-heading">Total Students</p>
+                <p class="stats-value">${totalStudents}</p>
+            </div>
+            <div class="failing-count-cont">
+                <p class="stats-heading">Failing Student Count</p>
+                <p class="stats-value">${failingCount}</p>
+            </div>
+            <div class="top-performer-cont">
+                <p class="stats-heading">Top Performer</p>
+                <p class="stats-value">${topStudent.name}</p>
+                <p class="stats-desc">(${topStudent.percentage}%, Grade ${topStudent.grade})</p>
+            </div>
+        </div>
+    `
 }
 // --------------------------------------------------------------------------------------------------
 function renderVisualization(){
@@ -224,24 +246,20 @@ function renderVisualization(){
 
         html += `
             <div class="visual-cont">
-                <span>dani</span>
+                <span class="visual-student-name">${student.name}</span>
                 <div class="bar-cont">
-                    <div class="total-bar-achievement">
-                        <span class="bar-achievement-percentage">80%</span>
+                    <div class="total-bar-achievement" style="width:${width}%; background-color: ${barColor};">
+                        <span class="bar-achievement-percentage">${width.toFixed(0)}%</span>
                     </div>
                 </div>
             </div>
         `
-
     })
 
-    
     html += '</div>';   
     container.innerHTML = html;
 }
-
-
-
+// -------------------------------------------------------------------------------------------------
 function renderJSONdata(){
     let container = document.getElementById("raw-data-cont")
 
@@ -257,6 +275,7 @@ function renderJSONdata(){
         <pre><code class="language-json">${jsonString}</code></pre>
     `
 }
+// -------------------------------------------------------------------------------------------------
 
 
 

@@ -72,16 +72,16 @@
 
             <div class="right-column">
                 <div class="switch-btn-cont">
-                    <button class="switch-btn-default switch-btn-toggle" id="table-view-btn" disabled>
+                    <button class="switch-btn-default switch-btn-toggle" id="table-view-btn" disabled onclick="(switchView('table'))">
                         Student Data (Table)
                     </button>                
-                    <button class="switch-btn-default switch-btn-toggle" id="class-stats-btn" disabled>
+                    <button class="switch-btn-default switch-btn-toggle" id="class-stats-btn" disabled onclick="(switchView('stats'))">
                         Class Statistics
                     </button>
-                    <button class="switch-btn-default switch-btn-toggle" id="performance-visualization-btn" disabled>
+                    <button class="switch-btn-default switch-btn-toggle" id="performance-visualization-btn" disabled onclick="(switchView('visuals'))">
                         Performance Visualization
                     </button>
-                    <button class="switch-btn-default switch-btn-toggle" id="raw-data-btn" disabled onclick="renderJSONdata()">
+                    <button class="switch-btn-default switch-btn-toggle" id="raw-data-btn" disabled onclick="switchView('json')">
                         Raw Data (JSON)
                     </button>
                 </div>
@@ -93,38 +93,23 @@
         
                         <div id="student-table-cont" class="student-table-cont">
                             <!-- Table will be generated here -->
-                            <div class="stats-cont">
-                                <div class="total-student-cont">
-                                    <p class="stats-heading">Total Students</p>
-                                    <p class="stats-vlaue">10</p>
-                                </div>
-                                <div class="failing-count-cont">
-                                    <p class="stats-heading">Failing Student Count</p>
-                                    <p class="stats-vlaue">5</p>
-                                </div>
-                                <div class="top-performer-cont">
-                                    <p class="stats-heading">Top Performer</p>
-                                    <p class="stats-vlaue">Dj</p>
-                                    <p class="stats-desc">(0.00%, Grade F)</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
-                    <div class="view-content hidden" id="statsView">
+                    <div class="view-content" id="statsView">
                         <h3>Class Statistics</h3>
         
                         <div id="class-stats-cont" class="class-stats-cont">
                             <!-- Class statistics will be shown here -->
                         </div>
                     </div>
-                    <div class="view-content hidden" id="visualsView">
+                    <div class="view-content" id="visualsView">
                         <h3>Performance Visualization</h3>
         
                         <div id="performance-visualization-cont" class="performance-visualization-cont">
                             <!-- Performance charts will be rendered here -->
                         </div>
                     </div>
-                    <div class="view-content hidden" id="jsonDataView">
+                    <div class="view-content" id="jsonDataView">
                         <h3>Raw Data (JSON Format)</h3>
         
                         <div id="raw-data-cont" class="raw-data-cont">
@@ -148,6 +133,6 @@
     </div>
 
 
-    <!-- <script src="js.js"></script> -->
+    <script src="js.js"></script>
 </body>
 </html>
