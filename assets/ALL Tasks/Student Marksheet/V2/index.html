@@ -14,72 +14,113 @@
         <p class="descp">Add student data to build a collection of performance objects and generate individual marksheets.</p>
 
         <div class="inner-container">
-            <div class="data-collect-cont">
-                <h3>Add New Student Data</h3>
 
-                <form class="data-collection-form" id="student-form" action="">
-                    <div>
-                        <label for="studentName">Student Name:</label>
-                        <input type="text" id="studentName" placeholder="e.g., Atif Aslam" required>
-                    </div>
 
-                    <h2>Subject Marks (Max 100 each)</h2>
-
-                    <div class="marks-cont">
+            <div class="left-column">
+                <div class="data-collect-cont">
+                    <h3>Add New Student Data</h3>
+    
+                    <form class="data-collection-form" id="student-form" action="">
                         <div>
-                            <label for="html">HTML</label>
-                            <input type="number" id="html" value="0" required>
+                            <label for="studentName">Student Name:</label>
+                            <input type="text" id="studentName" placeholder="e.g., Atif Aslam" required>
                         </div>
-
-                        
-                        <div>
-                            <label for="css">CSS</label>
-                            <input type="number" id="css" value="0" required>
+    
+                        <h2>Subject Marks (Max 100 each)</h2>
+    
+                        <div class="marks-cont">
+                            <div>
+                                <label for="html">HTML</label>
+                                <input type="number" id="html" value="0" required>
+                            </div>
+    
+                            
+                            <div>
+                                <label for="css">CSS</label>
+                                <input type="number" id="css" value="0" required>
+                            </div>
+    
+                            
+                            <div>
+                                <label for="javascript">JavaScript</label>
+                                <input type="number" id="javascript" value="0" required>
+                            </div>
+    
+                            
+                            <div>
+                                <label for="react">React</label>
+                                <input type="number" id="react" value="0" required>
+                            </div>
+    
+                            
+                            <div>
+                                <label for="python">Python</label>
+                                <input type="number" id="python" value="0" required>
+                            </div>
+    
+                            
+                            <div>
+                                <label for="sql">SQL</label>
+                                <input type="number" id="sql" value="0" required>
+                            </div>
                         </div>
-
-                        
-                        <div>
-                            <label for="javascript">JavaScript</label>
-                            <input type="number" id="javascript" value="0" required>
-                        </div>
-
-                        
-                        <div>
-                            <label for="react">React</label>
-                            <input type="number" id="react" value="0" required>
-                        </div>
-
-                        
-                        <div>
-                            <label for="python">Python</label>
-                            <input type="number" id="python" value="0" required>
-                        </div>
-
-                        
-                        <div>
-                            <label for="sql">SQL</label>
-                            <input type="number" id="sql" value="0" required>
-                        </div>
-                    </div>
-                </form>
-
-                <button class="add-btn" id="add-btn">Add Student Object</button>
-            </div>
-
-
-            <div class="display-students-data">
-                <h3>All Students Data (Teacher View)</h3>
-
-                <div id="student-table-cont" class="student-table-cont">
-                    <!-- Table will be generated here -->
+                    </form>
+    
+                    <button class="add-btn" id="add-btn">Add Student Object</button>
                 </div>
             </div>
 
+            <div class="right-column">
+                <div class="switch-btn-cont">
+                    <button class="switch-btn-default switch-btn-toggle" id="table-view-btn">
+                        Student Data (Table)
+                    </button>                
+                    <button class="switch-btn-default switch-btn-toggle" id="class-stats-btn">
+                        Class Statistics
+                    </button>
+                    <button class="switch-btn-default switch-btn-toggle" id="performance-visualization-btn">
+                        Performance Visualization
+                    </button>
+                    <button class="switch-btn-default switch-btn-toggle" id="raw-data-btn">
+                        Raw Data (JSON)
+                    </button>
+                </div>
+    
+    
+                <div class="view-content-cont">
+                    <div class="view-content">
+                        <h3>All Students Data (Teacher View)</h3>
+        
+                        <div id="student-table-cont" class="student-table-cont">
+                            <!-- Table will be generated here -->
+                        </div>
+                    </div>
+                    <div class="view-content hidden">
+                        <h3>Class Statistics</h3>
+        
+                        <div id="class-stats-cont" class="class-stats-cont">
+                            <!-- Class statistics will be shown here -->
+                        </div>
+                    </div>
+                    <div class="view-content hidden">
+                        <h3>Performance Visualization</h3>
+        
+                        <div id="performance-visualization-cont" class="performance-visualization-cont">
+                            <!-- Performance charts will be rendered here -->
+                        </div>
+                    </div>
+                    <div class="view-content hidden">
+                        <h3>Raw Data (JSON Format)</h3>
+        
+                        <div id="raw-data-cont" class="raw-data-cont">
+                            <!-- Raw JSON data will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
         </div>
 
-    </div>
-
-        
     <!-- Marksheet Modal  -->
     <div class="hidden marksheet-modal-overlay" id="marksheet-modal" onclick="closeMarksheet()">
         <div class="marksheet-cont">
