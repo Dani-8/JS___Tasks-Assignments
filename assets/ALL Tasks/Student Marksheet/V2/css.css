@@ -227,8 +227,8 @@ table th, table td{
 }
 
 table td{
+    border-bottom: 1px solid #ddd;
     border: 1px solid #ddd;
-    /* border-bottom: 1px solid #ddd; */
 }
 
 .btn-action{
@@ -518,6 +518,9 @@ table td button:active{
     font-size: 30px;
     font-weight: 700;
     margin: 10px 0;
+}
+.topper-name{
+    font-size: 24px;
 }
 .total-student-cont .stats-value{ color: rgb(80, 93, 209); }
 .failing-count-cont .stats-value{ color: rgb(195, 46, 46); }

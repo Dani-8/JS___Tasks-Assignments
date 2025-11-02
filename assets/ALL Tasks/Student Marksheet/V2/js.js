@@ -68,9 +68,14 @@ function updateViewButtons(){
 
     switchView(currentView)
 }
+// ----------------------------------------------------------------------------------------------------------------------
 
+function deleteStudent(studentId){
+    students = students.filter(student => student.id !== studentId)
+    renderStudents()
+}
 
-
+// --------------------------------------------------------------------
 
 
 function addStudent(event){
@@ -219,7 +224,7 @@ function renderClassStats(){
             </div>
             <div class="top-performer-cont">
                 <p class="stats-heading">Top Performer</p>
-                <p class="stats-value">${topStudent.name}</p>
+                <p class="stats-value topper-name">${topStudent.name}</p>
                 <p class="stats-desc">(${topStudent.percentage}%, Grade ${topStudent.grade})</p>
             </div>
         </div>
@@ -276,18 +281,6 @@ function renderJSONdata(){
     `
 }
 // -------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
