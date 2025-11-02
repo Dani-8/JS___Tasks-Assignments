@@ -35,21 +35,37 @@ function switchView(viewName){
 
 
     views.forEach(view => {
+        let viewElement = view === "json" ? document.getElementById('jsonDataView') : document.getElementById(view + 'View')
         let button = buttons[view]
-        console.log("🚀 ~ switchView ~ button:", button)
+        // console.log("🚀 ~ switchView ~ button:", button)
 
         if(view === viewName){
+            viewElement.style.display = "block"
+
             button.classList.remove("switch-btn-default")
             button.classList.add("switch-btn-active")
         }else{
+            viewElement.style.display = "none"
+
             button.classList.add("switch-btn-default")
             button.classList.remove("switch-btn-active")
         }
-    })
-    
+    })    
 }
-function updateViewButtons(){
 
+
+function updateViewButtons(){
+    let hasStudent = students.length > 0 
+    let buttons = ["table-view-btn", "class-stats-btn", "performance-visualization-btn", "raw-data-btn"]
+
+    buttons.forEach(id => {
+        let button = document.getElementById(id)
+        button.disabled = !hasStudent
+    })
+
+    if(!hasStudent && currentView !== "table"){
+        currentView == "table"
+    }
 
     switchView(currentView)
 }
@@ -112,6 +128,9 @@ function renderStudents(){
 
     renderJSONdata()
 
+    updateViewButtons()
+
+
     let container = document.getElementById("student-table-cont")
 
     if(students.length === 0){
@@ -171,6 +190,39 @@ function renderStudents(){
     container.innerHTML = html
 }
 // -------------------------------------------------------------------------------------------------
+function renderClassStats(){
+    let container = document.getElementById("class-stats-cont")
+
+    if(students.length === 0){
+        container.innerHTML = "<p>No students to calculate statistics....</p>"
+        return
+    }
+    // ----------------------------------------------------------------------------
+
+
+
+
+}
+// --------------------------------------------------------------------------------------------------
+function renderVisualization(){
+    let container = document.getElementById("performance-visualization-cont")
+
+    if(students.length === 0){
+        container.innerHTML = "<p>No students to calculate statistics....</p>"
+        return
+    }
+    // ----------------------------------------------------------------------------
+
+    let sortedStudent = []
+
+    let html = '<div style="display: flex; flex-direction: column; gap: 10px;"></div>'
+
+
+
+}
+
+
+
 
 function renderJSONdata(){
     let container = document.getElementById("raw-data-cont")

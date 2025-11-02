@@ -81,35 +81,35 @@
                     <button class="switch-btn-default switch-btn-toggle" id="performance-visualization-btn" disabled>
                         Performance Visualization
                     </button>
-                    <button class="switch-btn-default switch-btn-toggle" id="raw-data-btn"  onclick="renderJSONdata()">
+                    <button class="switch-btn-default switch-btn-toggle" id="raw-data-btn" disabled onclick="renderJSONdata()">
                         Raw Data (JSON)
                     </button>
                 </div>
     
     
                 <div class="view-content-cont">
-                    <div class="view-content">
+                    <div class="view-content" id="tableView">
                         <h3>All Students Data (Teacher View)</h3>
         
                         <div id="student-table-cont" class="student-table-cont">
                             <!-- Table will be generated here -->
                         </div>
                     </div>
-                    <div class="view-content hidden">
+                    <div class="view-content hidden" id="statsView">
                         <h3>Class Statistics</h3>
         
                         <div id="class-stats-cont" class="class-stats-cont">
                             <!-- Class statistics will be shown here -->
                         </div>
                     </div>
-                    <div class="view-content hidden">
+                    <div class="view-content hidden" id="visualsView">
                         <h3>Performance Visualization</h3>
         
                         <div id="performance-visualization-cont" class="performance-visualization-cont">
                             <!-- Performance charts will be rendered here -->
                         </div>
                     </div>
-                    <div class="view-content hidden">
+                    <div class="view-content hidden" id="jsonDataView">
                         <h3>Raw Data (JSON Format)</h3>
         
                         <div id="raw-data-cont" class="raw-data-cont">
