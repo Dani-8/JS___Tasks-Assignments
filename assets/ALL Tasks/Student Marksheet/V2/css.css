@@ -41,13 +41,15 @@ body{
     border-radius: 8px;
 
     display: grid;
-    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    /* left column 30%, right column 70% */
+    grid-template-columns: 30% 70%;
     gap: 20px;
 }
 
 
 .data-collect-cont{
-    max-width: 70%;
+    /* let the grid column control width; allow component to fill its column */
+    max-width: 100%;
     background-color: rgb(255, 255, 255);
     box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
     border: 0.5px solid rgb(80, 70, 229);
@@ -125,13 +127,14 @@ body{
 
 .switch-btn-cont{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    gap: 10px;
     margin-bottom: 20px;
     /* background-color: lightblue; */
 }
 .switch-btn-toggle{
-    padding: 12px 10px;
+    padding: 12px 20px;
     /* background-color: rgb(80, 70, 229);
     color: white; */
     border: none;
@@ -148,7 +151,7 @@ body{
     color: #374151;
 }
 .switch-btn-default:hover{ background-color: #d1d5db; }
-.switch-btn-default:active{ transform: scale(0.95); }
+/* .switch-btn-default:active{ transform: scale(0.95); } */
 
 .switch-btn-active{
     background-color: rgb(80, 70, 229);
