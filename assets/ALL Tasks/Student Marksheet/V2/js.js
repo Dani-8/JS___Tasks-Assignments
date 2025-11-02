@@ -1,10 +1,10 @@
 let students = []
-let totalMarks = 400 // Total marks for 4 subjects
+let totalMarks = 600 // Total marks for 6 subjects
 let currentView = 'table' // Default view
 // -------------------------------------------------------
 
 function calculateMarks(marks){
-    let total = marks.html + marks.css + marks.javascript + marks.react
+    let total = marks.html + marks.css + marks.javascript + marks.react + marks.python + marks.sql
     let percentage = (total / totalMarks) * 100
 
     return {
@@ -213,14 +213,32 @@ function renderVisualization(){
     }
     // ----------------------------------------------------------------------------
 
-    let sortedStudent = []
+    let sortedStudents = [...students].sort((a,b) => parseFloat(b.percentage) - parseFloat(a.percentage))
 
     let html = '<div style="display: flex; flex-direction: column; gap: 10px;"></div>'
 
+    sortedStudents.forEach(student => {
+        let width = parseFloat(student.percentage)
+        let barColor = width >= 75 ? '#4f46e5' : (width >= 50 ? '#f97316' : '#ef4444')
 
 
+        html += `
+            <div class="visual-cont">
+                <span>dani</span>
+                <div class="bar-cont">
+                    <div class="total-bar-achievement">
+                        <span class="bar-achievement-percentage">80%</span>
+                    </div>
+                </div>
+            </div>
+        `
+
+    })
+
+    
+    html += '</div>';   
+    container.innerHTML = html;
 }
-
 
 
 

@@ -13,7 +13,7 @@ body{
     max-width: 100%;
     margin: auto;
     /* background-color: lightblue; */
-    padding: 20px;
+    padding: 0 20px;
     border-radius: 8px;
 }
 .container h2{
@@ -419,7 +419,100 @@ table td button:active{
 
 
 
+/* VISUALIZTION */
+.visual-cont{
+    /* background-color: lightblue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+}
+/* .visual-cont span{
+
+} */
+
+.bar-cont{
+    width: 100%;
+    height: 30px;
+    background-color: #eaeaea;
+    border-radius: 30px;
+    overflow: hidden;
+
+}
+
+.total-bar-achievement{
+    width: 80%;
+    height: 100%;
+    border-radius: 30px;
+    /* background-color: #b65656; */
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.bar-achievement-percentage{
+    position: absolute;
+    right: 10px;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+}
 
 
+/* CLASS STATS */
+.stats-cont{
+    background-color: lightblue;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;    
+    gap: 10px;
+    padding: 10px;
+}
+.stats-cont div{
+    height: 130px;
+    width: 80%;
+    padding: 10px 20px;
+    /* background-color: rgba(240, 128, 128, 0.433);
+    border: 1px solid lightcoral; */
+    border-radius: 15px;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.stats-cont p{
+    margin: 0;
+}
+
+.total-student-cont{
+    background-color: rgba(121, 132, 228, 0.2);
+    border: 1px solid rgb(121, 132, 228);
+}
+.failing-count-cont{
+    background-color: rgba(228, 221, 121, 0.2);
+    border: 1px solid rgb(228, 221, 121);
+}
+.top-performer-cont{
+    background-color: rgba(121, 228, 121, 0.2);
+    border: 1px solid rgb(121, 228, 121);
+}
+
+
+
+
+/* JSON RAW DATA */
+.raw-data-cont pre {
+    background-color: #1f2937;
+    color: #d1d5db;
+    padding: 10px;
+    border-radius: 0.5rem;
+    max-height: 380px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: monospace;
+}
 
 
