@@ -1,6 +1,6 @@
 let students = []
 let totalMarks = 400 // Total marks for 4 subjects
-
+let currentView = 'table' // Default view
 // -------------------------------------------------------
 
 function calculateMarks(marks){
@@ -11,6 +11,16 @@ function calculateMarks(marks){
         totalMarks: total,
         percentage: percentage.toFixed(2)
     }
+}
+
+function getGrade(percentage){
+    let p = parseFloat(percentage)
+    if(p >= 90) return 'A+'
+    if(p >= 80) return 'A'
+    if(p >= 70) return 'B'
+    if(p >= 60) return 'C'
+    if(p >= 50) return 'D'
+    return 'F'
 }
 // -------------------------------------------------------------------------------------------------
 
@@ -23,11 +33,13 @@ function addStudent(event){
     let css = parseInt(document.getElementById("css").value)
     let javascript = parseInt(document.getElementById("javascript").value)
     let react = parseInt(document.getElementById("react").value)
+    let python = parseInt(document.getElementById("python").value)
+    let sql = parseInt(document.getElementById("sql").value)
     // -----------------------------------------------------------------------
 
     // SHOW ALERT
-    if(name === "" || isNaN(html) || isNaN(css) || isNaN(javascript) || isNaN(react)){
-        alert("Please fill all the fields correctly.")
+    if(name === "" || isNaN(html) || isNaN(css) || isNaN(javascript) || isNaN(react) || isNaN(python) || isNaN(sql)){
+        alert("Please ensure Name is entered and all 6 subject marks are between 0 and 100.")
         return
     }
 
@@ -39,7 +51,7 @@ function addStudent(event){
     }
 
 
-    let marks = {html, css, javascript, react}
+    let marks = {html, css, javascript, react, python, sql}
     let calculated = calculateMarks(marks)
 
 
@@ -48,7 +60,8 @@ function addStudent(event){
         name: name,
         marks: marks,
         totalMarks: calculated.totalMarks,
-        percentage: calculated.percentage
+        percentage: calculated.percentage,
+        grade: getGrade(calculated.percentage)
     }
 
     students.push(studentObj)
@@ -78,6 +91,7 @@ function renderStudents(){
                     <th>Name</th>
                     <th>Total</th>
                     <th>Percentge</th>
+                    <th>Grade</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -86,11 +100,21 @@ function renderStudents(){
         `
 
     students.forEach((student) => {
+        let gradeClass = ""
+        if(student.grade === 'A+' || student.grade === 'A'){
+            gradeClass = "grade-excellent"
+        } else if(student.grade === 'B' || student.grade === 'C' || student.grade === 'D'){
+            gradeClass = "grade-average"
+        } else if(student.grade === 'F'){
+            gradeClass = "grade-fail"
+        }
+
         html += `
             <tr>
                 <td>${student.name}</td>
                 <td>${student.totalMarks}</td>
-                <td style="font-weight: bold; ${student.percentage >= 75 ? 'color: rgb(13, 144, 8);' : 'color: rgb(243, 56, 23);'}">${student.percentage}%</td>
+                <td style="font-weight: bold;">${student.percentage}%</td>
+                <td class="${gradeClass}" style="font-weight: bold;">${student.grade}</td>
                 <td>
                     <button onclick="showMarksheet(${student.id})">
                         Marksheet
