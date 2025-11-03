@@ -161,7 +161,7 @@ function showMarksheet(studentId){
         <div class="marksheet-summary">
             <p>
                 <span class="summary-heading">Total Marks:</span>
-                <span id="marksheet-total-marks" style="font-weight: bold;">${student.totalMarks}</span>
+                <span id="marksheet-total-marks" style="font-weight: bold;">${student.totalMarks} / ${totalMarks}</span>
             </p>
             <p>
                 <span class="summary-heading">Percentage:</span>

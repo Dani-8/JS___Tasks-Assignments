@@ -69,9 +69,12 @@ body{
 
 
 .data-collection-form h2{
+    width: fit-content;
     font-size: 16px;
     font-weight: 500;
     color: rgb(62, 62, 62);
+    border-bottom: 1px solid rgb(191, 191, 191);
+    padding: 5px 0;
     text-align: left;
     margin: 15px 0;
 }
@@ -144,8 +147,6 @@ body{
 }
 .switch-btn-toggle{
     padding: 12px 20px;
-    /* background-color: rgb(80, 70, 229);
-    color: white; */
     border: none;
     border-radius: 8px;
     font-size: 13px;
@@ -199,13 +200,13 @@ body{
 }
 
 
-/* .student-table-cont p{
+.student-table-cont p{
     font-size: 16px;
     font-style: italic;
     color: rgb(100, 100, 100);
     margin-top: 20px;
     text-align: left;
-} */
+}
 
 
 
