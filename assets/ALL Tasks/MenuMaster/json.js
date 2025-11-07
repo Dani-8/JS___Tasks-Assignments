@@ -1,4 +1,4 @@
-let RestaurantMenu = [
+export let restaurantMenu = [
 {
     "categoryID": 1,
     "categoryName": "Burger",
