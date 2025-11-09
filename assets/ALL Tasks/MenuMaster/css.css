@@ -4,7 +4,163 @@
     box-sizing: border-box;
 }
 body{
-    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f9fb;
+    padding: 20px 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* =========================================================================== */
+
+.container{
+    width: 90%;
+    background-color: rgb(183, 183, 183);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header{
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px 0;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.header h1{
+    font-size: 45px;
+    color: rgb(40, 40, 40);
+}
+.header p{
+    font-size: 20px;
+    margin: 10px 0;
+    color: rgb(120, 120, 120);
+}
+
+
+
+
+.admin-tool-cont{
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px 20px;
+    /* margin-bottom: 30px; */
+    border-radius: 20px;
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    flex-direction: column;
+}
+.admin-tool-cont h2{
+    font-size: 25px;
+    color: rgb(40, 40, 40);
+}
+/* =========================================================== */
+
+
+
+.menu-container{
+    width: 100%;
+    background-color: rgb(225, 225, 225);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px 20px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    flex-direction: column;
+}
+/* =========================================================== */
+
+.item-card{
+    background-color: white;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    /* width: fit-content; */
+    max-width: 280px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item-card-details{
+    /* background-color: rgb(232, 216, 216); */
+}
+.item-heading{
+    font-size: 22px;
+    color: rgb(60, 60, 60);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-end;
+
+}
+.isSpicy{
+    font-size: 20px;
+}
+
+.item-availability{
+    background-color: rgba(0, 0, 0, 0.3);
+    color: rgba(0, 0, 0, 0.7);
+    width: fit-content;
+    padding: 2px 7px;
+    font-size: 13px;
+    font-weight: 700;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 50px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.item-isAvailable{
+    background-color: rgba(122, 251, 133, 0.3);
+    color: rgba(16, 109, 24, 0.7);
+    border: 1px solid rgb(34, 134, 7);
+}
+.item-isSoldOut{
+    background-color: rgba(251, 122, 122, 0.3);
+    color: rgb(157, 18, 18, 0.7);
+    border: 1px solid rgb(207, 30, 30);
+}
+
+.item-ingredients{
+    color: rgb(142, 142, 142);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+.item-card-values{
+    /* background-color: rgb(204, 233, 230); */
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.item-price{
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: rgb(40, 58, 195);
+}
+.item-prepTime{
+    color: rgb(83, 83, 83);
+    font-size: 12px;
+}
+
+.item-rating{
+    color: rgb(0, 0, 0);
+    font-size: 14px;
 
 }
 
@@ -16,14 +172,42 @@ body{
 
 
 
+.admin-btns-cont{
+    width: 100%;
+    /* background-color: rgb(255, 255, 255); */
+    margin-top: 10px;
+    display: grid;
+    /* two equal columns */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+.admin-btns-cont button{
+    /* make each button fill its grid cell so they appear 50/50 */
+    width: 100%;
+    padding: 15px 12px;
+    border: none;
+    border-radius: 10px;
+    /* background-color: #2d89ef; */
+    color: #fff;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.admin-btns-cont button:hover{
+    transform: scale(1.015);
+}
+.admin-btns-cont button:active{
+    transform: scale(0.95);
+}
 
-
-
-
-
-
-
-
+.add-new-items-btn{
+    background-color: rgb(25, 114, 216);
+}
+.add-new-category-btn{
+    background-color: rgb(216, 25, 159);
+}
+/* =========================================================== */
 
 
 
