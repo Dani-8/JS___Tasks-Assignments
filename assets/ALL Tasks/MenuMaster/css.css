@@ -15,21 +15,25 @@ body{
 /* =========================================================================== */
 
 .container{
-    width: 90%;
-    background-color: rgb(183, 183, 183);
-    padding: 20px;
+    /* make container responsive and avoid overflowing the viewport */
+    width: 100%;
+    max-width: 1200px;
+    /* slightly reduced padding to avoid horizontal overflow in small viewports */
+    padding: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin: 0 auto;
 }
 
 .header{
     width: 100%;
     background-color: rgb(255, 255, 255);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    padding: 30px 0;
-    margin-bottom: 30px;
+    /* reduced vertical padding */
+    padding: 20px 0;
+    margin-bottom: 10px;
     border-radius: 20px;
     display: flex;
     justify-content: center;
@@ -71,27 +75,60 @@ body{
 
 .menu-container{
     width: 100%;
-    background-color: rgb(225, 225, 225);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    padding: 30px 20px;
-    margin-bottom: 30px;
+    padding: 20px;
+    margin-bottom: 20px;
     border-radius: 20px;
     display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
     flex-direction: column;
 }
 /* =========================================================== */
+.category-header{
+    background-color: rgb(33, 33, 33);
+    padding: 15px 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.category-header h2{
+    color: white;
+    font-size: 25px;
+}
+.items-length{
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-style: italic;
+}
+
+
+.category-content{
+    margin: 10px 0 40px;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 20px;
+}
+.item-cards-cont{
+    display: grid;
+    /* responsive grid: cards will wrap instead of causing horizontal overflow
+       min width per card is 220px, after which they shrink to fit available space */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    place-items: center;
+    width: 100%;
+}
 
 .item-card{
     background-color: white;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    /* width: fit-content; */
-    max-width: 280px;
+    padding: 16px;
+    width: 100%;
+    max-width: 320px;
+    height: 100%;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 10px;
 }
 
@@ -99,7 +136,7 @@ body{
     /* background-color: rgb(232, 216, 216); */
 }
 .item-heading{
-    font-size: 22px;
+    font-size: 16px;
     color: rgb(60, 60, 60);
     margin-bottom: 10px;
     display: flex;
@@ -107,7 +144,7 @@ body{
 
 }
 .isSpicy{
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .item-availability{
@@ -115,7 +152,7 @@ body{
     color: rgba(0, 0, 0, 0.7);
     width: fit-content;
     padding: 2px 7px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 50px;
@@ -148,7 +185,7 @@ body{
     margin-top: 10px;
 }
 .item-price{
-    font-size: 35px;
+    font-size: 28px;
     font-weight: 700;
     margin-bottom: 5px;
     color: rgb(40, 58, 195);
@@ -177,12 +214,10 @@ body{
     /* background-color: rgb(255, 255, 255); */
     margin-top: 10px;
     display: grid;
-    /* two equal columns */
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
 }
 .admin-btns-cont button{
-    /* make each button fill its grid cell so they appear 50/50 */
     width: 100%;
     padding: 15px 12px;
     border: none;

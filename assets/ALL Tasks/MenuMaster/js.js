@@ -20,6 +20,13 @@ function MenuItem(id, name, price, rating, prepTimeMinutes, mainIngredient, isSp
     this.mainIngredient = Array.isArray(mainIngredient) ? mainIngredient : [mainIngredient]
     this.isSpicy = isSpicy
 }
+// helper: render star rating (returns string of stars)
+function renderStars(rating){
+    if (typeof rating !== 'number' || !isFinite(rating)) return '';
+    const filled = Math.round(Math.min(Math.max(rating, 0), 5));
+    const empty = 5 - filled;
+    return '★'.repeat(filled) + '☆'.repeat(empty);
+}
 // ===================================================================================================
 
 let menuContainer = document.getElementById("menu-container")
@@ -39,8 +46,8 @@ function renderMenuItemCard(item){
             <div class="item-heading">
                 <h3>${item.name} ${spicyIndicator}</h3>
             </div>
-            <p class="item-isAvailable ${availableClass}">
-                ${isAvailable  ? 'Available' : 'Sold Out'}
+            <p class="item-availability ${availableClass}">
+                ${item.isAvailable  ? 'Available' : 'Sold Out'}
             </p>
 
             <p class="item-ingredients">
@@ -50,7 +57,7 @@ function renderMenuItemCard(item){
 
         <div class="item-card-values">
             <div>
-                <p class="item-price">Rs. ${item.price.toFixed(2)}</p>
+                <p class="item-price">Rs. <br> ${item.price.toFixed(2)}</p>
                 <p class="item-prepTime">Ready in ${item.prepTimeMinutes} Mints</p>
             </div>
             <div>
@@ -72,12 +79,42 @@ function renderMenu(){
         header.className = 'category-header'
         header.setAttribute("data-category-id", category.categoryID)
 
+        header.innerHTML = `
+            <h2>${category.categoryName}</h2>
+            <span class="items-length">${category.menuItems.length} Items</span>
+        `
+        // -----------------------------------------------------------------------
+
+        let content = document.createElement("div")
+        content.className = "category-content"
+        content.id = `content-${category.categoryID}`
+        content.style.display = "block"
+
+        let itemGrid = document.createElement("div")
+        itemGrid.classList = "item-cards-cont"
+        // -----------------------------------------------------------------------
+
+        category.menuItems.forEach(item => {
+            let itemCard = renderMenuItemCard(item)
+            itemGrid.appendChild(itemCard)
+        })
+
+        content.appendChild(itemGrid)
+        menuContainer.appendChild(header)
+        menuContainer.appendChild(content)
 
 
+        header.addEventListener("click", () => {
+            // toggle visibility
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        })
     })
 
+
+    // return header
 }
 
+renderMenu()
 
 
 
