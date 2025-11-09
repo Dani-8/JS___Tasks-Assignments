@@ -20,13 +20,7 @@ function MenuItem(id, name, price, rating, prepTimeMinutes, mainIngredient, isSp
     this.mainIngredient = Array.isArray(mainIngredient) ? mainIngredient : [mainIngredient]
     this.isSpicy = isSpicy
 }
-// helper: render star rating (returns string of stars)
-function renderStars(rating){
-    if (typeof rating !== 'number' || !isFinite(rating)) return '';
-    const filled = Math.round(Math.min(Math.max(rating, 0), 5));
-    const empty = 5 - filled;
-    return '★'.repeat(filled) + '☆'.repeat(empty);
-}
+
 // ===================================================================================================
 
 let menuContainer = document.getElementById("menu-container")
@@ -111,11 +105,25 @@ function renderMenu(){
     })
 
 
-    // return header
 }
 
 renderMenu()
+// ===================================================================================================
 
+function renderStars(rating){
+    let roundedRating = Math.round(rating * 2) / 2
+    let starHTML = ""
+
+    for(let i = 1; i <= 5; i++){
+        if(i <= roundedRating){
+            starHTML += '<span class="item-rating">&#9733;</span>'
+        } else {
+            starHTML += '<span class="item-rating-grey">&#9733;</span>'
+        }
+    }
+
+    return `<span class="rating-cont">${starHTML}<span class="rating-text">(${rating.toFixed(1)})</span></span>`
+}
 
 
 

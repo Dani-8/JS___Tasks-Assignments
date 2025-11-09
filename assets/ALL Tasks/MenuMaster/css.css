@@ -15,10 +15,8 @@ body{
 /* =========================================================================== */
 
 .container{
-    /* make container responsive and avoid overflowing the viewport */
     width: 100%;
     max-width: 1200px;
-    /* slightly reduced padding to avoid horizontal overflow in small viewports */
     padding: 16px;
     display: flex;
     justify-content: center;
@@ -31,7 +29,6 @@ body{
     width: 100%;
     background-color: rgb(255, 255, 255);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    /* reduced vertical padding */
     padding: 20px 0;
     margin-bottom: 10px;
     border-radius: 20px;
@@ -76,7 +73,6 @@ body{
 .menu-container{
     width: 100%;
     padding: 20px;
-    margin-bottom: 20px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -110,8 +106,6 @@ body{
 }
 .item-cards-cont{
     display: grid;
-    /* responsive grid: cards will wrap instead of causing horizontal overflow
-       min width per card is 220px, after which they shrink to fit available space */
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 20px;
     place-items: center;
@@ -195,13 +189,20 @@ body{
     font-size: 12px;
 }
 
-.item-rating{
-    color: rgb(0, 0, 0);
-    font-size: 14px;
-
+.rating-cont{
+    font-size: 15px;
 }
-
-
+.item-rating{
+    color: #f6ad55;
+}
+.item-rating-grey{
+    color: rgb(185, 185, 185);
+}
+.rating-text{
+    font-size: 13px;
+    color: black;
+    margin-left: 5px;
+}
 
 
 
