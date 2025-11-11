@@ -47,8 +47,9 @@ body{
 /* ------------------------------------------------------------ */
 
 .inner-cont{
-    background-color: lightblue;
+    /* background-color: lightblue; */
     width: 100%;
+    margin-top: 30px;
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 20px;
@@ -57,14 +58,17 @@ body{
 .topics-demo-cont{
     /* background-color: lightcoral; */
     /* padding: 10px 20px; */
+    display: flex;
+    flex-direction: column;
 }
 
 .topic-demo{
     background-color: white;
-    box-shadow: 0 0 10px rgba(64, 64, 64, 0.3);
+    box-shadow: 0 0 10px rgba(64, 64, 64, 0.1);
     border-radius: 15px;
+    border: 1px solid;
     padding: 20px;
-
+    margin-bottom: 30px;
 }
 .topic-demo h2{
     padding-bottom: 10px;
@@ -80,42 +84,142 @@ body{
 
 .input-cont{
     /* background-color: lightcoral; */
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+    margin: 15px 0;
 }
 .inner-cont input{
+    width: 100%;
     outline: none;
     border: 1px solid rgb(161, 161, 161);
     border-radius: 10px;
     padding: 15px 12px;
+    font-size: 15px;
 }
+
+.btn-cont{
+    padding-top: 20px;
+    border-top: 1px solid rgb(194, 194, 194);
+
+}
+
 
 .topic-demo-btn{
-    
+    width: 100%;
+    box-shadow: 0 5px 10px rgba(46, 46, 46, 0.2);
+    padding: 15px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.topic-demo-btn:hover{
+    transform: scale(1.02);
+}
+.topic-demo-btn:active{
+    transform: scale(0.95);
+}
+/* ================================================================= */
 
+.topic1-demo{
+    border-color: rgb(229, 150, 5, 0.5);
+
+}
+.topic1-demo h2{
+    color: rgb(203, 132, 0);
+}
+.topic1-demo-btn{
+    background-color: rgb(244, 162, 75);
+    color: white;
+} 
+
+.topic2-demo{
+    border-color: rgb(106, 5, 229, 0.5);
+
+}
+.topic2-demo h2{
+    color: rgb(106, 5, 229);
+}
+.topic2-demo-btn{
+    background-color: rgb(99, 102, 241);
+    color: white;
+} 
+
+.topic3-demo{
+    border-color: rgb(187, 4, 4, 0.5);
+
+}
+.topic3-demo h2{
+    color: rgb(187, 4, 4);
+}
+.topic3a-demo-btn{
+    background-color: rgb(232, 123, 83);
+    color: white;
+} 
+.topic3b-demo-btn{
+    background-color: rgb(232, 62, 62);
+    color: white;
+} 
+
+.topic4-demo{
+    border-color: rgb(47, 187, 4, 0.5);
+
+}
+.topic4-demo h2{
+    color: rgb(33, 141, 0);
+}
+.topic4-demo-btn{
+    background-color: rgb(35, 197, 94);
+    color: white;
+}   
+
+
+
+
+
+
+
+
+/* ========================================================== */
+
+.result-cont{
+    background-color: rgb(37, 47, 72);
+    padding: 20px;
+    border-radius: 15px;
+}
+.result-cont h2{
+    padding: 10px;
+    border-bottom: 1px solid rgb(194, 194, 194);
+    color: white;
+}
+.result-cont p{
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 20px;
+}
+.result-cont p span{
+    color: rgb(255, 174, 0);
 }
 
 
+.storage-list{
+    background-color: rgb(19, 25, 40);
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 10px;
+    color: rgb(155, 155, 155);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.storage-list p{
+    color: rgb(155, 155, 155);
+    font-size: 14px;
+    margin: 0;
+}
 
 
 

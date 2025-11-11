@@ -17,6 +17,7 @@
 
         <div class="inner-cont">
             <div class="topics-demo-cont">
+
                 <div class="topic-demo topic1-demo">
                     <h2>
                         1. `localStorage.setItem(key, value)`
@@ -32,6 +33,58 @@
 
                     <button class="topic-demo-btn topic1-demo-btn">localStorage.setItem()</button>
                 </div>
+
+                
+                <div class="topic-demo topic2-demo">
+                    <h2>
+                        2. `localStorage.getItem(key)`
+                    </h2>
+                    <p>Retrieves the value for a specific key. Returns `null` if the key is missing.</p>
+
+
+                    <div class="input-cont">
+                        <input type="text" required placeholder="Enter Key to Retrieve">
+                        <button class="topic-demo-btn topic2-demo-btn">localStorage.setItem()</button>
+                    </div>
+                    
+
+                </div>
+
+
+                
+                <div class="topic-demo topic3-demo">
+                    <h2>
+                        3. `removeItem()` & `clear()` (Delete Data)
+                    </h2>
+
+
+                    <div class="input-cont">
+                        <input type="text" required placeholder="Enter Key to Remove">
+                        <button class="topic-demo-btn topic3a-demo-btn">localStorage.removeItem()</button>
+                    </div>
+                    
+                    <div class="btn-cont">
+                        <button class="topic-demo-btn topic3b-demo-btn">localStorage.clear() (Clear Everything!)</button>
+                    </div>
+
+                </div>
+
+                
+                <div class="topic-demo topic4-demo">
+                    <h2>
+                        4. `localStorage.key(index)` (Iteration)
+                    </h2>
+                    <p>Retrieves the key name by its index (position, starting at 0). Used for looping.</p>
+
+
+                    <div class="input-cont">
+                        <input type="text" required placeholder="Index (e.g., 0)">
+                        <button class="topic-demo-btn topic4-demo-btn">Get Key at Index</button>
+                    </div>
+
+
+                </div>
+
     
     
             </div>
@@ -40,10 +93,10 @@
 
             <div class="result-cont">
                 <h2>Current Storage Status</h2>
-                <p>Total Items: <span id="total-item">0</span></p>
+                <p>Total Items: <span id="storage-length">0</span></p>
 
-                <div class="item-show">
-
+                <div class="storage-list" id="storage-list">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem assumenda aperiam facilis ut? Rem non recusandae architecto, quia repellat nam ab laboriosam magnam earum. Atque tempora qui sequi voluptas quam?
                 </div>
             </div>
         </div>
