@@ -6,7 +6,102 @@
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f7f9fc;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+/* ================================================================== */
+
+.container{
+    background-color: white;
+    box-shadow: 0 0 10px rgba(119, 119, 119, 0.2);
+    width: 70%;
+    border-radius: 10px;
+    padding: 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header{
+    width: 100%;
+    /* background-color: lightblue; */
+    text-align: center;
+    padding: 0 30px;
+    border-bottom: 1px solid rgb(206, 206, 206);
+}
+.header h1{
+    color: rgb(39, 71, 212);
+    font-size: 45px;
+    font-weight: 800;
+
+}
+.header p{
+    font-size: 20px;
+    color: rgb(103, 103, 103);
+    margin: 10px 0;
+}
+
+
+.descp{
+    width: 700px;
+    text-align: center;
+    color: rgb(103, 103, 103);
+    font-size: 18px;
+    margin-top: 40px;
+}
+
+
+
+
+
+
+.inner-cont{
+    /* background-color: lightblue; */
+    width: 100%;
+    margin-top: 30px;
+}
+
+.table-header{
+    /* background-color: lightcoral; */
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgb(206, 206, 206);
+
+}
+.table-header div:nth-child(1){
+    flex: 1;
+    color: rgb(39, 134, 212);
+    font-size: 18px;
+    font-weight: 700;
+}
+.table-header div:nth-child(2){
+    flex: 1;
+    color: rgb(39, 134, 212);
+    font-size: 18px;
+    font-weight: 700;
+}
+.table-header div:nth-child(3){
+    flex: 2;
+    color: rgb(39, 134, 212);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+
+
+
+
+
+
+
 
 
 
