@@ -64,43 +64,124 @@ body{
     /* background-color: lightblue; */
     width: 100%;
     margin-top: 30px;
+    border-bottom: 1px solid rgb(206, 206, 206);
 }
 
 .table-header{
     /* background-color: lightcoral; */
     padding: 10px;
+    margin-bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-bottom: 1px solid rgb(206, 206, 206);
-
+    color: rgb(46, 149, 232);
 }
 .table-header div:nth-child(1){
     flex: 1;
-    color: rgb(39, 134, 212);
     font-size: 18px;
     font-weight: 700;
 }
 .table-header div:nth-child(2){
     flex: 1;
-    color: rgb(39, 134, 212);
     font-size: 18px;
     font-weight: 700;
 }
 .table-header div:nth-child(3){
     flex: 2;
-    color: rgb(39, 134, 212);
     font-size: 18px;
     font-weight: 700;
 }
 
 
 
+.topics-cont{
+    /* background-color: lightblue; */
+
+
+}
+
+.topic{
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    padding: 15px 12px;
+    margin-bottom: 25px;
+    border-left: 5px solid;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+.topicMethod{
+    flex: 1;
+    font-weight: 900;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+}
+.topicPurpose{
+    flex: 1;
+    color: rgb(87, 87, 87);
+    font-size: 17px;
+    font-weight: 600;
+}
+.topicWork{
+    flex: 2;
+    color: rgb(97, 97, 97);
+    font-size: 17px;
+}
 
 
 
-
-
+.topic1{
+    background-color: rgba(255, 187, 59, 0.1);
+    border-color: rgb(229, 150, 5);
+}
+.topic1:hover{
+    background-color: rgba(255, 187, 59, 0.3);
+}
+.topicMethod1{
+    color: rgb(187, 123, 4);
+}
+.topic2{
+    background-color: rgba(121, 59, 255, 0.1);
+    border-color: rgb(106, 5, 229);
+}
+.topic2:hover{
+    background-color: rgba(121, 59, 255, 0.3);
+}
+.topicMethod2{
+    color: rgb(106, 5, 229);
+}
+.topic3{
+    background-color: rgba(59, 255, 216, 0.1);
+    border-color: rgb(4, 185, 167);
+}
+.topic3:hover{
+    background-color: rgba(59, 255, 216, 0.3);
+}
+.topicMethod3{
+    color: rgb(4, 185, 167);
+}
+.topic4{
+    background-color: rgba(255, 59, 59, 0.1);
+    border-color: rgb(187, 4, 4);
+}
+.topic4:hover{
+    background-color: rgba(255, 59, 59, 0.3);
+}
+.topicMethod4{
+    color: rgb(187, 4, 4);
+}
+.topic5{
+    background-color: rgba(79, 255, 59, 0.1);
+    border-color: rgb(47, 187, 4);
+}
+.topic5:hover{
+    background-color: rgba(79, 255, 59, 0.3);
+}
+.topicMethod5{
+    color: rgb(47, 187, 4);
+}
 
 
 
