@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage Live Demo</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <h1>`LocalStorage` Live Demo</h1>
+            <p>Interact with the five core methods below.</p>
+        </header>
+
+
+        <div class="inner-cont">
+            <div class="topics-demo-cont">
+                <div class="topic-demo topic1-demo">
+                    <h2>
+                        1. `localStorage.setItem(key, value)`
+                    </h2>
+                    <p>Saves data. Both key and value must be strings.</p>
+
+
+                    <div class="input-cont">
+                        <input type="text" required placeholder="Enter Key (e.g., username)">
+                        <input type="text" required placeholder="Enter Value (e.g., 'Ali')">
+                    </div>
+
+
+                    <button class="topic-demo-btn topic1-demo-btn">localStorage.setItem()</button>
+                </div>
+    
+    
+            </div>
+
+
+
+            <div class="result-cont">
+                <h2>Current Storage Status</h2>
+                <p>Total Items: <span id="total-item">0</span></p>
+
+                <div class="item-show">
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <script src="js.js"></script>
+</body>
+</html>
