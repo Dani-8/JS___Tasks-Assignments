@@ -26,8 +26,14 @@ body{
     margin-bottom: 15px;
     border: 2px solid transparent;
     border-radius: 10px;
-    transition: 0.3s ease;
+    transition: all 0.3s ease;
     animation: fadeIn 0.3s ease;
+    opacity: 1;
+    transform: translateY(0);
+}
+.msg-hidden{
+    opacity: 0 !important;
+    transform: translateY(-10px);
 }
 @keyframes fadeIn {
     from {
@@ -50,6 +56,8 @@ body{
     border-color: #3edc26;
     color: #239a0e;
 }
+
+
 
 
 
