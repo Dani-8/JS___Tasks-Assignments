@@ -8,15 +8,129 @@ body{
     justify-content: center;
     align-items: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #d2daff 0%, #ffffff 100%);
+    min-height: 100vh;
 }
 /* ============================================================================ */
 
 .hidden{
-    display: none;
+    display: none !important;
+}
+
+.container{
+    background-color: white;
+    box-shadow: 0 0 20px 10px rgba(130, 130, 130, 0.1);
+    width: 450px;
+    padding: 50px;
+    border-radius: 15px;
+}
+.form-cont div{
+    width: 100%;
+}
+.input-group{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    /* background-color: lightblue; */
+    width: 100%;
 }
 
 
+.title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 25px;
+    text-align: center;
+}
 
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label{
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+.input-field {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    color: #1f2937;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+
+.btn {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.submit-btn{
+    background: linear-gradient(135deg, #6366f1 0%, #7c3aed 100%);
+    color: white;
+    margin-top: 0.5rem;
+}
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+}
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.logout-btn{
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    margin-top: 1rem;
+}
+.logout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+}
+.logout-btn:active {
+    transform: translateY(0);
+}
+
+
+.link-btn-cont{
+    /* background-color: lightblue; */
+    margin-top: 12px;
+    text-align: center;
+}
+.link-btn{
+    font-size: 14px;
+    color: #4f46e5;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-weight: 600;
+    background: none;
+    border: none;
+}
+
+.link-btn:hover {
+    color: #4338ca;
+    text-decoration: underline;
+}
 
 
 
