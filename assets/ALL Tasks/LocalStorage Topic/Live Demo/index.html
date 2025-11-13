@@ -44,7 +44,7 @@
 
                     <div class="input-cont">
                         <input id="get-key-input" type="text" required placeholder="Enter Key to Retrieve">
-                        <button class="topic-demo-btn topic2-demo-btn" onclick="getItem()">localStorage.setItem()</button>
+                        <button class="topic-demo-btn topic2-demo-btn" onclick="getItem()">localStorage.getItem()</button>
                     </div>
                 </div>
                 <!-- ============================================================================================================ -->
@@ -80,6 +80,32 @@
                     </div>
                 </div>
                 <!-- ============================================================================================================ -->
+
+                
+
+                <div class="topic-demo topic5-demo">
+                    <h2>
+                        5. Complex Data: `JSON.stringify()` & `JSON.parse()`
+                    </h2>
+                    <p>`localStorage` only stores strings. Use JSON methods to save and load JavaScript objects/arrays!</p>
+
+
+                    <input id="jsonKeyInput" type="text"  placeholder="Enter Key for JSON Data (e.g., 'user_profile')">
+                    <textarea name="" id="jsonObjectInput" class="json-object-input" placeholder='Enter JSON Object (e.g., {"name": "Charlie", "age": 42})'></textarea>
+
+                    <div class="btns-cont">
+                        <button class="topic-demo-btn topic5a-demo-btn" onclick="handleSaveObject()">Save Object (Stringify)</button>
+                        <button class="topic-demo-btn topic5b-demo-btn" onclick="handleLoadObject()">Load Object (Parse)</button>
+                    </div>
+                </div>
+                <!-- ============================================================================================================ -->
+
+
+
+
+
+
+
 
             </div>
 

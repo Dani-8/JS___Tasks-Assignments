@@ -88,12 +88,29 @@ body{
     gap: 15px;
     margin: 15px 0;
 }
+.btns-cont{
+    /* background-color: lightcoral; */
+    display: flex;
+    gap: 15px;
+    margin: 15px 0;
+}
 .inner-cont input{
     width: 100%;
     outline: none;
     border: 1px solid rgb(161, 161, 161);
     border-radius: 10px;
     padding: 15px 12px;
+    font-size: 15px;
+}
+/* TEXTAREA */
+.json-object-input{
+    height: 120px;
+    width: 100%;
+    padding: 15px 12px;
+    margin-top: 10px;
+    outline: none;
+    border: 1px solid rgb(161, 161, 161);
+    border-radius: 10px;
     font-size: 15px;
 }
 
@@ -176,6 +193,22 @@ body{
     color: white;
 }   
 
+.topic5-demo{
+    border-color: rgba(187, 4, 187, 0.5);
+
+}
+.topic5-demo h2{
+    color: rgb(187, 4, 168);
+}
+.topic5a-demo-btn{
+    background-color: rgb(35, 113, 197);
+    color: white;
+}   
+.topic5b-demo-btn{
+    background-color: rgb(197, 35, 157);
+    color: white;
+}   
+
 
 
 
@@ -231,6 +264,9 @@ body{
     border-radius: 10px;
     font-weight: 700;
     font-size: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
 }
 .item-div span{
     display: inline-block;
@@ -240,8 +276,7 @@ body{
 }
 .item-div .value{
     color: white;
-    white-space: wrap;
-    /* width: 10%; */
+    word-break: break-word;
 }
     
 
