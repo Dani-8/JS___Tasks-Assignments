@@ -17,7 +17,47 @@ body{
     display: none !important;
 }
 
-.container{
+.msg-box{
+    padding: 15px;
+    /* background-color: lightblue; */
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    transition: 0.3s ease;
+    animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.msg-error{
+    background-color: rgb(255, 218, 218);
+    border-color: #dc2626;
+    color: #9a0e0e;
+}
+.msg-success{
+    background-color: rgb(227, 255, 218);
+    border-color: #3edc26;
+    color: #239a0e;
+}
+
+
+
+
+/* .container{
+
+} */
+.form-cont{
     background-color: white;
     box-shadow: 0 0 20px 10px rgba(130, 130, 130, 0.1);
     width: 450px;
@@ -117,13 +157,14 @@ body{
     text-align: center;
 }
 .link-btn{
+    background: none;
+    /* background-color: rgb(230, 184, 173); */
     font-size: 14px;
     color: #4f46e5;
     cursor: pointer;
     text-decoration: none;
     transition: all 0.2s ease;
     font-weight: 600;
-    background: none;
     border: none;
 }
 
