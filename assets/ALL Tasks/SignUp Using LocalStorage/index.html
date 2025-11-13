@@ -8,7 +8,52 @@
 </head>
 <body>
     
+    <div class="container">
+        <div id="msgbox" class="msg-box"></div>
 
+        <div class="form-cont">
+            <div>
+                <div class="input-group">
+                    <lable for="name">Name</lable>
+                    <input type="text" id="name" class="input-field" placeholder="Ali">
+                </div>
+                
+                <div class="input-group">
+                    <lable for="email">Email</lable>
+                    <input type="email" id="email" class="input-field" placeholder="you@example.com">
+                </div>
+                
+                <div class="input-group">
+                    <lable for="password">Password</lable>
+                    <input type="password" id="password" class="input-field" placeholder="••••••••">
+                </div>
+
+                <button class="btn submit-btn" id="submit-btn">Log In</button>
+
+
+                <div class="link-btn-cont">
+                    <button class="link-btn" id="link-btn">Need an account? Sign Up</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================================================================= -->
+
+        <div class="profile-view" id="profile-view">
+            <div class="inner-cont">
+                <h1>Profile</h1>
+                <svg xmlns="http://www.w3.org/2000/svg" class="dashboard-icon" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                </svg>
+
+                <p class="welcome-text">Welcome</p>
+                <p class="welcome-name" id="username"></p>
+                <p class="welcome-email" id="useremail"></p>
+
+                <button class="btn logout-btn" id="logout-btn">Log out</button>
+            </div>
+        </div>
+    </div>
 
 
 
