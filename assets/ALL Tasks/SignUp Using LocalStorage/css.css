@@ -70,7 +70,7 @@ body{
     box-shadow: 0 0 20px 10px rgba(130, 130, 130, 0.1);
     width: 450px;
     padding: 50px;
-    border-radius: 15px;
+    border-radius: 25px;
 }
 .form-cont div{
     width: 100%;
@@ -181,7 +181,60 @@ body{
     text-decoration: underline;
 }
 
+/* ================================================= */
+/* ================================================= */
+/* ================================================= */
 
+.profile-view{
+    background-color: white;
+    box-shadow: 0 0 20px 10px rgba(130, 130, 130, 0.1);
+    width: 450px;
+    padding: 50px;
+    border-radius: 25px;
+}
+
+.profile-view .inner-cont{
+    /* background-color: lightblue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.profile-view .inner-cont h1{
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+.profile-view .inner-cont svg{
+    height: 120px;
+    padding: 10px;
+    background-color: rgba(208, 224, 255, 0.8);
+    box-shadow: 0 0 20px rgb(174, 201, 254);
+    border-radius: 50%;
+    color: #6366f1;
+    margin-bottom: 35px;
+}
+
+
+.welcome-text{
+    color: #515151;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.welcome-name{
+    color: #4338ca;
+    font-weight: 700;
+    font-size: 35px;
+    margin-bottom: 5px;
+}
+.welcome-email{
+    color: #26215e;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
 
 
 

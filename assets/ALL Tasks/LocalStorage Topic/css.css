@@ -87,7 +87,7 @@ body{
     width: 100%;
     margin-top: 30px;
     padding-bottom: 30px;
-    border-bottom: 1px solid rgb(206, 206, 206);
+    border-bottom: 5px solid rgb(206, 206, 206);
 }
 
 .table-header{
@@ -204,6 +204,58 @@ body{
 .topicMethod5{
     color: rgb(47, 187, 4);
 }
+
+/* ========================================================================== */
+/* ========================================================================== */
+/* ========================================================================== */
+
+.divider-for-JSON{
+    /* background-color: lightcoral; */
+    margin-top: 25px;
+
+}
+.divider-for-JSON h1{
+    color: #4e6585;
+    font-size: 35px;
+}
+/* ============================================ */
+
+.topics-cont-JSON{
+    padding-bottom: 30px;
+    margin-top: 25px;
+    border-bottom: 1px solid rgb(206, 206, 206);
+}
+
+
+
+
+.topic6{
+    background-color: rgba(255, 163, 59, 0.1);
+    border-color: rgb(220, 140, 1);
+}
+.topic6:hover{
+    background-color: rgba(255, 179, 93, 0.3);
+}
+.topicMethod6{
+    color: rgb(187, 98, 4);
+}
+.topic7{
+    background-color: rgba(255, 59, 206, 0.1);
+    border-color: rgb(207, 3, 190);
+}
+.topic7:hover{
+    background-color: rgba(255, 112, 219, 0.3);
+}
+.topicMethod7{
+    color: rgb(187, 4, 120);
+}
+
+
+
+
+
+
+
 
 
 

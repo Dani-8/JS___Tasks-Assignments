@@ -28,7 +28,6 @@ function showMSG(text, isError){
     // --------------------------
 
     msgBOX.textContent = text
-    // use msg-hidden (message-specific) so we don't touch the global .hidden used elsewhere
     msgBOX.classList.remove('msg-hidden', 'msg-error', 'msg-success')
 
     if(isError){

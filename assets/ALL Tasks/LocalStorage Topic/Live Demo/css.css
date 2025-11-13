@@ -189,6 +189,7 @@ body{
     background-color: rgb(37, 47, 72);
     padding: 20px;
     border-radius: 15px;
+    max-width: 320px;
 }
 .result-cont h2{
     padding: 10px;
@@ -201,6 +202,7 @@ body{
     font-size: 18px;
     font-weight: 700;
     margin-top: 20px;
+    max-width: 100%;
 }
 .result-cont p span{
     color: rgb(255, 174, 0);
@@ -230,11 +232,16 @@ body{
     font-weight: 700;
     font-size: 16px;
 }
+.item-div span{
+    display: inline-block;
+}
 .item-div .key{
     color: rgb(248, 170, 45);
 }
 .item-div .value{
     color: white;
+    white-space: wrap;
+    /* width: 10%; */
 }
     
 
