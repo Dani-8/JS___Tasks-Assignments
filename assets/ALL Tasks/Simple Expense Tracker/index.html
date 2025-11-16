@@ -13,7 +13,7 @@
 
         <div class="current-balance-cont">
             <h3>Current Balance</h3>
-            <p id="balance">Rs0.00</p>
+            <p class="balance" id="balance">Rs0.00</p>
         </div>
 
         <div class="total-amounts-cont">
@@ -61,12 +61,12 @@
                 <div class="income-cont">
                     <label for="income-amount">Income Amount</label>
                     <input type="text" id="income-amount-input" placeholder="e.g., 5000">
-                    <button class="income-btn" id="income-btn">Add Income</button>
+                    <button class="income-btn" id="income-btn" onclick="addTransaction('income')">Add Income</button>
                 </div>
                 <div class="expense-cont">
                     <label for="expense-amount">Expense Amount</label>
                     <input type="text" id="expense-amount-input" placeholder="e.g., 500">
-                    <button class="expense-btn" id="expense-btn">Add Expense</button>
+                    <button class="expense-btn" id="expense-btn" onclick="addTransaction('expense')">Add Expense</button>
                 </div>
             </div>
 
@@ -76,27 +76,6 @@
 
         <h2 class="history-title">History</h2>
         <ul class="history-ul" id="list-cont">
-            <p>No transactions yet.</p>
-            <li>
-                <div class="item-info">
-                    <span class="item-info-span1">Income</span>
-                    <span class="item-info-span2">Income | 11/16/25</span>
-                </div>
-                <div class="amount-btns-cont">  
-                    <span class="amount-number">Rs5000.00</span>
-
-                    <!-- Edit Button -->
-                    <button class="btn edit-btn">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
-                    </button>
-
-                    <!-- Delete Button -->
-                    <button class="btn delete-btn">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                    </button>
-                </div>
-            </li>
-            
         </ul>
 
 
