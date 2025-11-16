@@ -13,18 +13,18 @@
 
         <div class="current-balance-cont">
             <h3>Current Balance</h3>
-            <p>Rs0.00</p>
+            <p id="balance">Rs0.00</p>
         </div>
 
         <div class="total-amounts-cont">
             <span class="total-income">
                 <p class="title">Total Income</p>
-                <p class="amount">Rs0.00</p>
+                <p class="amount" id="money-plus">Rs0.00</p>
             </span>
             <span class="divider"></span>
             <span class="total-expenses">
                 <p class="title">Total Expenses</p>
-                <p class="amount">Rs0.00</p>
+                <p class="amount" id="money-minus">Rs0.00</p>
             </span>
         </div>
 <!-- ====================================================================== -->
@@ -34,7 +34,7 @@
 
             <div>
                 <label for="title" class="title-label">Title</label>
-                <input type="text" class="title-input" id="title" placeholder="Enter Title....">
+                <input type="text" class="title-input" id="title-input" placeholder="Enter Title....">
             </div>
 
             <div class="item-details-cont">
@@ -60,13 +60,13 @@
             <div class="amounts-input-cont">
                 <div class="income-cont">
                     <label for="income-amount">Income Amount</label>
-                    <input type="text" id="income-amount" placeholder="e.g., 5000">
-                    <button class="income-btn">Add Income</button>
+                    <input type="text" id="income-amount-input" placeholder="e.g., 5000">
+                    <button class="income-btn" id="income-btn">Add Income</button>
                 </div>
                 <div class="expense-cont">
                     <label for="expense-amount">Expense Amount</label>
-                    <input type="text" id="expense-amount" placeholder="e.g., 500">
-                    <button class="expense-btn">Add Expense</button>
+                    <input type="text" id="expense-amount-input" placeholder="e.g., 500">
+                    <button class="expense-btn" id="expense-btn">Add Expense</button>
                 </div>
             </div>
 
@@ -74,7 +74,7 @@
         <!-- ======================================================================================= -->
 
         <h2 class="history-title">History</h2>
-        <ul class="history-ul">
+        <ul class="history-ul" id="list-cont">
             <!-- <p>No transactions yet.</p> -->
             <li>
                 <div class="item-info">
@@ -100,6 +100,20 @@
 
 
     </div>
+
+<!-- ============================================================================================================================== -->
+
+    <div class="modal-overlay" id="delete-modal">
+        <div class="modal-content">
+            <h3 class="heading">Confirm Deletion</h3>
+            <p class="descp">Are you sure you want to delete this transaction?</p>
+            <div class="modal-btns-cont">
+                <button id="modal-cancel" class="modal-cancel-btn">Cancel</button>
+                <button id="modal-delete" class="modal-delete-btn">Delete</button>
+            </div>
+        </div>
+    </div>
+
 
 
 

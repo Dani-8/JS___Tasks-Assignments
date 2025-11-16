@@ -11,6 +11,10 @@ body{
     align-items: center; 
     padding: 20px;
 }
+
+.hidden{
+    display: none;
+}
 /* ============================================= */
 .container{
     width: 100%;
@@ -307,7 +311,72 @@ label{
 }
 
 
+/* ============================================== */
+/* MODAL */
+/* ============================================== */
 
+.modal-overlay{
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.modal-content{
+    min-width: 30%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+
+}
+.modal-content .heading{
+    font-size: 25px;
+    align-items: start;
+    width: 100%;
+}
+.modal-content .descp{
+    font-size: 17px;
+    align-items: center;
+    color: rgb(89, 89, 89);
+    width: 100%;
+    margin: 10px 0;
+}
+.modal-btns-cont{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    gap: 5px;
+}
+.modal-btns-cont button{
+    outline: none;
+    border: none;
+    /* background-color: grey; */
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.modal-btns-cont button:active{
+    transform: scale(0.9);
+}
+.modal-cancel-btn{
+    background-color: rgb(223, 223, 223);
+    color: rgb(0, 0, 0);
+}
+.modal-delete-btn{
+    background-color: rgb(221, 56, 56);
+    color: white;
+}
 
 
 
