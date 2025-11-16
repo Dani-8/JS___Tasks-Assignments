@@ -187,7 +187,7 @@ label{
     transition: 0.3s ease;
 }
 .income-cont button{
-    background-color: rgb(11, 131, 13);
+    background-color: rgb(14, 156, 19);
 }
 .expense-cont button{
     background-color: rgb(213, 24, 24);
@@ -200,7 +200,7 @@ label{
 /* ================================================ */
 
 .history-title{
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     color: rgb(79, 92, 106);
     border-bottom: 1px solid rgb(216, 216, 216);
