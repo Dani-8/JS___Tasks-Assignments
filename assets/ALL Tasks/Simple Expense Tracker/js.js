@@ -68,7 +68,7 @@ function addTransaction(type){
 
 function displayTransaction(transaction){
     let amountDisplay = transaction.type === 'income' ? `+Rs${transaction.amount.toFixed(2)}` : `-Rs${transaction.amount.toFixed(2)}`;
-    let borderColor = transaction.type === 'income' ? 'border-color: rgb(213, 24, 24);' : 'border-color: rgb(213, 24, 24);';
+    let borderColor = transaction.type === 'income' ? 'border-color: rgb(14, 156, 19);' : 'border-color: rgb(213, 24, 24);';
     let amountColor = transaction.type === 'income' ? 'color: rgb(14, 156, 19);' : 'color: rgb(213, 24, 24);';
 
     let dateParts = transaction.date.split('-');
@@ -100,7 +100,7 @@ function displayTransaction(transaction){
     
     item.querySelector('.delete-btn').addEventListener('click', () => showConfirmation(transaction.id))
     item.querySelector('.edit-btn').addEventListener('click', () => loadTransactionForEdit(transaction.id))
-    list.appendChild(item)
+    listCont.appendChild(item)
 }
 // ============================================================================
 
@@ -112,20 +112,20 @@ function loadTransactionForEdit(id){
 
     editingTransactionId = id
 
-    textInput.value = transaction.text
+    titleInput.value = transaction.text
     categoryInput.value = transaction.category
     dateInput.value = transaction.date
     
     if(transaction.type === 'income'){
-        incomeInput.value = transaction.amount.toFixed(2)
-        expenseInput.value = ''
+        incomeAmountInput.value = transaction.amount.toFixed(2)
+        expenseAmountInput.value = ''
     }else{
-        expenseInput.value = transaction.amount.toFixed(2)
-        incomeInput.value = ''
+        expenseAmountInput.value = transaction.amount.toFixed(2)
+        incomeAmountInput.value = ''
     }
     
-    errorMessageEl.textContent = `Editing transaction: "${transaction.text}". Click 'Add/Update' below to save changes.`
-    errorMessageEl.classList.remove('hidden')
+    errorMSG.textContent = `Editing transaction: "${transaction.text}". Click 'Add/Update' below to save changes.`
+    errorMSG.classList.remove('hidden')
 }
 // ============================================================================
 

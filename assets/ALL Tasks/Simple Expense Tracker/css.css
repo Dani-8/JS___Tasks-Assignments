@@ -15,6 +15,9 @@ body{
 .hidden{
     display: none !important;
 }
+.flex{
+    display: flex !important;
+}
 /* ============================================= */
 .container{
     width: 100%;
@@ -51,7 +54,7 @@ body{
     color: rgb(30, 52, 69);
 }
 .balance-grey{color: rgb(30, 52, 69);}
-.balance-green{color: rgb(20, 181, 23);}
+.balance-green{color: rgb(13, 141, 15);}
 .balance-red{color: rgb(213, 24, 24);}
 
 
@@ -92,7 +95,7 @@ body{
     font-weight: 700;
 }
 .total-income{
-    color: rgb(20, 181, 23);
+    color: rgb(13, 141, 15);
 }
 .total-expenses{
     color: rgb(213, 24, 24);
@@ -119,6 +122,9 @@ label{
     font-size: 16px;
     font-weight: 600;
     color: rgb(79, 92, 106);
+}
+input:focus, select:focus{
+    box-shadow: 0 0 0px 3px rgb(156, 197, 255);
 }
 .title-input{
     width: 100%;
@@ -350,8 +356,24 @@ label{
     align-items: center;
     flex-direction: column;
     gap: 10px;
-
+    animation: zoom-in 0.5s ease;
+    transition: 0.5s ease;
 }
+@keyframes zoom-in {
+    0% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.25);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
 .modal-content .heading{
     font-size: 25px;
     align-items: start;
@@ -385,7 +407,7 @@ label{
     transform: scale(0.9);
 }
 .modal-cancel-btn{
-    background-color: rgb(223, 223, 223);
+    background-color: rgb(230, 230, 230);
     color: rgb(0, 0, 0);
 }
 .modal-delete-btn{
