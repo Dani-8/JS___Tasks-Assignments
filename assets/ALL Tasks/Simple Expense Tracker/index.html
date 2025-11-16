@@ -13,22 +13,70 @@
 
         <div class="current-balance-cont">
             <h3>Current Balance</h3>
-            <p>$0.00</p>
+            <p>Rs0.00</p>
         </div>
 
         <div class="total-amounts-cont">
             <span class="total-income">
-                <p>Total Income</p>
-                <p>$0.00</p>
+                <p class="title">Total Income</p>
+                <p class="amount">Rs0.00</p>
             </span>
             <span class="divider"></span>
             <span class="total-expenses">
-                <p>Total Expenses</p>
-                <p>$0.00</p>
+                <p class="title">Total Expenses</p>
+                <p class="amount">Rs0.00</p>
             </span>
         </div>
+<!-- ====================================================================== -->
 
+        <div class="transaction-cont">
+            <h2>Add Transaction</h2>
 
+            <div>
+                <label for="title" class="title-label">Title</label>
+                <input type="text" class="title-input" id="title" placeholder="Enter Title....">
+            </div>
+
+            <div class="item-details-cont">
+                <div>
+                    <label for="category-input" class="">Category</label>
+                    <select id="category-input" required>
+                        <option value="">Select Category</option>
+                        <option value="Salary">Salary (Income)</option>
+                        <option value="Investment">Investment (Income)</option>
+                        <option value="Food">Food & Drink</option>
+                        <option value="Housing">Housing</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="date-input">Date</label>
+                    <input type="date" id="date-input" required>
+                </div>
+            </div>
+
+            <div class="amounts-input-cont">
+                <div class="income-cont">
+                    <label for="income-amount">Income Amount</label>
+                    <input type="text" id="income-amount" placeholder="e.g., 5000">
+                    <button class="income-btn">Add Income</button>
+                </div>
+                <div class="expense-cont">
+                    <label for="expense-amount">Expense Amount</label>
+                    <input type="text" id="expense-amount" placeholder="e.g., 500">
+                    <button class="expense-btn">Add Expense</button>
+                </div>
+            </div>
+
+        </div>
+        <!-- ======================================================================================= -->
+
+        <h2 class="history-title">History</h2>
+        <ul class="history-ul">
+            <p>No transactions yet.</p>
+        </ul>
 
 
     </div>

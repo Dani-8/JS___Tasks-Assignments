@@ -55,19 +55,177 @@ body{
     margin-top: 20px;
 
     display: grid;
-    grid-template-columns: repeat(3fr 1fr 3fr);
+    grid-template-columns: 1fr 3px 1fr;
     gap: 10px;
 
 }
 .divider{
-    background-color: black;
-    width: 3px;
+    background-color: rgb(206, 206, 206);
+    width: 1.5px;
     height: 100%;
     
 }
 .total-amounts-cont span{
-    background-color: rgba(173, 216, 230, 0.651);
+    /* background-color: rgba(173, 216, 230, 0.651); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
 }
+
+.total-amounts-cont span .title{
+    font-size: 18px;
+    font-weight: 600;
+}
+.total-amounts-cont span .amount{
+    font-size: 22px;
+    font-weight: 700;
+}
+.total-income{
+    color: rgb(20, 181, 23);
+}
+.total-expenses{
+    color: rgb(213, 24, 24);
+}
+
+
+
+
+.transaction-cont{
+    /* background-color: rgba(173, 216, 230, 0.505); */
+    margin-top: 20px;
+}
+.transaction-cont h2{
+    /* background-color: rgba(5, 43, 56, 0.505); */
+    margin-bottom: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(216, 216, 216);
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(33, 62, 95);
+}
+
+label{
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(79, 92, 106);
+}
+.title-input{
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    outline: none;
+    border-radius: 8px;
+    border: 1px solid rgb(167, 167, 167);
+    font-size: 16px;
+}
+.title-input::placeholder{
+    color: rgb(149, 149, 149);
+
+}
+
+
+.item-details-cont{
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+.item-details-cont div{
+    flex: 1;
+}
+.item-details-cont select, .item-details-cont input{
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    outline: none;
+    border-radius: 8px;
+    border: 1px solid rgb(167, 167, 167);
+    font-size: 16px;
+}
+
+
+.amounts-input-cont{
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+.amounts-input-cont div{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* background-color: #6eb0d8a5; */
+}
+.income-cont label{
+    color: rgb(11, 131, 13);
+}
+.expense-cont label{
+    color: rgb(213, 24, 24);
+}
+.amounts-input-cont input{
+    width: 100%;
+    padding: 10px;
+    /* margin-top: 5px; */
+    outline: none;
+    border-radius: 8px;
+    border: 1px solid rgb(167, 167, 167);
+    font-size: 16px;
+}
+.amounts-input-cont button{
+    width: 100%;
+    padding: 12px;
+    /* margin-top: 5px; */
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.income-cont button{
+    background-color: rgb(11, 131, 13);
+}
+.expense-cont button{
+    background-color: rgb(213, 24, 24);
+}
+.amounts-input-cont button:active{
+    transform: scale(0.95);
+
+}
+
+/* ================================================ */
+
+.history-title{
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(79, 92, 106);
+    border-bottom: 1px solid rgb(216, 216, 216);
+    padding: 10px 0;
+    margin: 10px 0;
+}
+.history-ul{
+    /* background-color: lightblue; */
+    padding: 20px 0;
+}
+.history-ul p{
+    color: rgb(115, 129, 144);
+    text-align: center;
+    font-size: 17px;
+    font-style: italic;
+    font-weight: 500;
+}
+
+
+
+
+
+
+
+
 
 
 
