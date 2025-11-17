@@ -124,6 +124,18 @@ function renderStars(rating){
 
     return `<span class="rating-cont">${starHTML}<span class="rating-text">(${rating.toFixed(1)})</span></span>`
 }
+// ========================================================================================================
+
+
+
+
+
+
+
+
+
+
+
 
 
 
