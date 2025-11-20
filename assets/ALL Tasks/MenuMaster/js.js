@@ -128,18 +128,3 @@ function renderStars(rating){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
