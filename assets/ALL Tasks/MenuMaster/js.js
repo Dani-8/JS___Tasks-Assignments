@@ -103,8 +103,6 @@ function renderMenu(){
             content.style.display = content.style.display === 'none' ? 'block' : 'none';
         })
     })
-
-
 }
 
 renderMenu()
@@ -125,6 +123,18 @@ function renderStars(rating){
     return `<span class="rating-cont">${starHTML}<span class="rating-text">(${rating.toFixed(1)})</span></span>`
 }
 // ========================================================================================================
+
+function getNextItemId(categoryName){
+    let category = restaurantMenu.find(cat => cat.categoryName === categoryName)
+    if(!categoryName) return 1
+
+    let maxId = category.menuItems.reduce((max, item) => Math.max(max, item.id), 0)
+    return maxId + 1
+}
+
+
+
+
 
 
 
