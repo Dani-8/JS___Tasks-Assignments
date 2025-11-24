@@ -129,8 +129,11 @@ function getNextItemId(categoryName){
     if(!categoryName) return 1
 
     let maxId = category.menuItems.reduce((max, item) => Math.max(max, item.id), 0)
+    
     return maxId + 1
 }
+
+
 
 
 
