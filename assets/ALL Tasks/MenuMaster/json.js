@@ -150,4 +150,3 @@ export let restaurantMenu = [
     ]
 }
 ]
-
