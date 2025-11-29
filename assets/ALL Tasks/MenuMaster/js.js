@@ -140,7 +140,3 @@ function getNextItemId(categoryName){
 
 
 
-
-
-
-
