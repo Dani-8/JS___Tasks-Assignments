@@ -19,8 +19,48 @@ export let renderDashboardView = () => {
     }
     // -------------------------------------------------------------------------------------------------------------------
 
+    let html = `
+        <div class="dashboard-cont">
+            <header class="dashboard-header">
+                <div><h1>Class Dashboard</h1><p>Data loaded from CSV file.</p></div>
+                <button class="dashboard-header-btn" onchange="navigator('attendance')">Mark Today's Attendance</button>
+            </header>
 
-    
+            <div class="kpis-cont">
+                <div><p class="kpi-heading">Total Students</p><p class="kpi-number">20</p></div>
+                <div><p class="kpi-heading">Today's Rate</p><p class="kpi-number">0%</p></div>
+                <div><p class="kpi-heading">Overall Rate</p><p class="kpi-number">75%</p></div>
+                <div><p class="kpi-heading">Needs Attention</p><p class="kpi-number">3</p></div>
+            </div>
+
+            <div class="attendance-performance-cont">
+                <h1>Overall Attendance Performance</h1>
+                <div id="attendanceChartCont"><canvas id="attendanceChart"></canvas></div>
+            </div>
+
+            <div class="frequent-absences-cont">
+                <h1>Students with Chronic Absences (>2 Days)</h1>
+                ${needAttention.length === 0 ? `<p class="no-data">No students with chronic absences.</p>` : `
+                    <table class="table">
+                        <thead><tr>
+                            <th>Student Name</th>
+                            <th>Student ID</th>
+                            <th class="absences-heading">Total Absences</th>
+                        </tr></thead>
+                        <tbody id="freqAbsencesTbody"><tr>
+                            <td>Jane Smith</td>
+                            <td>3</td>
+                            <td class="absences-number">4</td>
+                        </tr></tbody>
+                    </table>
+                `}
+            </div>
+
+            ${renderRawDataTable()}
+        </div>
+    `
+    setTimeout(() => renderAttendanceChart(stats.top10Students), 0);
+    return html;
 }
 
 

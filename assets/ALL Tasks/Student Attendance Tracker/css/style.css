@@ -17,7 +17,7 @@ body{
 .app-container{
     background-color: #fbfdff;
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     padding: 20px;
 
     display: flex;
@@ -187,7 +187,7 @@ body{
 
 .dashboard-cont{
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -287,6 +287,69 @@ body{
     width: 100%;
     /* height: 400px; */
 }
+/* ---------------------------------------------------------------------------- */
+
+/* FREQUENTLY ABSENCES */
+
+.frequent-absences-cont{
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.frequent-absences-cont h1{
+    color: #5b3eb2;
+    font-size: 25px;
+}
+
+.table{
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 15px;
+    outline: 1px solid #ddd;
+    overflow: hidden;
+}
+.table th,
+.table td{
+    padding: 12px 25px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+.table th{
+    background-color: rgb(238, 233, 255);
+    color: #5b3eb2;
+    font-weight: 500;
+}
+.table tr:nth-child(even){
+    background-color: #faf5ff;
+}
+.table tr:hover{
+    background-color: #ffeaea;
+    transition: 0.3s ease;
+}
+.absences-heading{
+    text-align: right !important;
+}
+.absences-number{
+    text-align: right !important;
+    color: rgb(207, 62, 62);
+    font-weight: 600;
+}
+/* ----------------------------------------------------------------------------- */
+
+/* RAW DATA */
+
+
+
+
+
+
+
+
+
 
 
 
