@@ -9,23 +9,24 @@
 <body>
     
     <div class="app-container" id="app">
-        <div class="login-cont">
-            <h1>Teacher Login</h1>
+        <div class="dashboard-cont">
+            <header class="dashboard-header">
+                <div><h1>Class Dashboard</h1><p>Data loaded from CSV file.</p></div>
+                <button class="dashboard-header-btn" onchange="navigator('attendance')">Mark Today's Attendance</button>
+            </header>
 
-            <form action="" id="login-form" class="form">
-                <div>
-                    <label for="email">Email</label>
-                    <input type="text" id="email" value="teacher@meow.edu" placeholder="Enter your email" required>
-                </div>
-                <div>
-                    <label for="password">Password</label>
-                    <input type="password" id="password" value="password123" placeholder="Enter your password" required>
-                </div>
-                <p id="login-error" class="login-error"></p>
-                <button type="submit" class="login-btn">Login</button>
-            </form>
+            <div class="kpis-cont">
+                <div><p class="kpi-heading">Total Students</p><p class="kpi-number">20</p></div>
+                <div><p class="kpi-heading">Today's Rate</p><p class="kpi-number">0%</p></div>
+                <div><p class="kpi-heading">Overall Rate</p><p class="kpi-number">75%</p></div>
+                <div><p class="kpi-heading">Needs Attention</p><p class="kpi-number">3</p></div>
+            </div>
+
+            <div class="attendance-performance-cont">
+                <h1>Overall Attendance Performance</h1>
+                <div id="attendanceChartCont"><canvas id="attendanceChart"></canvas></div>
+            </div>
         </div>
-
 
     </div>
 

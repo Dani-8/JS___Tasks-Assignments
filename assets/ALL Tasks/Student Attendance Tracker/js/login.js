@@ -26,7 +26,7 @@ export let handleLogin = (e) => {
     let password = document.getElementById("password").value
 
     if(email && password){
-        pass
+        navigator("dashboard")
     }else{
         document.getElementById("login-error").innerText = "Please enter both email and password."
     }

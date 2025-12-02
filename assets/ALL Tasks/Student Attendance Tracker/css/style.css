@@ -98,15 +98,195 @@ body{
     text-align: center;
     color: rgb(246, 51, 51);
     margin-bottom: 10px;
-    
+
+}
+/* ============================================================== */
+/* ============================================================== */
+/* ============================================================== */
+
+
+/**
+    *========================
+    * LOAD CSV FILE FOR DASHBOARD
+    *========================
+*/
+.loading-data-cont{
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 750px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+.loading-data-cont h1{
+    width: 100%;
+    color: #5b3eb2;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border-bottom: 1px solid #5b3eb2;
+}
+.loading-data-cont .desc{
+    margin-bottom: 20px;
+    color: rgb(100, 100, 100);
+    font-size: 22px;
 }
 
+.loading-data-cont svg{
+    width: 100px;
+    height: 100px;
+    color: rgba(91, 62, 178);
+    animation: glow 1.5s infinite alternate;
+}
+@keyframes glow {
+    from {
+        filter: drop-shadow(0 0 5px rgba(101, 76, 175));
+    }
+    to {
+        filter: drop-shadow(0 0 20px rgb(46, 30, 96));
+    }
+}
 
+.loading-data-cont label{
+    display: inline-block;
+    background: linear-gradient(140deg, #654caf, #2e1a69);
+    margin-top: 20px;
+    padding: 15px 40px;
+    font-size: 17px;
+    font-weight: 700;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.loading-data-cont label:hover{
+    box-shadow: 0 4px 15px rgba(101, 76, 175, 0.9);
+    transition: 0.3s ease;
+}
+.loading-data-cont label:active{
+    transform: scale(0.95);
+}
+.loading-data-cont input{
+    display: none;
+}
+/* ============================================================== */
+/* ============================================================== */
+/* ============================================================== */
 
+/**
+    *========================
+    * Dashboard
+    *========================
+*/
 
+.dashboard-cont{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 
+    /* background-color: rgb(229, 197, 197); */
+}
+.dashboard-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+    /* margin-bottom: 10px; */
+}
+.dashboard-header h1{
+    color: #5b3eb2;
+}
+.dashboard-header p{
+    color: rgb(100, 100, 100);
+    font-size: 15px;
+}
+.dashboard-header button{
+    padding: 10px 20px;
+    background: linear-gradient(140deg, #654caf, #2e1a69);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.dashboard-header button:hover{
+    box-shadow: 0 4px 15px rgba(101, 76, 175, 0.9);
+    transition: 0.3s ease;
+}
+.dashboard-header button:active{
+    transform: scale(0.95);
+}
+/* ----------------------------------------------------------------------- */
 
+/* KPIs */
 
+.kpis-cont{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    border-radius: 15px;
+}
+.kpis-cont div{
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+    border-radius: 15px;
+    border-bottom: 4px solid;
+    background-color: white;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+}
+.kpis-cont div:hover{
+    box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+}
+.kpis-cont div:nth-child(1){ border-color: #5d12f3;}
+.kpis-cont div:nth-child(2){ border-color: #128ef3;}
+.kpis-cont div:nth-child(3){ border-color: #1abc11;}
+.kpis-cont div:nth-child(4){ border-color: #f31212;}
+
+.kpis-cont div .kpi-heading{
+    color: #5b3eb2;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.kpis-cont div .kpi-number{
+    font-size: 40px;
+    font-weight: 700;
+    color: rgb(74, 72, 72);
+}
+/* ----------------------------------------------------------------------- */
+
+/* ATTENDANCE PERFORMANCE */
+
+.attendance-performance-cont{
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.attendance-performance-cont h1{
+    color: #5b3eb2;
+    font-size: 25px;
+}
+.attendance-performance-cont .chart-cont{
+    width: 100%;
+    /* height: 400px; */
+}
 
 
 

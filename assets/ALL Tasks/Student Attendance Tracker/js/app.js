@@ -52,6 +52,8 @@ window.handleFileSelect = (e) => {
 }
 
 
+window.markAttendance = markAttendance
+window.navigator = navigator
 
 renderApp()
 
