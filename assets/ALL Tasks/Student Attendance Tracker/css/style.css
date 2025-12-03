@@ -414,16 +414,84 @@ body{
 
 
 
+.attendance-record-cont{
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.attendance-record-cont div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.attendance-record-cont table{
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 15px;
+    outline: 1px solid #ddd;
+    overflow: hidden;
+}
+.attendance-record-cont table th,
+.attendance-record-cont table td{
+    padding: 12px 25px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+.attendance-record-cont table th{
+    background-color: rgb(238, 233, 255);
+    color: #5b3eb2;
+    font-weight: 500;
+}
+.attendance-record-cont table tr:nth-child(even){
+    background-color: #faf5ff;
+}
+
+.attendance-record-cont table tr:hover{
+    background-color: #fbf5ff;
+    transition: 0.3s ease;
+}
+
+.record-name{}
+.record-id{}
+.record-status{text-align: center!important;}
+.record-status-heading{text-align: center!important;}
+.record-action{text-align: center!important;}
+.record-action-heading{text-align: center!important;}
+
+.status-block{
+    padding: 3px 10px;
+    border-radius: 50px;
+    font-size: 14px;
+}
+.status-unmarked{background-color: rgb(238, 238, 238); color: rgb(128, 128, 128); font-weight: 600;}
+.status-present{background-color: rgb(198, 255, 198); color: rgb(14, 156, 19); font-weight: 600;}
+.status-absent{background-color: rgb(255, 198, 198); color: rgb(213, 24, 24); font-weight: 600;}
 
 
-
-
-
-
-
-
-
-
+.mark-attendance-btn{
+    padding: 5px 20px;
+    background: linear-gradient(140deg, #654caf, #2e1a69);
+    /* background-color: rgb(198, 255, 198); */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.mark-attendance-btn:hover{
+    box-shadow: 0 4px 15px rgba(101, 76, 175, 0.9);
+    transition: 0.3s ease;
+}
+.mark-attendance-btn:active{
+    transform: scale(0.95);
+}
 
 
 
