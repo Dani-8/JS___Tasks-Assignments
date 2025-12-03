@@ -356,4 +356,90 @@ body{
 
 
 
+/* =============================================================================== */
+/* =============================================================================== */
+/* =============================================================================== */
+
+/**
+    *===========================
+    * STUDENTS ATTENDANCE RECORD
+    *===========================
+*/
+
+
+.student-attendance-record{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    /* background-color: rgb(197, 210, 229); */
+}
+
+.student-attendance-record .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+    /* margin-bottom: 10px; */
+}
+.student-attendance-record .header h1{
+    color: #5b3eb2;
+}
+.student-attendance-record .header p{
+    color: rgb(100, 100, 100);
+    font-size: 15px;
+}
+.student-attendance-record .header button{
+    padding: 10px 20px;
+    background: linear-gradient(140deg, #654caf, #2e1a69);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.student-attendance-record .header button:hover{
+    box-shadow: 0 4px 15px rgba(101, 76, 175, 0.9);
+    transition: 0.3s ease;
+}
+.student-attendance-record .header button:active{
+    transform: scale(0.95);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

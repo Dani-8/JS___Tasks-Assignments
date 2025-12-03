@@ -1,7 +1,7 @@
 import { renderLoginForm, handleLogin } from './login.js';
 import { renderDashboardView } from './dashboard.js';
-import { renderAttendanceView } from './attendance.js';
-import { parseCSV, loadParsedData, todayDate, markAttendance } from './utils.js';
+// import { renderAttendanceView } from './attendance.js';
+// import { parseCSV, loadParsedData, todayDate, markAttendance } from './utils.js';
 
 let currentView = 'login';
 // ==================================================================================
@@ -52,8 +52,8 @@ window.handleFileSelect = (e) => {
 }
 
 
-window.markAttendance = markAttendance
-window.navigator = navigator
+// window.markAttendance = markAttendance
+// window.navigator = navigator
 
 renderApp()
 
