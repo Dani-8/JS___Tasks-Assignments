@@ -262,6 +262,19 @@ window.filterAndRenderRawData = () => {
         let studentId = student.id.toLowerCase()
         let studentName = student.name.toLowerCase()
 
+        let matchesSearch = studentName.includes(searchInput) || studentId.includes(statusFilter)
+        if(!matchesSearch) return false
+
+
+        if (statusFilter === 'All') return true;
+
+        let studentRecord = attendanceRecords[student.id] || {}
+
+        
+
+
+
+
     })
 
 
