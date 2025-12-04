@@ -44,7 +44,7 @@ window.handleFileSelect = (e) => {
             return
         }
 
-        loadParsedData(csvData.data)
+        loadParsedData(csvData)
         navigateTo('dashboard')
         renderApp()
     }

@@ -305,28 +305,28 @@ body{
     font-size: 25px;
 }
 
-.table{
+.frequent-absences-cont.table{
     width: 100%;
     border-collapse: collapse;
     border-radius: 15px;
     outline: 1px solid #ddd;
     overflow: hidden;
 }
-.table th,
-.table td{
+.frequent-absences-cont.table th,
+.frequent-absences-cont.table td{
     padding: 12px 25px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
-.table th{
+.frequent-absences-cont.table th{
     background-color: rgb(238, 233, 255);
     color: #5b3eb2;
     font-weight: 500;
 }
-.table tr:nth-child(even){
+.frequent-absences-cont.table tr:nth-child(even){
     background-color: #faf5ff;
 }
-.table tr:hover{
+.frequent-absences-cont.table tr:hover{
     background-color: #ffeaea;
     transition: 0.3s ease;
 }
@@ -340,12 +340,72 @@ body{
 }
 /* ----------------------------------------------------------------------------- */
 
-/* RAW DATA */
+/* RAW DATA TABLE + FILTER */
+
+.render-table-and-filter-cont{
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.render-table-and-filter-cont h1{
+    color: #5b3eb2;
+    font-size: 25px;
+}
+
+.render-table-and-filter-cont .filter-items-cont{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 8fr 2fr);
+    gap: 10px;
+}
+.render-table-and-filter-cont .filter-items-cont input, select{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+.render-table-and-filter-cont .filter-items-cont input::placeholder{
+    color: #aaa;    
+}
+.render-table-and-filter-cont .filter-items-cont input:focus, select:focus  {
+    outline: none;
+    border-color: #654caf;
+    box-shadow: 0 0 0px 3px rgba(101, 76, 175, 0.5);
+}
 
 
 
+.render-table-and-filter-cont .table{
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 15px;
+    outline: 1px solid #ddd;
+    overflow: hidden;
+}
+.render-table-and-filter-cont th,
+.render-table-and-filter-cont td{
+    padding: 12px 25px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+.render-table-and-filter-cont th{
+    background-color: rgb(238, 233, 255);
+    color: #5b3eb2;
+    font-weight: 500;
+}
+.render-table-and-filter-cont tr:nth-child(even){
+    background-color: #faf5ff;
+}
 
-
+.render-table-and-filter-cont .table .student-name,.render-table-and-filter-cont .table .student-id{
+    background-color: rgb(225, 216, 255);
+}
 
 
 
@@ -509,6 +569,7 @@ body{
     cursor: default;
 }
 
+/*  */
 
 
 

@@ -176,6 +176,110 @@ export let calculateStats = () => {
 }
 // -----------------------------------------------------------------------------------------------------------------
 
+
+/**
+ * =====================
+ * RENDER ATTENDANCE CHART
+ * =====================
+ */
+
+export let renderAttendanceChart = (topStudents) => {
+    let ctx = document.getElementById('attendanceChart')
+    if(!ctx) return;
+    // -------------------------------------------------
+
+    let labels = topStudents.map(student => student.name)
+    let data = topStudents.map(student => student.attendanceRate)
+    let backgroundColors = topStudents.map(rate => rate >= 90 ? '#34D399' : rate >= 80 ? '#FBBF24' : '#F87171')
+    // --------------------------------------------
+
+    if(window.attendanceChartInstance){
+        window.attendanceChartInstance.destroy()
+    }
+    // ------------------------------------------
+
+    window.attendanceChartInstance = new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Attendance Rate (%)',
+                data: data,
+                backgroundColor: backgroundColors,
+                borderWidth: 1, 
+                borderRadius: 5
+            }]
+        },
+        options: {
+            reponsive: true,
+            maintainAspectRatio: false,
+            scales: {y : {beginAtZero: true, max: 100}},
+            plugins: { legend: { display: false }},
+        }
+    })
+}
+
+
+/**
+ * =====================
+ * RENDER TABLE
+ * =====================
+ */
+
+export let generateRawTableBody = (students) => {
+    return students.map(student => {
+        let studentRecords = attendanceRecords[student.id] || {}
+        let dateCells = allDates.map(date => {
+            let status = studentRecords[date] || "-"
+            return `<td class="status-${status}">${status}</td>`
+        }).join("")
+
+        return `
+            <tr>
+                <td>${student.name}</td>
+                <td>${student.id}</td>
+                ${dateCells}
+            </tr>
+        `
+
+    }).join("")
+}
+window.generateRawTableBody = generateRawTableBody
+// ----------------------------------------------------------------
+
+/**
+ * ========================
+ * RENDER FILTER + RAW DATA
+ * ========================
+ */
+
+window.filterAndRenderRawData = () => {
+    let searchInput = document.getElementById("student-search-raw").value.toLowerCase()
+    let statusFilter = document.getElementById("student-filter-raw").value
+
+
+    let filteredStudent = studentData.filter(student => {
+        let studentId = student.id.toLowerCase()
+        let studentName = student.name.toLowerCase()
+
+    })
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * =====================
  * RENDER RAW DATA TABLE
@@ -193,26 +297,30 @@ export let renderRawDataTable = () => {
     `
     // --------------------------------------------
 
+    return `
+        <div class="render-table-and-filter-cont">
+            <h1>Raw Attendance Data (Spreadsheet View)</h1>
+
+            <div class="filter-items-cont">
+                <input id="student-search-raw" oninput="" type="text" placeholder="Search by Name or ID...">
+                <select id="student-filter-raw" onchange="" name="" id="">
+                    <option value="All">Filter by Status (Any Day)</option>
+                    <option value="P">Present (P)</option>
+                    <option value="A">Absent (A)</option>
+                    <option value="-">Unmarked (-)</option>
+                </select>
+            </div>
+
+            <div class="table-cont">
+                <table class="table">
+                    <thead><tr>
+                        ${headerRows}
+                    </tr></thead>
+                    <tbody><tr>${generateRawTableBody(studentData)}</tr></tbody>
+                </table>
+            </div>
+        </div>
+    `
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// -------------------------------------------------------------------------------
