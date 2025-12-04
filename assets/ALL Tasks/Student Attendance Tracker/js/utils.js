@@ -68,25 +68,138 @@ export let markAttendance = (studentId, status) => {
     if(statusEl){
         statusEl.textContent = status === "P" ? "Present" : "Absent"
         statusEl.className = status === "P" ? "status-present" : "status-absent"
+    }
+    
+    let row = statusEl.closest("tr")
+    let pBtn = row.querySelector(".mark-attendance-btn mark-present-btn-default")
+    let aBtn = row.querySelector(".mark-attendance-btn mark-absent-btn-default")
 
-        let row = statusEl.closest("tr")
-        let pBtn = row.querySelector(".mark-attendance-btn mark-present-btn-default")
-        let aBtn = row.querySelector(".mark-attendance-btn mark-absent-btn-default")
-
-        if(status === "P"){
-            pBtn.className = "mark-attendance-btn mark-present-btn-marked"
-            aBtn.className = "mark-attendance-btn mark-absent-btn-default"
-        }else if(status === "A"){
-            aBtn.className = "mark-attendance-btn mark-absent-btn-marked"
-            pBtn.className = "mark-attendance-btn mark-present-btn-default"
-        }
-
-        
+    if(status === "P"){
+        pBtn.className = "mark-attendance-btn mark-present-btn-marked"
+        aBtn.className = "mark-attendance-btn mark-absent-btn-default"
+    }else if(status === "A"){
+        aBtn.className = "mark-attendance-btn mark-absent-btn-marked"
+        pBtn.className = "mark-attendance-btn mark-present-btn-default"
     }
 
 
+    if(!attendanceRecords[studentId]){
+        attendanceRecords[studentId] = {}
+    }
+    attendanceRecords[studentId][todayDate] = status
+
+    if(!allDates.includes(todayDate)){
+        allDates.push(todayDate)
+        allDates.sort()
+    }
+}
+// --------------------------------------------------------------------------------------
+
+
+/**
+ * =====================
+ * CALCULATE STATS
+ * =====================
+ */
+
+export let calculateStats = () => {
+    let studentAttendanceStats = []
+    let totalPresentCount = 0
+    let totalPossibleCount = 0
+    let studentAbsentCounts = {}
+    let todayPresentCount = 0
+    // ------------------------------
+
+    let allUniqueDates = new Set(allDates)
+    if(studentData.length > 0 && !allUniqueDates.has(todayDate)){
+        allUniqueDates.add(todayDate)
+    }
+    // --------------------------------------------
+
+    totalPossibleCount = allUniqueDates.size
+    let totalStudentsCount = studentData.length
+
+
+    studentData.forEach(student => {
+        let attendance = attendanceRecords[student.id] || {}
+        let studentPresent = 0
+        let absentCount = 0
+
+        allUniqueDates.forEach(date => {
+            let status = attendance[date] || ""
+
+            if(status === "P"){
+                studentPresent++
+                totalPossibleCount++
+
+                if(date === todayDate){
+                    todayPresentCount++
+                }
+            }else if(status === "A"){
+                absentCount++
+                studentAbsentCounts[student.id] = (studentAbsentCounts[student.id] || 0) + 1
+            }
+        })
+        // ------------------------------------------------
+
+        let attendanceRate = totalPossibleCount === 0 ? 0 : (studentPresent / totalPossibleCount) * 100
+
+        studentAttendanceStats.push({
+            ...student,
+            absentDay: studentAbsentCounts[student.id] || 0,
+            presentDay: studentPresent,
+            totalDays: totalPossibleCount,
+            attendanceRate: attendanceRate
+        })
+    })
+    // -------------------------------------------------
+
+    
+    let overallRate = totalPossibleCount > 0 && totalStudentsCount > 0 ? 
+        (totalPresentCount / (totalStudentsCount * totalPossibleCount)) * 100 
+        : 0 
+
+    let todayAttendanceRate = totalStudentsCount > 0 && totalStudentsCount > 0 ?
+        (todayPresentCount / totalStudentsCount) * 100
+        : 0
+
+    let needsAttention = studentAttendanceStats
+        .filter(stat => stat.absentCount > 2)
+        .sort((a, b) => b.absentCount - a.absentCount)
+    
+    let top10Students = studentAttendanceStats
+        .sort((a, b) => b.attendanceRate - a.attendanceRate)
+        .slice(0, 10)
+
+
+    return { totalStudents: studentData.length, overallRate, todayAttendanceRate, needsAttention, top10Students }
+}
+// -----------------------------------------------------------------------------------------------------------------
+
+/**
+ * =====================
+ * RENDER RAW DATA TABLE
+ * =====================
+ */
+
+
+export let renderRawDataTable = () => {
+    let headerRows = `
+        <tr>
+            <th>Student Name</th>
+            <th>Student ID</th>
+            ${allDates.map(date => `<th>${date}</th>`).join('')}
+        </tr>
+    `
+    // --------------------------------------------
+
 
 }
+
+
+
+
+
 
 
 
