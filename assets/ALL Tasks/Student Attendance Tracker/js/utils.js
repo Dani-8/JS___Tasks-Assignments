@@ -262,34 +262,36 @@ window.filterAndRenderRawData = () => {
         let studentId = student.id.toLowerCase()
         let studentName = student.name.toLowerCase()
 
+        // first search filter:
         let matchesSearch = studentName.includes(searchInput) || studentId.includes(statusFilter)
         if(!matchesSearch) return false
 
-
+        // sencond status filter
         if (statusFilter === 'All') return true;
 
-        let studentRecord = attendanceRecords[student.id] || {}
+        let studentRecords = attendanceRecords[student.id] || {}
 
-        
+        let hasStatus = Object.values(studentRecords).some(status => 
+            statusFilter === "-" ? status === "" : status === statusFilter
+        )
 
+        if(statusFilter === "-" && !hasStatus){
+            let dateWithStatus = Object.keys(studentRecords)
+            let isUnmarkedOnAnyDate = allDates.some(date => !dateWithStatus.includes(date) || studentRecords[date] === "-")
 
+            return matchesSearch && isUnmarkedOnAnyDate
+        }
 
-
+        return hasStatus
     })
 
 
-
+    let tableBody = document.getElementById("raw-data-table-body")
+    if(tableBody){
+        tableBody.innerHTML = generateRawTableBody(filteredStudent)
+    }
 }
-
-
-
-
-
-
-
-
-
-
+// ---------------------------------------------------------------------------------------
 
 
 
@@ -329,7 +331,7 @@ export let renderRawDataTable = () => {
                     <thead><tr>
                         ${headerRows}
                     </tr></thead>
-                    <tbody><tr>${generateRawTableBody(studentData)}</tr></tbody>
+                    <tbody id="raw-data-table-body"><tr>${generateRawTableBody(studentData)}</tr></tbody>
                 </table>
             </div>
         </div>
