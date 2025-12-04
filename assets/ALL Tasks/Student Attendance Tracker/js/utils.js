@@ -71,7 +71,7 @@ export let markAttendance = (studentId, status) => {
         statusEl.classList.add(status === "P" ? "status-present" : status === "A" ? "status-absent" : "status-unmarked");
     }
     // -------------------------------------------------------------------
-    
+
     let row = statusEl.closest("tr");
     let pBtn = row.querySelector(".mark-attendance-btn.mark-present-btn-default, .marked-present-btn-active");
     let aBtn = row.querySelector(".mark-attendance-btn.mark-absent-btn-default, .marked-absent-btn-active");
@@ -94,9 +94,7 @@ export let markAttendance = (studentId, status) => {
     // ----------------------------------------------------------
 
     
-    if (!attendanceRecords[studentId]) {
-        attendanceRecords[studentId] = {};
-    }
+    if (!attendanceRecords[studentId]) attendanceRecords[studentId] = {};
     attendanceRecords[studentId][todayDate] = status;
 
     if(!allDates.includes(todayDate)){
@@ -147,7 +145,7 @@ export let calculateStats = () => {
                 }
             }else if(status === "A"){
                 absentCount++
-                console.log("🚀 ~ calculateStats ~ absentCount:", absentCount)
+                // console.log("🚀 ~ calculateStats ~ absentCount:", absentCount)
                 studentAbsentCounts[student.id] = (studentAbsentCounts[student.id]  || 0) + 1
             }
         })
@@ -166,7 +164,7 @@ export let calculateStats = () => {
     })
     // -------------------------------------------------
 
-    console.log("🚀 ~ calculateStats ~ totalPresentCount:", totalPresentCount)
+    // console.log("🚀 ~ calculateStats ~ totalPresentCount:", totalPresentCount)
     
     let overallRate = totalPossibleCount > 0 && totalStudentsCount > 0 ? 
         Math.round((totalPresentCount / (totalStudentsCount * totalPossibleCount)) * 100) 
@@ -179,7 +177,7 @@ export let calculateStats = () => {
     let needsAttention = studentAttendanceStats
         .filter(stat => stat.absentCount > 2)
         .sort((a, b) => b.absentCount - a.absentCount)
-    console.log("🚀 ~ calculateStats ~ needsAttention:", needsAttention)
+    // console.log("🚀 ~ calculateStats ~ needsAttention:", needsAttention)
     
     let top10Students = studentAttendanceStats
         .sort((a, b) => b.attendanceRate - a.attendanceRate)

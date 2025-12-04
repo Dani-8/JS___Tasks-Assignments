@@ -34,21 +34,27 @@ export let renderAttendanceView = () => {
                             </tr>
                         </thead>
                         <tbody id="attendance-tbody">
-                            ${todayRecords.map(record => `
-                                <tr>
-                                    <td class="record-nama">${record.name}</td>
-                                    <td class="record-id">${record.id}</td>
-                                    <td class="record-status">
-                                        <span id="status-${record.id}" class="status-block ${record.status === "P" ? "status-present" : record.status === "A" ? "status-absent" : "status-unmarked"}">
-                                            ${record.status === "P" ? "Present" : record.status === "A" ? "Absent" : "Unmarked"}
-                                        </span>
-                                    </td>
-                                    <td class="record-action">
-                                        <button  onclick="markAttendance('${record.id}', 'P')" class="mark-attendance-btn mark-present-btn-default">Mark P</button>
-                                        <button  onclick="markAttendance('${record.id}', 'A')" class="mark-attendance-btn mark-absent-btn-default">Mark A</button>
-                                    </td>
-                                </tr>
-                            `).join('')}
+                            ${todayRecords.map(record => {
+                                const savedStatus = attendanceRecords[record.id]?.[todayDate] || 'U';
+                                const pBtnClass = savedStatus === 'P' ? 'mark-attendance-btn marked-present-btn-active' : 'mark-attendance-btn mark-present-btn-default';
+                                const aBtnClass = savedStatus === 'A' ? 'mark-attendance-btn marked-absent-btn-active' : 'mark-attendance-btn mark-absent-btn-default';
+
+                                return `
+                                    <tr data-id="${record.id}">
+                                        <td class="record-nama">${record.name}</td>
+                                        <td class="record-id">${record.id}</td>
+                                        <td class="record-status">
+                                            <span id="status-${record.id}" class="status-block ${savedStatus === 'P' ? 'status-present' : savedStatus === 'A' ? 'status-absent' : 'status-unmarked'}">
+                                                ${savedStatus === 'P' ? 'Present' : savedStatus === 'A' ? 'Absent' : 'Unmarked'}
+                                            </span>
+                                        </td>
+                                        <td class="record-action">
+                                            <button onclick="markAttendance('${record.id}', 'P')" class="${pBtnClass}">Mark P</button>
+                                            <button onclick="markAttendance('${record.id}', 'A')" class="${aBtnClass}">Mark A</button>
+                                        </td>
+                                    </tr>
+                                `;
+                            }).join('')}
                         </tbody>
                     </table>
                 </div>
