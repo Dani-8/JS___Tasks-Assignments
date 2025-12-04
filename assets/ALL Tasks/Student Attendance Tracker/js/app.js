@@ -1,7 +1,7 @@
 import { renderLoginForm, handleLogin } from './login.js';
 import { renderDashboardView } from './dashboard.js';
-// import { renderAttendanceView } from './attendance.js';
-// import { parseCSV, loadParsedData, todayDate, markAttendance } from './utils.js';
+import { renderAttendanceView } from './attendance.js';
+import { CSVData, loadCSVData, todayDate, markAttendance } from './utils.js';
 
 let currentView = 'login';
 // ==================================================================================
@@ -38,13 +38,14 @@ window.handleFileSelect = (e) => {
 
     let render = new FileReader()
     render.onload = (e) => {
-        let csvData = parseCSV(e.target.result)
+        let csvData = CSVData(e.target.result)
+        // console.log(csvData);
         if(csvData.error){
             if (errorEl) errorEl.textContent = csvData.error
             return
         }
 
-        loadParsedData(csvData)
+        loadCSVData(csvData)
         navigateTo('dashboard')
         renderApp()
     }
@@ -52,8 +53,8 @@ window.handleFileSelect = (e) => {
 }
 
 
-// window.markAttendance = markAttendance
-// window.navigator = navigator
+window.markAttendance = markAttendance
+window.navigateTo = navigateTo
 
 renderApp()
 

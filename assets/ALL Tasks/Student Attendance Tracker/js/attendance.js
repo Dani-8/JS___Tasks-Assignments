@@ -1,4 +1,4 @@
-import { studentData, attendanceRecords, todayDate, isDataLoaded, markAttendance } from "./utils"
+import { studentData, attendanceRecords, todayDate, isDataLoaded, markAttendance } from "./utils.js"
 import { navigateTo } from "./app.js"
 
 // RENDER ATTENDANCE VIEW
@@ -10,7 +10,7 @@ export let renderAttendanceView = () => {
     // ----------------------------------
 
     let todayRecords = studentData.map(student => {
-        let status = attendanceRecords[student.id][todayDate()] || "Not Marked"
+        let status = attendanceRecords[student.id][todayDate] || "Not Marked"
         return { ...student, status }
     })
     // ----------------------------------
@@ -19,7 +19,7 @@ export let renderAttendanceView = () => {
         <div class="student-attendance-record">
             <header class="header">
                 <div><h1 class="text-3xl font-bold text-gray-800">Mark Attendance</h1><p class="text-lg text-gray-500">Class: 100 | Date: ${todayDate}</p></div>
-                <button class="view-attendance-btn" id="view-attendance-btn">Back to Dashboard</button>
+                <button  onclick="navigateTo('dashboard')" class="view-attendance-btn" id="view-attendance-btn">Back to Dashboard</button>
             </header>
 
             <div class="attendance-record-cont">
@@ -44,8 +44,8 @@ export let renderAttendanceView = () => {
                                         </span>
                                     </td>
                                     <td class="record-action">
-                                        <button class="mark-attendance-btn mark-present-btn-default">Mark P</button>
-                                        <button class="mark-attendance-btn mark-absent-btn-default">Mark A</button>
+                                        <button  onclick="markAttendance('${record.id}', 'P')" class="mark-attendance-btn mark-present-btn-default">Mark P</button>
+                                        <button  onclick="markAttendance('${record.id}', 'A')" class="mark-attendance-btn mark-absent-btn-default">Mark A</button>
                                     </td>
                                 </tr>
                             `).join('')}

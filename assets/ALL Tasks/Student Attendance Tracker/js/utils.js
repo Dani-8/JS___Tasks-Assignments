@@ -66,21 +66,28 @@ export let loadCSVData = (data) => {
 export let markAttendance = (studentId, status) => {
     let statusEl = document.getElementById(`status-${studentId}`)
     if(statusEl){
-        statusEl.textContent = status === "P" ? "Present" : "Absent"
-        statusEl.className = status === "P" ? "status-present" : "status-absent"
+        statusEl.textContent = status === "P" ? "Present" : status === "A" ? "Absent" : "Unmarked";
+        statusEl.classList.remove("status-present","status-absent","status-unmarked");
+        statusEl.classList.add(status === "P" ? "status-present" : status === "A" ? "status-absent" : "status-unmarked");
     }
-    
-    let row = statusEl.closest("tr")
-    let pBtn = row.querySelector(".mark-attendance-btn mark-present-btn-default")
-    let aBtn = row.querySelector(".mark-attendance-btn mark-absent-btn-default")
 
-    if(status === "P"){
-        pBtn.className = "mark-attendance-btn mark-present-btn-marked"
-        aBtn.className = "mark-attendance-btn mark-absent-btn-default"
-    }else if(status === "A"){
-        aBtn.className = "mark-attendance-btn mark-absent-btn-marked"
-        pBtn.className = "mark-attendance-btn mark-present-btn-default"
+    let row = statusEl.closest("tr");
+    let pBtn = row.querySelector(".mark-attendance-btn.mark-present-btn-default");
+    let aBtn = row.querySelector(".mark-attendance-btn.mark-absent-btn-default");
+
+    if(pBtn && aBtn){
+        pBtn.classList.remove("marked-present-btn-active","mark-present-btn-default");
+        aBtn.classList.remove("marked-absent-btn-active","mark-absent-btn-default");
+
+        if(status === "P"){
+            pBtn.classList.add("marked-present-btn-active");
+            aBtn.classList.add("mark-absent-btn-default");
+        } else if(status === "A"){
+            aBtn.classList.add("marked-absent-btn-active");
+            pBtn.classList.add("mark-present-btn-default");
+        }
     }
+
 
 
     if(!attendanceRecords[studentId]){
@@ -130,37 +137,36 @@ export let calculateStats = () => {
 
             if(status === "P"){
                 studentPresent++
-                totalPossibleCount++
-
+                totalPresentCount++
                 if(date === todayDate){
                     todayPresentCount++
                 }
             }else if(status === "A"){
                 absentCount++
-                studentAbsentCounts[student.id] = (studentAbsentCounts[student.id] || 0) + 1
             }
         })
         // ------------------------------------------------
 
-        let attendanceRate = totalPossibleCount === 0 ? 0 : (studentPresent / totalPossibleCount) * 100
+        let attendanceRate = totalPossibleCount > 0 ? (studentPresent / totalPossibleCount) * 100 : 0
+        // console.log("🚀 ~ calculateStats ~ attendanceRate:", attendanceRate)
 
         studentAttendanceStats.push({
             ...student,
-            absentDay: studentAbsentCounts[student.id] || 0,
             presentDay: studentPresent,
             totalDays: totalPossibleCount,
-            attendanceRate: attendanceRate
+            attendanceRate: Math.round(attendanceRate)
         })
     })
     // -------------------------------------------------
 
+    console.log("🚀 ~ calculateStats ~ totalPresentCount:", totalPresentCount)
     
     let overallRate = totalPossibleCount > 0 && totalStudentsCount > 0 ? 
-        (totalPresentCount / (totalStudentsCount * totalPossibleCount)) * 100 
+        Math.round((totalPresentCount / (totalStudentsCount * totalPossibleCount)) * 100) 
         : 0 
 
     let todayAttendanceRate = totalStudentsCount > 0 && totalStudentsCount > 0 ?
-        (todayPresentCount / totalStudentsCount) * 100
+        Math.round((todayPresentCount / totalStudentsCount) * 100)
         : 0
 
     let needsAttention = studentAttendanceStats
@@ -184,40 +190,81 @@ export let calculateStats = () => {
  */
 
 export let renderAttendanceChart = (topStudents) => {
-    let ctx = document.getElementById('attendanceChart')
-    if(!ctx) return;
-    // -------------------------------------------------
+    let ctx = document.getElementById('attendanceChart');
+    if (!ctx) return;
 
-    let labels = topStudents.map(student => student.name)
-    let data = topStudents.map(student => student.attendanceRate)
-    let backgroundColors = topStudents.map(rate => rate >= 90 ? '#34D399' : rate >= 80 ? '#FBBF24' : '#F87171')
-    // --------------------------------------------
+    // ------------------------------
+    let labels = topStudents.map(student => student.name.split(" ")[0]);
 
-    if(window.attendanceChartInstance){
-        window.attendanceChartInstance.destroy()
+    let data = topStudents.map(student => student.attendanceRate);
+
+    let backgroundColors = data.map(rate =>
+        rate >= 90 ? '#34D399' : rate >= 70 ? '#FBBF24' : '#F87171'
+    );
+
+    // ------------------------------
+    // Destroy previous chart
+    if (window.attendanceChartInstance) {
+        window.attendanceChartInstance.destroy();
     }
-    // ------------------------------------------
 
+    // ------------------------------
     window.attendanceChartInstance = new Chart(ctx, {
         type: "bar",
         data: {
             labels: labels,
             datasets: [{
-                label: 'Attendance Rate (%)',
+                label: "Attendance Rate (%)",
                 data: data,
                 backgroundColor: backgroundColors,
-                borderWidth: 1, 
-                borderRadius: 5
+                borderColor: backgroundColors.map(c => c.replace('100', '200')),
+                borderWidth: 1,
+                borderRadius: 4
             }]
         },
         options: {
-            reponsive: true,
+            responsive: true,
             maintainAspectRatio: false,
-            scales: {y : {beginAtZero: true, max: 100}},
-            plugins: { legend: { display: false }},
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    title: {
+                        display: true,
+                        text: "Attendance Percentage"
+                    }
+                },
+                x: {
+                    grid: { display: false }
+                }
+            },
+            plugins: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: topStudents.length > 0 
+                        ? `Top ${topStudents.length} Students by Attendance`
+                        : "No Students to Display",
+                    font: { size: 16, weight: "bold" }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: 
+                            function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                label += context.parsed.y + '%';
+                                return label;
+                            }
+                        }
+                }
+            }
         }
-    })
-}
+    });
+};
+
 
 
 /**
@@ -317,8 +364,8 @@ export let renderRawDataTable = () => {
             <h1>Raw Attendance Data (Spreadsheet View)</h1>
 
             <div class="filter-items-cont">
-                <input id="student-search-raw" oninput="" type="text" placeholder="Search by Name or ID...">
-                <select id="student-filter-raw" onchange="" name="" id="">
+                <input id="student-search-raw" oninput="filterAndRenderRawData()" type="text" placeholder="Search by Name or ID...">
+                <select id="student-filter-raw" onchange="filterAndRenderRawData()" name="" id="">
                     <option value="All">Filter by Status (Any Day)</option>
                     <option value="P">Present (P)</option>
                     <option value="A">Absent (A)</option>

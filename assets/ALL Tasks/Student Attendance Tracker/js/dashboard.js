@@ -1,4 +1,4 @@
-import { studentData, allDates, todayDate, calculateStats, renderAttendanceChart, renderRawDataTable } from "./utils";
+import { studentData, allDates, todayDate, calculateStats, renderAttendanceChart, renderRawDataTable } from "./utils.js";
 import {isDataLoaded} from "./utils.js";
 
 
@@ -27,23 +27,23 @@ export let renderDashboardView = () => {
         <div class="dashboard-cont">
             <header class="dashboard-header">
                 <div><h1>Class Dashboard</h1><p>Data loaded from CSV file.</p></div>
-                <button class="dashboard-header-btn" onchange="navigator('attendance')">Mark Today's Attendance</button>
+                <button class="dashboard-header-btn" onclick="navigateTo('attendance')">Mark Today's Attendance</button>
             </header>
 
             <div class="kpis-cont">
                 <div><p class="kpi-heading">Total Students</p><p class="kpi-number">${stats.totalStudents}</p></div>
                 <div><p class="kpi-heading">Today's Rate</p><p class="kpi-number">${todayAttendanceRate.toFixed(2)}%</p></div>
-                <div><p class="kpi-heading">Overall Rate</p><p class="kpi-number">${overallRate.toFixed(2)}%</p></div>
+                <div><p class="kpi-heading">Overall Rate</p><p class="kpi-number">${overallRate}%</p></div>
                 <div><p class="kpi-heading">Needs Attention</p><p class="kpi-number">${needsAttention.length}</p></div>
             </div>
 
             <div class="attendance-performance-cont">
                 <h1>Overall Attendance Performance</h1>
-                <div id="attendanceChartCont"><canvas id="attendanceChart"></canvas></div>
+                <div class="attendanceChart" id="attendanceChartCont"><canvas id="attendanceChart"></canvas></div>
             </div>
 
             <div class="frequent-absences-cont">
-                <h1>Students with Chronic Absences (>2 Days)</h1>
+                <h1>Students with Frequent Absences (>2 Days)</h1>
                 ${needsAttention.length === 0 ? `<p class="no-data">No students with chronic absences.</p>` : `
                     <table class="table">
                         <thead><tr>
@@ -69,8 +69,7 @@ export let renderDashboardView = () => {
         </div>
     `
 
-    
-    
+
     setTimeout(() => renderAttendanceChart(stats.top10Students), 0);
     return html;
 }
