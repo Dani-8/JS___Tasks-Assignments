@@ -484,21 +484,30 @@ body{
     transform: scale(0.9);
 }
 
-.mark-attendance-btn.mark-present-btn{
+.mark-attendance-btn.mark-present-btn-default{
     background-color: rgb(220, 255, 220);
     color: rgb(12, 133, 16);
 }
-.mark-attendance-btn.mark-present-btn:hover{
+.mark-attendance-btn.mark-present-btn-default:hover{
     background-color: rgb(185, 255, 185);
 }
-.mark-attendance-btn.mark-absent-btn{
+.marked-present-btn-active{
+    background-color: rgb(41, 162, 45);
+    color: white;
+    cursor: default;
+}
+.mark-attendance-btn.mark-absent-btn-default{
     background-color: rgb(254, 219, 226);
     color: rgb(166, 18, 18);
 }
-.mark-attendance-btn.mark-absent-btn:hover{
+.mark-attendance-btn.mark-absent-btn-default:hover{
     background-color: rgb(255, 200, 210);
 }
-
+.marked-absent-btn-active{
+    background-color: rgb(168, 54, 54);
+    color: white;
+    cursor: default;
+}
 
 
 

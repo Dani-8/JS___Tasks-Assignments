@@ -38,12 +38,14 @@ export let renderAttendanceView = () => {
                                 <tr>
                                     <td class="record-nama">${record.name}</td>
                                     <td class="record-id">${record.id}</td>
-                                    <td class="record-status" id="r${record.id}"><span class="status-block ${record.status === "P" ? "status-present" : record.status === "A" ? "status-absent" : "status-unmarked"}">
-                                        ${record.status === "P" ? "Present" : record.status === "A" ? "Absent" : "Unmarked"}
-                                    </span></td>
+                                    <td class="record-status">
+                                        <span id="status-${record.id}" class="status-block ${record.status === "P" ? "status-present" : record.status === "A" ? "status-absent" : "status-unmarked"}">
+                                            ${record.status === "P" ? "Present" : record.status === "A" ? "Absent" : "Unmarked"}
+                                        </span>
+                                    </td>
                                     <td class="record-action">
-                                        <button class="mark-attendance-btn mark-present-btn">Mark P</button>
-                                        <button class="mark-attendance-btn mark-absent-btn">Mark A</button>
+                                        <button class="mark-attendance-btn mark-present-btn-default">Mark P</button>
+                                        <button class="mark-attendance-btn mark-absent-btn-default">Mark A</button>
                                     </td>
                                 </tr>
                             `).join('')}

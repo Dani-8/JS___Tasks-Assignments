@@ -70,18 +70,23 @@ export let markAttendance = (studentId, status) => {
         statusEl.className = status === "P" ? "status-present" : "status-absent"
 
         let row = statusEl.closest("tr")
-        // row.querySelector(".")
-        
+        let pBtn = row.querySelector(".mark-attendance-btn mark-present-btn-default")
+        let aBtn = row.querySelector(".mark-attendance-btn mark-absent-btn-default")
+
         if(status === "P"){
-            row
+            pBtn.className = "mark-attendance-btn mark-present-btn-marked"
+            aBtn.className = "mark-attendance-btn mark-absent-btn-default"
+        }else if(status === "A"){
+            aBtn.className = "mark-attendance-btn mark-absent-btn-marked"
+            pBtn.className = "mark-attendance-btn mark-present-btn-default"
         }
-    
+
+        
     }
 
 
 
 }
-
 
 
 
