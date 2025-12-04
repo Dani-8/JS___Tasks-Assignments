@@ -305,28 +305,28 @@ body{
     font-size: 25px;
 }
 
-.frequent-absences-cont.table{
+.frequent-absences-cont .table{
     width: 100%;
     border-collapse: collapse;
     border-radius: 15px;
     outline: 1px solid #ddd;
     overflow: hidden;
 }
-.frequent-absences-cont.table th,
-.frequent-absences-cont.table td{
+.frequent-absences-cont .table th,
+.frequent-absences-cont .table td{
     padding: 12px 25px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
-.frequent-absences-cont.table th{
+.frequent-absences-cont .table th{
     background-color: rgb(238, 233, 255);
     color: #5b3eb2;
     font-weight: 500;
 }
-.frequent-absences-cont.table tr:nth-child(even){
+.frequent-absences-cont .table tr:nth-child(even){
     background-color: #faf5ff;
 }
-.frequent-absences-cont.table tr:hover{
+.frequent-absences-cont .table tr:hover{
     background-color: #ffeaea;
     transition: 0.3s ease;
 }

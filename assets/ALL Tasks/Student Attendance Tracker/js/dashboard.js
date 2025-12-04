@@ -32,7 +32,7 @@ export let renderDashboardView = () => {
 
             <div class="kpis-cont">
                 <div><p class="kpi-heading">Total Students</p><p class="kpi-number">${stats.totalStudents}</p></div>
-                <div><p class="kpi-heading">Today's Rate</p><p class="kpi-number">${todayAttendanceRate.toFixed(2)}%</p></div>
+                <div><p class="kpi-heading">Today's Rate</p><p class="kpi-number">${todayAttendanceRate}%</p></div>
                 <div><p class="kpi-heading">Overall Rate</p><p class="kpi-number">${overallRate}%</p></div>
                 <div><p class="kpi-heading">Needs Attention</p><p class="kpi-number">${needsAttention.length}</p></div>
             </div>
@@ -44,7 +44,7 @@ export let renderDashboardView = () => {
 
             <div class="frequent-absences-cont">
                 <h1>Students with Frequent Absences (>2 Days)</h1>
-                ${needsAttention.length === 0 ? `<p class="no-data">No students with chronic absences.</p>` : `
+                ${needsAttention.length === 0 ? `<p class="no-data">No students with frequent  absences.</p>` : `
                     <table class="table">
                         <thead><tr>
                             <th>Student Name</th>
@@ -57,7 +57,7 @@ export let renderDashboardView = () => {
                                 <tr>
                                     <td>${student.name}</td>
                                     <td>${student.id}</td>
-                                    <td class="absences-number">${student.absences}</td>
+                                    <td class="absences-number">${student.absentCount}</td>
                                 </tr>
                             `).join('')}
                         </tbody>

@@ -70,30 +70,34 @@ export let markAttendance = (studentId, status) => {
         statusEl.classList.remove("status-present","status-absent","status-unmarked");
         statusEl.classList.add(status === "P" ? "status-present" : status === "A" ? "status-absent" : "status-unmarked");
     }
-
+    // -------------------------------------------------------------------
+    
     let row = statusEl.closest("tr");
-    let pBtn = row.querySelector(".mark-attendance-btn.mark-present-btn-default");
-    let aBtn = row.querySelector(".mark-attendance-btn.mark-absent-btn-default");
+    let pBtn = row.querySelector(".mark-attendance-btn.mark-present-btn-default, .marked-present-btn-active");
+    let aBtn = row.querySelector(".mark-attendance-btn.mark-absent-btn-default, .marked-absent-btn-active");
 
-    if(pBtn && aBtn){
-        pBtn.classList.remove("marked-present-btn-active","mark-present-btn-default");
-        aBtn.classList.remove("marked-absent-btn-active","mark-absent-btn-default");
 
-        if(status === "P"){
-            pBtn.classList.add("marked-present-btn-active");
-            aBtn.classList.add("mark-absent-btn-default");
-        } else if(status === "A"){
-            aBtn.classList.add("marked-absent-btn-active");
-            pBtn.classList.add("mark-present-btn-default");
-        }
+    pBtn.classList.remove("marked-present-btn-active");
+    pBtn.classList.add("mark-present-btn-default");
+
+    aBtn.classList.remove("marked-absent-btn-active");
+    aBtn.classList.add("mark-absent-btn-default");
+
+
+    if (status === "P") {
+        pBtn.classList.remove("mark-present-btn-default");
+        pBtn.classList.add("marked-present-btn-active");
+    } else if (status === "A") {
+        aBtn.classList.remove("mark-absent-btn-default");
+        aBtn.classList.add("marked-absent-btn-active");
     }
+    // ----------------------------------------------------------
 
-
-
-    if(!attendanceRecords[studentId]){
-        attendanceRecords[studentId] = {}
+    
+    if (!attendanceRecords[studentId]) {
+        attendanceRecords[studentId] = {};
     }
-    attendanceRecords[studentId][todayDate] = status
+    attendanceRecords[studentId][todayDate] = status;
 
     if(!allDates.includes(todayDate)){
         allDates.push(todayDate)
@@ -143,6 +147,8 @@ export let calculateStats = () => {
                 }
             }else if(status === "A"){
                 absentCount++
+                console.log("🚀 ~ calculateStats ~ absentCount:", absentCount)
+                studentAbsentCounts[student.id] = (studentAbsentCounts[student.id]  || 0) + 1
             }
         })
         // ------------------------------------------------
@@ -153,6 +159,7 @@ export let calculateStats = () => {
         studentAttendanceStats.push({
             ...student,
             presentDay: studentPresent,
+            absentCount: studentAbsentCounts[student.id] || 0,
             totalDays: totalPossibleCount,
             attendanceRate: Math.round(attendanceRate)
         })
@@ -172,6 +179,7 @@ export let calculateStats = () => {
     let needsAttention = studentAttendanceStats
         .filter(stat => stat.absentCount > 2)
         .sort((a, b) => b.absentCount - a.absentCount)
+    console.log("🚀 ~ calculateStats ~ needsAttention:", needsAttention)
     
     let top10Students = studentAttendanceStats
         .sort((a, b) => b.attendanceRate - a.attendanceRate)
