@@ -70,8 +70,11 @@ export let markAttendance = (studentId, status) => {
         statusEl.className = status === "P" ? "status-present" : "status-absent"
 
         let row = statusEl.closest("tr")
-        row.querySelector(".")
-    
+        // row.querySelector(".")
+        
+        if(status === "P"){
+            row
+        }
     
     }
 

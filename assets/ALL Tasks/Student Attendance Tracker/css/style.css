@@ -451,48 +451,53 @@ body{
     background-color: #faf5ff;
 }
 
-.attendance-record-cont table tr:hover{
-    background-color: #fbf5ff;
-    transition: 0.3s ease;
-}
-
-.record-name{}
-.record-id{}
+/* .record-name{}
+.record-id{} */
 .record-status{text-align: center!important;}
 .record-status-heading{text-align: center!important;}
 .record-action{text-align: center!important;}
 .record-action-heading{text-align: center!important;}
 
 .status-block{
-    padding: 3px 10px;
+    padding: 2px 10px;
     border-radius: 50px;
-    font-size: 14px;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-block;
 }
-.status-unmarked{background-color: rgb(238, 238, 238); color: rgb(128, 128, 128); font-weight: 600;}
-.status-present{background-color: rgb(198, 255, 198); color: rgb(14, 156, 19); font-weight: 600;}
-.status-absent{background-color: rgb(255, 198, 198); color: rgb(213, 24, 24); font-weight: 600;}
+.status-unmarked{background-color: rgb(232, 232, 232); color: rgb(101, 101, 101);}
+.status-present{background-color: rgb(210, 255, 213); color: rgb(12, 133, 16);}
+.status-absent{background-color: rgb(255, 210, 220); color: rgb(166, 18, 18);}
 
 
 .mark-attendance-btn{
     padding: 5px 20px;
-    background: linear-gradient(140deg, #654caf, #2e1a69);
-    /* background-color: rgb(198, 255, 198); */
     color: white;
     border: none;
     border-radius: 8px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     cursor: pointer;
     transition: 0.3s ease;
 }
-.mark-attendance-btn:hover{
-    box-shadow: 0 4px 15px rgba(101, 76, 175, 0.9);
-    transition: 0.3s ease;
-}
 .mark-attendance-btn:active{
-    transform: scale(0.95);
+    transform: scale(0.9);
 }
 
+.mark-attendance-btn.mark-present-btn{
+    background-color: rgb(220, 255, 220);
+    color: rgb(12, 133, 16);
+}
+.mark-attendance-btn.mark-present-btn:hover{
+    background-color: rgb(185, 255, 185);
+}
+.mark-attendance-btn.mark-absent-btn{
+    background-color: rgb(254, 219, 226);
+    color: rgb(166, 18, 18);
+}
+.mark-attendance-btn.mark-absent-btn:hover{
+    background-color: rgb(255, 200, 210);
+}
 
 
 
