@@ -12,6 +12,7 @@ export let allDates = []
 
 export let CSVData = (csv) => {
     let lines = csv.split("\n").filter(line => line.trim() !== "")
+    // console.log("🚀 ~ CSVData ~ lines:", lines[0])
     if(lines.length <= 1) return {studentData: [], attendanceRecords: {}, allDates: [], error: "CSV file is empty or invalid."}
 
     let headers = lines[0].split(",").map(h => h.trim())
