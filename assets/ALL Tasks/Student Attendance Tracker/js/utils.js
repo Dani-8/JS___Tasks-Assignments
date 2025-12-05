@@ -1,4 +1,6 @@
-export let todayDate = new Date().toISOString().split("T")[0]
+// export let todayDate = new Date().toISOString().split("T")[0]
+export let todayDate = new Date().toLocaleDateString('en-GB'); 
+
 // console.log(todayDate)
 // ---------------------------------------------------
 
@@ -120,6 +122,7 @@ export let calculateStats = () => {
     // ------------------------------
 
     let allUniqueDates = new Set(allDates)
+    // console.log("🚀 ~ calculateStats ~ allUniqueDates:", allUniqueDates)
     if(studentData.length > 0 && !allUniqueDates.has(todayDate)){
         allUniqueDates.add(todayDate)
     }
@@ -184,7 +187,7 @@ export let calculateStats = () => {
         .slice(0, 10)
 
 
-    return { totalStudents: studentData.length, overallRate, todayAttendanceRate, needsAttention, top10Students }
+    return { totalStudents: studentData.length, overallRate, todayAttendanceRate, needsAttention, top10Students, totalPossibleCount }
 }
 // -----------------------------------------------------------------------------------------------------------------
 
@@ -223,7 +226,7 @@ export let renderAttendanceChart = (topStudents) => {
                 label: "Attendance Rate (%)",
                 data: data,
                 backgroundColor: backgroundColors,
-                borderColor: backgroundColors.map(c => c.replace('100', '200')),
+                borderColor: backgroundColors.map(c => c.replace('100', '00')),
                 borderWidth: 1,
                 borderRadius: 4
             }]
@@ -271,8 +274,6 @@ export let renderAttendanceChart = (topStudents) => {
     });
 };
 
-
-
 /**
  * =====================
  * RENDER TABLE
@@ -282,15 +283,20 @@ export let renderAttendanceChart = (topStudents) => {
 export let generateRawTableBody = (students) => {
     return students.map(student => {
         let studentRecords = attendanceRecords[student.id] || {}
-        let dateCells = allDates.map(date => {
+        let dateCells = [...allDates].sort((a,b) => {
+            let [d1,m1,y1] = a.split('/')
+            let [d2,m2,y2] = b.split('/')
+            return new Date(`${y1}-${m1}-${d1}`) - new Date(`${y2}-${m2}-${d2}`)
+        }).map(date => {
             let status = studentRecords[date] || "-"
-            return `<td class="status-${status}">${status}</td>`
+            return `<td style="font-size:14px; color: ${status === 'P' ? '#10B981' : status === 'A' ? '#EF4444' : '#6B7280'}; font-weight: bold;" class="date-data status-${status}">${status}</td>`
         }).join("")
+        // console.log("🚀 ~ generateRawTableBody ~ allDates:", allDates)
 
         return `
             <tr>
-                <td>${student.name}</td>
-                <td>${student.id}</td>
+                <td class="raw-table-data-name name-col">${student.name}</td>
+                <td class="raw-table-data-id id-col">${student.id}</td>
                 ${dateCells}
             </tr>
         `
@@ -358,9 +364,13 @@ window.filterAndRenderRawData = () => {
 export let renderRawDataTable = () => {
     let headerRows = `
         <tr>
-            <th>Student Name</th>
-            <th>Student ID</th>
-            ${allDates.map(date => `<th>${date}</th>`).join('')}
+            <th class="raw-table-data-header-name name-col">Student Name</th>
+            <th class="raw-table-data-header-id id-col">Student ID</th>
+            ${[...allDates].sort((a,b) => {
+                let [d1,m1,y1] = a.split('/')
+                let [d2,m2,y2] = b.split('/')
+                return new Date(`${y1}-${m1}-${d1}`) - new Date(`${y2}-${m2}-${d2}`)
+            }).map(date => `<th class="date-data">${date}</th>`).join('')}
         </tr>
     `
     // --------------------------------------------

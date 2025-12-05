@@ -344,6 +344,8 @@ body{
 
 .render-table-and-filter-cont{
     background-color: white;
+    /* width: 100%; */
+    /* overflow: hidden; */
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 3px 15px rgba(0,0,0,0.1);
@@ -380,13 +382,17 @@ body{
 }
 
 
+.render-table-and-filter-cont .table-cont{
+    /* width: 100%; */
+    overflow: auto;
+    height: 450px;
 
+}
 .render-table-and-filter-cont .table{
     width: 100%;
     border-collapse: collapse;
     border-radius: 15px;
     outline: 1px solid #ddd;
-    overflow: hidden;
 }
 .render-table-and-filter-cont th,
 .render-table-and-filter-cont td{
@@ -403,11 +409,26 @@ body{
     background-color: #faf5ff;
 }
 
-.render-table-and-filter-cont .table .student-name,.render-table-and-filter-cont .table .student-id{
-    background-color: rgb(225, 216, 255);
+.render-table-and-filter-cont .raw-table-data-header-name, .render-table-and-filter-cont .raw-table-data-header-id{
+    background-color: rgb(228, 219, 255);
 }
 
+.name-col { position: sticky; left: 0; background: white; z-index: 10; min-width: 180px; }
+.id-col   { position: sticky; left: 180px; background: white; z-index: 10; min-width: 100px; }
+/* .date-header {  text-align: center; } */
 
+.render-table-and-filter-cont .raw-table-data-header-id{
+    border: 1px solid #ddd;
+}
+.render-table-and-filter-cont .raw-table-data-id{
+    border: 1px solid #ddd;
+    color: #6a6a6a;
+    font-size: 13px;
+}
+.render-table-and-filter-cont .date-data{
+    text-align: center;
+min-width: 90px;
+}
 
 
 

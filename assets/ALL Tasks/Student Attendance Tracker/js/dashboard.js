@@ -21,7 +21,7 @@ export let renderDashboardView = () => {
     // -------------------------------------------------------------------------------------------------------------------
 
     let stats = calculateStats()
-    let { overallRate, todayAttendanceRate, needsAttention, top10Students } = stats
+    let { overallRate, todayAttendanceRate, needsAttention, top10Students, totalPossibleCount } = stats
 
     let html = `
         <div class="dashboard-cont">
@@ -57,7 +57,7 @@ export let renderDashboardView = () => {
                                 <tr>
                                     <td>${student.name}</td>
                                     <td>${student.id}</td>
-                                    <td class="absences-number">${student.absentCount}</td>
+                                    <td class="absences-number">${student.absentCount}/${totalPossibleCount}</td>
                                 </tr>
                             `).join('')}
                         </tbody>
