@@ -330,7 +330,8 @@ window.filterAndRenderRawData = () => {
         if (statusFilter === 'All') return true;
 
         let studentRecords = attendanceRecords[student.id] || {}
-
+        // console.log(studentRecords);
+        
         let hasStatus = Object.values(studentRecords).some(status => 
             statusFilter === "-" ? status === "" : status === statusFilter
         )
