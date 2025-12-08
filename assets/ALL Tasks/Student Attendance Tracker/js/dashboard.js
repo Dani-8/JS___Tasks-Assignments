@@ -4,7 +4,6 @@ import {isDataLoaded} from "./utils.js";
 let selectedWeekRange = null;
 
 
-
 export let renderDashboardView = () => {
     if(!isDataLoaded){
         return `
