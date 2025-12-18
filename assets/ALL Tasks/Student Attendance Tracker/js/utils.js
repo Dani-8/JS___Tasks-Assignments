@@ -1,5 +1,9 @@
-// export let todayDate = new Date().toISOString().split("T")[0]
-export let todayDate = new Date().toLocaleDateString('en-GB'); 
+export let todayDate = (() => {
+    let d = new Date
+    let twoDigits = n => n < 10 ? `0${n}`: n
+
+    return `${twoDigits(d.getDate())}/${twoDigits(d.getMonth() + 1)}/${d.getFullYear()}`
+})
 
 // console.log(todayDate)
 // ---------------------------------------------------
@@ -30,7 +34,7 @@ export let CSVData = (csv) => {
             return {studentData: [], attendanceRecords: {}, allDates: [], error: `Data format error on line ${i + 1}.`}
         }
 
-        let studentId = values[0]
+        let studentId = values[0] 
         let studentName = values[1] || values[0] || `Unknown`
 
         if(!studentId) studentId = `S${i}`
@@ -52,7 +56,16 @@ export let CSVData = (csv) => {
         return {studentData: [], attendanceRecords: {}, allDates: [], error: "No student data found in the CSV."}
     }
 
-    return {studentData, attendanceRecords, allDates: Array.from(allDates).sort()}
+    // ---------------------------------------------------------------
+
+    let sortedDates = Array.from(datesSet).sort((a, b) => {
+        let [d1,m1,y1] = a.split("/")
+        let [d2,m2,y2] = b.split("/")
+        
+        return new Date(`${y1}-${m1}-${d1}`) - new Date(`${y2}-${m2}-${d2}`) 
+    })
+
+    return {studentData, attendanceRecords, allDates: sortedDates}
 }
 // -------------------------------------------------------------------------
 
@@ -107,6 +120,30 @@ export let markAttendance = (studentId, status) => {
 }
 // --------------------------------------------------------------------------------------
 
+/**
+ * ==============
+ * ADD STUDENTS
+ * =============
+ */
+
+export let addStudent = (id, name) => {
+    if (!id || !name)
+        return { success: false, message: "ID and Name required" }
+
+    if (studentData.some(s => s.id === id))
+        return {success: false, message: "ID already exists"}
+    // -----------------------------------------------------------------
+
+    let newStudent = {id, name}
+    studentData.push(newStudent)
+    attendanceRecords[id] = {}
+    studentData.sort((a, b) => a.name.localeCompare(b.name))
+    isDataLoaded = true
+    return {success: true, message: "Student added successfully..."}
+}
+
+
+// --------------------------------------------------------------------------------------
 
 /**
  * =====================
