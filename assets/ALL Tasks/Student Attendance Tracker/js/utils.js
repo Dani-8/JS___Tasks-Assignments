@@ -58,7 +58,7 @@ export let CSVData = (csv) => {
 
     // ---------------------------------------------------------------
 
-    let sortedDates = Array.from(datesSet).sort((a, b) => {
+    let sortedDates = [...allDates].sort((a, b) => {
         let [d1,m1,y1] = a.split("/")
         let [d2,m2,y2] = b.split("/")
         
@@ -87,8 +87,15 @@ export let loadCSVData = (data) => {
 export let exportDataToCSV = () => {
     if (studentData.length === 0) return alert("No data to export");
 
+    let sortedDates = [...allDates].sort((a, b) => {
+        let [d1,m1,y1] = a.split("/")
+        let [d2,m2,y2] = b.split("/")
+        
+        return new Date(`${y1}-${m1}-${d1}`) - new Date(`${y2}-${m2}-${d2}`) 
+    })
 
 
+        
 }
 
 
