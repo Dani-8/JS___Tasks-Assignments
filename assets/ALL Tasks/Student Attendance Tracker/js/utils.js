@@ -78,6 +78,20 @@ export let loadCSVData = (data) => {
 }
 // -------------------------------------------------
 
+/**
+ * ===================
+ * EXPORT DATA TO CSV
+ * ===================
+ */
+
+export let exportDataToCSV = () => {
+    if (studentData.length === 0) return alert("No data to export");
+
+
+
+}
+
+
 
 export let markAttendance = (studentId, status) => {
     let statusEl = document.getElementById(`status-${studentId}`)
@@ -115,7 +129,11 @@ export let markAttendance = (studentId, status) => {
 
     if(!allDates.includes(todayDate)){
         allDates.push(todayDate)
-        allDates.sort()
+        allDates.sort((a, b) => {
+            const [d1, m1, y1] = a.split('/');
+            const [d2, m2, y2] = b.split('/');
+            return new Date(`${y1}-${m1}-${d1}`) - new Date(`${y2}-${m2}-${d2}`);
+        });
     }
 }
 // --------------------------------------------------------------------------------------
@@ -141,9 +159,8 @@ export let addStudent = (id, name) => {
     isDataLoaded = true
     return {success: true, message: "Student added successfully..."}
 }
-
-
 // --------------------------------------------------------------------------------------
+
 
 /**
  * =====================
