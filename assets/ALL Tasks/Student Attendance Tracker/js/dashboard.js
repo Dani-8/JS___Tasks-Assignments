@@ -45,7 +45,11 @@ export let renderDashboardView = () => {
         <div class="dashboard-cont">
             <header class="dashboard-header">
                 <div><h1>Class Dashboard</h1><p>Data loaded from CSV file.</p></div>
-                <button class="dashboard-header-btn" onclick="navigateTo('attendance')">Mark Today's Attendance</button>
+                <div class="dashboard-header-btns-cont">
+                    <button class="dashboard-header-btn dashboard-header-addstudent-btn" onclick="window.">Add Student</button>
+                    <button class="dashboard-header-btn dashboard-header-export-btn" onclick="window.exportDataToCSV()">Export Data</button>
+                    <button class="dashboard-header-btn" onclick="navigateTo('attendance')">Mark Today's Attendance</button>
+                </div>
             </header>
 
             <div class="kpis-cont">

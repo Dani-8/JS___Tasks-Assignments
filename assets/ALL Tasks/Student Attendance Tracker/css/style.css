@@ -211,6 +211,12 @@ body{
     color: rgb(100, 100, 100);
     font-size: 15px;
 }
+
+.dashboard-header-btns-cont{
+    display: flex;
+    gap: 10px;
+}
+
 .dashboard-header button{
     padding: 10px 20px;
     background: linear-gradient(140deg, #654caf, #2e1a69);
@@ -227,6 +233,21 @@ body{
 }
 .dashboard-header button:active{
     transform: scale(0.95);
+}
+
+.dashboard-header-addstudent-btn{
+    background: linear-gradient(140deg, #40d654, #19a339) !important;
+}
+.dashboard-header-addstudent-btn:hover{
+    box-shadow: 0 4px 15px rgb(84, 169, 212, 0.9) !important;
+    transition: 0.3s ease;
+}
+.dashboard-header-export-btn{
+    background: linear-gradient(140deg, #4ca9f0, #196bbc) !important;
+}
+.dashboard-header-export-btn:hover{
+    box-shadow: 0 4px 15px rgb(84, 169, 212, 0.9) !important;
+    transition: 0.3s ease;
 }
 /* ----------------------------------------------------------------------- */
 

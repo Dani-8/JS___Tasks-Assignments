@@ -93,17 +93,30 @@ window.exportDataToCSV = () => {
         
         return new Date(`${y1}-${m1}-${d1}`) - new Date(`${y2}-${m2}-${d2}`) 
     })
-
+    // ----------------------------------------------------------------------
 
     let csv = `Student ID, Student Name, ${sortedDates.join(",")}\n`
 
     studentData.forEach(s => {
-        let row = [s.id,]
+        let row = [s.id, `"${s.name.replace(/"/g, '""')}"`]
+        sortedDates.forEach(d => {
+            row.push(attendanceRecords[s.id][d] || '-')
+        })
+        csv += row.join(',') + "\n"
     })
+    // ----------------------------------------------------------------------
 
 
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'attendance_export.csv';
+    a.click();
+    URL.revokeObjectURL(url);
 }
-
+// ----------------------------------------------------------------------------
 
 
 export let markAttendance = (studentId, status) => {
