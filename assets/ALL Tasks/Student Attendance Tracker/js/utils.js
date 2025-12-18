@@ -84,7 +84,7 @@ export let loadCSVData = (data) => {
  * ===================
  */
 
-export let exportDataToCSV = () => {
+window.exportDataToCSV = () => {
     if (studentData.length === 0) return alert("No data to export");
 
     let sortedDates = [...allDates].sort((a, b) => {
@@ -95,7 +95,13 @@ export let exportDataToCSV = () => {
     })
 
 
-        
+    let csv = `Student ID, Student Name, ${sortedDates.join(",")}\n`
+
+    studentData.forEach(s => {
+        let row = [s.id,]
+    })
+
+
 }
 
 
