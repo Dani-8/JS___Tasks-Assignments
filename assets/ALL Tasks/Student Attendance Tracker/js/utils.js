@@ -3,9 +3,9 @@ export let todayDate = (() => {
     let twoDigits = n => n < 10 ? `0${n}`: n
 
     return `${twoDigits(d.getDate())}/${twoDigits(d.getMonth() + 1)}/${d.getFullYear()}`
-})
+})()
 
-// console.log(todayDate)
+console.log(todayDate)
 // ---------------------------------------------------
 
 export let studentData = []
