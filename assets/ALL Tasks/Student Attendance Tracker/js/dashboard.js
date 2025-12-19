@@ -1,22 +1,8 @@
 import { studentData, allDates, todayDate, calculateStats, renderAttendanceChart, renderRawDataTable } from "./utils.js";
 import {isDataLoaded} from "./utils.js";
 
+
 let selectedWeekRange = null;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
