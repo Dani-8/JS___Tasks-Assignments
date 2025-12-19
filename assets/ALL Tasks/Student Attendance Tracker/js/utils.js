@@ -118,11 +118,6 @@ window.exportDataToCSV = () => {
 }
 // ----------------------------------------------------------------------------
 
-/**
- * ===============
- * MARK ATTENDENCE
- * ===============
- */
 
 export let markAttendance = (studentId, status) => {
     let statusEl = document.getElementById(`status-${studentId}`)
