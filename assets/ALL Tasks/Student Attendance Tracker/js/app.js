@@ -1,9 +1,9 @@
-import { renderLoginForm, handleLogin } from './login.js';
-import { renderDashboardView } from './dashboard.js';
-import { renderAttendanceView } from './attendance.js';
-import { CSVData, loadCSVData, todayDate, markAttendance } from './utils.js';
+import { renderLoginForm, handleLogin } from './login.js'
+import { renderDashboardView } from './dashboard.js'
+import { renderAttendanceView } from './attendance.js'
+import { CSVData, loadCSVData, todayDate, markAttendance } from './utils.js'
 
-let currentView = 'login';
+let currentView = 'login'
 // ==================================================================================
 
 export let navigateTo = (view) => {
