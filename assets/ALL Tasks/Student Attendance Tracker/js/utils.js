@@ -118,6 +118,11 @@ window.exportDataToCSV = () => {
 }
 // ----------------------------------------------------------------------------
 
+/**
+ * ===============
+ * MARK ATTENDANCE
+ * ===============
+ */
 
 export let markAttendance = (studentId, status) => {
     let statusEl = document.getElementById(`status-${studentId}`)
@@ -164,6 +169,42 @@ export let markAttendance = (studentId, status) => {
 }
 // --------------------------------------------------------------------------------------
 
+let selectedWeekRange = null
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// --------------------------------------------------------------------------------------
 /**
  * ==============
  * ADD STUDENTS

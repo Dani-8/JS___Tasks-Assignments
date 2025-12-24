@@ -3,8 +3,6 @@ import { handleLogin } from "./login.js"
 import { studentData, allDates, todayDate, calculateStats, renderAttendanceChart, renderRawDataTable, addStudent} from "./utils.js"
 
 import {isDataLoaded} from "./utils.js"
-
-// let selectedWeekRange = null
 // ================================================================================================================================================
 
 /**
@@ -113,7 +111,6 @@ export let renderDashboardView = () => {
                 <p class="file-upload-msg">Your file should have: Student ID → Student Name → Dates (DD/MM/YYYY)</p>
                 <p id="upload-error" class="upload-error"></p>
             </div>
-            ${renderAddStudentModal()}
         `
     }
     // -------------------------------------------------------------------------------------------------------------------
