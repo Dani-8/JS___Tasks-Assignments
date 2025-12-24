@@ -112,7 +112,7 @@ window.exportDataToCSV = () => {
 
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'attendance_export.csv';
+    a.download = `attendance_data_${todayDate}.csv`;
     a.click();
     URL.revokeObjectURL(url);
 }
@@ -183,6 +183,7 @@ export let addStudent = (id, name) => {
     attendanceRecords[id] = {}
     studentData.sort((a, b) => a.name.localeCompare(b.name))
     isDataLoaded = true
+
     return {success: true, message: `Student ${name} (${id}) added successfully...`}
 }
 // --------------------------------------------------------------------------------------

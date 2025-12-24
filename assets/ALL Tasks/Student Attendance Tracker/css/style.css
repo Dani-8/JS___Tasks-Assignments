@@ -153,6 +153,14 @@ body{
     }
 }
 
+
+.file-upload-msg{
+    margin-top: 20px;
+    color: rgb(118, 95, 186);
+    font-size: 15px;
+}
+
+
 .loading-data-cont label{
     display: inline-block;
     background: linear-gradient(140deg, #654caf, #2e1a69);
@@ -613,6 +621,9 @@ min-width: 90px;
     cursor: default;
 }
 
+
+
+
 /* =============================================================== */
 /* =============================================================== */
 /* =============================================================== */
@@ -624,7 +635,6 @@ min-width: 90px;
     * ADD STUDENT MODAL
     *===========================
 */
-
 .add-student-modal{
     position: fixed;
     top: 0;
@@ -632,11 +642,16 @@ min-width: 90px;
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.3);
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 100;
 }
+.add-student-modal.show{
+    display: flex !important;
+}
+
+
 .add-student-modal-content{
     background-color: white;
     padding: 30px;
@@ -677,23 +692,23 @@ min-width: 90px;
 }
 /* ----------------------- */
 
-.add-student-modal-content form{
+.add-student-modal-content .form{
     display: flex;
     flex-direction: column;
     gap: 15px;
     margin-top: 20px;
 }
-.add-student-modal-content form div{
+.add-student-modal-content .form div{
     display: flex;
     flex-direction: column;
 }
 
-.add-student-modal-content form label{
+.add-student-modal-content .form label{
     margin-bottom: 5px;
     font-size: 15px;
     color: rgb(76, 76, 76);
 }
-.add-student-modal-content form input{
+.add-student-modal-content .form input{
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -701,18 +716,34 @@ min-width: 90px;
     color: #5b3eb2;
     transition: 0.3s ease;
 }
-.add-student-modal-content form input:focus{
+.add-student-modal-content .form input:focus{
     outline: none;
     border-color: #654caf;
     box-shadow: 0 0 0px 3px rgba(101, 76, 175, 0.3);
 }
 
-.add-student-modal-content form .btns-cont{
+
+.add-student-modal-content .add-student-message .error{
+    text-align: center;
+    color: rgb(246, 51, 51);
+    margin-bottom: 10px;
+
+}
+.add-student-modal-content .add-student-message .success{
+    text-align: center;
+    color: rgb(48, 191, 26);
+    margin-bottom: 10px;
+
+}
+
+
+
+.add-student-modal-content .form .btns-cont{
     flex-direction: row;
     gap: 8px;
     justify-content: flex-end;
 }
-.add-student-modal-content form .btns-cont button{
+.add-student-modal-content .form .btns-cont button{
     padding: 10px 12px;
     border: none;
     border-radius: 8px;
@@ -720,15 +751,15 @@ min-width: 90px;
     cursor: pointer;
     transition: 0.3s ease;
 }
-.add-student-modal-content form .btns-cont button:active{
+.add-student-modal-content .form .btns-cont button:active{
     transform: scale(0.95);
 }
-.add-student-modal-content form .btns-cont .add-btn{
+.add-student-modal-content .form .btns-cont .add-btn{
     color: white;
     font-weight: 600;
     background: linear-gradient(140deg, #654caf, #2e1a69);
 }
-.add-student-modal-content form .btns-cont .cancel-btn{
+.add-student-modal-content .form .btns-cont .cancel-btn{
     color: rgb(53, 53, 53);
     background-color: transparent;
     border: 1px solid #8a8a8a;
