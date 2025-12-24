@@ -183,7 +183,7 @@ export let addStudent = (id, name) => {
     attendanceRecords[id] = {}
     studentData.sort((a, b) => a.name.localeCompare(b.name))
     isDataLoaded = true
-    return {success: true, message: "Student added successfully..."}
+    return {success: true, message: `Student ${name} (${id}) added successfully...`}
 }
 // --------------------------------------------------------------------------------------
 

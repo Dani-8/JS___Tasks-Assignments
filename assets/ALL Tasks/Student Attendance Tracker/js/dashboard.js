@@ -1,12 +1,42 @@
-import { studentData, allDates, todayDate, calculateStats, renderAttendanceChart, renderRawDataTable } from "./utils.js"
+import { studentData, allDates, todayDate, calculateStats, renderAttendanceChart, renderRawDataTable, addStudent } from "./utils.js"
 import {isDataLoaded} from "./utils.js"
 
-
-
-
-
-
 let selectedWeekRange = null
+// ================================================================================================================================================
+
+
+
+let renderAddStudentModal = () => {
+    return `
+        <div class="add-student-modal">
+            <div class="add-student-modal-content">
+                <div class="header">
+                    <h3>Add New Student</h3>
+                    <button class="close-btn">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </div>
+
+                <form action="" class="form">
+                    <div>
+                        <label for="new-student-id">Student ID (e.g., S101)</label>
+                        <input type="text" id="new-student-id">
+                    </div>
+                    <div>
+                        <label for="new-student-name">Student Name</label>
+                        <input type="text" id="new-student-name">
+                    </div>
+                    <div id="add-student-message"></div>
+                    <div class="btns-cont">
+                        <button class="cancel-btn">Cancel</button>
+                        <button class="add-btn">Add Student</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    `
+}
+
 
 
 
