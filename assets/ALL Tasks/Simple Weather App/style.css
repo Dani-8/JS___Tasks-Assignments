@@ -3,18 +3,87 @@
     margin: 0;
     box-sizing: border-box;
 }
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(188, 218, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+/* ============================================================== */
+/* ============================================================== */
+/* ============================================================== */
+/* ============================================================== */
 
+.container{
+    background-color: white;
+    padding: 30px;
+    width: 300px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
+.container h2{
+    margin-bottom: 25px;
+    font-size: 28px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #c8c8c8;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
 
+.container input{
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #c8c8c8;
+    outline: none;
+    margin-bottom: 10px;
 
+}
+.container button{
+    padding: 10px 20px;
+    border: none;
+    background-color: #4a90e2;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+.container button:active{
+    transform: scale(0.9);
+}
 
+.weather {
+    margin-top: 25px;
+    text-align: left;
+    border-top: 3px solid #0c61c3;
+    border-bottom: 3px solid #0c61c3;
+    border-radius: 20px;
+    text-transform: capitalize;
+    padding: 20px;
+    /* background-color: lightcoral; */
+    width: 100%;
+}
 
-
-
-
-
-
-
+.error{
+    color: red;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+.city-name{
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #0f5fbb;
+}
 
 
 
