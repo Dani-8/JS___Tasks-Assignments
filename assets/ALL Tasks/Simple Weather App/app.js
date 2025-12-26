@@ -21,6 +21,7 @@ function getWeatherData(){
                 return
             }
 
+            weatherContainer.style.display = "block";
             weatherContainer.innerHTML = `
                 <h3 class="city-name">${data.name}, ${data.sys.country}</h3>
                 <p class="temperature">${data.main.temp} °C</p>

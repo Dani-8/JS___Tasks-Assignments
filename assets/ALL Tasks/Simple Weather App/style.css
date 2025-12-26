@@ -61,6 +61,7 @@ body{
 }
 
 .weather {
+    display: none;
     margin-top: 25px;
     text-align: left;
     border-top: 3px solid #0c61c3;
