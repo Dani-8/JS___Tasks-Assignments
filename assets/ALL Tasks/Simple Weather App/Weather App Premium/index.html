@@ -11,15 +11,15 @@
 <body class="bg-default">
 
 
-    <div class="main-card card-loaded">
+    <div class="main-card card-loaded" id="main-card">
         <!-- HEADER -->
-        <div class="header">
+        <div class="header" id="header">
             <h2>SKYCAST.</h2>
 
             <div class="inner-header">
                 <div class="search-bar-cont">
-                    <input type="text" placeholder="Enter City Name....">
-                    <button>
+                    <input id="city-input" type="text" placeholder="Enter City Name....">
+                    <button id="search-btn">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
                     </button>
                 </div>
@@ -29,10 +29,10 @@
         </div>
 
         <!-- STATUS MESSAGE -->
-        <div id="status-msg" class="status-msg">Searching.....</div>
+        <div id="status-msg" class="status-msg hidden">Search</div>
 
         <!-- PLACEHOLDER BEFORE ANY CITY'S WEATHER -->
-        <div class="placeholder" id="placeholder">
+        <div class="placeholder hidden" id="placeholder">
             <svg class="float-anim" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"/></svg>
         </div>
 
@@ -71,7 +71,7 @@
                     <!-- CHART CARD TWO -->
                     <div class="chart-card">
                         <div>
-                            <p class="heading">Rainfall (Next 24 hrs)</p>
+                            <p id="precipLabel" class="heading">Rainfall (Next 24 hrs)</p>
                         </div>
                         <div class="chart-cont"><canvas id="rainchart"></canvas></div>
                     </div>
@@ -82,7 +82,7 @@
                     <!-- DETAIL CARD ONE -->
                     <div class="detail-card">
                         <div>
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            <svg class="humidity-svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2">
                                 <path d="M12 2v20" />
                                 <path d="M12 12a4 4 0 0 1 4 4c0 1.5-1 2.5-2.5 2.5S11 17.5 11 16" />
@@ -96,7 +96,7 @@
                     <!-- DETAIL CARD TWO -->
                     <div class="detail-card">
                         <div>
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            <svg class="speed-svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2">
                                 <path d="M17.7 7.7 21 11l-3.3 3.3" />
                                 <path d="M3 11h18" />
@@ -114,23 +114,16 @@
                     <div class="forecast-cards-cont">
                         <!-- FORECAST CARDs -->
                         <div class="forecast-card">
-
+                            <span class="day">Mon</span>
+                            <img src="https://openweathermap.org/img/wn/13d.png" class="forecast-icon" alt="">
+                            <span class="temp">-5°</span>
                         </div>
                     </div>
                 </div>
 
 
-
-
-
-
-
             </div>
         </div>
-
-
-
-
 
     </div>
 
