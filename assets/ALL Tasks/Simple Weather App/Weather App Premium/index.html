@@ -49,15 +49,82 @@
                         <img id="weather-icon" class="weather-icon" src="https://openweathermap.org/img/wn/50d@4x.png" alt="">
                     </div>
                 </div>
-                <div class="weather-info">
-                    <span id="temp" class="temp">23</span>
-                    <span id="temp-unit" class="temp-unit">°C</span>
+                <div>
+                    <div class="weather-info">
+                        <span id="temp" class="temp">23</span>
+                        <span id="temp-unit" class="temp-unit">°C</span>
+                    </div>
+                    <p class="weather-descp">haze</p>
                 </div>
-                <p class="weather-descp">haze</p>
             </div>
 
             <div class="right-panel">
-                
+                <!-- INNER CONT ONE -->
+                <div class="inner-cont">
+                    <!-- CHART CARD ONE -->
+                    <div class="chart-card">
+                        <div>
+                            <p class="heading">Temperature (Next 24 hrs)</p>                            
+                        </div>
+                        <div class="chart-cont"><canvas id="tempchart"></canvas></div>
+                    </div>
+                    <!-- CHART CARD TWO -->
+                    <div class="chart-card">
+                        <div>
+                            <p class="heading">Rainfall (Next 24 hrs)</p>
+                        </div>
+                        <div class="chart-cont"><canvas id="rainchart"></canvas></div>
+                    </div>
+                </div>
+
+                <!-- INNER CONT TWO -->
+                <div class="inner-cont">
+                    <!-- DETAIL CARD ONE -->
+                    <div class="detail-card">
+                        <div>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M12 2v20" />
+                                <path d="M12 12a4 4 0 0 1 4 4c0 1.5-1 2.5-2.5 2.5S11 17.5 11 16" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="heading">Humidity</p>
+                            <p class="descp" id="humidity">52%</p>
+                        </div>
+                    </div>
+                    <!-- DETAIL CARD TWO -->
+                    <div class="detail-card">
+                        <div>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M17.7 7.7 21 11l-3.3 3.3" />
+                                <path d="M3 11h18" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="heading">Wind Speed</p>
+                            <p class="descp" id="wind-speed">10 km/h</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- INNER CONT/FORECAST CONT THREE -->
+                <div class="forecast-cont">
+                    <div class="forecast-cards-cont">
+                        <!-- FORECAST CARDs -->
+                        <div class="forecast-card">
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
             </div>
         </div>
 

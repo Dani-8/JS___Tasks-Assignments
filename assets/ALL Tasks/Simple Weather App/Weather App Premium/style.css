@@ -21,6 +21,10 @@ body{
 .bg-rain{ background: linear-gradient(to bottom, #1e293b, #020617); }
 .bg-snow{ background: linear-gradient(to bottom, #94a3b8, #0f172a); }
 
+
+.hidden{
+    display: none;
+}
 /* ======================================================================== */
 /* ======================================================================== */
 /* ======================================================================== */
@@ -37,7 +41,11 @@ body{
     /* overflow: hidden; */
 }
 .card-initial { width: 400px; height: 400px; }
-.card-loaded { width: 95vw; max-width: 1100px; height: 75vh; }
+.card-loaded { 
+    width: 95vw; 
+    max-width: 1100px; 
+    /* height: 75vh;  */
+}
 
 
 .header{
@@ -212,12 +220,12 @@ body{
 .left-panel .weather-icon-cont .icon-cont{
     /* width: 150px; */
     /* height: 170px; */
+    margin-top: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     backdrop-filter: blur(50px);
-    /* box-shadow: 0 0 50px 10px rgba(31, 48, 77); */
     background-color: rgba(31, 48, 77, 0.5);
     animation: float 5s ease-in-out infinite;
 }
@@ -232,7 +240,7 @@ body{
 .left-panel .weather-info{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     /* gap: 10px; */
     margin-top: 10px;
 }
@@ -241,26 +249,67 @@ body{
     font-size: 85px;
     font-weight: 900;
     /* gradient text */
-    background: linear-gradient(10deg, rgba(21, 52, 86, 0.551) 0%, #ffffff 70%, #ffffff 100%);
+    background: linear-gradient(to bottom, #ffffff, #94a3b8);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    text-shadow: 0 1px 0 rgba(0,0,0,0.2);
 }
 .left-panel .weather-info .temp-unit{
     font-size: 22px;
     font-weight: 700;
     margin-bottom: 20px;
     color: rgb(48, 132, 201);
+    position: relative;
+    top: 15px;
 }
 
 .left-panel .weather-descp{
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 23px;
+    font-weight: 700;
     text-transform: capitalize;
-    color: rgb(165, 214, 255);
-    margin-top: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: left;
 } 
+/* ------------------------------------------------ */
+/* ------------------------------------------------ */
+/* ------------------------------------------------ */
+
+
+.right-panel{
+    /* background-color: rgba(12, 54, 144, 0.548); */
+    
+    /* align-items: center; */
+    /* justify-content: space-between; */
+}
+
+.right-panel .inner-cont{
+    /* padding: 20px; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.right-panel .inner-cont .chart-card{
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    height: 150px;
+    padding: 15px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 10px;
+}
+
+.right-panel .inner-cont .chart-card .heading{
+    font-size: 10px;
+    color: rgb(43, 159, 254, 0.8);
+    font-weight: 700;
+    margin-bottom: 5px;
+}
 
 
 
@@ -269,6 +318,64 @@ body{
 
 
 
+
+
+.right-panel .inner-cont .detail-card{
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    height: 80px;
+    padding: 15px;
+    margin: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 15px;
+}
+
+.right-panel .inner-cont .detail-card .heading{
+    font-size: 10px;
+    color: rgb(43, 159, 254, 0.8);
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+.right-panel .inner-cont .detail-card .descp{
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+}
+
+
+
+
+
+
+
+.forecast-cont{
+    margin-top: 40px;
+
+}
+.forecast-cont .forecast-cards-cont{
+    display: flex;
+    gap: 15px;
+    padding: 0 15px;
+}
+
+.forecast-cont .forecast-card{
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    height: 100px;
+    width: 120px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
 
 
 
