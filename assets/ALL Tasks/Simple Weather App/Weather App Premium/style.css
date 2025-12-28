@@ -51,6 +51,7 @@ body{
 .header h2{
     font-size: 20px;
     font-weight: 800;
+    margin-top: 10px;
     margin-bottom: 20px;
     color: rgb(43, 159, 254);
 }
@@ -60,6 +61,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
     /* background-color: lightcoral; */
 }
 
@@ -80,6 +82,7 @@ body{
     border: none;
     font-size: 14px;
     color: white;
+    color: rgb(165, 214, 255);
     background-color: transparent;
     /* background-color: lightblue; */
 }
@@ -109,19 +112,89 @@ body{
 
 
 .inner-header .unit-btn{
-    margin-left: 15px;
-    padding: 8px 12px;
-    border-radius: 8px;
+    /* margin-left: 15px; */
+    padding: 5px 15px;
+    border-radius: 15px;
     border: none;
-    background-color: rgb(43, 159, 254);
+    background-color: rgb(43, 159, 254, 0.2);
     color: white;
     font-size: 14px;
     cursor: pointer;
     transition: 0.3s ease;
 }
+.inner-header .unit-btn:hover{
+    background-color: rgb(43, 159, 254, 0.5);
+}
 .unit-btn:active{
     transform: scale(0.9);
 }
+/* ----------------------------------------------- */
+
+
+.status-msg{
+    display: none;
+    color: rgb(48, 132, 201);
+    margin-top: 15px;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    animation: fade-in-out 2s ease-in-out infinite;
+}
+@keyframes fade-in-out {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+/* ----------------------------------------------- */
+
+.placeholder{
+    /* background-color: rgb(173, 182, 230); */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.float-anim {
+    opacity: 0.05;
+    animation: float 3s ease-in-out infinite; 
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+/* -------------------------------------------------- */
+
+
+
+.weather-cont{
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    gap: 20px;
+    padding: 30px;
+
+}
+.left-panel, .right-panel{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    /* background-color: lightpink; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
