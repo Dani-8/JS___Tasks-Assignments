@@ -171,30 +171,96 @@ body{
     grid-template-columns: 30% 1fr;
     gap: 20px;
     padding: 30px;
+    /* background-color: lightpink; */
+    height: 100%;
 
 }
 .left-panel, .right-panel{
-    padding: 20px;
+    /* padding: 20px; */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* gap: 15px; */
+    text-align: center;
     /* background-color: lightpink; */
 }
 
+.left-panel{
+    /* background-color: rgb(42, 109, 253); */
+    
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left-panel .city-info .name{
+    font-size: 36px;
+    font-weight: 800;
+}
+.left-panel .city-info .timing{
+    font-size: 12px;
+    font-weight: 800;
+    margin-top: 5px;
+    color: rgb(48, 132, 201);
+}
 
 
+.left-panel .weather-icon-cont{
+    /* background-color: rgb(188, 122, 57); */
+    margin-top: 30px;
+}
+.left-panel .weather-icon-cont .icon-cont{
+    /* width: 150px; */
+    /* height: 170px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    backdrop-filter: blur(50px);
+    /* box-shadow: 0 0 50px 10px rgba(31, 48, 77); */
+    background-color: rgba(31, 48, 77, 0.5);
+    animation: float 5s ease-in-out infinite;
+}
+.left-panel .weather-icon-cont .icon-cont .weather-icon{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 0 50px 10px rgba(31, 48, 77);
+}
 
 
+.left-panel .weather-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* gap: 10px; */
+    margin-top: 10px;
+}
 
+.left-panel .weather-info .temp{
+    font-size: 85px;
+    font-weight: 900;
+    /* gradient text */
+    background: linear-gradient(10deg, rgba(21, 52, 86, 0.551) 0%, #ffffff 70%, #ffffff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+}
+.left-panel .weather-info .temp-unit{
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: rgb(48, 132, 201);
+}
 
-
-
-
-
-
-
+.left-panel .weather-descp{
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: rgb(165, 214, 255);
+    margin-top: 10px;
+} 
 
 
 
