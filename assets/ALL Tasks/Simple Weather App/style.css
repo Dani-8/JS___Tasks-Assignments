@@ -1,9 +1,10 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: rgb(188, 218, 255);
     display: flex;
@@ -11,24 +12,25 @@ body{
     align-items: center;
     height: 100vh;
 }
+
 /* ============================================================== */
 /* ============================================================== */
 /* ============================================================== */
 /* ============================================================== */
 
-.container{
+.container {
     background-color: white;
     padding: 30px;
     width: 300px;
     border-radius: 20px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.container h2{
+.container h2 {
     margin-bottom: 25px;
     font-size: 28px;
     padding-bottom: 5px;
@@ -37,7 +39,7 @@ body{
     border-bottom-right-radius: 5px;
 }
 
-.container input{
+.container input {
     width: 100%;
     border-radius: 10px;
     padding: 10px;
@@ -46,7 +48,8 @@ body{
     margin-bottom: 10px;
 
 }
-.container button{
+
+.container button {
     padding: 10px 20px;
     border: none;
     background-color: #4a90e2;
@@ -56,7 +59,8 @@ body{
     font-size: 16px;
     transition: 0.3s ease;
 }
-.container button:active{
+
+.container button:active {
     transform: scale(0.9);
 }
 
@@ -73,12 +77,13 @@ body{
     width: 100%;
 }
 
-.error{
+.error {
     color: red;
     text-transform: capitalize;
     font-weight: 600;
 }
-.city-name{
+
+.city-name {
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 15px;
@@ -93,11 +98,60 @@ body{
 
 
 
+/* Floating Switcher Button */
+.version-switcher {
+    text-decoration: none;
 
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    width: 56px;
+    height: 56px;
+    background: #5ab2ff;
+    border-radius: 28px;
 
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.4);
+    overflow: hidden;
+    white-space: nowrap;
+    z-index: 100;
+    color: #174da3;
+}
 
+.version-switcher:hover {
+    width: 180px;
+    border-radius: 16px;
+}
 
+.version-switcher .arrow-icon {
+    min-width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s;
+    flex-shrink: 0;
+}
 
+.version-switcher:hover .arrow-icon {
+    transform: rotate(180deg);
+}
+
+.version-switcher .switch-label {
+    opacity: 0;
+    font-size: 14px;
+    font-weight: 800;
+    margin-right: 20px;
+    transition: opacity 0.3s;
+}
+
+.version-switcher:hover .switch-label {
+    opacity: 1;
+}
 
 
 

@@ -38,13 +38,20 @@ body{
     display: flex;
     flex-direction: column;
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: 0.3s ease;
     /* overflow: hidden; */
 }
-.card-initial { width: 400px; height: 400px; }
-.card-loaded { 
-    width: 95vw; 
-    max-width: 1100px; 
-    /* height: 75vh;  */
+.card-initial {
+    height: 450px;
+    width: 450px;
+    margin: 0 auto;
+}
+
+.card-loaded {
+    width: 90vw;
+    max-width: 1200px;
+    height: auto;
+    min-height: 80vh;
 }
 
 
@@ -61,6 +68,8 @@ body{
 .header-loaded{
     flex-direction: row;
     gap: 20px;
+    padding: 20px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 
@@ -304,7 +313,7 @@ body{
     /* padding: 20px; */
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 15px;
 }
 
 .right-panel .inner-cont .chart-card{
@@ -313,13 +322,21 @@ body{
     border: 1px solid rgba(255, 255, 255, 0.05);
     height: 150px;
     padding: 15px;
-    margin: 10px;
+    margin: 0; /* use grid gap for spacing to avoid overflow */
+    width: 100%;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: flex-start;
     text-align: left;
     gap: 10px;
+    transition: 0.3s ease;
+}
+.right-panel .inner-cont .chart-card:hover{
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
 }
 
 .right-panel .inner-cont .chart-card .heading{
@@ -352,13 +369,20 @@ body{
     border: 1px solid rgba(255, 255, 255, 0.05);
     height: 80px;
     padding: 15px;
-    margin: 10px;
+    /* margin: 10px; */
+    margin-top: 15px;
     margin-bottom: 20px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     text-align: left;
-    gap: 15px;
+    gap: 10px;
+    transition: 0.3s ease;
+}
+.right-panel .inner-cont .detail-card:hover{
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
 }
 
 .right-panel .inner-cont .detail-card .heading{
@@ -385,7 +409,8 @@ body{
 .forecast-cont .forecast-cards-cont{
     display: flex;
     gap: 15px;
-    padding: 0 15px;
+    justify-content: space-between;
+    /* padding: 0 15px; */
 }
 
 .forecast-cont .forecast-card{
@@ -393,14 +418,21 @@ body{
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     height: 100px;
-    width: 120px;
+    width: 130px;
     padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+    transition: 0.3s ease;
 }
+.forecast-card:hover{
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px);
+}
+
 
 .forecast-card .forecast-day{
     font-size: 12px;
@@ -419,3 +451,9 @@ body{
     font-weight: 700;
     color: white;
 }
+
+
+
+
+
+

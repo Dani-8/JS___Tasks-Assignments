@@ -26,6 +26,7 @@ export async function fetchWeather(city){
 
         let data = await res.json()
         let fData = await fres.json()
+        statusMSG.classList.add('hidden')
         updateUI(data, fData)
     }catch(err){
         statusMSG.textContent = err.message.toUpperCase()
@@ -33,9 +34,6 @@ export async function fetchWeather(city){
             statusMSG.classList.add('hidden')
         }, 2500);
     }
-
-
-
 
 
 }

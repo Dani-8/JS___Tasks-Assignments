@@ -1,6 +1,5 @@
 import { fetchWeather } from "./api.js"
 import { updateCharts } from "./chart.js"
-// import { fetchWeather } from "./api.js"
 // ---------------------------------------------------------
 
 export let apiKey = "345dcc38843fc6a31c10ba8609e3f255"
@@ -24,9 +23,11 @@ export let placeholder = document.getElementById("placeholder")
 // ---------------------------------------------------------
 
 
-export function updateUI(data, fData){
+export function updateUI(data, fData) {
     mainCard.classList.remove("card-initial")
     mainCard.classList.add("card-loaded")
+
+    placeholder.classList.add("hidden")
 
     header.classList.remove("header-initial")
     header.classList.add("header-loaded")
@@ -51,15 +52,15 @@ export function updateUI(data, fData){
     let desc = data.weather[0].description.toLowerCase();
     document.body.className = 'bg-default';
 
-    if(main.includes("clear")){
+    if (main.includes("clear")) {
         document.body.classList.add('bg-clear');
-    }else if(main.includes("clouds")){
+    } else if (main.includes("clouds")) {
         document.body.classList.add('bg-clouds');
-    }else if(main.includes("rain") || main.includes("drizzle")){
+    } else if (main.includes("rain") || main.includes("drizzle")) {
         document.body.classList.add('bg-rain');
-    }else if(main.includes("thunderstorm")){
+    } else if (main.includes("thunderstorm")) {
         document.body.classList.add('bg-thunderstorm');
-    }else if(main.includes("snow")){
+    } else if (main.includes("snow")) {
         document.body.classList.add('bg-snow');
     }
     // ========================================
@@ -85,13 +86,9 @@ export function updateUI(data, fData){
     updateCharts(fData)
 
 
-    
+
     let forecastCont = document.getElementById("forecast-cards-cont")
     forecastCont.innerHTML = ''
-    if(forecastCont){
-        console.log(`forecaste`);
-        
-    }
 
     fData.list.filter(item => item.dt_txt.includes("12:00:00")).forEach(day => {
         let card = document.createElement("div")
@@ -111,20 +108,14 @@ export function updateUI(data, fData){
 
 // UNIT TOGGLE
 unitToggle.addEventListener('click', () => {
-    if(currentUnit === 'metric'){
-        currentUnit = 'imperial'
-        unitToggle.textContent = "°F"
-    }else{
-        currentUnit = 'metric'
-        unitToggle.textContent = "°C"
+    if (currentUnit === 'metric') {
+        currentUnit = 'imperial'; unitToggle.textContent = '°C';
+    } else {
+        currentUnit = 'metric'; unitToggle.textContent = '°F';
     }
-
-    document.getElementById("temp-unit").textContent = currentUnit === 'metric' ? '°C' : '°F'
-
-    if(lastSearchedCity){
-        fetchWeather(lastSearchedCity)
-    }
-})
+    document.getElementById("temp-unit").textContent = currentUnit === 'metric' ? '°C' : '°F';
+    if (lastSearchedCity) fetchWeather(lastSearchedCity);
+});
 
 
 
@@ -134,7 +125,7 @@ searchBTN.addEventListener("click", () => {
     fetchWeather(lastSearchedCity);
 })
 cityInput.addEventListener("keyup", (e) => {
-    if(e.key === "Enter"){
+    if (e.key === "Enter") {
         lastSearchedCity = cityInput.value.trim();
         fetchWeather(lastSearchedCity);
     }
