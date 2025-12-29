@@ -1,5 +1,5 @@
-import { apiKey, currentUnit, statusMSG } from "./main.js";
-import { updateUI } from "./main";
+import { apiKey, currentUnit, statusMSG, lastSearchedCity } from "./main.js";
+import { updateUI } from "./main.js";
 
 
 export async function fetchWeather(city){
@@ -9,7 +9,7 @@ export async function fetchWeather(city){
     }
     // -------------------------------------
 
-    lastSearchedCity = city
+    // lastSearchedCity = city
     statusMSG.textContent = "SEARCHING...";
     statusMSG.classList.remove('hidden')
 

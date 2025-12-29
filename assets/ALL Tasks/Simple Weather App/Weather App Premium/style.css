@@ -19,8 +19,8 @@ body{
 .bg-clear{ background: linear-gradient(to bottom, #0c4a6e, #0f172a); }
 .bg-clouds{ background: linear-gradient(to bottom, #334155, #0f172a); }
 .bg-rain{ background: linear-gradient(to bottom, #1e293b, #020617); }
+.bg-thunderstorm{ background: linear-gradient(to bottom, #0f172a, #000000); }
 .bg-snow{ background: linear-gradient(to bottom, #94a3b8, #0f172a); }
-
 
 .hidden{
     display: none !important;
@@ -53,25 +53,46 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-direction: column;
-
 }
-.header h2{
+.header-initial{
+    flex-direction: column;
+    
+}
+.header-loaded{
+    flex-direction: row;
+    gap: 20px;
+}
+
+
+
+.header .heading{
     font-size: 20px;
     font-weight: 800;
-    margin-top: 10px;
-    margin-bottom: 20px;
     color: rgb(43, 159, 254);
 }
+.header .heading-initial{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.header .heading-laoded{
+    margin: 0;
+}
+
 
 .header .inner-header{
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     gap: 10px;
     /* background-color: lightcoral; */
 }
+.inner-header-initial{
+    justify-content: space-between;
+}
+.inner-header-loaded{
+    justify-content: space-evenly;
+}
+
 
 .inner-header .search-bar-cont{
     width: 90%;
@@ -84,7 +105,7 @@ body{
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 .search-bar-cont input{
-    width: 80%;
+    width: 100%;
     padding: 15px 0px;
     border-radius: 10px;
     border: none;
@@ -181,7 +202,8 @@ body{
     padding: 30px;
     /* background-color: lightpink; */
     height: 100%;
-
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 }
 .left-panel, .right-panel{
     /* padding: 20px; */
@@ -224,16 +246,12 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    backdrop-filter: blur(50px);
-    background-color: rgba(31, 48, 77, 0.5);
     animation: float 5s ease-in-out infinite;
 }
 .left-panel .weather-icon-cont .icon-cont .weather-icon{
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    box-shadow: 0 0 50px 10px rgba(31, 48, 77);
 }
 
 
@@ -285,8 +303,8 @@ body{
 .right-panel .inner-cont{
     /* padding: 20px; */
     display: grid;
-    grid-template-columns: 1fr 1fr;
-
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
 }
 
 .right-panel .inner-cont .chart-card{
@@ -309,6 +327,21 @@ body{
     color: rgb(43, 159, 254, 0.8);
     font-weight: 700;
     margin-bottom: 5px;
+}
+
+
+.right-panel .inner-cont .chart-card .chart-cont{
+    height: 90px;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+
+.right-panel .inner-cont .chart-card canvas{
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
 }
 /* ------------------------------------------------- */
 
@@ -356,9 +389,9 @@ body{
 }
 
 .forecast-cont .forecast-card{
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
     height: 100px;
     width: 120px;
     padding: 10px;
@@ -369,13 +402,19 @@ body{
     text-align: center;
 }
 
-.forecast-card .day{
+.forecast-card .forecast-day{
     font-size: 12px;
     font-weight: 700;
     color: rgb(43, 159, 254, 0.8);
 }
 
-.forecast-card .temp{
+.forecast-card .forecast-icon{
+    width: 40px;
+    height: 40px;
+    margin: 5px 0;
+}
+
+.forecast-card .forecast-temp{
     font-size: 13px;
     font-weight: 700;
     color: white;

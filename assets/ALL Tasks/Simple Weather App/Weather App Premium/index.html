@@ -11,12 +11,12 @@
 <body class="bg-default">
 
 
-    <div class="main-card card-loaded" id="main-card">
+    <div class="main-card card-initial" id="main-card">
         <!-- HEADER -->
-        <div class="header" id="header">
-            <h2>SKYCAST.</h2>
+        <div class="header header-initial" id="header">
+            <h2 class="heading heading-initial" id="header-heading">SKYCAST.</h2>
 
-            <div class="inner-header">
+            <div class="inner-header inner-header-initial" id="inner-header">
                 <div class="search-bar-cont">
                     <input id="city-input" type="text" placeholder="Enter City Name....">
                     <button id="search-btn">
@@ -29,7 +29,7 @@
         </div>
 
         <!-- STATUS MESSAGE -->
-        <div id="status-msg" class="status-msg hidden">Search</div>
+        <div id="status-msg" class="status-msg hidden"></div>
 
         <!-- PLACEHOLDER BEFORE ANY CITY'S WEATHER -->
         <div class="placeholder hidden" id="placeholder">
@@ -38,23 +38,23 @@
 
 
         <!-- WEATHER CONTAINER -->
-        <div class="weather-cont" id="weather-cont">
+        <div class="weather-cont hidden" id="weather-cont">
             <div class="left-panel">
                 <div class="city-info">
-                    <h2 id="name" class="name">Karachi</h2>
-                    <p id="timing" class="timing">Sunday 05:43 PM</p>
+                    <h2 id="cityName" class="name"></h2>
+                    <p id="timing" class="timing"></p>
                 </div>
                 <div class="weather-icon-cont">
                     <div class="icon-cont">
-                        <img id="weather-icon" class="weather-icon" src="https://openweathermap.org/img/wn/50d@4x.png" alt="">
+                        <img id="weather-icon" class="weather-icon" src="" alt="icon">
                     </div>
                 </div>
                 <div>
                     <div class="weather-info">
-                        <span id="temp" class="temp">23</span>
-                        <span id="temp-unit" class="temp-unit">°C</span>
+                        <span id="temp" class="temp"></span>
+                        <span id="temp-unit" class="temp-unit"></span>
                     </div>
-                    <p class="weather-descp">haze</p>
+                    <p class="weather-descp" id="weather-descp"></p>
                 </div>
             </div>
 
@@ -66,14 +66,14 @@
                         <div>
                             <p class="heading">Temperature (Next 24 hrs)</p>                            
                         </div>
-                        <div class="chart-cont"><canvas id="tempchart"></canvas></div>
+                        <div class="chart-cont"><canvas id="tempChart"></canvas></div>
                     </div>
                     <!-- CHART CARD TWO -->
                     <div class="chart-card">
                         <div>
-                            <p id="precipLabel" class="heading">Rainfall (Next 24 hrs)</p>
+                            <p id="precipLabel" class="heading"></p>
                         </div>
-                        <div class="chart-cont"><canvas id="rainchart"></canvas></div>
+                        <div class="chart-cont"><canvas id="rainChart"></canvas></div>
                     </div>
                 </div>
 
@@ -90,7 +90,7 @@
                         </div>
                         <div>
                             <p class="heading">Humidity</p>
-                            <p class="descp" id="humidity">52%</p>
+                            <p class="descp" id="humidity"></p>
                         </div>
                     </div>
                     <!-- DETAIL CARD TWO -->
@@ -104,20 +104,15 @@
                         </div>
                         <div>
                             <p class="heading">Wind Speed</p>
-                            <p class="descp" id="wind-speed">10 km/h</p>
+                            <p class="descp" id="wind-speed"></p>
                         </div>
                     </div>
                 </div>
 
                 <!-- INNER CONT/FORECAST CONT THREE -->
                 <div class="forecast-cont">
-                    <div class="forecast-cards-cont">
+                    <div class="forecast-cards-cont" id="forecast-cards-cont">
                         <!-- FORECAST CARDs -->
-                        <div class="forecast-card">
-                            <span class="day">Mon</span>
-                            <img src="https://openweathermap.org/img/wn/13d.png" class="forecast-icon" alt="">
-                            <span class="temp">-5°</span>
-                        </div>
                     </div>
                 </div>
 
@@ -131,7 +126,9 @@
 
 
 
-
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="main.js" type="module"></script>
 </body>
 </html>
