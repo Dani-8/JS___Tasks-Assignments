@@ -302,13 +302,6 @@ body{
 /* ------------------------------------------------ */
 
 
-.right-panel{
-    /* background-color: rgba(12, 54, 144, 0.548); */
-    
-    /* align-items: center; */
-    /* justify-content: space-between; */
-}
-
 .right-panel .inner-cont{
     /* padding: 20px; */
     display: grid;
