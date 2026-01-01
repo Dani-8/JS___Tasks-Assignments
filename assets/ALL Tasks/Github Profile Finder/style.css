@@ -1,16 +1,133 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     background: #0d1117;
+    color: #c9d1d9;
+    padding: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hidden{
+    display: none !important;
+}
+/* =============================== */
+/* =============================== */
+/* =============================== */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.header {
+    /* background-color: lightcoral; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+}
+
+.header h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+.header h2 span{
+    color: rgb(35, 153, 64);
+}
+
+.search-cont {
+    background: #1b2636;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid transparent;
+    border-radius: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s ease;
+}
+
+.search-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.search-field svg {
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    left: 10px;
+}
+
+.search-field input {
+    width: 100%;
+    background-color: transparent;
+    padding: 12px 20px;
+    padding-left: 50px;
+    outline: none;
+    border: none;
+    border-radius: 12px;
+    font-size: 17px;
     color: #c9d1d9;
 }
 
+.search-cont:focus-within {
+    border-color: rgb(35, 153, 64);
+}
+
+.search-cont:focus-within svg {
+    color: rgb(35, 153, 64);
+}
+
+.search-cont:focus-within button {
+    background-color: rgb(35, 153, 64);
+}
 
 
+.search-cont button {
+    padding: 15px 20px;
+    outline: none;
+    border: none;
+    border-radius: 12px;
+    background-color: rgb(35, 153, 64);
+    background-color: transparent;
+    color: #c9d1d9;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
 
+.search-cont button:hover {
+    background-color: rgb(33, 134, 59);
+}
+.search-cont button:active{
+    transform: scale(0.9);
+}
+
+
+.error-msg{
+    color: rgb(209, 62, 62);
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* --------------------------------------- */
+/* --------------------------------------- */
+/* --------------------------------------- */
+/* --------------------------------------- */
 
 
 
