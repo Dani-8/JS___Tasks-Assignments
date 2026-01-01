@@ -144,6 +144,7 @@ body {
 .side-section{
     /* background-color: rgb(148, 107, 57); */
     width: 25%;
+    height: fit-content;
     padding: 20px;
     border-radius: 25px;
 
@@ -208,6 +209,11 @@ body {
     flex-direction: column;
     margin-top: 30px;
 }
+.links-area #blog{
+    color: rgb(35, 153, 64);
+    cursor: pointer;
+    text-decoration: none;
+}
 
 
 .side-section .profile-link{
@@ -258,6 +264,11 @@ body {
 }
 
 .repo-card{
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    
     background-color: #0d1117;
     border: 2px solid #283548;
     border-radius: 20px;
@@ -310,11 +321,25 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    gap: 10px;
+    padding: 20px 10px;
     border-radius: 25px;
+    font-size: 20px;
+    transition: 0.3s ease;
+}
+.stats-card:hover{
+    transform: translateY(-10px);
+    border-color: rgb(71, 99, 142);
 }
 
-
+.stats-card .stats-no{
+    font-size: 18px;
+    font-weight: 800;
+    color: white;
+}
+.stats-card .stats-name{
+    font-size: 15px;
+}
 
 
 

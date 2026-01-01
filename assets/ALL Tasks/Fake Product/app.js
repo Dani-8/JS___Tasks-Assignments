@@ -6,6 +6,8 @@ window.onload = async () => {
     await fetchProducts();
 };
 
+
+
 async function fetchCategories() {
     try {
         const res = await fetch('https://fakestoreapi.com/products/categories');
@@ -30,6 +32,9 @@ async function fetchProducts() {
     } catch (e) { console.error(e); }
 }
 
+
+
+
 function renderProducts(products) {
     const grid = document.getElementById('productGrid');
     grid.innerHTML = products.map(p => `
@@ -51,6 +56,8 @@ function renderProducts(products) {
             `).join('');
 }
 
+
+
 function filterCategory(cat, btn) {
     document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
     if (btn) btn.classList.add('active');
@@ -60,12 +67,16 @@ function filterCategory(cat, btn) {
     else renderProducts(allProducts.filter(p => p.category === cat));
 }
 
+
+
 function addToCart(id) {
     const product = allProducts.find(p => p.id === id);
     cart.push(product);
     updateCartUI();
     document.getElementById('cartSidebar').classList.add('open');
 }
+
+
 
 function updateCartUI() {
     document.getElementById('cartCount').textContent = cart.length;
@@ -85,10 +96,14 @@ function updateCartUI() {
     document.getElementById('cartTotal').textContent = `$${total.toFixed(2)}`;
 }
 
+
+
 function removeItem(index) {
     cart.splice(index, 1);
     updateCartUI();
 }
+
+
 
 function toggleCart() {
     document.getElementById('cartSidebar').classList.toggle('open');

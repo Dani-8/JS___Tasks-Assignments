@@ -20,7 +20,7 @@
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                     </svg>
-                    <input type="text">
+                    <input type="text" id="user-input">
                 </div>
                 <button class="search-btn" id="search-btn">Search</button>
             </div>
@@ -31,12 +31,12 @@
 
     <!-- ------------------------------------------------------ -->
 
-    <div class="main">
+    <div class="main hidden" id="mainContent">
         <div class="glass-card side-section">
-            <img src="https://avatars.githubusercontent.com/u/156370366?v=4" alt="" class="profile-img" id="profile-img">
-            <h2 class="name" id="name">daniyal</h2>
-            <p id="login" class="login">@github</p>
-            <p id="bio" class="bio">@bio</p>
+            <img src="" alt="" class="profile-img" id="profile-img">
+            <h2 class="name" id="name"></h2>
+            <p id="login" class="login"></p>
+            <p id="bio" class="bio"></p>
 
             <div class="inner-section counts-area">
                 <div>
@@ -48,20 +48,20 @@
                     <div class="heading">Following</div>
                 </div>
                 <div>
-                    <div class="count" id="followers">50</div>
+                    <div class="count" id="reposCount">0</div>
                     <div class="heading">Repos</div>
                 </div>
             </div>
 
             <div class="inner-section links-area">
                 <div id="locationBox">
-                    <span>📍</span> <span id="location">xxxxxxxxxx</span>
+                    <span>📍</span> <span id="location"></span>
                 </div>
                 <div id="blogBox">
-                    <span>🔗</span> <span id="blog">xxxxxxxxxxxxxxx</span>
+                    <span>🔗</span> <a id="blog"></a>
                 </div>
                 <div id="twitterBox">
-                    <span>🐦</span> <span id="twitter">xxxxxxxxxxxxxxxxx</span>
+                    <span>🐦</span> <span id="twitter"></span>
                 </div>
             </div>
 
@@ -76,66 +76,6 @@
 
                 <div id="repos-grid" class="repos-grid">
                     <!-- Repos here -->
-                    <div class="repo-card">
-                        <div class="repo-name">new one</div>
-                        <p class="repo-desc">not avilable!!!</p>
-
-                        <div class="repo-info">
-                            <span>🟡 JavaScript</span>
-                            <span>⭐ 0</span>
-                            <span>🍴 0</span>
-                        </div>
-                    </div>
-                    <div class="repo-card">
-                        <div class="repo-name">new one</div>
-                        <p class="repo-desc">not avilable!!!</p>
-
-                        <div class="repo-info">
-                            <span>🟡 JavaScript</span>
-                            <span>⭐ 0</span>
-                            <span>🍴 0</span>
-                        </div>
-                    </div>
-                    <div class="repo-card">
-                        <div class="repo-name">new one</div>
-                        <p class="repo-desc">not avilable!!!</p>
-
-                        <div class="repo-info">
-                            <span>🟡 JavaScript</span>
-                            <span>⭐ 0</span>
-                            <span>🍴 0</span>
-                        </div>
-                    </div>
-                    <div class="repo-card">
-                        <div class="repo-name">new one</div>
-                        <p class="repo-desc">not avilable!!!</p>
-
-                        <div class="repo-info">
-                            <span>🟡 JavaScript</span>
-                            <span>⭐ 0</span>
-                            <span>🍴 0</span>
-                        </div>
-                    </div>
-                    <div class="repo-card">
-                        <div class="repo-name">new one</div>
-                        <p class="repo-desc">not avilable!!!</p>
-
-                        <div class="repo-info">
-                            <span>🟡 JavaScript</span>
-                            <span>⭐ 0</span>
-                            <span>🍴 0</span>
-                        </div>
-                    </div>
-                    <div class="repo-card">
-                        <div class="repo-name">new one</div>
-                        <p class="repo-desc">not avilable!!!</p>
-
-                        <div class="repo-info">
-                            <span>🟡 JavaScript</span>
-                            <span>⭐ 0</span>
-                            <span>🍴 0</span>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -143,41 +83,27 @@
             <div class="stats-grid glass-card" id="extra-stats">
                 <div class="glass-card stats-card">
                     <div class="stats-icon">⭐</div>
-                    <div class="stats-no">90</div>
+                    <div class="total-stars" id="total-stars">0</div>
                     <div class="stats-name">Stars</div>
                 </div>
                 <div class="glass-card stats-card">
                     <div class="stats-icon">🍴</div>
-                    <div class="stats-no">32</div>
+                    <div class="total-forks" id="total-forks">0</div>
                     <div class="stats-name">Forks</div>
                 </div>
                 <div class="glass-card stats-card">
                     <div class="stats-icon">📜</div>
-                    <div class="stats-no">324342</div>
+                    <div class="license-count" id="license-count">0</div>
                     <div class="stats-name">MIT/GPL</div>
                 </div>
                 <div class="glass-card stats-card">
                     <div class="stats-icon">💡</div>
-                    <div class="stats-no">34</div>
-                    <div class="stats-name">HTML</div>
+                    <div class="top-lang" id="top-lang">0</div>
+                    <div class="stats-name">Top Lang</div>
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
