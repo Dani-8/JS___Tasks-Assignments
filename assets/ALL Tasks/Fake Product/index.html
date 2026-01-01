@@ -4,8 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">TREND<span>STORE</span></a>
+            <button class="cart-trigger" onclick="toggleCart()">
+                <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                </svg>
+                <span id="cartCount">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <header>
+        <h2>Discover New Arrivals</h2>
+        <p>Premium products fetched directly from our global inventory API.</p>
+    </header>
+
+    <div class="filters-container" id="categoryList">
+        <button onclick="filterCategory('all')" class="category-btn active">All Products</button>
+    </div>
+
+    <main>
+        <div id="productGrid">
+            <div class="skeleton"></div>
+            <div class="skeleton"></div>
+            <div class="skeleton"></div>
+            <div class="skeleton"></div>
+        </div>
+    </main>
+
+    <div id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Bag</h3>
+            <button onclick="toggleCart()" class="close-cart-btn">✕</button>
+        </div>
+        <div id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="total-row">
+                <span>Total</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <button class="checkout-btn">Checkout Now</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>    
 </body>
 </html>
