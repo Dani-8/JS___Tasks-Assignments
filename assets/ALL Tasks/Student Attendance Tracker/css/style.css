@@ -161,6 +161,7 @@ body{
 }
 
 
+
 .loading-data-cont label{
     display: inline-block;
     background: linear-gradient(140deg, #654caf, #2e1a69);
@@ -225,6 +226,7 @@ body{
     gap: 10px;
 }
 
+
 .dashboard-header button{
     padding: 10px 20px;
     background: linear-gradient(140deg, #654caf, #2e1a69);
@@ -243,6 +245,7 @@ body{
     transform: scale(0.95);
 }
 
+
 .dashboard-header-addstudent-btn{
     background: linear-gradient(140deg, #40d654, #19a339) !important;
 }
@@ -257,6 +260,8 @@ body{
     box-shadow: 0 4px 15px rgb(84, 169, 212, 0.9) !important;
     transition: 0.3s ease;
 }
+
+
 /* ----------------------------------------------------------------------- */
 
 /* KPIs */
@@ -764,12 +769,6 @@ min-width: 90px;
     background-color: transparent;
     border: 1px solid #8a8a8a;
 }
-
-
-
-
-
-
 
 
 
