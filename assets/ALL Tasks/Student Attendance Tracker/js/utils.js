@@ -179,7 +179,6 @@ let standardizeDate = (date) => {
 // console.log(standardizeDate(todayDate));
 
 
-
 let getWeeksRange = () => {
     if(allDates.length === 0) return []
 
@@ -227,9 +226,29 @@ let getWeeksRange = () => {
 
 
 
+let isDateInSelectedWeek = (date) => {
+    if(!selectedWeekRange) return true
+
+    let std = standardizeDate(date)
+    return std >= selectedWeekRange.start && std <= selectedWeekRange.end
+}
+
+export let getVisibleDates = () => {
+    return allDates.filter(isDateInSelectedWeek)
+}
 
 
 
+export let renderWeekFilterButtons = () => {
+    let weeks = getWeeksRange()
+
+    let html = `
+        
+    `
+
+
+
+}
 
 
 
