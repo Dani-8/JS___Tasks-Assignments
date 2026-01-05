@@ -4,15 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Firebase Auth App</title>
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <p class="status" id="status"></p>
+    <div class="container">
+        <h2>Firebase Auth</h2>
+
+        <div>
+            <input placeholder="Email" type="email" id="email">
+            <input placeholder="Password" type="password" id="password">
+        </div>
+
+        <div class="btns-cont">
+            <button id="signup">Sign Up</button>
+            <button id="login">Login</button>
+            <button id="googlelogin">Google Login</button>
+        </div>
+
+
+    </div>
 
 
 
-
-    <script src="app.js"></script>
+    <script type="module" src="app.js"></script>
 </body>
 </html>
