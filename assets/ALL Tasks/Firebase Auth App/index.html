@@ -19,54 +19,56 @@
         </div>
 
 
-        <div class="form-container hidden" id="form-container">
-            <h2>Firebase Auth</h2>
-
+        <div class="form-container" id="form-container">
             <div>
-                <input placeholder="Email" type="email" id="email">
-                <input placeholder="Password" type="password" id="password">
+                <div class="inner-cont">
+                    <p>Account Details</p>
+                    <input placeholder="Email" type="email" id="email">
+                    <input placeholder="Password" type="password" id="password">
+                </div>
+
+                <div class="btns-cont">
+                    <button id="signup" class="signup">Register</button>
+                    <button id="login" class="login">Login</button>
+                </div>
             </div>
 
-            <div class="btns-cont">
-                <button id="signup">Sign Up</button>
-                <button id="login">Login</button>
-                <!-- <button id="googlelogin">Google Login</button> -->
-            </div>
-
-            <h4>With phone</h4>
-
             <div>
-                <input type="text" id="phone" placeholder="+000000000000">
+                <div class="inner-cont">
+                    <p>Phone Detail</p>
+                    <div class="phone-detail-cont">
+                        <input type="text" id="phone" placeholder="+0.........">
+                        <button id="send" class="send-btn">Send</button>
+                    </div>
+                </div>
+
                 <div id="recaptcha"></div>
             </div>
+    
 
-            <div class="btns-cont">
-                <button id="send">Send</button>
-            </div>
-
-            <div class="hidden" id="hidden-cont">
+            <div class="otp-cont hidden" id="hidden-cont">
                 <div>
-                    <input type="text" id="otp">
+                    <input type="text" id="otp" placeholder="••••••">
                 </div>
         
-                <div class="btns-cont">
-                    <button id="verify">Verify</button>
-                </div>
+                <button id="verify" class="send-btn">Verify</button>
             </div>
         </div>
 
 
-        <div class="welcome-cont" id="welcome-cont">
+        <div class="welcome-cont hidden" id="welcome-cont">
             <div class="check-cont">
                 <div class="check">✓</div>
                 <div class="active-div"></div>
             </div>
 
             <div class="user-info-cont">
-                <h2>Success</h2>
-                <p>Logged in as:</p>
-                <p></p>
+                <h2>Success!</h2>
+                <p class="logged-in-as">Logged in as:</p>
+                <p class="user-info" id="user-info">+923001234567</p>
             </div>
+
+            <button class="logout-btn" id="logout-btn">Log Out</button>
         </div>
         
 

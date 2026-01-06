@@ -74,6 +74,7 @@ signup.addEventListener("click", signUp)
 let logIn = () => {
     let email = document.getElementById("email").value
     let password = document.getElementById("password").value
+    if(!email || !password) return statusMSG("Credentials required", true)
     
     signInWithEmailAndPassword(auth, email, password)
 
@@ -82,6 +83,7 @@ let logIn = () => {
 }
 login.addEventListener("click", logIn)
 
+// ----------------------------------------------------------
 
 
 
