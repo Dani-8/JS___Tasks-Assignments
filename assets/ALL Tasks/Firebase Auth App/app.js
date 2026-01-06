@@ -1,6 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"
 import {
-    getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword
+    getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, RecaptchaVerifier,
+    signInWithPhoneNumber,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"
 
 
@@ -26,9 +27,14 @@ let phone = document.getElementById("phone");
 let otp = document.getElementById("otp");
 let status = document.getElementById("status");
 
+let hiddenCont = document.getElementById("hidden-cont");
+
 let signup = document.getElementById("signup");
 let login = document.getElementById("login");
 let Glogin = document.getElementById("googlelogin");
+let optSend = document.getElementById("send");
+let verify = document.getElementById("verify");
+
 // ----------------------------------------------------------
 
 // ----------------------------------------------------------
@@ -53,10 +59,30 @@ login.addEventListener("click", logIn)
 
 
 
+let recaptcha = new RecaptchaVerifier(auth, "recaptcha", {})
+
+let sendOPT = () => {
+    signInWithPhoneNumber(auth, phone.value, recaptcha)
+        .then(result => {
+            window.confirmation = result
+            status.textContent = "OPT Sent"
+            hiddenCont.classList.remove("hidden")
+        })
+        .catch(err => alert(err.message))
+}
+optSend.addEventListener("click", sendOPT)
 
 
-
-
+let verifyOTP = () => {
+    confirmation.confirm(otp.value)
+        .then(() => {
+            status.textContent = "Phone Login Success"
+            hiddenCont.classList.add("hidden")
+            phone.value = ""
+        })
+        .catch((err) => alert(err.message))
+}
+verify.addEventListener("click", verifyOTP)
 
 
 
