@@ -21,8 +21,9 @@ let auth = getAuth(app)
 
 // =================================================================================================
 
-let email = document.getElementById("email");
-let password = document.getElementById("password");
+let formCont = document.getElementById("form-container")
+let welcomeCont = document.getElementById("welcome-cont")
+
 let phone = document.getElementById("phone");
 let otp = document.getElementById("otp");
 let status = document.getElementById("status");
@@ -37,22 +38,49 @@ let verify = document.getElementById("verify");
 
 // ----------------------------------------------------------
 
+function statusMSG(msg, isError = false){
+    status.textContent = msg
+    status.classList.remove("hidden")
+    status.classList.add(`${isError ? false : true}`)
+
+    setTimeout(() => {
+        status.classList.add("hidden")
+        status.classList.remove(`${isError ? false : true}`)
+    }, 5500);
+}
+
+function handleError(err){
+    let msg = "Connection error"
+    if (err.code === 'auth/user-not-found') msg = "Account not found"
+    if (err.code === 'auth/wrong-password') msg = "Access denied: check password"
+    if (err.code === 'auth/email-already-in-use') msg = "Email already registered"
+    if (err.code === 'auth/invalid-email') msg = "Invalid email format"
+    statusMSG(msg, true)
+}
+
 // ----------------------------------------------------------
 
 let signUp = () => {
-    createUserWithEmailAndPassword(auth, email.value, password.value)
+    let email = document.getElementById("email").value
+    let password = document.getElementById("password").value
+    if(!email || !password) return statusMSG("Credentials required", true)
 
-    .then(() => status.textContent = "Signed up!")
-    .catch((err) => alert(err.message))
+    createUserWithEmailAndPassword(auth, email, password)
+
+    .then(() => statusMSG("Registration complete!"))
+    .catch((err) => handleError(err))
 }
 signup.addEventListener("click", signUp)
 
 
 let logIn = () => {
-    signInWithEmailAndPassword(auth, email.value, password.value)
+    let email = document.getElementById("email").value
+    let password = document.getElementById("password").value
+    
+    signInWithEmailAndPassword(auth, email, password)
 
-    .then(() => status.textContent = "Log in!")
-    .catch((err) => alert(err.message))
+    .then(() => statusMSG("Logged in!", false))
+    .catch((err) => handleError(err))
 }
 login.addEventListener("click", logIn)
 

@@ -7,45 +7,55 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p class="status" id="status"></p>
+
     <div class="container">
-        <h2>Firebase Auth</h2>
+            
+        <div class="form-container" id="form-container">
+            <h2>Firebase Auth</h2>
 
-        <div>
-            <input placeholder="Email" type="email" id="email">
-            <input placeholder="Password" type="password" id="password">
-        </div>
-
-        <div class="btns-cont">
-            <button id="signup">Sign Up</button>
-            <button id="login">Login</button>
-            <button id="googlelogin">Google Login</button>
-        </div>
-
-        <h4>With phone</h4>
-
-        <div>
-            <input type="text" id="phone" placeholder="+000000000000">
-            <div id="recaptcha"></div>
-        </div>
-
-        <div class="btns-cont">
-            <button id="send">Send</button>
-        </div>
-
-        <div class="hidden" id="hidden-cont">
             <div>
-                <input type="text" id="otp">
+                <input placeholder="Email" type="email" id="email">
+                <input placeholder="Password" type="password" id="password">
             </div>
-    
+
             <div class="btns-cont">
-                <button id="verify">Verify</button>
+                <button id="signup">Sign Up</button>
+                <button id="login">Login</button>
+                <!-- <button id="googlelogin">Google Login</button> -->
+            </div>
+
+            <h4>With phone</h4>
+
+            <div>
+                <input type="text" id="phone" placeholder="+000000000000">
+                <div id="recaptcha"></div>
+            </div>
+
+            <div class="btns-cont">
+                <button id="send">Send</button>
+            </div>
+
+            <div class="hidden" id="hidden-cont">
+                <div>
+                    <input type="text" id="otp">
+                </div>
+        
+                <div class="btns-cont">
+                    <button id="verify">Verify</button>
+                </div>
             </div>
         </div>
 
+
+        <div class="welcome-cont" id="welcome-cont">
+
+
+        </div>
+        
+
+
+        <div class="status hidden" id="status">Status message!</div>
     </div>
-
-
 
     <script type="module" src="app.js"></script>
 </body>
