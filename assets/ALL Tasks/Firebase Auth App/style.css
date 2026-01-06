@@ -43,10 +43,37 @@ body{
 
 .container{
     background-color: white;
-    border-radius: 12px;
+    border-radius: 15px;
     padding: 30px;
     width: 450px;
 }
+.header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.svg-cont{
+    background-color: rgba(206, 188, 255, 0.3);
+    padding: 10px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+.svg-cont svg{
+    color: rgb(158, 71, 252);
+    width: 30px;
+    height: 30px;
+}
+.header h2{
+    font-size: 25px;
+    font-weight: 800;
+}
+
+/* --------------------------------------- */
+
+
 .form-container {
     width: 100%;
     display: flex;
@@ -95,9 +122,37 @@ body{
     transform: scale(0.9);
 }
 
+/* --------------------------------------- */
 
+.welcome-cont{
+    /* background-color: rgb(130, 194, 246); */
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
+.check-cont{
+    background-color: rgba(25, 228, 25, 0.1);
+    display: inline-block;
+    padding: 20px 30px;
+    border-radius: 25px;
+    position: relative;
+}
 
+.check-cont .check{
+    font-size: 40px;
+    color: rgb(36, 219, 36);
+}
+.check-cont .active-div{
+    padding: 12px;
+    background-color: rgb(73, 218, 73);
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
 
 
 

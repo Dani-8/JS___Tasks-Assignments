@@ -24,8 +24,6 @@ let auth = getAuth(app)
 let formCont = document.getElementById("form-container")
 let welcomeCont = document.getElementById("welcome-cont")
 
-let phone = document.getElementById("phone");
-let otp = document.getElementById("otp");
 let status = document.getElementById("status");
 
 let hiddenCont = document.getElementById("hidden-cont");
@@ -87,28 +85,32 @@ login.addEventListener("click", logIn)
 
 
 
-let recaptcha = new RecaptchaVerifier(auth, "recaptcha", {})
+let recaptcha = new RecaptchaVerifier(auth, "recaptcha", { 'size': 'normal' })
 
 let sendOPT = () => {
-    signInWithPhoneNumber(auth, phone.value, recaptcha)
+    let phone = document.getElementById("phone").value
+    if(!phone) return statusMSG("Enter phone number", true)
+
+    signInWithPhoneNumber(auth, phone, recaptcha)
         .then(result => {
             window.confirmation = result
-            status.textContent = "OPT Sent"
+            statusMSG("Code sent successfully", false)
             hiddenCont.classList.remove("hidden")
         })
-        .catch(err => alert(err.message))
+        .catch(err => handleError(err))
 }
 optSend.addEventListener("click", sendOPT)
 
 
 let verifyOTP = () => {
-    confirmation.confirm(otp.value)
+    let otp = document.getElementById("otp").value
+
+    confirmation.confirm(otp)
         .then(() => {
-            status.textContent = "Phone Login Success"
             hiddenCont.classList.add("hidden")
             phone.value = ""
         })
-        .catch((err) => alert(err.message))
+        .catch((err) => statusMSG("Code validation failed", true))
 }
 verify.addEventListener("click", verifyOTP)
 
