@@ -29,7 +29,7 @@ body{
     right: 30px;
     width: 56px;
     height: 56px;
-    background: #454545;
+    background: #ebebeb;
     border-radius: 28px;
 
     display: flex;
@@ -37,12 +37,21 @@ body{
     justify-content: flex-start;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 10px 25px -5px rgba(76, 76, 76, 0.4);
     overflow: hidden;
     white-space: nowrap;
     z-index: 100;
     color: #f57c00;
-    text-shadow: 0 0 25px rgba(245, 123, 0, 0.6);
+    text-shadow: 0 0 25px rgba(245, 123, 0, 0.8);
+
+    animation: glowing 1s infinite alternate;
+}
+@keyframes glowing {
+    0%{
+        box-shadow: 0 0 25px -5px rgba(255, 255, 255, 0.4);
+    }
+    100%{
+        box-shadow: 0 0 35px -5px rgba(255, 255, 255, 0.9);
+    }
 }
 
 .version-switcher:hover {
