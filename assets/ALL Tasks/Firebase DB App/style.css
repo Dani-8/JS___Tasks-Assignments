@@ -9,18 +9,78 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: rgb(221, 235, 255);
+    background-color: rgb(38, 64, 99);
+    /* background-color: rgb(22, 42, 74); */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .hidden{
     display: none;
 }
+
+
+
+/* Floating Switcher Button */
+.version-switcher {
+    text-decoration: none;
+
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    width: 56px;
+    height: 56px;
+    background: #454545;
+    border-radius: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 25px -5px rgba(76, 76, 76, 0.4);
+    overflow: hidden;
+    white-space: nowrap;
+    z-index: 100;
+    color: #f57c00;
+    text-shadow: 0 0 25px rgba(245, 123, 0, 0.6);
+}
+
+.version-switcher:hover {
+    width: 230px;
+    border-radius: 16px;
+}
+
+.version-switcher .arrow-icon {
+    min-width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s;
+    flex-shrink: 0;
+}
+
+.version-switcher:hover .arrow-icon {
+    transform: rotate(180deg);
+}
+
+.version-switcher .switch-label {
+    opacity: 0;
+    font-size: 14px;
+    font-weight: 800;
+    margin-right: 20px;
+    transition: opacity 0.3s;
+}
+
+.version-switcher:hover .switch-label {
+    opacity: 1;
+}
+
 /* =========================================== */
 
 .container{
     padding: 30px;
-    background-color: white;
+    background-color: rgba(255, 255, 255);
     box-shadow: 0 0 30px -5px rgba(120, 120, 120, 0.3);
     border-radius: 20px;
     width: 400px;
@@ -93,8 +153,8 @@ body{
 .container ul li{
     background-color: rgb(46, 91, 162);
     border-radius: 8px;
-    padding: 5px 10px;
-    font-size: 18px;
+    padding: 7px 10px;
+    font-size: 15px;
     color: white;
 
 }

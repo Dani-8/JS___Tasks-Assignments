@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firestore Structure & Functions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="card">
+        <div class="header">
+            <h1>Firestore Visual Guide</h1>
+            <p>The Hierarchy & CRUD Logic</p>
+        </div>
+
+        <div class="section-title">The Hierarchy</div>
+        
+        <div class="flow">
+            <div class="flow-item">
+                <div class="circle circle-drive">DRIVE</div>
+                <div class="tag">db</div>
+                <span>Database</span>
+            </div>
+            <div class="flow-item">
+                <div class="circle circle-folder">FOLDER</div>
+                <div class="tag">collection</div>
+                <span>Collection</span>
+            </div>
+            <div class="flow-item">
+                <div class="circle circle-file">FILE</div>
+                <div class="tag">doc</div>
+                <span>Document</span>
+            </div>
+            <div class="flow-item">
+                <div class="circle circle-data">DATA</div>
+                <div class="tag">fields</div>
+                <span>Key/Value</span>
+            </div>
+        </div>
+
+        <!-- --------------------------------------------------------- -->
+
+
+        <div class="diagram-container">
+            <pre><span class="db-label">database/drive</span>
+└── <span class="coll-label">collection("todos")</span> <small>(The Folder)</small>
+    ├── <span class="doc-label">doc("abc123")</span> <small>(The File)</small>
+    │   ├── <span class="field-label">text:</span> "Buy milk"
+    └── <span class="doc-label">doc("xyz789")</span> <small>(The File)</small>
+        ├── <span class="field-label">text:</span> "Learn Firebase"
+        </div>
+        <!-- ------------------------------------------------------------------------- -->
+
+
+        <div class="section-title">Core Functions</div>
+
+        <div class="grid">
+            <div class="func-box">
+                <div class="target-tag">Targets: Collection</div>
+                <span class="func-name">addDoc()</span>
+                <span class="func-desc">Create a new file with a Random ID.</span>
+            </div>
+            <div class="func-box">
+                <div class="target-tag">Targets: Document</div>
+                <span class="func-name">setDoc()</span>
+                <span class="func-desc">Create or overwrite a file with a Custom ID.</span>
+            </div>
+            <div class="func-box">
+                <div class="target-tag">Targets: Collection</div>
+                <span class="func-name">getDocs()</span>
+                <span class="func-desc">List all files inside a folder.</span>
+            </div>
+            <div class="func-box">
+                <div class="target-tag">Targets: Document</div>
+                <span class="func-name">getDoc()</span>
+                <span class="func-desc">Read one specific file by its ID.</span>
+            </div>
+            <div class="func-box">
+                <div class="target-tag">Targets: Document</div>
+                <span class="func-name">updateDoc()</span>
+                <span class="func-desc">Edit specific text inside a file.</span>
+            </div>
+            <div class="func-box func-delete">
+                <div class="target-tag delete-tag">Targets: Document</div>
+                <span class="func-name">deleteDoc()</span>
+                <span class="func-desc">Permanently remove a file.</span>
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+</html>

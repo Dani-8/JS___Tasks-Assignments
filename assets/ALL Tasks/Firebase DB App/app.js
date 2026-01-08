@@ -39,7 +39,6 @@ function addTodo(){
             status.classList.remove("red");
         }, 4000)
 
-
         return
     }
     // -----------------------------------------------------
@@ -89,7 +88,7 @@ function loadTodo(){
             })
         })
 }
-
+loadTodo()
 
 
 
