@@ -1,0 +1,110 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(221, 235, 255);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hidden{
+    display: none;
+}
+/* =========================================== */
+
+.container{
+    padding: 30px;
+    background-color: white;
+    box-shadow: 0 0 30px -5px rgba(120, 120, 120, 0.3);
+    border-radius: 20px;
+    width: 400px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container h2{
+    margin-bottom: 20px;
+
+}
+.container .status{
+    font-size: 15px;
+    font-style: italic;
+}
+.status.red{
+    color: rgb(219, 66, 66);
+}
+.status.green{
+    color: rgb(43, 183, 66);
+}
+
+
+.input-cont{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 8px;
+}
+.input-cont input{
+    width: 100%;
+    outline: none;
+    border: 2px solid rgb(203, 211, 218);
+    padding: 10px;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+.input-cont input:focus{
+    border-color: rgb(49, 137, 213);
+}
+
+.input-cont button{
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    background-color: rgb(49, 137, 213);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.input-cont button:active{
+    transform: scale(0.9);
+}
+
+
+.container ul{
+    /* background-color: rgb(109, 143, 198); */
+    width: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: scroll;
+    max-height: 300px;
+}
+.container ul li{
+    background-color: rgb(46, 91, 162);
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-size: 18px;
+    color: white;
+
+}
+
+
+
+
+
+
+
+
+
+
