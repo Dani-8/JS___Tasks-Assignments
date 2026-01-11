@@ -1,6 +1,6 @@
 import {initializeApp} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"
 import {
-    getFirestore, collection, addDoc, getDocs
+    getFirestore, collection, addDoc, getDocs, onSnapshot
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"
 
 const firebaseConfig = {
@@ -23,6 +23,7 @@ let db = getFirestore(app)
 let todoInput = document.getElementById("todo-input")
 let status = document.getElementById("status")
 let addBTN = document.getElementById("add-todo-btn")
+let list = document.getElementById("list")
 
 
 function addTodo(){
@@ -51,7 +52,6 @@ function addTodo(){
             status.classList.remove("hidden")
             status.classList.add("green")
             todoInput.value = ""
-            loadTodo()
 
             setTimeout(() => {
                 status.classList.add("hidden");
@@ -73,7 +73,33 @@ function addTodo(){
 
 }
 addBTN.addEventListener("click", addTodo)
+// --------------------------------------------------------------
 
+
+onSnapshot(collection(db, 'todos'), function(snapshot){
+    list.innerHTML = ""
+
+    snapshot.forEach((docSnap) => {
+        let { text } = docSnap.data()
+
+        list.innerHTML += `
+            <li>
+                <span>${text}</span>
+                <span class="li-btns-cont">
+                    <button id="edit-li-btn">Edit</button>
+                    <button id="delete-li-btn">Delete</button>
+                </span>
+            </li>
+        `
+    })
+
+
+    
+
+
+    
+
+})
 
 
 

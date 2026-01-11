@@ -92,7 +92,7 @@ body{
     background-color: rgba(255, 255, 255);
     box-shadow: 0 0 30px -5px rgba(120, 120, 120, 0.3);
     border-radius: 20px;
-    width: 400px;
+    min-width: 400px;
 
     display: flex;
     flex-direction: column;
@@ -165,7 +165,24 @@ body{
     padding: 7px 10px;
     font-size: 15px;
     color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.li-btns-cont button{
+    outline: none;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 8px;
+    background-color: rgb(49, 137, 213);
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.li-btns-cont button:active{
+    transform: scale(0.9);
 }
 
 
