@@ -72,3 +72,20 @@ function addTodo(){
 
 
 }
+addBTN.addEventListener("click", addTodo)
+
+
+function loadTodo(){
+    let list = document.getElementById("list")
+    list.innerHTML = ""
+
+    getDocs(collection(db, "todos"))
+        .then(result => {
+            result.forEach(doc => {
+                let li = document.createElement("li")
+                li.textContent = doc.data().text
+                list.appendChild(li)
+            })
+        })
+}
+loadTodo()
