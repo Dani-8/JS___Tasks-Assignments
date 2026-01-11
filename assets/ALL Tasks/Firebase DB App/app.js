@@ -15,3 +15,60 @@ const firebaseConfig = {
 
 let app = initializeApp(firebaseConfig)
 let db = getFirestore(app)
+
+// =====================================================================================================
+// =====================================================================================================
+// =====================================================================================================
+
+let todoInput = document.getElementById("todo-input")
+let status = document.getElementById("status")
+let addBTN = document.getElementById("add-todo-btn")
+
+
+function addTodo(){
+    let todoInputValue = todoInput.value
+    
+    if(!todoInputValue){
+        status.textContent = "Todo cannot be empty"
+        status.classList.remove("hidden")
+        status.classList.add("red")
+
+
+        setTimeout(() => {
+            status.classList.add("hidden");
+            status.classList.remove("red");
+        }, 4000)
+
+        return
+    }
+    // -----------------------------------------------------
+
+    addDoc(collection(db, "todos"),{
+        text: todoInputValue
+    })
+        .then(() => {
+            status.textContent = "Todo added"
+            status.classList.remove("hidden")
+            status.classList.add("green")
+            todoInput.value = ""
+            loadTodo()
+
+            setTimeout(() => {
+                status.classList.add("hidden");
+                status.classList.remove("green");
+            }, 4000)
+        })
+        .catch(() => {
+            status.textContent = "Error adding todo"
+            status.classList.remove("hidden")
+            status.classList.add("red")
+
+
+            setTimeout(() => {
+                status.classList.add("hidden");
+                status.classList.remove("red");
+            }, 4000)
+        })
+
+
+}
