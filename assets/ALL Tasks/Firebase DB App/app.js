@@ -108,7 +108,21 @@ let modalCont = document.getElementById("modal-cont")
 let modalEditBTN = document.getElementById('save-edit')
 let modalCancelBTN = document.getElementById('cancel-modal')
 
+let editInput = document.getElementById('edit-input')
+let editLiBTN = document.getElementById('edit-li-btn')
+let deleteLiBTN = document.getElementById('delete-li-btn')
+
+
 let currentEditid = null
+// ---------------------------------------------------------------
+
+function editTodo(){
+    modalCont.classList.remove("hidden")
+    console.log("hi mdal");
+    
+}
+editLiBTN.addEventListener("click", editTodo)
+
 
 
 function closeModal(){
