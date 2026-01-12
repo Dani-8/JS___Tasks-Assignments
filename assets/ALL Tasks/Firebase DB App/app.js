@@ -26,6 +26,8 @@ let addBTN = document.getElementById("add-todo-btn")
 let list = document.getElementById("list")
 
 
+
+
 function addTodo(){
     let todoInputValue = todoInput.value
     
@@ -100,10 +102,20 @@ onSnapshot(collection(db, 'todos'), function(snapshot){
     
 
 })
+// --------------------------------------------------------------
+
+let modalCont = document.getElementById("modal-cont")
+let modalEditBTN = document.getElementById('save-edit')
+let modalCancelBTN = document.getElementById('cancel-modal')
+
+let currentEditid = null
 
 
-
-
+function closeModal(){
+    modalCont.classList.add("hidden")
+    currentEditid = null
+}
+modalCancelBTN.addEventListener("click", closeModal)
 
 
 
