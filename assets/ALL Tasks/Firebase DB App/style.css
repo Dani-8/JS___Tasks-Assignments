@@ -208,6 +208,7 @@ body{
 }
 .modal-content{
     background-color: white;
+    width: 400px;
     padding: 40px;
     display: flex;
     justify-content: center;
@@ -215,10 +216,11 @@ body{
     flex-direction: column;
     border-radius: 20px;
 
-
+}
+.modal-content h3{
+    
 
 }
-
 
 
 
