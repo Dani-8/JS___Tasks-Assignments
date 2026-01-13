@@ -75,6 +75,10 @@ function addTodo(){
 
 }
 addBTN.addEventListener("click", addTodo)
+
+todoInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") addTodo();
+})
 // --------------------------------------------------------------
 
 
