@@ -26,8 +26,6 @@ let addBTN = document.getElementById("add-todo-btn")
 let list = document.getElementById("list")
 
 
-
-
 function addTodo(){
     let todoInputValue = todoInput.value
     
@@ -94,13 +92,14 @@ onSnapshot(collection(db, 'todos'), function(snapshot){
 
 
         snapshot.forEach((docSnap) => {
-            let { text } = docSnap.data()
-    
+            let { text, completed } = docSnap.data()
+            let isDone = completed ? 'done' : ''
+            
             list.innerHTML += `
-                <li>
+                <li class="${isDone}">
                     <span>${text}</span>
                     <span class="li-btns-cont">
-                        <button class="check-btn"><i data-lucide="check" size="16"></i></button>
+                        <button data-id='${docSnap.id}' data-completed="${completed}" class="check-btn"><i data-lucide="check" size="16"></i></button>
                         <button data-id='${docSnap.id}' data-text='${text}' class='edit-btn'><i data-lucide="edit-3" size="16"></i></button>
                         <button data-id='${docSnap.id}' class='delete-btn'><i data-lucide="trash-2" size="16"></i></button>
                     </span>
@@ -110,9 +109,7 @@ onSnapshot(collection(db, 'todos'), function(snapshot){
         lucide.createIcons();
     }
 
-
     // ----------------------------------------------------------------------------
-
 
     // ----------------------------------------------------------------------------
 
@@ -125,10 +122,15 @@ onSnapshot(collection(db, 'todos'), function(snapshot){
             btn.addEventListener('click', () => {
                 deleteTodo(btn.dataset.id)
             })
+        }else if(btn.classList.contains('check-btn')){
+            btn.addEventListener('click', () => {
+                todoComplete(btn.dataset.id, btn.dataset.completed === 'true')
+            })
         }
     })
 })
 // --------------------------------------------------------------
+
 
 let modalCont = document.getElementById("modal-cont")
 let saveEditBTN = document.getElementById('save-edit')

@@ -227,10 +227,11 @@ pre {
     font-weight: bold;
 }
 
-.delete-tag {
-    color: #d73a49;
-    background: #ffeef0;
-}
+.delete-tag {color: #d73a49; background: #ffeef0;}
+.helper-tag {color: #6f42c1; background: #f5f0ff; }
+.batch-tag {color: #d73a49; background: #ffeef0; }
+.realtime-tag {color: #28a745; background: #f0fff4; }
+
 
 .func-delete {
     border-left-color: #d73a49;

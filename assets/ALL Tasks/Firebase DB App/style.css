@@ -104,13 +104,12 @@ body{
     font-weight: 800;
     letter-spacing: -0.5px;
     display: flex;
-    align-items: center;
+    align-items: left;
     gap: 10px;
 }
 .container .status{
     font-size: 15px;
-    font-style: italic;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 10px;
     height: 20px;
 }
@@ -118,7 +117,7 @@ body{
     color: rgb(219, 66, 66);
 }
 .status.green{
-    color: rgb(43, 183, 66);
+    color: rgb(27, 163, 49);
 }
 
 
@@ -207,7 +206,10 @@ body{
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     border-color: #d1d5db;
 }
-
+.container ul li.done span {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
 
 
 
