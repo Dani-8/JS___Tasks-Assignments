@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Firebase DB App</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -33,6 +34,18 @@
         <ul id="list">
             <!-- List Items -->
         </ul>
+
+
+        
+        <div id="empty-state" class="empty-state hidden">
+            <i data-lucide="clipboard-check" size="40"></i>
+            <p>No tasks yet. Take a break!</p>
+        </div>
+
+        
+        <button id="delete-all" class="delete-all-btn hidden">
+            <i data-lucide="trash-2" size="18"></i> Clear All Tasks
+        </button>
     </div>
 
     <!-- =========================================================================== -->

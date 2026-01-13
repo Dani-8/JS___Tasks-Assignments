@@ -9,7 +9,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: rgb(38, 64, 99);
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
     /* background-color: rgb(22, 42, 74); */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -89,23 +89,30 @@ body{
 
 .container{
     padding: 30px;
-    background-color: rgba(255, 255, 255);
-    box-shadow: 0 0 30px -5px rgba(120, 120, 120, 0.3);
-    border-radius: 20px;
-    min-width: 400px;
-
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border-radius: 24px;
+    min-width: 420px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 .container h2{
     margin-bottom: 20px;
-
+    color: #0f172a;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 .container .status{
     font-size: 15px;
     font-style: italic;
+    font-weight: 600;
+    margin-bottom: 10px;
+    height: 20px;
 }
 .status.red{
     color: rgb(219, 66, 66);
@@ -124,28 +131,35 @@ body{
 }
 .input-cont input{
     width: 100%;
+    font-size: 15px;
     outline: none;
-    border: 2px solid rgb(203, 211, 218);
-    padding: 10px;
-    border-radius: 8px;
+    border: 2px solid #e2e8f0;
+    padding: 10px 16px;
+    border-radius: 12px;
     transition: 0.3s ease;
 }
 .input-cont input:focus{
     border-color: rgb(49, 137, 213);
+    box-shadow: 0 0 0 4px rgba(49, 137, 213, 0.1);
 }
 
 .input-cont button{
-    padding: 10px 15px;
+    padding: 0px 20px;
     border: none;
     outline: none;
     border-radius: 8px;
     background-color: rgb(49, 137, 213);
+    font-weight: 700;
     color: white;
     cursor: pointer;
     transition: 0.3s ease;
 }
 .input-cont button:active{
     transform: scale(0.9);
+}
+.input-cont button:hover {
+    background-color: #2563eb;
+    transform: translateY(-1px);
 }
 
 
@@ -155,38 +169,96 @@ body{
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    overflow-y: scroll;
-    max-height: 300px;
+    gap: 12px;
+    overflow-y: auto;
+    max-height: 320px;
+    padding: 5px;
 }
-.container ul li{
-    background-color: rgb(46, 91, 162);
-    border-radius: 8px;
-    padding: 7px 10px;
+
+.container ul li {
+    background: white;
+    border: 1px solid #f1f5f9;
+    border-radius: 14px;
+    padding: 12px 16px;
     font-size: 15px;
-    color: white;
+    color: #1e293b;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.li-btns-cont button{
+.container ul li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-color: #d1d5db;
+}
+
+
+
+
+/* Buttons Container */
+.li-btns-cont {
+    display: flex;
+    gap: 8px;
+}
+
+.li-btns-cont button {
     outline: none;
     border: none;
-    padding: 5px 10px;
-    border-radius: 8px;
-    background-color: rgb(49, 137, 213);
-    color: white;
-    font-size: 12px;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background-color: #f1f5f9;
+    color: #64748b;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.li-btns-cont button:active{
-    transform: scale(0.9);
+
+.li-btns-cont .check-btn:hover {
+    background-color: #dcfce7;
+    color: #16a34a;
+}
+
+.li-btns-cont .edit-btn:hover {
+    background-color: #dbeafe;
+    color: #2563eb;
+}
+
+.li-btns-cont .delete-btn:hover {
+    background-color: #fee2e2;
+    color: #ef4444;
 }
 
 
 
+
+/* Delete All Button */
+.delete-all-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background-color: #fff1f2;
+    color: #e11d48;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.delete-all-btn:hover {
+    background-color: #e11d48;
+    color: white;
+}
 
 
 
@@ -196,73 +268,77 @@ body{
 
 /* ============================================ */
 
-.modal-cont{
+
+
+/* Modal */
+.modal-cont {
     z-index: 999;
     position: fixed;
-    width: 100%;
-    height: 100vh;
+    inset: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.499);
-
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
 }
-.modal-content{
+
+.modal-content {
     background-color: white;
     width: 400px;
-    padding: 40px;
+    padding: 30px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    border-radius: 20px;
-
+    align-items: center;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
-.modal-content h2{
+
+.modal-content h2 {
     width: 100%;
-    text-align: center;
+    text-align: left;
     margin-bottom: 20px;
-    padding-bottom: 10px;
-    color: rgb(46, 91, 162);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-    /* border-radius: 15px; */
-}
-.modal-content input{
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 12px;
-    border-radius: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    outline: none;
+    color: #0f172a;
+    font-weight: 800;
 }
 
-.modal-content span{
-    /* background-color: lightblue; */
+.modal-content input {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 14px;
+    border-radius: 12px;
+    border: 2px solid #f1f5f9;
+    outline: none;
+    font-size: 16px;
+}
+
+.modal-content input:focus {
+    border-color: rgb(49, 137, 213);
+}
+
+.modal-content span {
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    gap: 10px;
-    margin-top: 20px;
-    /* margin-bottom: 20px; */
+    gap: 12px;
 }
-.modal-content button{
+
+.modal-content button {
     outline: none;
     border: none;
-    padding: 10px 15px;
-    border-radius: 8px;
+    padding: 12px 20px;
+    border-radius: 10px;
     background-color: rgb(49, 137, 213);
     color: white;
     font-size: 15px;
+    font-weight: 700;
     cursor: pointer;
     transition: 0.3s ease;
 }
-.modal-content button:hover{
-    box-shadow: 0 10px 10px -5px rgb(162, 162, 162);
-}
-.modal-content button:active{
-    transform: scale(0.9);
-}
 
+.modal-content button#cancel-modal {
+    background-color: #f1f5f9;
+    color: #64748b;
+}
 
 
 

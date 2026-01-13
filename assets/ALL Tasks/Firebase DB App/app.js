@@ -88,8 +88,9 @@ onSnapshot(collection(db, 'todos'), function(snapshot){
             <li>
                 <span>${text}</span>
                 <span class="li-btns-cont">
-                    <button data-id='${docSnap.id}' data-text='${text}' class='edit-btn'>Edit</button>
-                    <button data-id='${docSnap.id}' class='delete-btn'>Delete</button>
+                    <button class="check-btn"><i data-lucide="check" size="16"></i></button>
+                    <button data-id='${docSnap.id}' data-text='${text}' class='edit-btn'><i data-lucide="edit-3" size="16"></i></button>
+                    <button data-id='${docSnap.id}' class='delete-btn'><i data-lucide="trash-2" size="16"></i></button>
                 </span>
             </li>
         `
