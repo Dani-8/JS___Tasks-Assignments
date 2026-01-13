@@ -1,6 +1,6 @@
 import {initializeApp} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"
 import {
-    getFirestore, collection, addDoc, getDocs, onSnapshot, updateDoc, doc
+    getFirestore, collection, addDoc, getDocs, onSnapshot, updateDoc, doc, deleteDoc
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"
 
 const firebaseConfig = {
@@ -88,30 +88,29 @@ onSnapshot(collection(db, 'todos'), function(snapshot){
             <li>
                 <span>${text}</span>
                 <span class="li-btns-cont">
-                    <button data-id='${docSnap.id}' data-text='${text}'>Edit</button>
-                    <button data-id='${docSnap.id}' >Delete</button>
+                    <button data-id='${docSnap.id}' data-text='${text}' class='edit-btn'>Edit</button>
+                    <button data-id='${docSnap.id}' class='delete-btn'>Delete</button>
                 </span>
             </li>
         `
     })
 
+    // ----------------------------------------------------------------------------
 
-    
+
+    // ----------------------------------------------------------------------------
+
     document.querySelectorAll('#list li button').forEach((btn) => {
-        if(btn.textContent == 'Edit'){
+        if(btn.classList.contains('edit-btn')){
             btn.addEventListener('click', () => {
                 editTodo(btn.dataset.id, btn.dataset.text)
             })
-        }else{
+        }else if(btn.classList.contains('delete-btn')){
             btn.addEventListener('click', () => {
-                deleteTodo()
+                deleteTodo(btn.dataset.id)
             })
         }
     })
-
-
-    
-
 })
 // --------------------------------------------------------------
 
@@ -124,16 +123,41 @@ let editInput = document.getElementById('edit-input')
 let currentEditid = null
 // ---------------------------------------------------------------
 
+function deleteTodo(id){
+    deleteDoc(doc(db, 'todos', id))
+    .then(() => {
+        status.textContent = "Todo is Deleted successfully!"
+        status.classList.remove("hidden")
+        status.classList.add("green")
+
+
+        setTimeout(() => {
+            status.classList.add("hidden");
+            status.classList.remove("green");
+        }, 4000)
+    })
+    .catch(() => {
+        status.textContent = "Error deleting todo"
+        status.classList.remove("hidden")
+        status.classList.add("red")
+
+
+        setTimeout(() => {
+            status.classList.add("hidden");
+            status.classList.remove("red");
+        }, 4000)
+    })
+}
+// --------------------------------------------------------
+
+
+
 function editTodo(id, text){
     currentEditid = id
     editInput.value = text
 
     modalCont.classList.remove("hidden")
-    console.log("hi mdal");
 }
-
-
-
 
 function saveEdit(){
     let newtodo = editInput.value.trim()
@@ -143,6 +167,16 @@ function saveEdit(){
     updateDoc(doc(db, 'todos', currentEditid), {text: newtodo})
         .then(() => {
             closeModal()
+
+            status.textContent = "Todo is edited successfully!"
+            status.classList.remove("hidden")
+            status.classList.add("green")
+
+
+            setTimeout(() => {
+                status.classList.add("hidden");
+                status.classList.remove("green");
+            }, 4000)
         })
         .catch(() => {
             status.textContent = "Error editing todo"
@@ -158,7 +192,7 @@ function saveEdit(){
 }
 saveEditBTN.addEventListener('click', saveEdit)
 
-
+// ----------------------------------------------------------------
 
 
 function closeModal(){
