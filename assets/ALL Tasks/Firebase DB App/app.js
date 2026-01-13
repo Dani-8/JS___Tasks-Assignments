@@ -1,6 +1,6 @@
 import {initializeApp} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"
 import {
-    getFirestore, collection, addDoc, getDocs, onSnapshot
+    getFirestore, collection, addDoc, getDocs, onSnapshot, updateDoc, doc
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"
 
 const firebaseConfig = {
@@ -100,7 +100,7 @@ onSnapshot(collection(db, 'todos'), function(snapshot){
     document.querySelectorAll('#list li button').forEach((btn) => {
         if(btn.textContent == 'Edit'){
             btn.addEventListener('click', () => {
-                editTodo()
+                editTodo(btn.dataset.id, btn.dataset.text)
             })
         }else{
             btn.addEventListener('click', () => {
@@ -116,9 +116,8 @@ onSnapshot(collection(db, 'todos'), function(snapshot){
 // --------------------------------------------------------------
 
 let modalCont = document.getElementById("modal-cont")
-let modalEditBTN = document.getElementById('save-edit')
+let saveEditBTN = document.getElementById('save-edit')
 let modalCancelBTN = document.getElementById('cancel-modal')
-
 let editInput = document.getElementById('edit-input')
 
 
@@ -132,6 +131,33 @@ function editTodo(id, text){
     modalCont.classList.remove("hidden")
     console.log("hi mdal");
 }
+
+
+
+
+function saveEdit(){
+    let newtodo = editInput.value.trim()
+    if(!newtodo || !currentEditid) return
+
+
+    updateDoc(doc(db, 'todos', currentEditid), {text: newtodo})
+        .then(() => {
+            closeModal()
+        })
+        .catch(() => {
+            status.textContent = "Error editing todo"
+            status.classList.remove("hidden")
+            status.classList.add("red")
+
+
+            setTimeout(() => {
+                status.classList.add("hidden");
+                status.classList.remove("red");
+            }, 4000)
+        })
+}
+saveEditBTN.addEventListener('click', saveEdit)
+
 
 
 
