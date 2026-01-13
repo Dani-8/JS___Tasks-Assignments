@@ -249,11 +249,3 @@ function closeModal(){
     currentEditid = null
 }
 modalCancelBTN.addEventListener("click", closeModal)
-
-
-
-
-
-
-
-
