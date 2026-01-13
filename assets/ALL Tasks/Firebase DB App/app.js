@@ -88,8 +88,8 @@ onSnapshot(collection(db, 'todos'), function(snapshot){
             <li>
                 <span>${text}</span>
                 <span class="li-btns-cont">
-                    <button id="edit-li-btn">Edit</button>
-                    <button id="delete-li-btn">Delete</button>
+                    <button data-id='${docSnap.id}' data-text='${text}'>Edit</button>
+                    <button data-id='${docSnap.id}' >Delete</button>
                 </span>
             </li>
         `
@@ -97,6 +97,17 @@ onSnapshot(collection(db, 'todos'), function(snapshot){
 
 
     
+    document.querySelectorAll('#list li button').forEach((btn) => {
+        if(btn.textContent == 'Edit'){
+            btn.addEventListener('click', () => {
+                editTodo()
+            })
+        }else{
+            btn.addEventListener('click', () => {
+                deleteTodo()
+            })
+        }
+    })
 
 
     
@@ -109,19 +120,18 @@ let modalEditBTN = document.getElementById('save-edit')
 let modalCancelBTN = document.getElementById('cancel-modal')
 
 let editInput = document.getElementById('edit-input')
-let editLiBTN = document.getElementById('edit-li-btn')
-let deleteLiBTN = document.getElementById('delete-li-btn')
 
 
 let currentEditid = null
 // ---------------------------------------------------------------
 
-function editTodo(){
+function editTodo(id, text){
+    currentEditid = id
+    editInput.value = text
+
     modalCont.classList.remove("hidden")
     console.log("hi mdal");
-    
 }
-editLiBTN.addEventListener("click", editTodo)
 
 
 
