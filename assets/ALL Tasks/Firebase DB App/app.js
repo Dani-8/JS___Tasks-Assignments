@@ -1,6 +1,6 @@
 import {initializeApp} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"
 import {
-    getFirestore, collection, addDoc, getDocs, onSnapshot, updateDoc, doc, deleteDoc
+    getFirestore, collection, addDoc, getDocs, onSnapshot, updateDoc, doc, deleteDoc, writeBatch
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"
 
 const firebaseConfig = {
@@ -71,34 +71,45 @@ function addTodo(){
                 status.classList.remove("red");
             }, 4000)
         })
-
-
 }
 addBTN.addEventListener("click", addTodo)
+
 
 todoInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") addTodo();
 })
 // --------------------------------------------------------------
 
+let emptyState = document.getElementById('empty-state')
 
 onSnapshot(collection(db, 'todos'), function(snapshot){
     list.innerHTML = ""
 
-    snapshot.forEach((docSnap) => {
-        let { text } = docSnap.data()
+    if(snapshot.empty){
+        emptyState.classList.remove('hidden')
+        deleteAllBTN.classList.add('hidden')
+    }else{
+        emptyState.classList.add('hidden')
+        deleteAllBTN.classList.remove('hidden')
 
-        list.innerHTML += `
-            <li>
-                <span>${text}</span>
-                <span class="li-btns-cont">
-                    <button class="check-btn"><i data-lucide="check" size="16"></i></button>
-                    <button data-id='${docSnap.id}' data-text='${text}' class='edit-btn'><i data-lucide="edit-3" size="16"></i></button>
-                    <button data-id='${docSnap.id}' class='delete-btn'><i data-lucide="trash-2" size="16"></i></button>
-                </span>
-            </li>
-        `
-    })
+
+        snapshot.forEach((docSnap) => {
+            let { text } = docSnap.data()
+    
+            list.innerHTML += `
+                <li>
+                    <span>${text}</span>
+                    <span class="li-btns-cont">
+                        <button class="check-btn"><i data-lucide="check" size="16"></i></button>
+                        <button data-id='${docSnap.id}' data-text='${text}' class='edit-btn'><i data-lucide="edit-3" size="16"></i></button>
+                        <button data-id='${docSnap.id}' class='delete-btn'><i data-lucide="trash-2" size="16"></i></button>
+                    </span>
+                </li>
+            `
+        })
+        lucide.createIcons();
+    }
+
 
     // ----------------------------------------------------------------------------
 
@@ -124,9 +135,40 @@ let saveEditBTN = document.getElementById('save-edit')
 let modalCancelBTN = document.getElementById('cancel-modal')
 let editInput = document.getElementById('edit-input')
 
+let deleteAllBTN = document.getElementById('delete-all')
 
 let currentEditid = null
 // ---------------------------------------------------------------
+
+function todoComplete(id, currentStatus){
+    updateDoc(doc(db, 'todos', id), { completed: !currentStatus })
+}
+
+
+function deleteAllTodos(){
+    getDocs(collection(db, 'todos'))
+        .then((snapShot) => {
+            let batch = writeBatch(db);
+
+            snapShot.forEach((d) => batch.delete(d.ref))
+
+            batch.commit()
+                .then(() => {
+                    status.textContent = "All tasks cleared!";
+                    status.classList.remove("hidden");
+                    status.classList.add("green");
+
+                    setTimeout(() => {
+                        status.classList.add("hidden");
+                        status.classList.remove("green");
+                    }, 4000)
+                })
+    })
+}
+deleteAllBTN.addEventListener('click', deleteAllTodos)
+
+
+
 
 function deleteTodo(id){
     deleteDoc(doc(db, 'todos', id))

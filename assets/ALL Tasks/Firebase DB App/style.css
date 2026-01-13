@@ -159,8 +159,21 @@ body{
 }
 .input-cont button:hover {
     background-color: #2563eb;
-    transform: translateY(-1px);
 }
+
+
+
+/* Empty State */
+.empty-state {
+    padding: 30px;
+    text-align: center;
+    color: #94a3b8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
 
 
 .container ul{
@@ -207,9 +220,9 @@ body{
 .li-btns-cont button {
     outline: none;
     border: none;
-    width: 34px;
-    height: 34px;
-    border-radius: 10px;
+    width: 35px;
+    height: 35px;
+    border-radius: 1000px;
     background-color: #f1f5f9;
     color: #64748b;
     cursor: pointer;
@@ -217,6 +230,17 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.li-btns-cont button:hover{
+    transform: scale(1.12);
+}
+.li-btns-cont button:active{
+    transform: scale(0.8);
+}
+
+.li-btns-cont button svg{
+    width: 17px;
+    height: 17px;
 }
 
 .li-btns-cont .check-btn:hover {
@@ -243,8 +267,9 @@ body{
     margin-top: 20px;
     padding: 12px;
     border: none;
+    border: 1px solid #f796ab;
     border-radius: 12px;
-    background-color: #fff1f2;
+    background-color: #ffdddf;
     color: #e11d48;
     cursor: pointer;
     font-weight: 700;
@@ -253,17 +278,21 @@ body{
     align-items: center;
     justify-content: center;
     gap: 8px;
+    text-align: center;
 }
-
+.delete-all-btn:active{
+    transform: scale(0.9);
+}
 .delete-all-btn:hover {
     background-color: #e11d48;
     color: white;
 }
 
 
-
-
-
+.delete-all-btn svg{
+    width: 17px;
+    height: 17px;
+}
 
 
 /* ============================================ */
@@ -341,6 +370,9 @@ body{
 }
 
 
+.modal-content button:active{
+    transform: scale(0.8);
+}
 
 
 
