@@ -1,6 +1,6 @@
 import {initializeApp} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"
 import {
-    getFirestore, collection, addDoc, getDocs, onSnapshot, updateDoc, doc, deleteDoc, writeBatch
+    getFirestore, collection, addDoc, getDocs, onSnapshot, updateDoc, doc, deleteDoc, writeBatch, serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"
 
 const firebaseConfig = {
@@ -76,6 +76,17 @@ addBTN.addEventListener("click", addTodo)
 todoInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") addTodo();
 })
+
+
+
+function formatTime(timestamp){
+    if(!timestamp) return 'Just Now!'
+
+    return timestamp.toDate().toLocaleTimeString ([], {
+        hour: '2-digit',
+        minute: '2-digit'
+    })
+}
 // --------------------------------------------------------------
 
 let emptyState = document.getElementById('empty-state')
@@ -92,12 +103,17 @@ onSnapshot(collection(db, 'todos'), function(snapshot){
 
 
         snapshot.forEach((docSnap) => {
-            let { text, completed } = docSnap.data()
+            let { text, completed, createdAt } = docSnap.data()
             let isDone = completed ? 'done' : ''
-            
+            let time = formatTime(createdAt)
+
+
             list.innerHTML += `
                 <li class="${isDone}">
-                    <span>${text}</span>
+                    <div class="task-info">
+                        <span>${text}</span>
+                        <span class="created-time" id="created-time">• ${time}</span>
+                    </div>                    
                     <span class="li-btns-cont">
                         <button data-id='${docSnap.id}' data-completed="${completed}" class="check-btn"><i data-lucide="check" size="16"></i></button>
                         <button data-id='${docSnap.id}' data-text='${text}' class='edit-btn'><i data-lucide="edit-3" size="16"></i></button>

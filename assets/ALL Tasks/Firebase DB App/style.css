@@ -212,6 +212,19 @@ body{
 }
 
 
+.task-info{
+    display: flex;
+    flex-direction: column;
+
+}
+.created-time{
+    font-size: 10px;
+    font-weight: 700;
+    color: rgb(95, 124, 163);
+    margin-top: 5px;
+}
+
+
 
 /* Buttons Container */
 .li-btns-cont {
