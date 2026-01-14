@@ -122,7 +122,6 @@ onSnapshot(collection(db, 'todos'), function(snapshot){
             let { text, completed, createdAt } = docSnap.data()
             let isDone = completed ? 'done' : ''
             let time = formatTime(createdAt)
-            console.log("🚀 ~ time:", time)
             
 
             list.innerHTML += `
