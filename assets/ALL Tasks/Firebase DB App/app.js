@@ -45,7 +45,9 @@ function addTodo(){
     // -----------------------------------------------------
 
     addDoc(collection(db, "todos"),{
-        text: todoInputValue
+        text: todoInputValue,
+        completed: false,
+        createdAt: serverTimestamp()
     })
         .then(() => {
             status.textContent = "Todo added"
@@ -76,17 +78,31 @@ addBTN.addEventListener("click", addTodo)
 todoInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") addTodo();
 })
+// -----------------------------------------------------------------
 
 
+// function formatTime(timestamp){
+//     if (!timestamp || !timestamp.seconds) return 'Just Now!';
 
-function formatTime(timestamp){
-    if(!timestamp) return 'Just Now!'
+//     return new Date(timestamp.seconds * 1000).toLocaleTimeString([], {
+//         hour: '2-digit',
+//         minute: '2-digit'
+//     });
+// }
 
-    return timestamp.toDate().toLocaleTimeString ([], {
-        hour: '2-digit',
-        minute: '2-digit'
-    })
+function formatTime(timestamp) {
+    if (!timestamp) return "Just now";
+    const date = timestamp.toDate();
+    const now = new Date();
+    const diffInSeconds = Math.floor((now - date) / 1000);
+    
+    if (diffInSeconds < 60) return "Just now";
+    if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)}m ago`;
+    
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 }
+
+
 // --------------------------------------------------------------
 
 let emptyState = document.getElementById('empty-state')
@@ -106,7 +122,8 @@ onSnapshot(collection(db, 'todos'), function(snapshot){
             let { text, completed, createdAt } = docSnap.data()
             let isDone = completed ? 'done' : ''
             let time = formatTime(createdAt)
-
+            console.log("🚀 ~ time:", time)
+            
 
             list.innerHTML += `
                 <li class="${isDone}">
