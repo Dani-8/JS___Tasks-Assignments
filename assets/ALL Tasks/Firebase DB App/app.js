@@ -95,12 +95,23 @@ function formatTime(timestamp) {
     const date = timestamp.toDate();
     const now = new Date();
     const diffInSeconds = Math.floor((now - date) / 1000);
-    
+
     if (diffInSeconds < 60) return "Just now";
     if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)}m ago`;
-    
-    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+    const isToday = date.toDateString() === now.toDateString();
+
+    if (isToday) {
+        return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+
+    return `${date.toLocaleDateString([], {
+        year: 'numeric',
+        month: 'short',
+        day: '2-digit'
+    })} ${date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
 }
+
 
 
 // --------------------------------------------------------------
