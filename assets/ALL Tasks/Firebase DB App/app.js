@@ -111,10 +111,8 @@ function formatTime(timestamp) {
         day: '2-digit'
     })} ${date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
 }
-
-
-
 // --------------------------------------------------------------
+
 
 let emptyState = document.getElementById('empty-state')
 
