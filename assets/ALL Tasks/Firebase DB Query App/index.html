@@ -5,11 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Firebase DB Query App</title>
 
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
-    
+    <div class="app-cont">
+        <header class="header">
+            <h2>Shopping List</h2>
+            <i data-lucide="shopping-cart"></i>
+        </header>
+
+
+        <div class="input-grp">
+            <input type="text" id="item-name" placeholder="Item name (e.g. Milk)">
+
+            <select id="item-cat">
+                <option value="Produce">Produce</option>
+                <option value="Dairy">Dairy</option>
+                <option value="Meat">Meat</option>
+                <option value="Bakery">Bakery</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <button id="add-btn" class="add-btn">Add to List</button>
+        </div>
+
+
+    </div>
 
 
 

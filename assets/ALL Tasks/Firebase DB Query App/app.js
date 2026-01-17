@@ -21,3 +21,5 @@
 
 
 
+
+lucide.createIcons();

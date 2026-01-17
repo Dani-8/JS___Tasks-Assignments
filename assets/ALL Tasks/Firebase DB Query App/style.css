@@ -7,19 +7,69 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #1e293b;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f8fafc;
 
 }
 /* ===================================================================== */
 /* ===================================================================== */
 
+.app-cont{
+    width: 450px;
+    background-color: white;
+    box-shadow: 0 0 20px -5px rgb(210, 210, 210);
+    padding: 30px;
+    border-radius: 20px;
+    
+
+}
+.header{
+    /* background-color: lightblue; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header h2{
+    font-weight: 800;
+}
+.header svg{
+    color: #3b82f6;
+}
 
 
+.input-grp{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 25px;
+    background-color: #eef4fc;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #dde5f1;
+}
 
-
-
-
-
-
-
-
+.input-grp input,select,button{
+    padding: 12px 10px;
+    outline: none;
+    border: 1px solid rgb(208, 208, 208);
+    border-radius: 12px;
+    transition: 0.3s ease;
+}
+.input-grp input:focus{
+    color: #0a54ca;
+    border-color: #3b82f6;
+}
+.add-btn{
+    background-color: #3b82f6;
+    color: white;
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.add-btn:active{
+    transform: scale(0.9);
+}
