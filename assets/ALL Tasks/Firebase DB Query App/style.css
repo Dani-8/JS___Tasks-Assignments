@@ -140,9 +140,24 @@ body{
     padding: 5px;
     border-radius: 10px;
     text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.action-btn:active{
+    transform: scale(0.8);
 }
 .actions button svg{
     width: 22px;
     height: 22px;
 
+}
+
+.btn-check{
+    color: rgb(16, 172, 34);
+    background-color: rgb(223, 255, 219);
+}
+.btn-del{
+    color: rgb(224, 48, 77);
+    background-color: rgb(255, 219, 219);
 }
