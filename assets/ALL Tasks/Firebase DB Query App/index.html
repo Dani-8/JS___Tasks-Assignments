@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,74 +9,84 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+    <div class="app-wrapper">
+        <!-- Status Peek Div -->
+        <div id="status-peek" class="status-peek">Hello!</div>
+
+        <!-- Main App Card -->
+        <div class="app-cont">
+            <header class="header">
+                <h2>Shopping List</h2>
+                <i data-lucide="shopping-cart"></i>
+            </header>
     
-    <div class="app-cont">
-        <header class="header">
-            <h2>Shopping List</h2>
-            <i data-lucide="shopping-cart"></i>
-        </header>
-
-
-        <div class="input-grp">
-            <input type="text" id="item-name" placeholder="Item name (e.g. Milk)">
-
-            <select id="item-cat">
-                <option value="Produce">Produce</option>
-                <option value="Dairy">Dairy</option>
-                <option value="Meat">Meat</option>
-                <option value="Bakery">Bakery</option>
-                <option value="Other">Other</option>
-            </select>
-
-            <button id="add-btn" class="add-btn">Add to List</button>
-        </div>
-
-
-        <div class="filters" id="filter-bar">
-            <div class="filter-tab active" data-filter="all">All Items</div>
-            <div class="filter-tab" data-filter="Produce">Produce</div>
-            <div class="filter-tab" data-filter="Dairy">Dairy</div>
-            <div class="filter-tab" data-filter="Bakery">Bakery</div>
-        </div>
-
-
-        <div class="list-container" id="list">
-            <div class="item-row">
-                <div class="item-info">
-                    <span class="item-name">Meat, Chicken</span>
-                    <span class="item-meta">Meat</span>
-                </div>
-                <div class="actions">
-                    <button class="action-btn btn-check">
-                        <i data-lucide="check"></i>
-                    </button>
-                    <button class="action-btn btn-del">
-                        <i data-lucide="x"></i>
-                    </button>
-                </div>
+    
+            <div class="input-grp">
+                <input type="text" id="item-name" placeholder="Item name (e.g. Milk)">
+    
+                <select id="item-cat">
+                    <option value="Produce">Produce</option>
+                    <option value="Dairy">Dairy</option>
+                    <option value="Meat">Meat</option>
+                    <option value="Bakery">Bakery</option>
+                    <option value="Other">Other</option>
+                </select>
+    
+                <button id="add-btn" class="add-btn">Add to List</button>
             </div>
-            <div class="item-row">
-                <div class="item-info">
-                    <span class="item-name">${data.name}</span>
-                    <span class="item-meta">${data.category}</span>
-                </div>
-                <div class="actions">
-                    <button class="action-btn btn-check">
-                        <i data-lucide="check"></i>
-                    </button>
-                    <button class="action-btn btn-del">
-                        <i data-lucide="x"></i>
-                    </button>
-                </div>
+    
+    
+            <div class="filters" id="filter-bar">
+                <div class="filter-tab active" data-filter="all">All Items</div>
+                <div class="filter-tab" data-filter="Produce">Produce</div>
+                <div class="filter-tab" data-filter="Dairy">Dairy</div>
+                <div class="filter-tab" data-filter="Bakery">Bakery</div>
             </div>
-
+    
+    
+            <div class="list-container" id="list">
+    
+                <div class="item-row">
+                    <div class="item-info">
+                        <span class="item-name">Meat, Chicken</span>
+                        <span class="item-meta">Meat</span>
+                    </div>
+                    <div class="actions">
+                        <button class="action-btn btn-edit">
+                            <i data-lucide="edit-3"></i>
+                        </button>
+                        <button class="action-btn btn-del">
+                            <i data-lucide="x"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="item-row">
+                    <div class="item-info">
+                        <span class="item-name">${data.name}</span>
+                        <span class="item-meta">${data.category}</span>
+                    </div>
+                    <div class="actions">
+                        <button class="action-btn btn-edit">
+                            <i data-lucide="edit-3"></i>
+                        </button>
+                        <button class="action-btn btn-del">
+                            <i data-lucide="x"></i>
+                        </button>
+                    </div>
+                </div>
+    
+            </div>
+    
         </div>
-
     </div>
+
 
 
 
     <script type="module" src="app.js"></script>
 </body>
+
 </html>
