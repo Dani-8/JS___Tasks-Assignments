@@ -147,7 +147,9 @@ modalSave.addEventListener("click", saveModal)
 
 
 function itemDeleted(id) {
-    console.log('DELETE ITEM ID:', id);
+
+
+
 }
 
 
