@@ -22,11 +22,11 @@
                 <h2>Shopping List</h2>
                 <i data-lucide="shopping-cart"></i>
             </header>
-    
-    
+
+
             <div class="input-grp">
                 <input type="text" id="item-name" placeholder="Item name (e.g. Milk)">
-    
+
                 <select id="item-cat">
                     <option value="Produce">Produce</option>
                     <option value="Dairy">Dairy</option>
@@ -34,24 +34,44 @@
                     <option value="Bakery">Bakery</option>
                     <option value="Other">Other</option>
                 </select>
-    
+
                 <button id="add-btn" class="add-btn">Add to List</button>
             </div>
-    
-    
+
+
             <div class="filters" id="filter-bar">
                 <div class="filter-tab active" data-filter="all">All Items</div>
                 <div class="filter-tab" data-filter="Produce">Produce</div>
                 <div class="filter-tab" data-filter="Dairy">Dairy</div>
                 <div class="filter-tab" data-filter="Bakery">Bakery</div>
             </div>
-    
-    
+
+
             <div class="list-container" id="list"></div>
+            <div class="hint-text">
+                <i data-lucide="info" size="12"></i>
+                Double-click an item to mark as bought
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="edit-modal" class="modal-cont hidden">
+        <div class="modal">
+            <h3 class="modal-title">Edit Item</h3>
+            <input type="text" id="modal-input" class="modal-input">
+            <div class="modal-actions">
+                <button class="btn btn-cancel" onclick="document.getElementById('edit-modal').classList.add('hidden')">
+                    Cancel
+                </button>
+                <button class="btn btn-save" id="modal-save">Save</button>
+            </div>
         </div>
     </div>
 
 
     <script type="module" src="app.js"></script>
 </body>
+
 </html>

@@ -1,13 +1,12 @@
 * {
-    box-sizing: border-box;
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 body {
     display: flex;
     justify-content: center;
-    /* align-items: center; */
     padding: 50px;
     color: #1e293b;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -41,11 +40,11 @@ body {
     align-items: center;
     justify-content: center;
     padding: 0 12px;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 700;
     z-index: 1;
 
-    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
     transform: translateX(-15px);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
@@ -109,7 +108,7 @@ body {
     border: 1px solid #dde5f1;
 }
 
-.input-grp input,
+input,
 select,
 button {
     padding: 12px 10px;
@@ -119,7 +118,7 @@ button {
     transition: 0.3s ease;
 }
 
-.input-grp input:focus {
+input:focus {
     color: #0a54ca;
     border-color: #3b82f6;
 }
@@ -177,18 +176,33 @@ button {
 
 /* ------------------------------------ */
 
+.hint-text {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding-left: 4px;
+}
+
+
 
 .list-container {
-    /* background-color: #3b82f6; */
-    margin-top: 30px;
+    background-color: #eef4fc;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #dde5f1;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     gap: 15px;
-
+    max-height: 250px;
+    overflow-y: auto;
 }
 
 .item-row {
-    /* background-color: #9d9d9d; */
+    background-color: #ffffff;
     box-shadow: 0 0 20px -5px rgb(223, 223, 223);
     display: flex;
     justify-content: space-between;
@@ -197,26 +211,27 @@ button {
     border-radius: 12px;
     border-bottom: 4px solid rgb(235, 235, 235);
     cursor: pointer;
-    transition: 0.8s ease;
+
+    /* important for transform animation */
+    transition: 0.3s ease;
 }
 
 .item-row:hover {
     border-color: #3b82f6;
 }
 
-.item-row.bought {
-    opacity: 0.5;
-    background: #f8fafc;
-    border-style: dashed;
-    transform: scale(0.9);
+.item-row {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px;
+    border-radius: 12px;
+    border-bottom: 4px solid #ebebeb;
+    cursor: pointer;
+    transform: scale(1);
+    transition: 0.3s ease;
 }
-.item-row.bought .item-name {
-    text-decoration: line-through;
-    color: #94a3b8;
-}
-
-
-
 
 .item-info {
     display: flex;
@@ -232,6 +247,20 @@ button {
     font-size: 12px;
     color: #667ea4;
 }
+
+
+.item-row.bought {
+    opacity: 0.5;
+    background: #f8fafc;
+    border: 1px dashed;
+}
+
+
+.item-row.bought .item-name {
+    text-decoration: line-through;
+    color: #94a3b8;
+}
+
 
 
 .actions {
@@ -279,21 +308,58 @@ button {
 
 
 /* Edit Modal */
-.modal-overlay {
+.modal-cont {
+    z-index: 10;
     position: fixed;
     inset: 0;
-    background: rgba(15, 23, 42, 0.5);
-    backdrop-filter: blur(4px);
+    background-color: rgba(26, 34, 52, 0.7);
+    /* backdrop-filter: blur(1px); */
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 100;
+    height: 100vh;
+}
+.modal-overlay.hidden {
+    display: none;
 }
 
 .modal {
-    background: white;
-    padding: 24px;
-    border-radius: 20px;
-    width: 90%;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    width: 100%;
     max-width: 350px;
+}
+
+.modal-title {
+    margin-bottom: 15px;
+}
+
+.modal-input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+}
+
+.modal-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+.btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+.btn-cancel {
+    background: #e5e7eb;
+    color: #111827;
+}
+.btn-save {
+    background: #3b82f6;
+    color: #ffffff;
 }

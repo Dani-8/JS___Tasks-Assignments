@@ -42,7 +42,7 @@ function showPeek(msg, type) {
 
     setTimeout(() => {
         statusPeek.classList.remove('active')
-    }, 1000);
+    }, 1200);
 }
 // ---------------------------------
 
@@ -76,10 +76,9 @@ function updateTheList() {
             let id = docSnap.id
 
             let itemDiv = document.createElement('div')
-            itemDiv.className = `item-row ${data.bought ? 'bought' : ''}`
-            // itemDiv.addEventListener('dblclick', () => {
-            //     window.toggleItem(docSnap.id, data.bought)
-            // })
+            itemDiv.classList.add('item-row')
+
+            if (data.bought) itemDiv.classList.add('bought')
 
             itemDiv.innerHTML = `
                 <div class="item-info">
@@ -98,29 +97,54 @@ function updateTheList() {
             listDiv.appendChild(itemDiv)
 
 
+            // Item Bought
+            itemDiv.addEventListener('dblclick', () => {
+                boughtItem(docSnap.id, data.bought)
+            })
+
+
             // EDIT ITEM
             let editBtn = itemDiv.querySelector('.btn-edit')
-            editBtn.addEventListener('click', () => itemEdited(id))
+            editBtn.addEventListener('click', () => itemEdited(id, data.name))
 
             // DELETE ITEM
             let delBtn = itemDiv.querySelector('.btn-del')
             delBtn.addEventListener('click', () => itemDeleted(id))
         })
+
         lucide.createIcons()
-
-
     })
-
-
 }
 updateTheList()
+// -----------------------------------------------------------------------
 
 
-
-
-function itemEdited(id) {
-    console.log('EDIT ITEM ID:', id);
+function boughtItem(id, status) {
+    updateDoc(doc(db, "shopping_items", id), { bought: !status })
+        .then(() => showPeek(!status ? "Bought!" : "Returned", "bought-st"))
 }
+// ---------------------------------------------------------
+
+
+
+function itemEdited(id, oldName) {
+    currentEditId = id
+    modalInput.value = oldName
+    modal.classList.remove("hidden")
+}
+
+function saveModal() {
+    if (!modalInput.value.trim() || !currentEditId) return;
+
+    updateDoc(doc(db, "shopping_items", currentEditId), { name: modalInput.value.trim() })
+        .then(() => {
+            modal.classList.add('hidden')
+            showPeek("Updated!", "edit")
+        })
+}
+modalSave.addEventListener("click", saveModal)
+// ---------------------------------------------------------
+
 
 function itemDeleted(id) {
     console.log('DELETE ITEM ID:', id);
