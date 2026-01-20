@@ -51,7 +51,7 @@ function showPeek(msg, type) {
 
     setTimeout(() => {
         statusPeek.classList.remove('active')
-    }, 1500);
+    }, 2500);
 }
 // ---------------------------------
 
@@ -261,20 +261,24 @@ function updateStatsUI() {
  *  CLEAR BOGHT ITEM FROM LIST
  */
 function clearBoughtItems() {
-    let q = query(listRef, where("bought", "==", true))
+    let q = query(listRef, where("bought", "==", true));
 
     getDocs(q).then((snap) => {
-        let batch = writeBatch(db)
+        if (snap.empty) {
+            showPeek("No bought items to remove!", 'info');
+            return;
+        }
 
-        snap.forEach(d => batch.delete(d.ref))
+        let batch = writeBatch(db);
+        snap.forEach(d => batch.delete(d.ref));
 
         batch.commit().then(() => {
-            showPeek("BOUGHT ITEMS ARE REMOVED!", 'del')
-        }).catch(err => console.error("Batch commit failed:", err))
-    }).catch(err => console.error("Failed to get docs:", err))
+            showPeek("BOUGHT ITEMS ARE REMOVED!", 'del');
+        }).catch(err => console.error("Batch commit failed:", err));
+    }).catch(err => console.error("Failed to get docs:", err));
 }
 
-clearBoughtBTN.addEventListener("click", clearBoughtItems)
+clearBoughtBTN.addEventListener("click", clearBoughtItems);
 // ----------------------------------------------------------------------------------
 function boughtItem(id, status) {
     updateDoc(doc(db, "shopping_items", id), { bought: !status })
