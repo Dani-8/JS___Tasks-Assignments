@@ -16,12 +16,12 @@
         <!-- Status Peek Div -->
         <div id="status-peek" class="status-peek">Hello!</div>
 
-        <!-- Main App Card -->
+        <!-- LIST VIEW -->
         <div class="app-cont">
             <header class="header">
                 <span class="logo">
                     <i data-lucide="shopping-cart"></i>
-                    <h2>Shopping List</h2>
+                    <h2 id="title">Shopping List</h2>
                 </span>
 
                 <span class="menu-cont">
@@ -39,46 +39,80 @@
                 </span>
             </header>
 
+            <div class="view-anim " id="view-list-cont">
+                <div class="input-grp">
+                    <input type="text" id="item-name" placeholder="Item name (e.g. Milk)">
 
-            <div class="input-grp">
-                <input type="text" id="item-name" placeholder="Item name (e.g. Milk)">
+                    <select id="item-cat">
+                        <option value="Produce">Produce</option>
+                        <option value="Dairy">Dairy</option>
+                        <option value="Meat">Meat</option>
+                        <option value="Bakery">Bakery</option>
+                        <option value="Other">Other</option>
+                    </select>
 
-                <select id="item-cat">
-                    <option value="Produce">Produce</option>
-                    <option value="Dairy">Dairy</option>
-                    <option value="Meat">Meat</option>
-                    <option value="Bakery">Bakery</option>
-                    <option value="Other">Other</option>
-                </select>
+                    <button id="add-btn" class="add-btn">Add to List</button>
+                </div>
 
-                <button id="add-btn" class="add-btn">Add to List</button>
+
+                <div class="filters" id="filter-bar">
+                    <div class="filter-tab active" data-filter="all">All Items</div>
+                    <div class="filter-tab" data-filter="Produce">Produce</div>
+                    <div class="filter-tab" data-filter="Dairy">Dairy</div>
+                    <div class="filter-tab" data-filter="Meat">Meat</div>
+                    <div class="filter-tab" data-filter="Bakery">Bakery</div>
+                    <div class="filter-tab" data-filter="Other">Other</div>
+                </div>
+
+
+                <div class="list-container" id="list"></div>
+
+                <footer>
+                    <div class="hint-text">
+                        <i data-lucide="info" size="12"></i>
+                        Double-click an item to mark as bought
+                    </div>
+
+                    <div class="items-counter-cont">
+                        <span id="total-count">0</span>
+                        ITEMS
+                    </div>
+                </footer>
             </div>
 
 
-            <div class="filters" id="filter-bar">
-                <div class="filter-tab active" data-filter="all">All Items</div>
-                <div class="filter-tab" data-filter="Produce">Produce</div>
-                <div class="filter-tab" data-filter="Dairy">Dairy</div>
-                <div class="filter-tab" data-filter="Meat">Meat</div>
-                <div class="filter-tab" data-filter="Bakery">Bakery</div>
-                <div class="filter-tab" data-filter="Other">Other</div>
+
+            <!-- STATS VIEW -->
+            <div class="view-anim hidden" id="view-stats-cont">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-label">Total Items</span>
+                        <span class="stat-value" id="stat-total">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Progress</span>
+                        <span class="stat-value" id="stat-progress">0%</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Bought</span>
+                        <span class="stat-value" id="stat-bought" style="color: #10b981;">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Remaining</span>
+                        <span class="stat-value" id="stat-pending" style="color: #f59e0b;">0</span>
+                    </div>
+                </div>
+
+
+                <div class="chart-container">
+                    <h3 class="chart-title">Category Breakdown</h3>
+                    <div id="category-chart"></div>
+                </div>
             </div>
 
-
-            <div class="list-container" id="list"></div>
-
-            <footer>
-                <div class="hint-text">
-                    <i data-lucide="info" size="12"></i>
-                    Double-click an item to mark as bought
-                </div>
-
-                <div class="items-counter-cont">
-                    <span id="count-items">1</span>
-                    ITEMS
-                </div>
-            </footer>
         </div>
+
+
     </div>
 
 

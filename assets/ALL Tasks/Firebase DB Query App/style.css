@@ -68,8 +68,27 @@ body {
 .status-peek.bought-st {
     background: #6366f1;
 }
+
 /* -------------------------------------------------------- */
 
+/* Animation for both views */
+.view-anim {
+    animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* -------------------------------------------------------------- */
 
 .app-cont {
     background-color: white;
@@ -86,6 +105,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 25px;
 }
 
 .logo {
@@ -118,13 +138,16 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 .icon-btn:hover {
     background: #f1f5f9;
     color: #1e293b;
 }
-.icon-btn:active{
+
+.icon-btn:active {
     transform: scale(0.8);
 }
+
 .dropdown {
     position: absolute;
     top: 100%;
@@ -138,6 +161,7 @@ body {
     padding: 6px;
     margin-top: 8px;
 }
+
 .dropdown-item {
     padding: 10px 12px;
     font-size: 13px;
@@ -150,29 +174,16 @@ body {
     border-radius: 8px;
     transition: 0.2s;
 }
+
 .dropdown-item:hover {
     background: #f8fafc;
     color: #3b82f6;
 }
-.dropdown-item:active{
+
+.dropdown-item:active {
     transform: scale(0.9);
 }
-/* Animation for both views */
-.view-anim {
-    animation: slideUpFade 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
 
-@keyframes slideUpFade {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 /* -------------------------------------------------------- */
 /* -------------------------------------------------------- */
 /* -------------------------------------------------------- */
@@ -184,7 +195,6 @@ body {
     flex-direction: column;
     justify-content: center;
     gap: 10px;
-    margin-top: 25px;
     background-color: #eef4fc;
     padding: 12px;
     border-radius: 12px;
@@ -264,7 +274,7 @@ input:focus {
     padding: 10px;
     border-radius: 12px;
     border: 1px solid #dde5f1;
-    margin-top: 40px;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -396,6 +406,85 @@ input:focus {
     background-color: rgb(255, 215, 215);
 }
 
+/* ----------------------------------------------------- */
+
+
+/* ----------------------------------------------------- */
+
+
+/* STATS VIEW */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background-color: #f1f6ff;
+    padding: 30px 20px;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+.stat-card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 5px 20px -5px #c5cedc;
+}
+.stat-label {
+    font-weight: 800;
+    font-size: 12px;
+    color: #738db1;
+}
+.stat-value {
+    font-weight: 800;
+    font-size: 22px;
+}
+
+
+
+.chart-container {
+    margin-top: 10px;
+}
+.chart-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 15px;
+}
+.bar-row {
+    margin-bottom: 12px;
+}
+.bar-label-group {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+.bar-track {
+    height: 8px;
+    background: #f1f5f9;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.bar-fill {
+    height: 100%;
+    background: #3b82f6;
+    border-radius: 4px;
+    transition: width 0.8s ease;
+}
+
+
+
+
+
+
 
 
 
@@ -471,12 +560,13 @@ input:focus {
 /* FOOTER */
 /* FOOTER */
 /* FOOTER */
-footer{
+footer {
     margin-top: 12px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
 .hint-text {
     font-size: 11px;
     color: #94a3b8;
@@ -485,7 +575,8 @@ footer{
     gap: 6px;
     padding-left: 4px;
 }
-.items-counter-cont{
+
+.items-counter-cont {
     font-size: 10px;
     color: #94a3b8;
     font-weight: 800;
