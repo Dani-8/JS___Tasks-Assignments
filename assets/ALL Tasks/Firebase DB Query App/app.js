@@ -59,58 +59,93 @@ function addToList() {
     }).then(() => {
         showPeek('Item Added!', 'add')
         nameInput.value = ''
+        
+        
+        currentFilter = "all"
+        
+        document.querySelectorAll(".filter-tab")
+            .forEach(t => t.classList.remove("active"))
+
+        document.querySelector('[data-filter="all"]')
+            .classList.add("active")
+        updateTheList('all')
     })
 }
 addBtn.addEventListener('click', addToList)
 // -----------------------------------
 
+let unsubscribe = null
+let currentFilter = "all"
 
-function updateTheList() {
-    let q = query(listRef, orderBy('createdAt', 'desc'))
+
+function updateTheList(filter = "all") {
+    if (unsubscribe) unsubscribe()
+    currentFilter = filter 
+
+    let q
+    if (filter === 'all') {
+        q = query(listRef, orderBy('createdAt', 'desc'))
+    } else {
+        q = query(
+            listRef,
+            where('category', '==', filter)
+        )
+    }
 
 
-    onSnapshot(q, function (snapshot) {
+    unsubscribe = onSnapshot(q, function (snapshot) {
         listDiv.innerHTML = ''
-        snapshot.forEach((docSnap) => {
-            let data = docSnap.data()
-            let id = docSnap.id
 
-            let itemDiv = document.createElement('div')
-            itemDiv.classList.add('item-row')
 
-            if (data.bought) itemDiv.classList.add('bought')
-
-            itemDiv.innerHTML = `
-                <div class="item-info">
-                    <span class="item-name">${data.name}</span>
-                    <span class="item-meta">${data.category}</span>
+        if (snapshot.empty) {
+            listDiv.innerHTML = `
+                <div class="empty-placeholder">
+                    <i data-lucide="package-open" size="32"></i>
+                    <p>No items found.<br>Your list is feeling lonely!</p>
                 </div>
-                <div class="actions">
-                    <button class="action-btn btn-edit">
-                        <i data-lucide="edit-3"></i>
-                    </button>
-                    <button class="action-btn btn-del">
-                        <i data-lucide="x"></i>
-                    </button>
-                </div>
-            `
-            listDiv.appendChild(itemDiv)
+            `;
+        } else {
+            snapshot.forEach((docSnap) => {
+                let data = docSnap.data()
+                let id = docSnap.id
+
+                let itemDiv = document.createElement('div')
+                itemDiv.classList.add('item-row')
+
+                if (data.bought) itemDiv.classList.add('bought')
+
+                itemDiv.innerHTML = `
+                    <div class="item-info">
+                        <span class="item-name">${data.name}</span>
+                        <span class="item-meta">${data.category}</span>
+                    </div>
+                    <div class="actions">
+                        <button class="action-btn btn-edit">
+                            <i data-lucide="edit-3"></i>
+                        </button>
+                        <button class="action-btn btn-del">
+                            <i data-lucide="x"></i>
+                        </button>
+                    </div>
+                `
+                listDiv.appendChild(itemDiv)
 
 
-            // Item Bought
-            itemDiv.addEventListener('dblclick', () => {
-                boughtItem(docSnap.id, data.bought)
+                // Item Bought
+                itemDiv.addEventListener('dblclick', () => {
+                    boughtItem(docSnap.id, data.bought)
+                })
+
+
+                // EDIT ITEM
+                let editBtn = itemDiv.querySelector('.btn-edit')
+                editBtn.addEventListener('click', () => itemEdited(id, data.name))
+
+                // DELETE ITEM
+                let delBtn = itemDiv.querySelector('.btn-del')
+                delBtn.addEventListener('click', () => itemDeleted(id))
             })
-
-
-            // EDIT ITEM
-            let editBtn = itemDiv.querySelector('.btn-edit')
-            editBtn.addEventListener('click', () => itemEdited(id, data.name))
-
-            // DELETE ITEM
-            let delBtn = itemDiv.querySelector('.btn-del')
-            delBtn.addEventListener('click', () => itemDeleted(id))
-        })
+        }
 
         lucide.createIcons()
     })
@@ -124,7 +159,6 @@ function boughtItem(id, status) {
         .then(() => showPeek(!status ? "Bought!" : "Returned", "bought-st"))
 }
 // ---------------------------------------------------------
-
 
 
 function itemEdited(id, oldName) {
@@ -147,12 +181,23 @@ modalSave.addEventListener("click", saveModal)
 
 
 function itemDeleted(id) {
-
-
-
+    deleteDoc(doc(db, "shopping_items", id))
+    .then(() => showPeek("Deleted!", "del"));
 }
+// ---------------------------------------------------------
 
 
+document.querySelectorAll(".filter-tab").forEach((tab) => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll(".filter-tab").forEach((t) => {t.classList.remove("active")})
+
+        tab.classList.add('active')
+
+        currentFilter = tab.dataset.filter
+        updateTheList(currentFilter)
+    })
+})
+// ---------------------------------------------------------
 
 
 

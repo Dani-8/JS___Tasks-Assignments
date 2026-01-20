@@ -19,8 +19,24 @@
         <!-- Main App Card -->
         <div class="app-cont">
             <header class="header">
-                <h2>Shopping List</h2>
-                <i data-lucide="shopping-cart"></i>
+                <span class="logo">
+                    <i data-lucide="shopping-cart"></i>
+                    <h2>Shopping List</h2>
+                </span>
+
+                <span class="menu-cont">
+                    <button class="icon-btn" id="menu-toggle"><i data-lucide="more-vertical"></i></button>
+
+                    <div id="main-menu" class="dropdown hidden">
+                        <div class="dropdown-item" id="nav-list"><i data-lucide="layout-list"></i> Shopping List
+                        </div>
+                        <div class="dropdown-item" id="nav-stats"><i data-lucide="pie-chart"></i> View Insights
+                        </div>
+                        <div style="border-top: 1px solid #d8e0e8; margin: 4px 0;"></div>
+                        <div class="dropdown-item" id="clear-bought-btn" style="color: #ef4444;"><i
+                                data-lucide="trash-2"></i> Clear Completed</div>
+                    </div>
+                </span>
             </header>
 
 
@@ -43,15 +59,25 @@
                 <div class="filter-tab active" data-filter="all">All Items</div>
                 <div class="filter-tab" data-filter="Produce">Produce</div>
                 <div class="filter-tab" data-filter="Dairy">Dairy</div>
+                <div class="filter-tab" data-filter="Meat">Meat</div>
                 <div class="filter-tab" data-filter="Bakery">Bakery</div>
+                <div class="filter-tab" data-filter="Other">Other</div>
             </div>
 
 
             <div class="list-container" id="list"></div>
-            <div class="hint-text">
-                <i data-lucide="info" size="12"></i>
-                Double-click an item to mark as bought
-            </div>
+
+            <footer>
+                <div class="hint-text">
+                    <i data-lucide="info" size="12"></i>
+                    Double-click an item to mark as bought
+                </div>
+
+                <div class="items-counter-cont">
+                    <span id="count-items">1</span>
+                    ITEMS
+                </div>
+            </footer>
         </div>
     </div>
 
