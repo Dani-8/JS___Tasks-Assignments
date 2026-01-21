@@ -1,0 +1,27 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(235, 243, 255);
+}
+.hidden{
+    display: none !important;
+}
+/* ============================================================================ */
+/* ============================================================================ */
+/* ============================================================================ */
+
+
+
+
+
+
+
