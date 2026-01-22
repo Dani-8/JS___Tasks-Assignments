@@ -192,14 +192,19 @@ body {
     border-radius: 5px;
     font-weight: bold;
     box-shadow: 0 5px 15px -5px rgba(101, 101, 101, 0.5);
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+.tag:hover{
+    transform: translateY(-5px);
 }
 .tag-html {
-    color: #18850e;
-    background: #cbfec7;
+    color: #0e7d85;
+    background: #c7fefc;
 }
 .tag-css {
-    color: #d22991;
-    background: #fedbf3;
+    color: #9d29d2;
+    background: #f5dbfe;
 }
 .tag-js {
     color: #856404;
