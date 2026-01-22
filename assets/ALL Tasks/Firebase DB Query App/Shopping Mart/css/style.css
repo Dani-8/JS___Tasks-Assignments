@@ -1,9 +1,10 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     display: flex;
     /* flex-direction: column; */
     align-items: center;
@@ -12,9 +13,11 @@ body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: rgb(235, 243, 255);
 }
-.hidden{
+
+.hidden {
     display: none !important;
 }
+
 /* ============================================================================ */
 /* ============================================================================ */
 /* ============================================================================ */
@@ -22,8 +25,8 @@ body{
 
 /* AUTH */
 
-.auth-card{
-    width: 500px;
+.auth-card {
+    width: 470px;
     background-color: white;
     box-shadow: 0 0 35px -5px rgb(221, 221, 221);
     border-radius: 30px;
@@ -33,7 +36,8 @@ body{
     justify-content: center;
     align-items: center;
 }
-.auth-card .logo{
+
+.auth-card .logo {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -41,37 +45,61 @@ body{
     /* background-color: lightblue; */
     margin-top: 30px;
     margin-bottom: 50px;
-
+    color: #6760ec;
 }
-.auth-card .input-grp{
+.auth-card .logo span{
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.auth-card h2{
+    font-size: 25px;
+    font-weight: 900;
+}
+
+
+
+.auth-card .input-grp {
     display: flex;
     flex-direction: column;
     gap: 12px;
     margin-top: 30px;
+    margin-bottom: 30px;
     width: 80%;
 
 }
-.auth-card .input-grp input{
+.auth-card .input-grp input {
     padding: 15px;
     border-radius: 12px;
     outline: none;
     border: 1px solid rgb(223, 223, 223);
-
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+.auth-card .input-grp input::placeholder{
+    color: #b0aece;
+}
+.auth-card .input-grp input:focus{
+    border-color: #6760ec;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.auth-card .auth-submit-btn {
+    width: 80%;
+    padding: 15px;
+    border-radius: 15px;
+    outline: none;
+    border: none;
+    font-size: 15px;
+    font-weight: 700;
+    background-color: #6760ec;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.auth-card .auth-submit-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.4);
+}
+.auth-card .auth-submit-btn:active{
+    transform: scale(0.95);
+}
