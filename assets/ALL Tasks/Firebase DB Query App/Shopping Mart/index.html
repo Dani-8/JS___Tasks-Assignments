@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DailyBasket</title>
 
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="css/style.css">
@@ -16,21 +16,25 @@
         <div class="auth-card">
             <div class="logo">
                 <i data-lucide="shopping-basket" size="40"></i>
-                <span>SmartStore</span>
+                <span>DailyBasket</span>
             </div>
 
             <div>
                 <h2>Sign in to your account</h2>
-                <p>Manage your inventory globally.</p>
+                <p>All your activity, in one place</p>
             </div>
 
             <div class="input-grp">
-                <input type="text" id="auth-name" placeholder="Full Name" class="">
+                <input type="text" id="auth-name" placeholder="Full Name" class="hidden">
                 <input type="email" id="auth-email" placeholder="Email Address">
                 <input type="password" id="auth-pass" placeholder="Password">
             </div>
 
             <button id="auth-submit-btn" class="auth-submit-btn">Login</button>
+
+            <div id="auth-toggle-mode" class="auth-toggle-mode">
+                Don't have an account? <span>Create one</span>
+            </div>
         </div>
     </div>
 

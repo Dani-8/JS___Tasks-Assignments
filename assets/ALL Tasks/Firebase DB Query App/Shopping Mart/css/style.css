@@ -52,11 +52,19 @@ body {
     font-weight: 900;
 }
 
+
 .auth-card h2{
     font-size: 25px;
     font-weight: 900;
+    text-align: center;
+    margin-bottom: 5px;
+    text-transform: capitalize;
 }
-
+.auth-card p{
+    font-size: 15px;
+    color: rgb(134, 134, 134);
+    text-align: center;
+}
 
 
 .auth-card .input-grp {
@@ -103,3 +111,52 @@ body {
 .auth-card .auth-submit-btn:active{
     transform: scale(0.95);
 }
+
+
+.auth-toggle-mode{
+    font-size: 13px;
+    color: rgb(72, 60, 102);
+    text-align: center;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.auth-toggle-mode:active{
+    transform: scale(0.9);
+}
+.auth-toggle-mode span{
+    color: #6760ec;
+    font-weight: 700;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
