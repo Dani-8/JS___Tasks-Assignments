@@ -244,8 +244,25 @@ body {
 
 
 
+.app-container main {
+    flex: 1;
+    margin-left: 280px;
+    padding: 40px 60px;
+    max-width: 1400px;
+}
 
+.app-container main .welcome-hero{
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    border-radius: 32px;
+    padding: 48px;
+    color: white;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
 
+}
+.welcome-hero h2 { font-size: 36px; font-weight: 800; margin-bottom: 8px; }
+.welcome-hero p { font-size: 18px; opacity: 0.9; }
 
 
 
