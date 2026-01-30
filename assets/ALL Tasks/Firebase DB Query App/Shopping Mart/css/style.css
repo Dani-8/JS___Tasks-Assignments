@@ -261,7 +261,7 @@ body {
     margin-bottom: 20px;
 }
 .app-container main .header-section h1{
-    font-size: 45px;
+    font-size: 42px;
     font-weight: 900;
     color: var(--primary);
 }
@@ -284,14 +284,15 @@ body {
 .welcome-hero .icon2 { position: absolute; right: 30px; top: 70%; transform: translateY(-50%); opacity: 0.2; height: 60px; width: 60px; }
 
 
-
+/* ADD ITEMS */
+/* ADD ITEMS */
 .app-container main .input-bar {
     display: flex; 
     gap: 16px; 
     background: white; 
     padding: 16px; 
     border-radius: 20px;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); 
+    box-shadow: 0 4px 20px -1px rgba(0,0,0,0.05); 
     margin-bottom: 32px;
 }
 input, select{ 
@@ -301,7 +302,8 @@ input, select{
     border-radius: 14px; 
     outline: none; 
     font-size: 15px; 
-    transition: 0.2s; }
+    transition: 0.3s ease; 
+}
 input:focus{ 
     border-color: var(--primary); 
     background: #fff; 
@@ -314,20 +316,56 @@ input:focus{
     border-radius: 14px; 
     font-weight: 700; 
     cursor: pointer; 
-    transition: 0.2s; }
+    transition: 0.3s ease; 
+}
 .btn-primary:hover { 
-    transform: translateY(-2px); 
-    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3); }
+    transform: translateY(-3px); 
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3); 
+}
+.btn-primary:active{
+    transform: scale(0.95);
+}
 
 
 
 
+/* DASHBOARD GRID */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    margin-top: 24px;
+}
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 4px 20px -1px rgba(0,0,0,0.05);
+}
+.card h3 {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: var(--primary-dark);
+}
+.card .clear-completed-btn{
+    color: #ef4444;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
 
 
-
-
-
-
+/* LIST CONTAINER */
+.list-container {
+    max-height: 500px;
+    overflow-y: auto;
+}
 
 
 
