@@ -14,6 +14,18 @@ body {
     background-color: rgb(235, 243, 255);
 }
 
+:root{
+    --primary: #6760ec;
+    --primary-light: #7c74f7;
+    --primary-dark: #5148d6;
+    --bg: #f8fafc;
+    --sidebar: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --glass: rgba(255, 255, 255, 0.7);
+}
+
+
 .hidden {
     display: none !important;
 }
@@ -27,7 +39,8 @@ body {
 
 .auth-card {
     width: 470px;
-    background-color: white;
+    /* background-color: white; */
+    background-color: var(--bg);
     box-shadow: 0 0 35px -5px rgb(221, 221, 221);
     border-radius: 30px;
     padding: 25px;
@@ -129,7 +142,11 @@ body {
     font-weight: 700;
 }
 
-
+/* =================================================================== */
+/* =================================================================== */
+/* =================================================================== */
+/* =================================================================== */
+/* =================================================================== */
 
 /* APP-CONTAINER */
 
@@ -141,24 +158,74 @@ body {
 
 }
 
+/* SIDEBAR */
+/* SIDEBAR */
+/* SIDEBAR */
 .app-container aside{
-    background-color: rgb(192, 218, 247);
+    background-color: var(--sidebar);
     width: 280px;
-    padding: 30px;
-    border-right: 1px solid rgb(63, 101, 145);
+    padding: 30px 25px;
+    border-right: 1px solid #94afd3;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    z-index: 100;
 }
 
 .app-container aside .logo{
     display: flex;
     align-items: center;
-    justify-content: center;
-    
+    gap: 12px;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 50px;    
 
 }
+.app-container aside nav{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+.app-container aside nav .nav-item{
+    padding: 12px 15px;
+    /* background-color: #7d96d0; */
+    color: rgb(108, 123, 143);
+    font-weight: 600;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.app-container aside nav .nav-item.active{
+    background-color: var(--primary);
+    color: white;
+}
 
-
-
-
+.app-container aside .user-profile{
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px solid #f1f5f9;
+    
+}
+.app-container aside .user-profile .user-info{
+    font-size: 13px;
+    font-weight: 700;
+    color: #616f90;
+    margin-bottom: 5px;
+}
+.app-container aside .user-profile .logout-btn{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: rgb(220, 53, 69);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
 
 
 
