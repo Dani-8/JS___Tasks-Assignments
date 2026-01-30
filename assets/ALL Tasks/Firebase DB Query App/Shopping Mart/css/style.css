@@ -18,11 +18,13 @@ body {
     --primary: #6760ec;
     --primary-light: #7c74f7;
     --primary-dark: #5148d6;
+
     --bg: #f8fafc;
     --sidebar: #ffffff;
+    --glass: rgba(255, 255, 255, 0.7);
+
     --text-main: #0f172a;
     --text-muted: #64748b;
-    --glass: rgba(255, 255, 255, 0.7);
 }
 
 
@@ -189,43 +191,58 @@ body {
     gap: 8px;
     flex: 1;
 }
-.app-container aside nav .nav-item{
+.app-container aside nav .nav-link{
     padding: 12px 15px;
     /* background-color: #7d96d0; */
     color: rgb(108, 123, 143);
     font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
     border-radius: 12px;
     display: flex;
     align-items: center;
     gap: 8px;
+    transition: 0.2s ease;
 }
-.app-container aside nav .nav-item.active{
-    background-color: var(--primary);
-    color: white;
-}
+.app-container aside nav .nav-link:hover { background: #ebeff2; color: var(--text-main); }
+.app-container aside nav .nav-link:active {transform: scale(0.9);}
+.app-container aside nav .nav-link.active { background: var(--primary); color: white; box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3); }
+
 
 .app-container aside .user-profile{
     margin-top: auto;
     padding-top: 24px;
-    border-top: 1px solid #f1f5f9;
+    border-top: 1px solid #cfd9e3;
     
 }
 .app-container aside .user-profile .user-info{
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     color: #616f90;
-    margin-bottom: 5px;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    padding-left: 5px;
 }
 .app-container aside .user-profile .logout-btn{
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 13px;
+    gap: 12px;
+    padding: 12px 5px;
+    border-radius: 12px;
+    font-size: 15px;
     font-weight: 700;
     color: rgb(220, 53, 69);
     cursor: pointer;
     transition: 0.3s ease;
 }
+.app-container aside .user-profile .logout-btn:hover{
+    background-color: rgba(235, 93, 107, 0.2);
+}
+.app-container aside .user-profile .logout-btn:active{
+    transform: scale(0.9);
+}
+
+
 
 
 
