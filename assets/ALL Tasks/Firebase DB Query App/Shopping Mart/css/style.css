@@ -263,6 +263,7 @@ body {
 }
 .welcome-hero h2 { font-size: 36px; font-weight: 800; margin-bottom: 8px; }
 .welcome-hero p { font-size: 18px; opacity: 0.9; }
+.welcome-hero i { position: absolute; right: 40px; top: 50%; transform: translateY(-50%); opacity: 0.2; }
 
 
 
