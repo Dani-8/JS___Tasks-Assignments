@@ -131,10 +131,30 @@ body {
 
 
 
+/* APP-CONTAINER */
 
+.app-container{
+    background-color: rgb(152, 195, 241);
+    min-height: 100vh;
+    min-width: 100%;
+    display: flex;
 
+}
 
+.app-container aside{
+    background-color: rgb(192, 218, 247);
+    width: 280px;
+    padding: 30px;
+    border-right: 1px solid rgb(63, 101, 145);
+}
 
+.app-container aside .logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+}
 
 
 
