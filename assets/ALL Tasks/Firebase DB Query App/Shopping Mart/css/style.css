@@ -263,7 +263,8 @@ body {
 }
 .welcome-hero h2 { font-size: 36px; font-weight: 800; margin-bottom: 8px; }
 .welcome-hero p { font-size: 18px; opacity: 0.9; }
-.welcome-hero .icon { position: absolute; right: 40px; top: 50%; transform: translateY(-50%); opacity: 0.2; font-size: 180px; }
+.welcome-hero .icon2 { position: absolute; right: 30px; top: 70%; transform: translateY(-50%); opacity: 0.2; height: 60px; width: 60px; }
+.welcome-hero .icon2 { position: absolute; right: 30px; top: 70%; transform: translateY(-50%); opacity: 0.2; height: 60px; width: 60px; }
 
 
 
