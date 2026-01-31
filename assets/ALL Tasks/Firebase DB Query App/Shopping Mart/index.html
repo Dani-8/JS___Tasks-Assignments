@@ -81,7 +81,8 @@
             </div>
 
 
-            <div id="view-list">
+            <!-- LIST VIEW -->
+            <div id="view-list" class="">
                 <div class="welcome-hero">
                     <i class="icon1" data-lucide="sparkles"></i>
                     <h2 id="welcome-user">Hello!</h2>
@@ -100,32 +101,38 @@
                     </select>
                     <button class="btn-primary" id="add-btn">Add Item</button>
                 </div>
+
+
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <div
+                            style="display:flex; justify-content:space-between; align-items:center; margin-bottom:24px;">
+                            <h3>Active List</h3>
+                            <button id="clear-completed-btn" class="clear-completed-btn">Clear Finished</button>
+                        </div>
+                        <div id="list" class="list-container">
+                            <!-- LIST ITEMS HERE -->
+                        </div>
+                    </div>
+                    <!-- ---------------- -->
+                    <div class="card">
+                        <h3>Quick Stats</h3>
+                        <div class="stat-card" style="margin-bottom: 16px;">
+                            <span class="stat-label">Your Items</span>
+                            <span class="stat-num" id="list-total-count">0</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">Brought Percentage</span>
+                            <span class="stat-num" id="list-completion-pct">0%</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
 
-            <div class="dashboard-grid">
-                <div class="card">
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:24px;">
-                        <h3>Active List</h3>
-                        <button id="clear-completed-btn" class="clear-completed-btn">Clear Finished</button>
-                    </div>
-                    <div id="list" class="list-container">
-                        <!-- LIST ITEMS HERE -->
-                    </div>
-                </div>
-                <!-- ---------------- -->
-                <div class="card">
-                    <h3>Quick Stats</h3>
-                    <div class="stat-card" style="margin-bottom: 16px;">
-                        <span class="stat-label">Your Items</span>
-                        <span class="stat-num" id="list-total-count">0</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-label">Brought Percentage</span>
-                        <span class="stat-num" id="list-completion-pct">0%</span>
-                    </div>
-                </div>
-            </div>
+
+
+
         </main>
     </div>
 

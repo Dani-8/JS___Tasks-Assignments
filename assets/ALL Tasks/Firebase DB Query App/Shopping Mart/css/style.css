@@ -9,7 +9,7 @@ body {
     /* flex-direction: column; */
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    /* height: 100vh; */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: rgb(235, 243, 255);
 }
@@ -153,7 +153,7 @@ body {
 /* APP-CONTAINER */
 
 .app-container{
-    background-color: rgb(152, 195, 241);
+    /* background-color: rgb(103, 132, 163); */
     background-color: var(--bg);
     min-height: 100vh;
     min-width: 100%;
