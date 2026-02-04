@@ -17,9 +17,18 @@ const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
 const db = getFirestore(app)
 const ADMIN_EMAIL = "admin@gmail.com"
+
+
+let currentUser = null
+let currentItems = []
+let globalItems = []
+let charts = {}
+let isloginMode = true
+let selectedUserUid = null
 // ======================================================
 // ======================================================
 // ======================================================
+
 
 
 
