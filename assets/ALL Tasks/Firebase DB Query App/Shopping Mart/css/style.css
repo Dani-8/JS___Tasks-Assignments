@@ -433,6 +433,18 @@ input:focus{
 
 
 
+/* Registered User Accounts */
+
+
+.user-list-cont .user-card{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 20px;
+    border: 1px solid #dee6ed;
+    border-radius: 15px;
+
+}
 
 
 
