@@ -43,6 +43,18 @@ body {
     margin-bottom: 32px;
 }
 
+
+
+
+#status-peek {
+    position: fixed; bottom: 32px; right: 32px; 
+    padding: 16px 32px; background: var(--text-main); color: white;
+    border-radius: 16px; font-weight: 600; transform: translateY(200%); transition: 0.4s; z-index: 2000;
+}
+#status-peek.show { transform: translateY(0); }
+#status-peek.success { background: #10b981; }
+#status-peek.error { background: #ef4444; }
+
 /* ============================================================================ */
 /* ============================================================================ */
 /* ============================================================================ */
@@ -262,7 +274,7 @@ body {
 .app-container main {
     flex: 1;
     margin-left: 280px;
-    padding: 20px 60px;
+    padding: 40px 60px;
     max-width: 1400px;
 }
 
@@ -458,7 +470,7 @@ input:focus{
     align-items: center;
     gap: 20px;
     padding: 15px 20px;
-    border: 1px solid #dee6ed;
+    border: 1px solid #e8eef4;
     border-radius: 15px;
     cursor: pointer;
     transition: 0.3s ease;
@@ -507,14 +519,104 @@ input:focus{
 
 
 
+/* ADMIN-USER-DETAILS-VIEW */
+/* ADMIN-USER-DETAILS-VIEW */
+/* ADMIN-USER-DETAILS-VIEW */
+
+.admin-user-details-view .header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+
+}
+.admin-user-details-view .header button{
+    background-color: transparent;
+    background-color: rgb(224, 235, 255);
+    padding: 15px 25px;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.admin-user-details-view .header button:hover{
+    transform: translateY(-3px);
+}
+.admin-user-details-view .header button:active{
+    transform: scale(0.95);
+}
+
+
+.admin-user-details-view .header .back-btn{
+    background-color: #ebeff4;
+    color: rgb(0, 0, 0);
+}
+.admin-user-details-view .header .back-btn:hover{
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3); 
+}
+.admin-user-details-view .header .delete-user-btn{
+    background-color: #e63333;
+    color: rgb(255, 255, 255);
+}
+.admin-user-details-view .header .delete-user-btn:hover{
+    box-shadow: 0 10px 15px -3px rgba(242, 127, 127, 0.3);
+}
 
 
 
 
+.admin-user-details-view .glass-card h3{
+    margin-bottom: 20px;
+    font-weight: 900;
+    font-size: 18px;
+
+}
+
+.user-details-list-cont{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 400px;
+    /* overflow-y: auto; */
+    margin-top: 20px;
+}
+.user-details-list-cont .item-card{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 20px;
+    border: 1px solid #e8eef4;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.user-details-list-cont .item-card:hover{
+    border-color: var(--primary);
+    transform: translateX(5px);
+}
+.user-details-list-cont .item-card:active{
+    transform: scale(0.95);
+}
 
 
-
-
+.user-details-list-cont .item-card .item-name{
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: capitalize;
+    color: var(--text-main);
+}
+.user-details-list-cont .item-card .item-category{
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--primary);
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: rgba(100, 100, 249, 0.15);
+}
 
 
 

@@ -30,7 +30,12 @@ let selectedUserUid = null
 // ======================================================
 
 
-
+const showStatus = (msg, type = "info") => {
+    let peek = document.getElementById('status-peek')
+    peek.textContent = msg
+    peek.className = `show ${type}`
+    setTimeout(() => peek.classList.remove('show'), 3000)
+}
 
 
 

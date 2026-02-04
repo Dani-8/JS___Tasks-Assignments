@@ -11,7 +11,6 @@
 </head>
 
 <body>
-    <div id="status-peek">Message</div>
 
 
     <!-- AUTH -->
@@ -157,16 +156,64 @@
 
 
             <!-- ADMIN VIEW -->
-            <div id="admin-view" class="">
-                <div id="admin-user-list-view">
+            <div id="admin-view" class="hidden">
+                <!-- USERS LIST -->
+                <div id="admin-user-list-view" class="">
                     <div class="glass-card">
                         <h3>Registered User Accounts</h3>
 
                         <div id="users-grid" class="user-list-cont">
                             <!-- USER LIST HERE -->
+                            <!-- <div class="user-card">
+                                <div class="user-icon">A</div>
+                                <div class="user-info-cont">
+                                    <div class="user-email">a@a.co</div>
+                                    <div class="user-total-item">2 items</div>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" color="#cbd5e1" class="lucide lucide-chevron-right">
+                                    <path d="m9 18 6-6-6-6"></path>
+                                </svg>
+                            </div> -->
                         </div>
                     </div>
                 </div>
+
+
+                
+                <!-- USER-DETAILS-VIEW -->
+                <div id="admin-user-details-view" class="hidden admin-user-details-view">
+                    <div class="header">
+                        <button class="back-btn" id="back-btn">← All Accounts</button>
+                        <button class="delete-user-btn" id="delete-user-btn">Delete User Account</button>
+                    </div>
+
+                    <div class="glass-card">
+                        <h3>Account: </h3>
+                        <div id="detail-list" class="user-details-list-cont">
+                            <!-- USER ITEMS HERE -->
+                            <!-- <div class="item-card">
+                                <div style="flex: 1;">
+                                    <div class="item-name">items 1</div>
+                                    <div class="item-category">other</div>
+                                </div>
+                            </div>
+                            <div class="item-card">
+                                <div style="flex: 1;">
+                                    <div class="item-name">items 2</div>
+                                    <div class="item-category">Category 2</div>
+                                </div>
+                            </div>
+                            <div class="item-card">
+                                <div style="flex: 1;">
+                                    <div class="item-name">items 1</div>
+                                    <div class="item-category">Category 1</div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+
 
 
             </div>
