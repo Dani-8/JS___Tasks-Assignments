@@ -199,12 +199,12 @@ body {
     transform: translateY(-5px);
 }
 .tag-html {
-    color: #0e7d85;
-    background: #c7fefc;
+    color: #0e939c;
+    background: #c7fdfb;
 }
 .tag-css {
-    color: #9d29d2;
-    background: #f5dbfe;
+    color: #3256db;
+    background: #d2deff;
 }
 .tag-js {
     color: #856404;
@@ -217,4 +217,8 @@ body {
 .tag-fb {
     color: #e66a13;
     background: #ffe1cb;
+}
+.tag-rct {
+    color: #6413e6;
+    background: #e1cbff;
 }
